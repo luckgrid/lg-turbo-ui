@@ -27,9 +27,8 @@ out/
 build
 dist
 
-
 # Debug
-npm-debug.log*
+pnpm-debug.log*
 
 # Misc
 .DS_Store

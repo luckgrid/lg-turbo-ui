@@ -1,0 +1,38 @@
+/* TEAM */
+
+Founder, Design, Engineering & Architecture: Damir Vazgird
+Site: damir.io
+Contact: dvazgird [at] gmail.com
+Twitter: @dvazgird
+From: Las Vegas, NV, USA
+
+/* THANKS */
+
+Architecture: Turborepo
+Twitter: @turborepo
+
+App Framework: NextJS
+Twitter: @nextjs
+
+CSS Utility: TailwindCSS
+Twitter: @tailwindcss
+
+UI Primitives: Radix UI
+Twitter: @radix_ui
+
+UI Components: Shadcn/UI
+Twitter: @shadcn
+
+Design System: CVA
+Twitter: @joebell_
+
+Language: TypeScript
+Twitter: @TypeScript
+
+/* SITE */
+
+Last Update: 2024/03/01
+Language: English
+Doctype: HTML5
+IDE: Cursor
+Software: Turborepo, React, NextJS, Radix UI, TailwindCSS, CVA, TypeScript

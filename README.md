@@ -1,31 +1,35 @@
-# shadcn/ui monorepo template
+# Luckgrid Turborepo UI Workspace Template
 
-This template is for creating a monorepo with shadcn/ui.
+Use this template to start a turborepo workspace with a ready to go Next v15, React v19, and TailwindCSS v4 UI library.
 
-## Usage
+## Roadmap
+
+- App registry (and/or package) for common configs, utils, and assets shared between apps.
+
+## Docs
+
+### Adding components
+
+To add components to the ui, run the following command:
 
 ```bash
-pnpm dlx shadcn@latest init
-```
-
-## Adding components
-
-To add components to your app, run the following command at the root of your `web` app:
-
-```bash
-pnpm dlx shadcn@latest add button -c apps/web
+pnpm dlx shadcn@canary add button -c packages/ui
 ```
 
 This will place the ui components in the `packages/ui/src/components` directory.
 
-## Tailwind
+### Tailwind
 
-Your `tailwind.config.ts` and `globals.css` are already set up to use the components from the `ui` package.
+Your `main.css` are already set up to use the components from the `ui` package.
 
-## Using components
+### Using components
 
 To use the components in your app, import them from the `ui` package.
 
 ```tsx
-import { Button } from "@workspace/ui/components/ui/button"
+import { Button } from "@workspace/ui/components/button";
 ```
+
+## Kudos
+
+> Template was initialized from [Shadcn/ui Monorepo Template](https://github.com/shadcn-ui/ui/tree/canary/templates/monorepo-next)

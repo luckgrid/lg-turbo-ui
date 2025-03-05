@@ -1,0 +1,16 @@
+{
+  "recommendations": [
+    "anseki.vscode-color",
+    "antiantisepticeye.vscode-color-picker",
+    "bradlc.vscode-tailwindcss",
+    "csstools.postcss",
+    "dbaeumer.vscode-eslint",
+    "esbenp.prettier-vscode",
+    "github.vscode-github-actions",
+    "mikestead.dotenv",
+    "ms-playwright.playwright",
+    "naumovs.color-highlight",
+    "vitest.explorer",
+    "yoavbls.pretty-ts-errors"
+  ]
+}
