@@ -5,8 +5,8 @@ import { metadata } from "@/configs/app";
 
 export default function Page() {
   return (
-    <main className="flex items-center justify-center min-h-svh">
-      <header className="container flex flex-col items-center justify-center gap-4">
+    <main className="flex flex-col items-center justify-center min-h-svh gap-8">
+      <header className="container flex flex-col items-center justify-center gap-4 py-8 px-4">
         <Image
           alt="Logo"
           src="/assets/logos/logo.png"
