@@ -39,10 +39,6 @@ export default function manifest(): MetadataRoute.Manifest {
         src: "/assets/icons/favicon.svg",
         type: "image/svg+xml",
       },
-      {
-        src: "/favicon.ico",
-        type: "image/x-icon",
-      },
     ],
   };
 }

@@ -45,12 +45,6 @@ export const metadata: Metadata = {
       type: "image/svg+xml",
       url: "/assets/icons/favicon.svg",
     },
-    {
-      rel: "shortcut icon",
-      sizes: "any",
-      type: "image/x-icon",
-      url: "/favicon.ico",
-    },
   ],
   openGraph: {
     title: app.title,
