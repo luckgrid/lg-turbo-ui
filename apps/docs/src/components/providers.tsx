@@ -9,7 +9,6 @@ export function Providers({ children }: { children: React.ReactNode }) {
       enableSystem
       disableTransitionOnChange
       enableColorScheme
-      forcedTheme="light"
     >
       {children}
     </NextThemesProvider>

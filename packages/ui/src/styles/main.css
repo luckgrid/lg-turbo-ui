@@ -55,12 +55,12 @@
   --cs-dark-base-16: oklch(62.44% 0 0);
 
   /* Accent Colors */
-  --cs-light-accent: oklch(60.77% 0.12 197);
-  --cs-dark-accent: oklch(40.33% 0.06 197);
+  --cs-light-accent: oklch(77% 0.127 197);
+  --cs-dark-accent: oklch(53% 0.0888 197);
 
   /* Status Colors */
-  --cs-light-danger: oklch(0.425 0.25 25);
-  --cs-dark-danger: oklch(0.675 0.25 25);
+  --cs-light-danger: oklch(63% 0.25 15);
+  --cs-dark-danger: oklch(37% 0.125 15);
 }
 
 :root,
@@ -79,39 +79,37 @@
   --ring: var(--cs-dark-base-11);
 
   --card: var(--cs-light-base-4);
-  --card-1: var(--cs-light-base-6);
-  --card-2: var(--cs-light-base-8);
-  --card-3: var(--cs-light-base-10);
-  --card-foreground: var(--cs-dark-base-1);
+  --card-1: var(--cs-light-base-5);
+  --card-2: var(--cs-light-base-6);
+  --card-3: var(--cs-light-base-7);
+  --card-foreground: var(--cs-dark-base-2);
 
   --popover: var(--cs-light-base-5);
-  --popover-1: var(--cs-light-base-7);
-  --popover-2: var(--cs-light-base-9);
-  --popover-3: var(--cs-light-base-11);
-  --popover-foreground: var(--cs-dark-base-2);
+  --popover-1: var(--cs-light-base-6);
+  --popover-2: var(--cs-light-base-7);
+  --popover-3: var(--cs-light-base-8);
+  --popover-foreground: var(--cs-dark-base-1);
+
+  --neutral: var(--cs-light-base-4);
+  --neutral-1: var(--cs-light-base-12);
+  --neutral-foreground: var(--cs-dark-base-11);
+  --neutral-foreground-1: var(--cs-dark-base-3);
 
   --accent: var(--cs-light-accent);
   --accent-1: var(--cs-dark-accent);
   --accent-foreground: var(--cs-dark-base-0);
   --accent-foreground-1: var(--cs-light-base-0);
 
-  --muted: var(--cs-light-base-1);
-  --muted-1: var(--cs-light-base-9);
-  --muted-foreground: var(--cs-dark-base-9);
-  --muted-foreground-1: var(--cs-dark-base-16);
-
-  --neutral: var(--cs-light-base-2);
-  --neutral-1: var(--cs-light-base-10);
-  --neutral-foreground: var(--cs-dark-base-10);
-
   --primary: var(--cs-dark-base-0);
   --primary-foreground: var(--cs-light-base-0);
 
-  --secondary: var(--cs-dark-base-5);
-  --secondary-foreground: var(--cs-light-base-0);
+  --secondary: var(--cs-dark-base-10);
+  --secondary-foreground: var(--cs-light-base-4);
 
   --danger: var(--cs-light-danger);
-  --danger-foreground: var(--cs-light-base-0);
+  --danger-1: var(--cs-dark-danger);
+  --danger-foreground: var(--cs-dark-base-3);
+  --danger-foreground-1: var(--cs-light-base-3);
 }
 
 .dark,
@@ -129,40 +127,47 @@
   --ring: var(--cs-light-base-11);
 
   --card: var(--cs-dark-base-4);
-  --card-1: var(--cs-dark-base-6);
-  --card-2: var(--cs-dark-base-8);
-  --card-3: var(--cs-dark-base-10);
-  --card-foreground: var(--cs-light-base-1);
+  --card-1: var(--cs-dark-base-5);
+  --card-2: var(--cs-dark-base-6);
+  --card-3: var(--cs-dark-base-7);
+  --card-foreground: var(--cs-light-base-2);
 
   --popover: var(--cs-dark-base-5);
-  --popover-1: var(--cs-dark-base-7);
-  --popover-2: var(--cs-dark-base-9);
-  --popover-3: var(--cs-dark-base-11);
-  --popover-foreground: var(--cs-light-base-2);
+  --popover-1: var(--cs-dark-base-6);
+  --popover-2: var(--cs-dark-base-7);
+  --popover-3: var(--cs-dark-base-8);
+  --popover-foreground: var(--cs-light-base-1);
+
+  --neutral: var(--cs-dark-base-4);
+  --neutral-1: var(--cs-dark-base-16);
+  --neutral-foreground: var(--cs-light-base-6);
+  --neutral-foreground-1: var(--cs-light-base-3);
 
   --accent: var(--cs-dark-accent);
-  --accent-foreground: var(--cs-dark-base-0);
-
-  --muted: var(--cs-dark-base-5);
-  --muted-foreground: var(--cs-light-base-3);
-
-  --neutral: var(--cs-light-base-11);
-  --neutral-foreground: var(--cs-dark-base-0);
+  --accent-1: var(--cs-light-accent);
+  --accent-foreground: var(--cs-light-base-0);
+  --accent-foreground-1: var(--cs-dark-base-0);
 
   --primary: var(--cs-light-base-0);
   --primary-foreground: var(--cs-dark-base-0);
 
-  --secondary: var(--cs-light-base-5);
-  --secondary-foreground: var(--cs-dark-base-0);
+  --secondary: var(--cs-light-base-10);
+  --secondary-foreground: var(--cs-dark-base-4);
 
   --danger: var(--cs-dark-danger);
-  --danger-foreground: var(--cs-dark-base-0);
+  --danger-1: var(--cs-light-danger);
+  --danger-foreground: var(--cs-light-base-3);
+  --danger-foreground-1: var(--cs-dark-base-3);
 }
 
 @theme inline {
   /* Colors */
   --color-background: var(--background);
+  --color-background-1: var(--background-1);
+  --color-background-2: var(--background-2);
+  --color-background-3: var(--background-3);
   --color-foreground: var(--foreground);
+
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
@@ -179,14 +184,15 @@
   --color-popover-3: var(--popover-3);
   --color-popover-foreground: var(--popover-foreground);
 
-  --color-accent: var(--accent);
-  --color-accent-foreground: var(--accent-foreground);
-
-  --color-muted: var(--muted);
-  --color-muted-foreground: var(--muted-foreground);
-
   --color-neutral: var(--neutral);
+  --color-neutral-1: var(--neutral-1);
   --color-neutral-foreground: var(--neutral-foreground);
+  --color-neutral-foreground-1: var(--neutral-foreground-1);
+
+  --color-accent: var(--accent);
+  --color-accent-1: var(--accent-1);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent-foreground-1: var(--accent-foreground-1);
 
   --color-primary: var(--primary);
   --color-primary-foreground: var(--primary-foreground);
@@ -195,7 +201,9 @@
   --color-secondary-foreground: var(--secondary-foreground);
 
   --color-danger: var(--danger);
+  --color-danger-1: var(--danger-1);
   --color-danger-foreground: var(--danger-foreground);
+  --color-danger-foreground-1: var(--danger-foreground-1);
 
   /* Spacing */
   --spacing: 0.333rem;

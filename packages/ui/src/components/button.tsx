@@ -27,7 +27,7 @@ const buttonVariants = cva(
         primary:
           "bg-primary text-primary-foreground outline-primary/50 ring-primary/25 hover:bg-primary/90",
         secondary:
-          "bg-secondary text-secondary-foreground outline-secondary/50 ring-secondary/25 hover:bg-secondary/80",
+          "bg-secondary text-secondary-foreground outline-secondary/50 ring-secondary/25 hover:bg-secondary/90",
         danger:
           "bg-danger text-danger-foreground outline-danger/50 ring-danger/25 hover:bg-danger/90",
       },
@@ -46,15 +46,15 @@ const buttonVariants = cva(
       variant: {
         solid: "",
         outline:
-          "border-2 border-neutral bg-transparent text-neutral hover:border-transparent hover:bg-neutral/90 hover:text-neutral-foreground",
-        text: "size-auto px-1 py-0 border-none underline underline-offset-2 bg-transparent text-neutral hover:bg-transparent hover:text-neutral/90",
+          "border-2 border-neutral bg-transparent text-neutral-1 hover:border-transparent hover:bg-neutral/90 hover:text-neutral-foreground",
+        text: "size-auto px-1 py-0 border-none underline underline-offset-2 bg-transparent text-neutral-1 hover:bg-transparent hover:text-neutral-1/80",
       },
       // Style Modifiers
       isIcon: {
         true: "size-10 p-3",
       },
       isGhost: {
-        true: "border-transparent bg-transparent text-neutral/90 hover:bg-neutral/90 hover:text-neutral-foreground",
+        true: "border-transparent bg-transparent text-current hover:bg-neutral/90 hover:text-neutral-foreground",
       },
       withShadow: {
         true: "shadow-md",
@@ -88,35 +88,35 @@ const buttonVariants = cva(
         color: "accent",
         variant: "solid",
         className:
-          "border-transparent bg-transparent text-accent/90 hover:bg-accent/90 hover:text-accent-foreground",
+          "border-transparent bg-transparent text-current hover:bg-accent/90 hover:text-accent-foreground",
       },
       {
         isGhost: true,
         color: "primary",
         variant: "solid",
         className:
-          "border-transparent bg-transparent text-primary/90 hover:bg-primary/90 hover:text-primary-foreground",
+          "border-transparent bg-transparent text-current hover:bg-primary/90 hover:text-primary-foreground",
       },
       {
         isGhost: true,
         color: "secondary",
         variant: "solid",
         className:
-          "border-transparent bg-transparent text-secondary/90 hover:bg-secondary/90 hover:text-secondary-foreground",
+          "border-transparent bg-transparent text-current hover:bg-secondary/90 hover:text-secondary-foreground",
       },
       {
         isGhost: true,
         color: "danger",
         variant: "solid",
         className:
-          "border-transparentbg-transparent text-danger/90 hover:bg-danger/90 hover:text-danger-foreground",
+          "border-transparent bg-transparent text-current hover:bg-danger/90 hover:text-danger-foreground",
       },
       // Outline Color Variants
       {
         color: "accent",
         variant: "outline",
         className:
-          "border-accent text-accent hover:border-transparent hover:bg-accent/90 hover:text-accent-foreground",
+          "border-accent text-accent-1 hover:border-transparent hover:bg-accent/90 hover:text-accent-foreground",
       },
       {
         color: "primary",
@@ -134,94 +134,93 @@ const buttonVariants = cva(
         color: "danger",
         variant: "outline",
         className:
-          "border-danger text-danger hover:border-transparent hover:bg-danger/90 hover:text-danger-foreground",
+          "border-danger text-danger-1 hover:border-transparent hover:bg-danger/90 hover:text-danger-foreground",
       },
       // Outline Ghost Color Modifiers
       {
         isGhost: true,
         variant: "outline",
-        className: "border-neutral/20",
+        className: "border-current",
       },
       {
         isGhost: true,
         color: "accent",
         variant: "outline",
         className:
-          "border-accent/20 text-accent/90 hover:border-transparent hover:bg-accent/80 hover:text-accent-foreground",
+          "border-current text-current hover:border-transparent hover:bg-accent/80 hover:text-accent-foreground",
       },
       {
         isGhost: true,
         color: "primary",
         variant: "outline",
         className:
-          "border-primary/20 text-primary/90 hover:border-transparent hover:bg-primary/80 hover:text-primary-foreground",
+          "border-current text-current hover:border-transparent hover:bg-primary/80 hover:text-primary-foreground",
       },
       {
         isGhost: true,
         color: "secondary",
         variant: "outline",
         className:
-          "border-secondary/20 text-secondary/90 hover:border-transparent hover:bg-secondary/80 hover:text-secondary-foreground",
+          "border-current text-current hover:border-transparent hover:bg-secondary/80 hover:text-secondary-foreground",
       },
       {
         isGhost: true,
         color: "danger",
         variant: "outline",
         className:
-          "border-danger/20 text-danger/90 hover:border-transparent hover:bg-danger/80 hover:text-danger-foreground",
+          "border-current text-current hover:border-transparent hover:bg-danger/80 hover:text-danger-foreground",
       },
       // Text Color Variants
       {
         color: "accent",
         variant: "text",
-        className: "text-accent hover:bg-transparent hover:text-accent/90",
+        className: "text-accent-1 hover:bg-transparent hover:text-accent-1/80",
       },
       {
         color: "primary",
         variant: "text",
-        className: "text-primary hover:bg-transparent hover:text-primary/90",
+        className: "text-primary hover:bg-transparent hover:text-primary-1/80",
       },
       {
         color: "secondary",
         variant: "text",
         className:
-          "text-secondary hover:bg-transparent hover:text-secondary/90",
+          "text-secondary hover:bg-transparent hover:text-secondary/80",
       },
       {
         color: "danger",
         variant: "text",
-        className: "text-danger hover:bg-transparent hover:text-danger/90",
+        className: "text-danger-1 hover:bg-transparent hover:text-danger-1/80",
       },
       // Text Ghost Color Modifiers
       {
         isGhost: true,
         variant: "text",
-        className: "text-current/90 hover:bg-transparent hover:text-neutral/90",
+        className: "text-current hover:bg-transparent hover:text-neutral-1/80",
       },
       {
         isGhost: true,
         color: "accent",
         variant: "text",
-        className: "text-current/90 hover:bg-transparent hover:text-accent/90",
+        className: "text-current hover:bg-transparent hover:text-accent-1/80",
       },
       {
         isGhost: true,
         color: "primary",
         variant: "text",
-        className: "text-current/90 hover:bg-transparent hover:text-primary/90",
+        className: "text-current hover:bg-transparent hover:text-primary/80",
       },
       {
         isGhost: true,
         color: "secondary",
         variant: "text",
-        className:
-          "text-current/90 hover:bg-transparent hover:text-secondary/90",
+        className: "text-current hover:bg-transparent hover:text-secondary/80",
       },
       {
         isGhost: true,
         color: "danger",
         variant: "text",
-        className: "text-current/90 hover:bg-transparent hover:text-danger/90",
+        className: "text-current hover:bg-transparent hover:text-danger-1/80",
       },
       // Rounded Shape Size Variants
       {
@@ -314,7 +313,7 @@ const buttonVariants = cva(
         className: "shadow-xl",
       },
     ],
-  }
+  },
 );
 
 type ButtonVariantProps = VariantProps<typeof buttonVariants>;
@@ -351,7 +350,7 @@ function Button({
           isGhost,
           withShadow,
           className,
-        })
+        }),
       )}
       {...props}
     />

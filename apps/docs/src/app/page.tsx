@@ -19,24 +19,18 @@ export default function Page() {
         <h1 className="text-4xl text-center text-balance font-bold">
           {metadata.name} Docs
         </h1>
-        <p className="max-w-[480px] mx-auto text-center text-balance text-foreground/80">
+        <p className="max-w-[480px] mx-auto text-center text-balance text-neutral-foreground">
           {metadata.description}
         </p>
       </header>
       <section className="container flex flex-col items-center justify-center gap-16 py-8 px-4">
         <header className="flex flex-col gap-2 items-center text-center">
           <h2 className="text-4xl text-balance font-bold">Button Component</h2>
-          <p className="max-w-[480px] mx-auto text-balance text-muted-foreground">
+          <p className="max-w-[480px] mx-auto text-balance text-neutral-foreground">
             The Button component is a versatile and customizable component that
             can be used to create a variety of buttons.
           </p>
           <Button>Default (Neutral) Button</Button>
-          <span className="bg-muted text-muted-foreground p-4">Muted Box</span>
-          <span className="text-muted">Muted Text</span>
-          <span className="bg-muted-1 text-muted-foreground-1 p-4">
-            Muted Box 1
-          </span>
-          <span className="text-muted-1">Muted Text 1</span>
         </header>
         <div className="flex flex-wrap gap-12 justify-center">
           <div className="flex flex-col gap-4">
