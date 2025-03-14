@@ -34,13 +34,6 @@ const cardVariants = cva("flex flex-col", {
       rounded: "rounded-lg",
       sharp: "rounded-none",
     },
-    size: {
-      xs: "",
-      sm: "",
-      md: "",
-      lg: "",
-      xl: "",
-    },
     space: {
       container: "",
       wrapper: "",
@@ -88,32 +81,6 @@ const cardVariants = cva("flex flex-col", {
       noColor: false,
       className: "bg-card-3 border-card-foreground/25",
     },
-    // Shadow Size Variant Modifiers
-    {
-      size: "xs",
-      noShadow: false,
-      className: "shadow-sm",
-    },
-    {
-      size: "sm",
-      noShadow: false,
-      className: "shadow-md",
-    },
-    {
-      size: "md",
-      noShadow: false,
-      className: "shadow-lg",
-    },
-    {
-      size: "lg",
-      noShadow: false,
-      className: "shadow-xl",
-    },
-    {
-      size: "xl",
-      noShadow: false,
-      className: "shadow-2xl",
-    },
     // Container Space Variant Modifiers
     {
       space: "container",
@@ -154,7 +121,6 @@ type CardProps<T extends React.ElementType = "div"> = SlotElementProps<T> &
 function Card({
   layer,
   shape,
-  size,
   space,
   variant,
   isAction,
@@ -172,7 +138,6 @@ function Card({
         cardVariants({
           layer,
           shape,
-          size,
           space,
           variant,
           isAction,
@@ -181,7 +146,7 @@ function Card({
           noShadow,
           noSpace,
           className,
-        }),
+        })
       )}
       {...props}
     />
@@ -197,13 +162,6 @@ const cardHeaderVariants = cva("flex flex-col", {
       pill: "rounded-full",
       rounded: "rounded-lg",
       sharp: "rounded-none",
-    },
-    size: {
-      xs: "",
-      sm: "",
-      md: "",
-      lg: "",
-      xl: "",
     },
     space: {
       container: "",
@@ -236,7 +194,6 @@ type CardHeaderProps = React.ComponentProps<"header"> & CardHeaderVariantProps;
 
 function CardHeader({
   shape,
-  size,
   space,
   variant,
   noSpace,
@@ -249,12 +206,11 @@ function CardHeader({
       className={cn(
         cardHeaderVariants({
           shape,
-          size,
           space,
           variant,
           noSpace,
           className,
-        }),
+        })
       )}
       {...props}
     />
@@ -270,13 +226,6 @@ const cardBodyVariants = cva("flex flex-col", {
       pill: "rounded-full",
       rounded: "rounded-lg",
       sharp: "rounded-none",
-    },
-    size: {
-      xs: "",
-      sm: "",
-      md: "",
-      lg: "",
-      xl: "",
     },
     space: {
       container: "",
@@ -307,7 +256,6 @@ type CardBodyProps<T extends React.ElementType = "div"> = SlotElementProps<T> &
 
 function CardBody({
   shape,
-  size,
   space,
   noSpace,
   className,
@@ -319,11 +267,10 @@ function CardBody({
       className={cn(
         cardBodyVariants({
           shape,
-          size,
           space,
           noSpace,
           className,
-        }),
+        })
       )}
       {...props}
     />
@@ -339,13 +286,6 @@ const cardFooterVariants = cva("flex flex-col", {
       pill: "rounded-full",
       rounded: "rounded-lg",
       sharp: "rounded-none",
-    },
-    size: {
-      xs: "",
-      sm: "",
-      md: "",
-      lg: "",
-      xl: "",
     },
     space: {
       container: "",
@@ -385,7 +325,6 @@ type CardFooterProps = React.ComponentProps<"footer"> & CardFooterVariantProps;
 
 function CardFooter({
   shape,
-  size,
   space,
   variant,
   noSpace,
@@ -398,12 +337,11 @@ function CardFooter({
       className={cn(
         cardFooterVariants({
           shape,
-          size,
           space,
           variant,
           noSpace,
           className,
-        }),
+        })
       )}
       {...props}
     />
@@ -412,19 +350,5 @@ function CardFooter({
 
 // Card Component Exports
 
-export type {
-  CardProps,
-  CardVariantProps,
-  CardHeaderProps,
-  CardBodyProps,
-  CardFooterProps,
-};
-
-export {
-  cardVariants,
-  cardHeaderVariants,
-  cardBodyVariants,
-  cardFooterVariants,
-};
-
+export type { CardProps, CardHeaderProps, CardBodyProps, CardFooterProps };
 export { Card, CardHeader, CardBody, CardFooter };

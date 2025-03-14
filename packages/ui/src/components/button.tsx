@@ -9,7 +9,7 @@ import { cn } from "@workspace/ui/lib/utils";
 const buttonVariants = cva(
   [
     "inline-flex items-center justify-center",
-    "h-10 gap-1.5 px-5 py-3",
+    "relative h-10 gap-1.5 px-5 py-3",
     "bg-neutral text-neutral-foreground hover:bg-neutral/90",
     "whitespace-nowrap text-base font-medium",
     "cursor-pointer transition-[color,box-shadow]",
@@ -35,6 +35,12 @@ const buttonVariants = cva(
         pill: "rounded-full",
         rounded: "rounded-md",
         sharp: "rounded-none",
+        ticket: [
+          "h-8 py-1.5 shape-ticket",
+          "before:border-b-neutral after:border-t-neutral",
+          "hover:before:border-b-neutral/90 hover:after:border-t-neutral/90",
+          "focus-visible:ring-0 focus-visible:outline-none",
+        ],
       },
       size: {
         xs: "h-6 gap-1 px-3 py-1 text-xs font-normal [&_svg:not([class*='size-'])]:size-3",
@@ -313,7 +319,7 @@ const buttonVariants = cva(
         className: "shadow-xl",
       },
     ],
-  },
+  }
 );
 
 type ButtonVariantProps = VariantProps<typeof buttonVariants>;
@@ -350,12 +356,12 @@ function Button({
           isGhost,
           withShadow,
           className,
-        }),
+        })
       )}
       {...props}
     />
   );
 }
 
-export type { ButtonProps, ButtonVariantProps };
-export { Button, buttonVariants };
+export type { ButtonProps };
+export { Button };

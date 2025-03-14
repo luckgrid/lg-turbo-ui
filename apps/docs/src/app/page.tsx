@@ -30,7 +30,7 @@ export default function Page() {
             The Button component is a versatile and customizable component that
             can be used to create a variety of buttons.
           </p>
-          <Button>Default (Neutral) Button</Button>
+          <Button shape="ticket">Default (Neutral) Button</Button>
         </header>
         <div className="flex flex-wrap gap-12 justify-center">
           <div className="flex flex-col gap-4">
