@@ -9,19 +9,55 @@ import {
 } from "@workspace/ui/primitives/element";
 import { cn } from "@workspace/ui/lib/utils";
 
+// TODO:
+// - compose card component variants with baseCardVariants using cx: https://cva.style/docs/getting-started/composing-components
+// -- create cardBaseVariants, cardWrapperVariants, cardContainerVariants, etc...
+// -- create card primitives that share variant props with new variants
+// - split up card components into separate primitives inside card component module
+// -- define a scalable and simple component module architecture using card component
+// --- option 1: card/base.tsx, card/header.tsx, card/body.tsx, card/footer.tsx, etc...
+// --- option 2: card/variants.tsx, card/components.tsx, card/patterns.tsx
+// -- update exports to include new component module architecture
+
+// Card Component
+
 const cardVariants = cva("flex flex-col", {
   variants: {
     // Style Variants
+    layer: {
+      display: "",
+      layout: "",
+      overlay: "",
+    },
     shape: {
-      circle: "rounded-full",
-      rounded: "rounded-xl",
-      square: "rounded-none",
+      pill: "rounded-full",
+      rounded: "rounded-lg",
+      sharp: "rounded-none",
+    },
+    size: {
+      xs: "",
+      sm: "",
+      md: "",
+      lg: "",
+      xl: "",
     },
     space: {
-      wrapper: "gap-6 py-6",
-      container: "gap-3 px-6",
+      container: "",
+      wrapper: "",
+    },
+    variant: {
+      media: "",
+      section: "",
     },
     // Style Modifiers
+    isAction: {
+      true: [
+        "no-underline cursor-pointer transition-[color,box-shadow]",
+        "disabled:pointer-events-none disabled:opacity-75",
+        "outline-offset-1 outline-card/50",
+        "focus-visible:ring-4 focus-visible:outline-1 aria-invalid:focus-visible:ring-0",
+      ],
+    },
     noBorder: {
       false: "border-2",
     },
@@ -29,15 +65,84 @@ const cardVariants = cva("flex flex-col", {
       false: "bg-card text-card-foreground",
     },
     noShadow: {
-      false: "shadow-md",
+      false: "shadow-lg",
+    },
+    noSpace: {
+      false: "gap-4 py-6",
     },
   },
+  compoundVariants: [
+    // Color Layer Variant Modifiers
+    {
+      layer: "layout",
+      noColor: false,
+      className: "bg-card-1 border-card-2",
+    },
+    {
+      layer: "display",
+      noColor: false,
+      className: "bg-card-2 border-card-3",
+    },
+    {
+      layer: "overlay",
+      noColor: false,
+      className: "bg-card-3 border-card-foreground/25",
+    },
+    // Shadow Size Variant Modifiers
+    {
+      size: "xs",
+      noShadow: false,
+      className: "shadow-sm",
+    },
+    {
+      size: "sm",
+      noShadow: false,
+      className: "shadow-md",
+    },
+    {
+      size: "md",
+      noShadow: false,
+      className: "shadow-lg",
+    },
+    {
+      size: "lg",
+      noShadow: false,
+      className: "shadow-xl",
+    },
+    {
+      size: "xl",
+      noShadow: false,
+      className: "shadow-2xl",
+    },
+    // Container Space Variant Modifiers
+    {
+      space: "container",
+      noSpace: false,
+      className: "gap-y-3 gap-x-6 p-6",
+    },
+    {
+      space: "container",
+      variant: "section",
+      className: "container",
+    },
+    // Wrapper Space Variant Modifiers
+    {
+      space: "wrapper",
+      noSpace: false,
+      className: "gap-0 py-0",
+    },
+    {
+      space: "wrapper",
+      variant: "section",
+      noSpace: false,
+      className: "py-6",
+    },
+  ],
   defaultVariants: {
-    shape: "rounded",
-    space: "wrapper",
     noBorder: false,
     noColor: false,
     noShadow: false,
+    noSpace: false,
   },
 });
 
@@ -47,98 +152,279 @@ type CardProps<T extends React.ElementType = "div"> = SlotElementProps<T> &
   CardVariantProps;
 
 function Card({
+  layer,
   shape,
+  size,
   space,
+  variant,
+  isAction,
   noBorder,
   noColor,
   noShadow,
+  noSpace,
   className,
   ...props
 }: CardProps) {
   return (
     <SlotElement
       data-slot="card"
-      className={cardVariants({
-        shape,
-        space,
-        noBorder,
-        noColor,
-        noShadow,
-        className,
-      })}
+      className={cn(
+        cardVariants({
+          layer,
+          shape,
+          size,
+          space,
+          variant,
+          isAction,
+          noBorder,
+          noColor,
+          noShadow,
+          noSpace,
+          className,
+        }),
+      )}
       {...props}
     />
   );
 }
 
-function CardHeader({ className, ...props }: React.ComponentProps<"header">) {
+// Card Header Component
+
+const cardHeaderVariants = cva("flex flex-col", {
+  variants: {
+    // Style Variants
+    shape: {
+      pill: "rounded-full",
+      rounded: "rounded-lg",
+      sharp: "rounded-none",
+    },
+    size: {
+      xs: "",
+      sm: "",
+      md: "",
+      lg: "",
+      xl: "",
+    },
+    space: {
+      container: "",
+      wrapper: "",
+    },
+    variant: {
+      bar: "items-center justify-between",
+    },
+    // Style Modifiers
+    noSpace: {
+      false: "gap-y-3 gap-x-6 px-6",
+    },
+  },
+  compoundVariants: [
+    // Wrapper Space Variant Modifiers
+    {
+      space: "wrapper",
+      noSpace: false,
+      className: "px-0",
+    },
+  ],
+  defaultVariants: {
+    noSpace: false,
+  },
+});
+
+type CardHeaderVariantProps = VariantProps<typeof cardHeaderVariants>;
+
+type CardHeaderProps = React.ComponentProps<"header"> & CardHeaderVariantProps;
+
+function CardHeader({
+  shape,
+  size,
+  space,
+  variant,
+  noSpace,
+  className,
+  ...props
+}: CardHeaderProps) {
   return (
     <header
       data-slot="card-header"
-      className={cn("flex flex-col gap-1.5 px-6", className)}
+      className={cn(
+        cardHeaderVariants({
+          shape,
+          size,
+          space,
+          variant,
+          noSpace,
+          className,
+        }),
+      )}
       {...props}
     />
   );
 }
 
-type CardTitleProps<T extends React.ElementType = "h4"> = SlotElementProps<T>;
+// Card Body Component
 
-function CardTitle({ className, ...props }: CardTitleProps) {
+const cardBodyVariants = cva("flex flex-col", {
+  variants: {
+    // Style Variants
+    shape: {
+      pill: "rounded-full",
+      rounded: "rounded-lg",
+      sharp: "rounded-none",
+    },
+    size: {
+      xs: "",
+      sm: "",
+      md: "",
+      lg: "",
+      xl: "",
+    },
+    space: {
+      container: "",
+      wrapper: "",
+    },
+    // Style Modifiers
+    noSpace: {
+      false: "gap-y-3 gap-x-6 px-6",
+    },
+  },
+  compoundVariants: [
+    // Wrapper Space Variant Modifiers
+    {
+      space: "wrapper",
+      noSpace: false,
+      className: "px-0",
+    },
+  ],
+  defaultVariants: {
+    noSpace: false,
+  },
+});
+
+type CardBodyVariantProps = VariantProps<typeof cardBodyVariants>;
+
+type CardBodyProps<T extends React.ElementType = "div"> = SlotElementProps<T> &
+  CardBodyVariantProps;
+
+function CardBody({
+  shape,
+  size,
+  space,
+  noSpace,
+  className,
+  ...props
+}: CardBodyProps) {
   return (
     <SlotElement
-      data-slot="card-title"
-      as="h4"
-      className={cn("leading-none font-semibold", className)}
+      data-slot="card-body"
+      className={cn(
+        cardBodyVariants({
+          shape,
+          size,
+          space,
+          noSpace,
+          className,
+        }),
+      )}
       {...props}
     />
   );
 }
 
-type CardDescriptionProps<T extends React.ElementType = "p"> =
-  SlotElementProps<T>;
+// Card Footer Component
 
-function CardDescription({ className, ...props }: CardDescriptionProps) {
-  return (
-    <SlotElement
-      data-slot="card-description"
-      as="p"
-      className={cn("text-muted-foreground text-sm", className)}
-      {...props}
-    />
-  );
-}
+const cardFooterVariants = cva("flex flex-col", {
+  variants: {
+    // Style Variants
+    shape: {
+      pill: "rounded-full",
+      rounded: "rounded-lg",
+      sharp: "rounded-none",
+    },
+    size: {
+      xs: "",
+      sm: "",
+      md: "",
+      lg: "",
+      xl: "",
+    },
+    space: {
+      container: "",
+      wrapper: "",
+    },
+    variant: {
+      actions: "items-center justify-end",
+      bar: "items-center justify-between",
+    },
+    // Style Modifiers
+    noSpace: {
+      false: "gap-y-3 gap-x-6 px-6",
+    },
+  },
+  compoundVariants: [
+    // Wrapper Space Variant Modifiers
+    {
+      space: "wrapper",
+      noSpace: false,
+      className: "px-0",
+    },
+    // Variant Space Modifiers
+    {
+      variant: "actions",
+      noSpace: false,
+      className: "gap-x-3",
+    },
+  ],
+  defaultVariants: {
+    noSpace: false,
+  },
+});
 
-function CardContent({ className, ...props }: React.ComponentProps<"div">) {
-  return (
-    <div
-      data-slot="card-content"
-      className={cn("px-6", className)}
-      {...props}
-    />
-  );
-}
+type CardFooterVariantProps = VariantProps<typeof cardFooterVariants>;
 
-function CardFooter({ className, ...props }: React.ComponentProps<"footer">) {
+type CardFooterProps = React.ComponentProps<"footer"> & CardFooterVariantProps;
+
+function CardFooter({
+  shape,
+  size,
+  space,
+  variant,
+  noSpace,
+  className,
+  ...props
+}: CardFooterProps) {
   return (
     <footer
       data-slot="card-footer"
-      className={cn("flex items-center px-6", className)}
+      className={cn(
+        cardFooterVariants({
+          shape,
+          size,
+          space,
+          variant,
+          noSpace,
+          className,
+        }),
+      )}
       {...props}
     />
   );
 }
+
+// Card Component Exports
 
 export type {
   CardProps,
   CardVariantProps,
-  CardTitleProps,
-  CardDescriptionProps,
+  CardHeaderProps,
+  CardBodyProps,
+  CardFooterProps,
 };
+
 export {
-  Card,
-  CardHeader,
-  CardFooter,
-  CardTitle,
-  CardDescription,
-  CardContent,
+  cardVariants,
+  cardHeaderVariants,
+  cardBodyVariants,
+  cardFooterVariants,
 };
+
+export { Card, CardHeader, CardBody, CardFooter };

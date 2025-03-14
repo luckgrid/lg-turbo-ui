@@ -1,53 +1,66 @@
 @import "tailwindcss";
 
-@source "../app/**/*.{ts,tsx}";
-@source "../components/**/*.{ts,tsx}";
-@source "../../../packages/ui/src/components/**/*.{ts,tsx}";
+@source "../../../apps/**/*.{ts,tsx}";
+@source "../../../components/**/*.{ts,tsx}";
+@source "../**/*.{ts,tsx}";
 
 @plugin "tailwindcss-animate";
 
-@custom-variant dark (&:is(.dark *));
+@variant dark (&:is(.dark, [data-theme="dark"] *));
+@variant light (&:is(.light, [data-theme="light"] *));
 
 @theme {
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
+/* OKLCH Color Picker & Converter: https://oklch.com/#80,0,0,100 */
 :root {
-  /* Light gray color scale with neutral hue */
-  --cs-light-base-0: oklch(1 0 0); /* white */
-  --cs-light-base-1: oklch(0.975 0 0);
-  --cs-light-base-2: oklch(0.95 0 0);
-  --cs-light-base-3: oklch(0.925 0 0);
-  --cs-light-base-4: oklch(0.9 0 0);
-  --cs-light-base-5: oklch(0.875 0 0);
-  --cs-light-base-6: oklch(0.85 0 0);
-  --cs-light-base-7: oklch(0.825 0 0);
-  --cs-light-base-8: oklch(0.8 0 0);
-  --cs-light-base-9: oklch(0.775 0 0);
-  --cs-light-base-10: oklch(0.75 0 0);
-  --cs-light-base-11: oklch(0.725 0 0);
+  /* Light gray color scale */
+  --cs-light-base-0: oklch(100% 0 0);
+  --cs-light-base-1: oklch(96.18% 0 0);
+  --cs-light-base-2: oklch(92.36% 0 0);
+  --cs-light-base-3: oklch(88.54% 0 0);
+  --cs-light-base-4: oklch(84.72% 0 0);
+  --cs-light-base-5: oklch(80.9% 0 0);
+  --cs-light-base-6: oklch(77.08% 0 0);
+  --cs-light-base-7: oklch(73.26% 0 0);
+  --cs-light-base-8: oklch(69.44% 0 0);
+  --cs-light-base-9: oklch(65.62% 0 0);
+  --cs-light-base-10: oklch(61.8% 0 0);
+  --cs-light-base-11: oklch(57.98% 0 0);
+  --cs-light-base-12: oklch(54.16% 0 0);
+  --cs-light-base-13: oklch(50.34% 0 0);
+  --cs-light-base-14: oklch(46.52% 0 0);
+  --cs-light-base-15: oklch(42.7% 0 0);
+  --cs-light-base-16: oklch(38.88% 0 0);
 
-  /* Dark gray color scale with neutral hue */
-  --cs-dark-base-0: oklch(0 0 0); /* black */
-  --cs-dark-base-1: oklch(0.1 0 0);
-  --cs-dark-base-2: oklch(0.15 0 0);
-  --cs-dark-base-3: oklch(0.2 0 0);
-  --cs-dark-base-4: oklch(0.25 0 0);
-  --cs-dark-base-5: oklch(0.3 0 0);
-  --cs-dark-base-6: oklch(0.35 0 0);
-  --cs-dark-base-7: oklch(0.4 0 0);
-  --cs-dark-base-8: oklch(0.45 0 0);
-  --cs-dark-base-9: oklch(0.5 0 0);
-  --cs-dark-base-10: oklch(0.55 0 0);
-  --cs-dark-base-11: oklch(0.6 0 0);
+  /* Dark gray color scale */
+  --cs-dark-base-0: oklch(0% 0 0);
+  --cs-dark-base-1: oklch(5.573% 0 0);
+  --cs-dark-base-2: oklch(9.82% 0 0);
+  --cs-dark-base-3: oklch(13.64% 0 0);
+  --cs-dark-base-4: oklch(17.46% 0 0);
+  --cs-dark-base-5: oklch(21.28% 0 0);
+  --cs-dark-base-6: oklch(25.1% 0 0);
+  --cs-dark-base-7: oklch(28.92% 0 0);
+  --cs-dark-base-8: oklch(32.74% 0 0);
+  --cs-dark-base-9: oklch(36.56% 0 0);
+  --cs-dark-base-10: oklch(40.38% 0 0);
+  --cs-dark-base-11: oklch(44.2% 0 0);
+  --cs-dark-base-12: oklch(48.02% 0 0);
+  --cs-dark-base-13: oklch(51.84% 0 0);
+  --cs-dark-base-14: oklch(55.66% 0 0);
+  --cs-dark-base-15: oklch(59.48% 0 0);
+  --cs-dark-base-16: oklch(62.44% 0 0);
+
+  /* Accent Colors */
+  --cs-light-accent: oklch(77% 0.127 197);
+  --cs-dark-accent: oklch(53% 0.0888 197);
 
   /* Status Colors */
-  --cs-light-danger: oklch(0.586 0.253 17.585);
-  --cs-dark-danger: oklch(0.455 0.188 13.697);
-
-  /* Borders */
-  --radius-base: 0.333rem;
+  --cs-light-danger: oklch(63% 0.25 15);
+  --cs-dark-danger: oklch(37% 0.125 15);
 }
 
 :root,
@@ -55,88 +68,106 @@
 [data-theme="light"] {
   color-scheme: light;
 
-  --background: var(--cs-light-base-1);
-  --foreground: var(--cs-dark-base-1);
-  --border: var(--cs-light-base-5);
+  --background: var(--cs-light-base-0);
+  --background-1: var(--cs-light-base-1);
+  --background-2: var(--cs-light-base-2);
+  --background-3: var(--cs-light-base-3);
+  --foreground: var(--cs-dark-base-0);
+
   --input: var(--cs-light-base-0);
+  --border: var(--cs-light-base-5);
   --ring: var(--cs-dark-base-11);
 
-  --card: var(--cs-light-base-3);
+  --card: var(--cs-light-base-4);
   --card-1: var(--cs-light-base-5);
-  --card-2: var(--cs-light-base-7);
-  --card-3: var(--cs-light-base-9);
+  --card-2: var(--cs-light-base-6);
+  --card-3: var(--cs-light-base-7);
   --card-foreground: var(--cs-dark-base-2);
 
-  --popover: var(--cs-light-base-4);
+  --popover: var(--cs-light-base-5);
   --popover-1: var(--cs-light-base-6);
-  --popover-2: var(--cs-light-base-8);
-  --popover-3: var(--cs-light-base-10);
-  --popover-foreground: var(--cs-dark-base-3);
+  --popover-2: var(--cs-light-base-7);
+  --popover-3: var(--cs-light-base-8);
+  --popover-foreground: var(--cs-dark-base-1);
 
-  --accent: var(--cs-light-base-11);
-  --accent-foreground: var(--cs-dark-base-4);
+  --neutral: var(--cs-light-base-4);
+  --neutral-1: var(--cs-light-base-12);
+  --neutral-foreground: var(--cs-dark-base-11);
+  --neutral-foreground-1: var(--cs-dark-base-3);
 
-  --muted: var(--cs-light-base-5);
-  --muted-foreground: var(--cs-dark-base-5);
-
-  --neutral: var(--cs-dark-base-5);
-  --neutral-foreground: var(--cs-light-base-5);
+  --accent: var(--cs-light-accent);
+  --accent-1: var(--cs-dark-accent);
+  --accent-foreground: var(--cs-dark-base-0);
+  --accent-foreground-1: var(--cs-light-base-0);
 
   --primary: var(--cs-dark-base-0);
   --primary-foreground: var(--cs-light-base-0);
 
-  --secondary: var(--cs-dark-base-11);
-  --secondary-foreground: var(--cs-light-base-11);
+  --secondary: var(--cs-dark-base-10);
+  --secondary-foreground: var(--cs-light-base-4);
 
-  --destructive: var(--cs-light-danger);
-  --destructive-foreground: var(--cs-light-base-0);
+  --danger: var(--cs-light-danger);
+  --danger-1: var(--cs-dark-danger);
+  --danger-foreground: var(--cs-dark-base-3);
+  --danger-foreground-1: var(--cs-light-base-3);
 }
 
 .dark,
 [data-theme="dark"] {
   color-scheme: dark;
 
-  --background: var(--cs-dark-base-1);
-  --foreground: var(--cs-light-base-1);
-  --border: var(--cs-dark-base-5);
+  --background: var(--cs-dark-base-0);
+  --background-1: var(--cs-dark-base-1);
+  --background-2: var(--cs-dark-base-2);
+  --background-3: var(--cs-dark-base-3);
+  --foreground: var(--cs-light-base-0);
+
   --input: var(--cs-dark-base-0);
+  --border: var(--cs-dark-base-5);
   --ring: var(--cs-light-base-11);
 
-  --card: var(--cs-dark-base-3);
+  --card: var(--cs-dark-base-4);
   --card-1: var(--cs-dark-base-5);
-  --card-2: var(--cs-dark-base-7);
-  --card-3: var(--cs-dark-base-9);
+  --card-2: var(--cs-dark-base-6);
+  --card-3: var(--cs-dark-base-7);
   --card-foreground: var(--cs-light-base-2);
 
-  --popover: var(--cs-dark-base-4);
+  --popover: var(--cs-dark-base-5);
   --popover-1: var(--cs-dark-base-6);
-  --popover-2: var(--cs-dark-base-8);
-  --popover-3: var(--cs-dark-base-10);
-  --popover-foreground: var(--cs-light-base-3);
+  --popover-2: var(--cs-dark-base-7);
+  --popover-3: var(--cs-dark-base-8);
+  --popover-foreground: var(--cs-light-base-1);
 
-  --accent: var(--cs-light-base-11);
-  --accent-foreground: var(--cs-dark-base-4);
+  --neutral: var(--cs-dark-base-4);
+  --neutral-1: var(--cs-dark-base-16);
+  --neutral-foreground: var(--cs-light-base-6);
+  --neutral-foreground-1: var(--cs-light-base-3);
 
-  --muted: var(--cs-dark-base-5);
-  --muted-foreground: var(--cs-light-base-5);
-
-  --neutral: var(--cs-light-base-5);
-  --neutral-foreground: var(--cs-dark-base-5);
+  --accent: var(--cs-dark-accent);
+  --accent-1: var(--cs-light-accent);
+  --accent-foreground: var(--cs-light-base-0);
+  --accent-foreground-1: var(--cs-dark-base-0);
 
   --primary: var(--cs-light-base-0);
   --primary-foreground: var(--cs-dark-base-0);
 
-  --secondary: var(--cs-dark-base-11);
-  --secondary-foreground: var(--cs-light-base-11);
+  --secondary: var(--cs-light-base-10);
+  --secondary-foreground: var(--cs-dark-base-4);
 
-  --destructive: var(--cs-dark-danger);
-  --destructive-foreground: var(--cs-light-base-0);
+  --danger: var(--cs-dark-danger);
+  --danger-1: var(--cs-light-danger);
+  --danger-foreground: var(--cs-light-base-3);
+  --danger-foreground-1: var(--cs-dark-base-3);
 }
 
 @theme inline {
   /* Colors */
   --color-background: var(--background);
+  --color-background-1: var(--background-1);
+  --color-background-2: var(--background-2);
+  --color-background-3: var(--background-3);
   --color-foreground: var(--foreground);
+
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
@@ -153,14 +184,15 @@
   --color-popover-3: var(--popover-3);
   --color-popover-foreground: var(--popover-foreground);
 
-  --color-accent: var(--accent);
-  --color-accent-foreground: var(--accent-foreground);
-
-  --color-muted: var(--muted);
-  --color-muted-foreground: var(--muted-foreground);
-
   --color-neutral: var(--neutral);
+  --color-neutral-1: var(--neutral-1);
   --color-neutral-foreground: var(--neutral-foreground);
+  --color-neutral-foreground-1: var(--neutral-foreground-1);
+
+  --color-accent: var(--accent);
+  --color-accent-1: var(--accent-1);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent-foreground-1: var(--accent-foreground-1);
 
   --color-primary: var(--primary);
   --color-primary-foreground: var(--primary-foreground);
@@ -168,15 +200,20 @@
   --color-secondary: var(--secondary);
   --color-secondary-foreground: var(--secondary-foreground);
 
-  --color-destructive: var(--destructive);
-  --color-destructive-foreground: var(--destructive-foreground);
+  --color-danger: var(--danger);
+  --color-danger-1: var(--danger-1);
+  --color-danger-foreground: var(--danger-foreground);
+  --color-danger-foreground-1: var(--danger-foreground-1);
+
+  /* Spacing */
+  --spacing: 0.333rem;
 
   /* Border Radius */
-  --radius-xs: calc(var(--radius-base) - 4px);
-  --radius-sm: calc(var(--radius-base) - 2px);
-  --radius-md: var(--radius-base);
-  --radius-lg: calc(var(--radius-base) + 2px);
-  --radius-xl: calc(var(--radius-base) + 4px);
+  --radius-xs: calc(--spacing(1) - 3px);
+  --radius-sm: calc(--spacing(1) - 1.5px);
+  --radius-md: --spacing(1);
+  --radius-lg: calc(--spacing(1) + 3px);
+  --radius-xl: calc(--spacing(1) + 6px);
 
   /* Animations */
   --animate-accordion-down: accordion-down 0.2s ease-out;
@@ -204,7 +241,7 @@
 @layer base {
   * {
     border-color: var(--border);
-    outline-color: color-mix(in oklab, var(--ring) 50%, transparent);
+    outline-color: --alpha(var(--ring) / 50%);
   }
 
   body {
