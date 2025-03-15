@@ -6,7 +6,7 @@ import { metadata } from "@/configs/app";
 
 export default function Page() {
   return (
-    <main className="flex flex-col items-center justify-center min-h-svh gap-32">
+    <main className="flex flex-col min-h-svh gap-32">
       <header className="container flex flex-col items-center justify-center gap-4 py-8 px-4">
         <Image
           alt="Logo"
@@ -16,25 +16,23 @@ export default function Page() {
           priority
           className="dark:invert"
         />
-        <h1 className="text-4xl text-center text-balance font-bold">
-          {metadata.name} Docs
-        </h1>
-        <p className="max-w-[480px] mx-auto text-center text-balance text-neutral-foreground">
+        <h1 className="text-center text-balance">{metadata.name}</h1>
+        <p className="max-w-lg mx-auto text-center text-balance text-neutral-foreground">
           {metadata.description}
         </p>
       </header>
       <section className="container flex flex-col items-center justify-center gap-16 py-8 px-4">
         <header className="flex flex-col gap-2 items-center text-center">
-          <h2 className="text-4xl text-balance font-bold">Button Component</h2>
-          <p className="max-w-[480px] mx-auto text-balance text-neutral-foreground">
+          <h2>Button Component</h2>
+          <p className="max-w-lg mx-auto text-balance text-neutral-foreground">
             The Button component is a versatile and customizable component that
             can be used to create a variety of buttons.
           </p>
-          <Button shape="ticket">Default (Neutral) Button</Button>
+          <Button>Default (Neutral) Button</Button>
         </header>
         <div className="flex flex-wrap gap-12 justify-center">
           <div className="flex flex-col gap-4">
-            <h3 className="text-2xl text-center text-balance font-semibold">
+            <h3 className="text-center text-balance">
               Solid Variant Button Colors
             </h3>
             <div className="flex flex-wrap items-center justify-center gap-4">
@@ -156,7 +154,7 @@ export default function Page() {
             </div>
           </div>
           <div className="flex flex-col gap-4">
-            <h3 className="text-2xl text-center text-balance font-semibold">
+            <h3 className="text-center text-balance">
               Outline Variant Button Colors
             </h3>
             <div className="flex flex-wrap items-center justify-center gap-4">
@@ -282,7 +280,7 @@ export default function Page() {
             </div>
           </div>
           <div className="flex flex-col gap-4">
-            <h3 className="text-2xl text-center text-balance font-semibold">
+            <h3 className="text-center text-balance">
               Text Variant Button Colors
             </h3>
             <div className="flex flex-wrap items-center justify-center gap-4">
@@ -452,7 +450,7 @@ export default function Page() {
         </div>
         <div className="flex flex-wrap gap-12 justify-center">
           <div className="flex flex-col gap-4">
-            <h3 className="text-2xl text-center text-balance font-semibold">
+            <h3 className="text-center text-balance">
               Pill Shape Button Sizes
             </h3>
             <div className="flex flex-wrap items-center justify-center gap-4">
@@ -518,9 +516,7 @@ export default function Page() {
             </div>
           </div>
           <div className="flex flex-col gap-4">
-            <h3 className="text-2xl text-center text-balance font-semibold">
-              Rounded Button Sizes
-            </h3>
+            <h3 className="text-center text-balance">Rounded Button Sizes</h3>
             <div className="flex flex-wrap items-center justify-center gap-4">
               <div className="flex flex-col gap-2">
                 <Button
@@ -619,7 +615,7 @@ export default function Page() {
             </div>
           </div>
           <div className="flex flex-col gap-4">
-            <h3 className="text-2xl text-center text-balance font-semibold">
+            <h3 className="text-center text-balance">
               Sharp Shape Button Sizes
             </h3>
             <div className="flex flex-wrap items-center justify-center gap-4">
@@ -679,6 +675,31 @@ export default function Page() {
           </div>
         </div>
       </section>
+      <footer className="flex flex-col gap-4 py-2 bg-secondary text-secondary-foreground">
+        <div className="container flex flex-col gap-4 px-4">
+          <small>
+            &copy; {new Date().getFullYear()},{" "}
+            <a
+              className="underline underline-offset-1"
+              href={metadata.organization.url}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {metadata.organization.name} Inc
+            </a>{" "}
+            . This code is open source under the{" "}
+            <a
+              className="underline underline-offset-1"
+              href="https://opensource.org/licenses/MIT"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              MIT License
+            </a>
+            .
+          </small>
+        </div>
+      </footer>
     </main>
   );
 }

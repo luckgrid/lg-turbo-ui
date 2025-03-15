@@ -1,6 +1,5 @@
 import Image from "next/image";
 
-import { Button } from "@workspace/ui/components/button";
 import { Card } from "@workspace/ui/components/card";
 import { metadata } from "@/configs/app";
 
@@ -16,41 +15,55 @@ export default function Page() {
           priority
           className="dark:invert"
         />
-        <h1 className="text-center text-balance font-bold">{metadata.name}</h1>
-        <div className="flex flex-wrap items-center justify-center gap-4">
-          <Button color="primary">Get Started</Button>
-          <Button variant="outline">Learn More</Button>
+        <div className="flex flex-col gap-2max-w-3xl mx-auto text-center">
+          <h1 className="text-balance">{metadata.name}</h1>
+          <p className="text-balance text-neutral-foreground">
+            {metadata.description}
+          </p>
         </div>
       </header>
       <section className="flex flex-col flex-1 gap-8 py-8 bg-background-2">
         <div className="container flex flex-col gap-4 px-4">
-          <h2 className="max-w-[768px] text-balance font-bold">
-            {metadata.title}
-          </h2>
-          <p className="max-w-[768px] text-balance text-neutral-foreground">
-            {metadata.description}
-          </p>
+          <h2 className="text-balance">{metadata.title}</h2>
         </div>
         <div className="container flex flex-wrap gap-4 px-4">
           <Card space="container">
-            <h3>React & Tailwind Components</h3>
+            <h4>React & Tailwind Components</h4>
           </Card>
           <Card space="container">
-            <h3>Next Ready</h3>
+            <h4>Next Ready</h4>
           </Card>
           <Card space="container">
-            <h3>Open Source</h3>
+            <h4>Open Source</h4>
           </Card>
           <Card space="container">
-            <h3>CVA Design System</h3>
+            <h4>CVA Design System</h4>
           </Card>
         </div>
       </section>
       <footer className="flex flex-col gap-4 py-2 bg-secondary text-secondary-foreground">
         <div className="container flex flex-col gap-4 px-4">
-          <p>
-            &copy; {new Date().getFullYear()} {metadata.name}
-          </p>
+          <small>
+            &copy; {new Date().getFullYear()},{" "}
+            <a
+              className="underline underline-offset-1"
+              href={metadata.organization.url}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {metadata.organization.name} Inc
+            </a>
+            . This code is open source under the{" "}
+            <a
+              className="underline underline-offset-1"
+              href="https://opensource.org/licenses/MIT"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              MIT License
+            </a>
+            .
+          </small>
         </div>
       </footer>
     </main>

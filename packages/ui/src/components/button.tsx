@@ -319,7 +319,7 @@ const buttonVariants = cva(
         className: "shadow-xl",
       },
     ],
-  }
+  },
 );
 
 type ButtonVariantProps = VariantProps<typeof buttonVariants>;
@@ -356,7 +356,7 @@ function Button({
           isGhost,
           withShadow,
           className,
-        })
+        }),
       )}
       {...props}
     />

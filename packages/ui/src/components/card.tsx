@@ -146,7 +146,7 @@ function Card({
           noShadow,
           noSpace,
           className,
-        })
+        }),
       )}
       {...props}
     />
@@ -210,7 +210,7 @@ function CardHeader({
           variant,
           noSpace,
           className,
-        })
+        }),
       )}
       {...props}
     />
@@ -270,7 +270,7 @@ function CardBody({
           space,
           noSpace,
           className,
-        })
+        }),
       )}
       {...props}
     />
@@ -341,7 +341,7 @@ function CardFooter({
           variant,
           noSpace,
           className,
-        })
+        }),
       )}
       {...props}
     />

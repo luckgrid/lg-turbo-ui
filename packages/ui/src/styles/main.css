@@ -14,7 +14,10 @@
   --font-mono: var(--font-geist-mono);
 }
 
-/* OKLCH Color Picker & Converter: https://oklch.com/#80,0,0,100 */
+/* Color Scale */
+/* - TailwindCSS Colors: https://tailwindcss.com/docs/colors */
+/* - OKLCH Color Picker & Converter: https://oklch.com/#80,0,0,100 */
+
 :root {
   /* Light gray color scale */
   --cs-light-base-0: oklch(100% 0 0);
@@ -54,11 +57,11 @@
   --cs-dark-base-15: oklch(59.48% 0 0);
   --cs-dark-base-16: oklch(62.44% 0 0);
 
-  /* Accent Colors */
+  /* Accent color scale */
   --cs-light-accent: oklch(77% 0.127 197);
   --cs-dark-accent: oklch(53% 0.0888 197);
 
-  /* Status Colors */
+  /* Danger status color scale */
   --cs-light-danger: oklch(63% 0.25 15);
   --cs-dark-danger: oklch(37% 0.125 15);
 }
@@ -160,6 +163,147 @@
   --danger-foreground-1: var(--cs-dark-base-3);
 }
 
+/* Typography Scale */
+/* - Fluid Type Scale Calculator: https://www.fluid-type-scale.com/calculate?minFontSize=16&minWidth=448&minRatio=1.25&maxFontSize=20&maxWidth=1440&maxRatio=1.333&steps=xs%2Csm%2Cbase%2Cmd%2Clg%2Cxl%2C2xl%2C3xl%2C4xl&baseStep=base&prefix=ts&useContainerWidth=false&includeFallbacks=true&useRems=true&remValue=16&decimals=2&previewFont=Inter&previewText=Almost+before+we+knew+it%2C+we+had+left+the+ground&previewWidth=944 */
+/* - Fluid Type Scale Generator: https://typescale.com/ */
+/* - Modular Type Scale Generator: https://precise-type.com/modular-scale.html */
+
+/* For browsers that support clamp  */
+@supports (font-size: clamp(1rem, 1vi, 1rem)) {
+  :root {
+    --ts-xs: clamp(0.64rem, 0.1vi + 0.61rem, 0.7rem);
+    --ts-sm: clamp(0.8rem, 0.22vi + 0.74rem, 0.94rem);
+    --ts-base: clamp(1rem, 0.4vi + 0.89rem, 1.25rem);
+    --ts-md: clamp(1.25rem, 0.67vi + 1.06rem, 1.67rem);
+    --ts-lg: clamp(1.56rem, 1.06vi + 1.27rem, 2.22rem);
+    --ts-xl: clamp(1.95rem, 1.63vi + 1.5rem, 2.96rem);
+    --ts-2xl: clamp(2.44rem, 2.43vi + 1.76rem, 3.95rem);
+    --ts-3xl: clamp(3.05rem, 3.56vi + 2.05rem, 5.26rem);
+    --ts-4xl: clamp(3.81rem, 5.16vi + 2.37rem, 7.01rem);
+  }
+}
+
+/* For browsers that don't support clamp */
+@supports not (font-size: clamp(1rem, 1vi, 1rem)) {
+  :root {
+    --ts-xs: 0.64rem;
+    --ts-sm: 0.8rem;
+    --ts-base: 1rem;
+    --ts-md: 1.25rem;
+    --ts-lg: 1.56rem;
+    --ts-xl: 1.95rem;
+    --ts-2xl: 2.44rem;
+    --ts-3xl: 3.05rem;
+    --ts-4xl: 3.81rem;
+  }
+
+  @media screen and (min-width: var(--breakpoint-md, 48rem)) {
+    :root {
+      --ts-xs: 0.67rem;
+      --ts-sm: 0.87rem;
+      --ts-base: 1.13rem;
+      --ts-md: 1.46rem;
+      --ts-lg: 1.89rem;
+      --ts-xl: 2.46rem;
+      --ts-2xl: 3.19rem;
+      --ts-3xl: 4.16rem;
+      --ts-4xl: 5.41rem;
+    }
+  }
+
+  @media screen and (min-width: var(--breakpoint-xl, 80rem)) {
+    :root {
+      --ts-xs: 0.7rem;
+      --ts-sm: 0.94rem;
+      --ts-base: 1.25rem;
+      --ts-md: 1.67rem;
+      --ts-lg: 2.22rem;
+      --ts-xl: 2.96rem;
+      --ts-2xl: 3.95rem;
+      --ts-3xl: 5.26rem;
+      --ts-4xl: 7.01rem;
+    }
+  }
+}
+
+/* Spacing Scale */
+/* - Fluid Scale Calculator: https://www.fluid-type-scale.com/calculate?minFontSize=21.12&minWidth=448&minRatio=1.333&maxFontSize=42.24&maxWidth=1280&maxRatio=1.618&steps=3xs%2C2xs%2Cxs%2Csm%2Cbase%2Cmd%2Clg%2Cxl%2C2xl%2C3xl%2C4xl%2C5xl%2C6xl&baseStep=base&prefix=fs&useContainerWidth=false&includeFallbacks=true&useRems=true&remValue=16&decimals=2&previewFont=Inter&previewText=Almost+before+we+knew+it%2C+we+had+left+the+ground&previewWidth=864 */
+/* - Fluid Spacing Calculator: https://utopia.fyi/space/calculator/?c=448,21.12,1.2,1280,42.24,1.25,5,2,&s=0.75|0.5,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
+
+/* For browsers that support clamp  */
+@supports (padding: clamp(1rem, 1vi, 1rem)) {
+  :root {
+    --fs-3xs: clamp(0.33rem, -0.06vi + 0.44rem, 0.41rem);
+    --fs-2xs: clamp(0.56rem, 0.13vi + 0.52rem, 0.62rem);
+    --fs-xs: clamp(0.74rem, 0.51vi + 0.6rem, 1.01rem);
+    --fs-sm: clamp(0.99rem, 1.23vi + 0.64rem, 1.63rem);
+    --fs-base: clamp(1.32rem, 2.54vi + 0.61rem, 2.64rem);
+    --fs-md: clamp(1.76rem, 4.83vi + 0.41rem, 4.27rem);
+    --fs-lg: clamp(2.35rem, 8.78vi + -0.11rem, 6.91rem);
+    --fs-xl: clamp(3.13rem, 15.49vi + -1.21rem, 11.18rem);
+    --fs-2xl: clamp(4.17rem, 26.78vi + -3.33rem, 18.09rem);
+    --fs-3xl: clamp(5.56rem, 45.61vi + -7.22rem, 29.27rem);
+    --fs-4xl: clamp(7.41rem, 76.85vi + -14.11rem, 47.37rem);
+    --fs-5xl: clamp(9.87rem, 128.4vi + -26.08rem, 76.64rem);
+    --fs-6xl: clamp(13.16rem, 213.16vi + -46.53rem, 124rem);
+  }
+}
+
+/* For browsers that don't support clamp */
+@supports not (padding: clamp(1rem, 1vi, 1rem)) {
+  :root {
+    --fs-3xs: 0.33rem;
+    --fs-2xs: 0.56rem;
+    --fs-xs: 0.74rem;
+    --fs-sm: 0.99rem;
+    --fs-base: 1.32rem;
+    --fs-md: 1.76rem;
+    --fs-lg: 2.35rem;
+    --fs-xl: 3.13rem;
+    --fs-2xl: 4.17rem;
+    --fs-3xl: 5.56rem;
+    --fs-4xl: 7.41rem;
+    --fs-5xl: 9.87rem;
+    --fs-6xl: 13.16rem;
+  }
+
+  @media screen and (min-width: var(--breakpoint-md, 48rem)) {
+    :root {
+      --fs-3xs: 0.37rem;
+      --fs-2xs: 0.59rem;
+      --fs-xs: 0.88rem;
+      --fs-sm: 1.31rem;
+      --fs-base: 1.98rem;
+      --fs-md: 3.02rem;
+      --fs-lg: 4.63rem;
+      --fs-xl: 7.15rem;
+      --fs-2xl: 11.13rem;
+      --fs-3xl: 17.42rem;
+      --fs-4xl: 27.39rem;
+      --fs-5xl: 43.26rem;
+      --fs-6xl: 68.58rem;
+    }
+  }
+
+  @media screen and (min-width: var(--breakpoint-xl, 80rem)) {
+    :root {
+      --fs-3xs: 0.41rem;
+      --fs-2xs: 0.62rem;
+      --fs-xs: 1.01rem;
+      --fs-sm: 1.63rem;
+      --fs-base: 2.64rem;
+      --fs-md: 4.27rem;
+      --fs-lg: 6.91rem;
+      --fs-xl: 11.18rem;
+      --fs-2xl: 18.09rem;
+      --fs-3xl: 29.27rem;
+      --fs-4xl: 47.37rem;
+      --fs-5xl: 76.64rem;
+      --fs-6xl: 124rem;
+    }
+  }
+}
+
 @theme inline {
   /* Colors */
   --color-background: var(--background);
@@ -206,7 +350,7 @@
   --color-danger-foreground-1: var(--danger-foreground-1);
 
   /* Spacing */
-  --spacing: 0.333rem;
+  --spacing: 0.33rem;
 
   /* Border Radius */
   --radius-xs: calc(--spacing(1) - 3px);
@@ -242,11 +386,53 @@
   * {
     border-color: var(--border);
     outline-color: --alpha(var(--ring) / 50%);
+    line-height: calc(2ex + --spacing(1.5));
   }
 
   body {
     background-color: var(--background);
     color: var(--foreground);
+    font-size: var(--ts-base);
+  }
+
+  h1 {
+    font-size: var(--ts-3xl);
+    font-weight: var(--font-weight-bold);
+  }
+
+  h2 {
+    font-size: var(--ts-2xl);
+    font-weight: var(--font-weight-bold);
+  }
+
+  h3 {
+    font-size: var(--ts-xl);
+    font-weight: var(--font-weight-semibold);
+  }
+
+  h4 {
+    font-size: var(--ts-lg);
+    font-weight: var(--font-weight-semibold);
+  }
+
+  h5 {
+    font-size: var(--ts-md);
+    font-weight: var(--font-weight-medium);
+  }
+
+  h6 {
+    font-size: var(--ts-base);
+    font-weight: var(--font-weight-medium);
+  }
+
+  label,
+  th {
+    font-size: var(--ts-sm);
+    font-weight: var(--font-weight-medium);
+  }
+
+  small {
+    font-size: var(--ts-xs);
   }
 }
 
@@ -255,6 +441,7 @@
   max-width: var(--breakpoint-2xl);
 }
 
+/* Ticket adds octagon shaped borders around a parent element */
 @utility shape-ticket {
   position: relative;
   outline-style: none;

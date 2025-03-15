@@ -10,6 +10,11 @@ export const metadata = {
     "Documentation for a turborepo workspace template, with a React and TailwindCSS UI for building Next.js Apps.",
   locale: "en-US",
   url: baseUrl,
+  organization: {
+    email: "admin@luckgrid.net",
+    name: "Luckgrid",
+    url: "https://luckgrid.net",
+  },
 };
 
 export const colors = {
