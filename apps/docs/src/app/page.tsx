@@ -681,7 +681,7 @@ export default function Page() {
           </div>
         </div>
       </section>
-      <footer className="flex flex-col gap-fs-6 py-fs-2 bg-background-3 text-neutral-foreground/75">
+      <footer className="flex flex-col py-fs-1 bg-background-3 text-neutral-foreground/75">
         <div className="container flex flex-col gap-fs-6 px-fs-6">
           <p className="text-caption">
             &copy; {new Date().getFullYear()},{" "}

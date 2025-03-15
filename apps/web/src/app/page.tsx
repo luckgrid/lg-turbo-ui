@@ -6,24 +6,24 @@ import { metadata } from "@/configs/app";
 export default function Page() {
   return (
     <main className="flex flex-col min-h-svh">
-      <header className="flex flex-col flex-1 items-center justify-center gap-fs-4 py-fs-8 px-fs-4">
+      <header className="flex flex-col flex-1 items-center justify-center gap-fs-6 py-fs-24 px-fs-4">
         <Image
           alt="Logo"
           src="/assets/logos/logo.png"
           width={200}
           height={200}
           priority
-          className="dark:invert"
+          className="motion-opacity-in-0 motion-blur-in-sm dark:invert"
         />
-        <div className="container max-w-4xl flex flex-col gap-fs-2 text-center">
+        <div className="motion-opacity-in-0 motion-translate-y-in-50 container max-w-4xl flex flex-col gap-fs-3 text-center">
           <h1 className="text-balance">{metadata.name}</h1>
           <p className="text-balance text-neutral-foreground">
             {metadata.title}
           </p>
         </div>
       </header>
-      <section className="flex flex-col flex-1 gap-fs-6 py-fs-6 bg-background-2">
-        <header className="container flex flex-col gap-fs-2 px-fs-4">
+      <section className="flex flex-col flex-1 gap-fs-6 py-fs-12 bg-background-2">
+        <header className="container flex flex-col gap-fs-3 px-fs-6">
           <h2 className="text-heading text-balance">
             Organize your brands, products and services
           </h2>
@@ -31,7 +31,7 @@ export default function Page() {
             {metadata.description}
           </p>
         </header>
-        <div className="container flex flex-wrap gap-fs-4 px-fs-4">
+        <div className="container flex flex-wrap gap-fs-3 px-fs-6">
           <Card space="container">
             <h3 className="text-body">React + Tailwind CSS</h3>
           </Card>
@@ -46,8 +46,8 @@ export default function Page() {
           </Card>
         </div>
       </section>
-      <footer className="flex flex-col gap-fs-4 py-fs-2 bg-background-3 text-neutral-foreground/75">
-        <div className="container flex flex-col gap-fs-4 px-fs-4">
+      <footer className="flex flex-col py-fs-1 bg-background-3 text-neutral-foreground/75">
+        <div className="container flex flex-col gap-fs-4 px-fs-6">
           <p className="text-caption">
             &copy; {new Date().getFullYear()},{" "}
             <a

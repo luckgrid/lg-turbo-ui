@@ -7,6 +7,8 @@
 @source "../**/*.{ts,tsx}";
 
 @plugin "tailwindcss-animate";
+@plugin "tailwindcss-motion";
+@import "tailwindcss-intersect";
 
 @variant dark (&:is(.dark, [data-theme="dark"] *));
 @variant light (&:is(.light, [data-theme="light"] *));

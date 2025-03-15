@@ -52,7 +52,7 @@ const cardVariants = cva("flex flex-col", {
       ],
     },
     noBorder: {
-      false: "border-2",
+      false: "border-(length:--fs-0-25)",
     },
     noColor: {
       false: "bg-card text-card-foreground",
@@ -61,7 +61,7 @@ const cardVariants = cva("flex flex-col", {
       false: "shadow-lg",
     },
     noSpace: {
-      false: "gap-4 py-6",
+      false: "gap-fs-4 py-fs-6",
     },
   },
   compoundVariants: [
@@ -85,7 +85,7 @@ const cardVariants = cva("flex flex-col", {
     {
       space: "container",
       noSpace: false,
-      className: "gap-y-3 gap-x-6 p-6",
+      className: "gap-y-fs-3 gap-x-fs-6 p-fs-6",
     },
     {
       space: "container",
@@ -102,7 +102,7 @@ const cardVariants = cva("flex flex-col", {
       space: "wrapper",
       variant: "section",
       noSpace: false,
-      className: "py-6",
+      className: "py-fs-6",
     },
   ],
   defaultVariants: {
@@ -172,7 +172,7 @@ const cardHeaderVariants = cva("flex flex-col", {
     },
     // Style Modifiers
     noSpace: {
-      false: "gap-y-3 gap-x-6 px-6",
+      false: "gap-y-fs-3 gap-x-fs-6 px-fs-6",
     },
   },
   compoundVariants: [
@@ -233,7 +233,7 @@ const cardBodyVariants = cva("flex flex-col", {
     },
     // Style Modifiers
     noSpace: {
-      false: "gap-y-3 gap-x-6 px-6",
+      false: "gap-y-fs-3 gap-x-fs-6 px-fs-6",
     },
   },
   compoundVariants: [
@@ -297,7 +297,7 @@ const cardFooterVariants = cva("flex flex-col", {
     },
     // Style Modifiers
     noSpace: {
-      false: "gap-y-3 gap-x-6 px-6",
+      false: "gap-y-fs-3 gap-x-fs-6 px-fs-6",
     },
   },
   compoundVariants: [
@@ -311,7 +311,7 @@ const cardFooterVariants = cva("flex flex-col", {
     {
       variant: "actions",
       noSpace: false,
-      className: "gap-x-3",
+      className: "gap-x-fs-3",
     },
   ],
   defaultVariants: {

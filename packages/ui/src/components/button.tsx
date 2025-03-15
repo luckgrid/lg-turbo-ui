@@ -13,6 +13,7 @@ const buttonVariants = cva(
     "bg-neutral text-neutral-foreground hover:bg-neutral/90",
     "whitespace-nowrap text-body font-medium",
     "cursor-pointer transition-[color,box-shadow]",
+    "active:motion-scale-in-95 active:motion-duration-200 active:motion-ease-spring-bouncy",
     "disabled:pointer-events-none disabled:opacity-50",
     "outline-offset-1 outline-neutral/50 ring-neutral/25",
     "focus-visible:ring-4 focus-visible:outline-1 aria-invalid:focus-visible:ring-0",
@@ -176,31 +177,31 @@ const buttonVariants = cva(
       {
         isGhost: true,
         variant: "text",
-        className: "text-current hover:text-neutral-3/80",
+        className: "text-current hover:bg-transparent hover:text-neutral-3/80",
       },
       {
         isGhost: true,
         color: "accent",
         variant: "text",
-        className: "text-current hover:text-accent-1/80",
+        className: "text-current hover:bg-transparent hover:text-accent-1/80",
       },
       {
         isGhost: true,
         color: "primary",
         variant: "text",
-        className: "text-current hover:text-primary/80",
+        className: "text-current hover:bg-transparent hover:text-primary/80",
       },
       {
         isGhost: true,
         color: "secondary",
         variant: "text",
-        className: "text-current hover:text-secondary/80",
+        className: "text-current hover:bg-transparent hover:text-secondary/80",
       },
       {
         isGhost: true,
         color: "danger",
         variant: "text",
-        className: "text-current hover:text-danger-1/80",
+        className: "text-current hover:bg-transparent hover:text-danger-1/80",
       },
       // Outline Size Variants
       {
