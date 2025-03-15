@@ -38,7 +38,7 @@ export default function Page() {
               Solid Variant Button Colors
             </h3>
             <div className="flex flex-wrap items-center justify-center gap-fs-6">
-              <div className="flex flex-col gap-fs-2">
+              <div className="flex flex-col items-center justify-center gap-fs-2">
                 <Button variant="solid">Neutral</Button>
                 <Button color="accent" variant="solid">
                   Accent
@@ -53,7 +53,7 @@ export default function Page() {
                   Danger
                 </Button>
               </div>
-              <div className="flex flex-col gap-fs-2">
+              <div className="flex flex-col items-center justify-center gap-fs-2">
                 <Button variant="solid" isIcon aria-label="Solid Neutral Icon">
                   <Star />
                 </Button>
@@ -90,7 +90,7 @@ export default function Page() {
                   <Star />
                 </Button>
               </div>
-              <div className="flex flex-col gap-fs-2">
+              <div className="flex flex-col items-center justify-center gap-fs-2">
                 <Button isGhost variant="solid">
                   Neutral Ghost
                 </Button>
@@ -107,7 +107,7 @@ export default function Page() {
                   Danger Ghost
                 </Button>
               </div>
-              <div className="flex flex-col gap-fs-2">
+              <div className="flex flex-col items-center justify-center gap-fs-2">
                 <Button
                   variant="solid"
                   isGhost
@@ -160,7 +160,7 @@ export default function Page() {
               Outline Variant Button Colors
             </h3>
             <div className="flex flex-wrap items-center justify-center gap-fs-6">
-              <div className="flex flex-col gap-fs-2">
+              <div className="flex flex-col items-center justify-center gap-fs-2">
                 <Button variant="outline">Neutral</Button>
                 <Button color="accent" variant="outline">
                   Accent
@@ -175,7 +175,7 @@ export default function Page() {
                   Danger
                 </Button>
               </div>
-              <div className="flex flex-col gap-fs-2">
+              <div className="flex flex-col items-center justify-center gap-fs-2">
                 <Button
                   variant="outline"
                   isIcon
@@ -216,7 +216,7 @@ export default function Page() {
                   <Star />
                 </Button>
               </div>
-              <div className="flex flex-col gap-fs-2">
+              <div className="flex flex-col items-center justify-center gap-fs-2">
                 <Button isGhost variant="outline">
                   Neutral Ghost
                 </Button>
@@ -233,7 +233,7 @@ export default function Page() {
                   Danger Ghost
                 </Button>
               </div>
-              <div className="flex flex-col gap-fs-2">
+              <div className="flex flex-col items-center justify-center gap-fs-2">
                 <Button
                   variant="outline"
                   isGhost
@@ -286,7 +286,7 @@ export default function Page() {
               Text Variant Button Colors
             </h3>
             <div className="flex flex-wrap items-center justify-center gap-fs-6">
-              <div className="flex flex-col gap-fs-2">
+              <div className="flex flex-col items-center justify-center gap-fs-2">
                 <Button
                   size="xs"
                   variant="text"
@@ -332,7 +332,7 @@ export default function Page() {
                   <Star />
                 </Button>
               </div>
-              <div className="flex flex-col gap-fs-2">
+              <div className="flex flex-col items-center justify-center gap-fs-2">
                 <Button variant="text">Neutral</Button>
                 <Button color="accent" variant="text">
                   Accent
@@ -347,7 +347,7 @@ export default function Page() {
                   Danger
                 </Button>
               </div>
-              <div className="flex flex-col gap-fs-2">
+              <div className="flex flex-col items-center justify-center gap-fs-2">
                 <Button variant="text" isIcon aria-label="Text Neutral Icon">
                   <Star />
                 </Button>
@@ -384,7 +384,7 @@ export default function Page() {
                   <Star />
                 </Button>
               </div>
-              <div className="flex flex-col gap-fs-2">
+              <div className="flex flex-col items-center justify-center gap-fs-2">
                 <Button isGhost variant="text">
                   Neutral Ghost
                 </Button>
@@ -401,7 +401,7 @@ export default function Page() {
                   Danger Ghost
                 </Button>
               </div>
-              <div className="flex flex-col gap-fs-2">
+              <div className="flex flex-col items-center justify-center gap-fs-2">
                 <Button
                   variant="text"
                   isGhost
@@ -457,7 +457,7 @@ export default function Page() {
                 Pill Shape Button Sizes
               </h3>
               <div className="flex flex-wrap items-center justify-center gap-fs-6">
-                <div className="flex flex-col gap-fs-2">
+                <div className="flex flex-col items-center justify-center gap-fs-2">
                   <Button shape="pill" size="xs">
                     Extra Small
                   </Button>
@@ -474,7 +474,7 @@ export default function Page() {
                     Extra Large
                   </Button>
                 </div>
-                <div className="flex flex-col gap-fs-2">
+                <div className="flex flex-col items-center justify-center gap-fs-2">
                   <Button
                     shape="pill"
                     size="xs"
@@ -523,7 +523,7 @@ export default function Page() {
                 Rounded Button Sizes
               </h3>
               <div className="flex flex-wrap items-center justify-center gap-fs-6">
-                <div className="flex flex-col gap-fs-2">
+                <div className="flex flex-col items-center justify-center gap-fs-2">
                   <Button
                     shape="rounded"
                     size="xs"
@@ -624,7 +624,7 @@ export default function Page() {
                 Sharp Shape Button Sizes
               </h3>
               <div className="flex flex-wrap items-center justify-center gap-fs-6">
-                <div className="flex flex-col gap-fs-2">
+                <div className="flex flex-col items-center justify-center gap-fs-2">
                   <Button
                     shape="sharp"
                     size="xs"

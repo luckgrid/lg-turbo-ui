@@ -128,10 +128,10 @@
   --spacing-fs-38: var(--fs-38);
 
   /* Border Radius */
-  --radius-xs: calc(--spacing(1) - 3px);
-  --radius-sm: calc(--spacing(1) - 1.5px);
-  --radius-md: --spacing(1);
-  --radius-lg: calc(--spacing(1) + 3px);
+  --radius-xs: calc(--spacing(1) - 0.5px);
+  --radius-sm: calc(--spacing(1) + 1px);
+  --radius-md: calc(--spacing(1) + 2px);
+  --radius-lg: calc(--spacing(1) + 4px);
   --radius-xl: calc(--spacing(1) + 6px);
 
   /* Fluid Border Radius */
@@ -218,11 +218,12 @@
   max-width: var(--breakpoint-2xl);
 }
 
-/* Ticket adds octagon shaped borders around a parent element */
+/* Adds octagon shaped borders around a parent element (experimental) */
 @utility shape-ticket {
   position: relative;
   outline-style: none;
   border-radius: 0;
+  margin-block: --spacing(2);
 
   &::before,
   &::after {
@@ -231,21 +232,21 @@
     left: 0;
     width: 100%;
     height: 0;
-    border-inline-width: --spacing(1);
+    border-inline-width: --spacing(2);
     border-inline-style: solid;
     border-inline-color: transparent;
   }
 
   &::before {
-    top: --spacing(-1);
-    border-bottom-width: --spacing(1);
+    top: --spacing(-2);
+    border-bottom-width: --spacing(2);
     border-bottom-style: solid;
     border-bottom-color: inherit;
   }
 
   &::after {
-    bottom: --spacing(-1);
-    border-top-width: --spacing(1);
+    bottom: --spacing(-2);
+    border-top-width: --spacing(2);
     border-top-style: solid;
     border-top-color: inherit;
   }

@@ -9,14 +9,14 @@ import { cn } from "@workspace/ui/lib/utils";
 const buttonVariants = cva(
   [
     "inline-flex items-center justify-center",
-    "relative h-10 gap-1.5 px-5 py-3",
+    "relative gap-fs-0-75 px-fs-5 py-fs-1",
     "bg-neutral text-neutral-foreground hover:bg-neutral/90",
     "whitespace-nowrap text-body font-medium",
     "cursor-pointer transition-[color,box-shadow]",
     "disabled:pointer-events-none disabled:opacity-50",
     "outline-offset-1 outline-neutral/50 ring-neutral/25",
     "focus-visible:ring-4 focus-visible:outline-1 aria-invalid:focus-visible:ring-0",
-    "[&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-3.5 [&_svg]:shrink-0",
+    "[&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-fs-3 [&_svg]:shrink-0",
   ],
   {
     variants: {
@@ -36,28 +36,28 @@ const buttonVariants = cva(
         rounded: "rounded-md",
         sharp: "rounded-none",
         ticket: [
-          "h-8 py-1.5 shape-ticket",
+          "py-fs-0-25 shape-ticket",
           "before:border-b-neutral after:border-t-neutral",
           "hover:before:border-b-neutral/90 hover:after:border-t-neutral/90",
           "focus-visible:ring-0 focus-visible:outline-none",
         ],
       },
       size: {
-        xs: "h-6 gap-1 px-3 py-1 text-caption font-normal [&_svg:not([class*='size-'])]:size-3",
-        sm: "h-8 gap-1 px-4 py-2 text-label font-medium [&_svg:not([class*='size-'])]:size-3.5",
-        md: "h-10 gap-1.5 px-5 py-3 text-body font-medium [&_svg:not([class*='size-'])]:size-4",
-        lg: "h-12 gap-1.5 px-6 py-4 text-subheading font-semibold [&_svg:not([class*='size-'])]:size-4.5",
-        xl: "h-14 gap-2 px-7 py-5 text-subtitle font-semibold [&_svg:not([class*='size-'])]:size-5",
+        xs: "gap-fs-0-5 px-fs-1 py-fs-0-25 text-caption font-normal [&_svg:not([class*='size-'])]:size-fs-1",
+        sm: "gap-fs-0-625 px-fs-3 py-fs-0-5 text-label font-medium [&_svg:not([class*='size-'])]:size-fs-2",
+        md: "gap-fs-0-75 px-fs-5 py-fs-0-75 text-body font-medium [&_svg:not([class*='size-'])]:size-fs-3",
+        lg: "gap-fs-1 px-fs-7 py-fs-1 text-subheading font-semibold [&_svg:not([class*='size-'])]:size-fs-4",
+        xl: "gap-fs-2 px-fs-9 py-fs-2 text-subtitle font-semibold [&_svg:not([class*='size-'])]:size-fs-6",
       },
       variant: {
         solid: "",
         outline:
-          "border-2 border-neutral bg-transparent text-neutral-3 hover:border-transparent hover:bg-neutral/90 hover:text-neutral-foreground",
+          "border-(length:--fs-0-25) border-neutral bg-transparent text-neutral-3 hover:border-transparent hover:bg-neutral/90 hover:text-neutral-foreground",
         text: "size-fit px-1 py-0 border-none underline underline-offset-2 bg-transparent text-neutral-3 hover:bg-transparent hover:text-neutral-3/80",
       },
       // Style Modifiers
       isIcon: {
-        true: "size-10 p-3",
+        true: "size-fs-10 p-0",
       },
       isGhost: {
         true: "border-transparent bg-transparent text-current hover:bg-neutral/90 hover:text-neutral-foreground",
@@ -67,80 +67,55 @@ const buttonVariants = cva(
       },
     },
     compoundVariants: [
-      // Solid Color Variants
-      {
-        color: "accent",
-        variant: "solid",
-        className: "border-accent",
-      },
-      {
-        color: "primary",
-        variant: "solid",
-        className: "border-primary",
-      },
-      {
-        color: "secondary",
-        variant: "solid",
-        className: "border-secondary",
-      },
-      {
-        color: "danger",
-        variant: "solid",
-        className: "border-danger",
-      },
       // Solid Ghost Color Modifiers
       {
         isGhost: true,
         color: "accent",
         variant: "solid",
-        className:
-          "border-transparent bg-transparent text-current hover:bg-accent/90 hover:text-accent-foreground",
+        className: "hover:bg-accent/90 hover:text-accent-foreground",
       },
       {
         isGhost: true,
         color: "primary",
         variant: "solid",
-        className:
-          "border-transparent bg-transparent text-current hover:bg-primary/90 hover:text-primary-foreground",
+        className: "hover:bg-primary/90 hover:text-primary-foreground",
       },
       {
         isGhost: true,
         color: "secondary",
         variant: "solid",
-        className:
-          "border-transparent bg-transparent text-current hover:bg-secondary/90 hover:text-secondary-foreground",
+        className: "hover:bg-secondary/90 hover:text-secondary-foreground",
       },
       {
         isGhost: true,
         color: "danger",
         variant: "solid",
-        className:
-          "border-transparent bg-transparent text-current hover:bg-danger/90 hover:text-danger-foreground",
+        className: "hover:bg-danger/90 hover:text-danger-foreground",
       },
       // Outline Color Variants
       {
         color: "accent",
         variant: "outline",
         className:
-          "border-accent text-accent-1 hover:border-transparent hover:bg-accent/90 hover:text-accent-foreground",
+          "border-accent text-accent-1 hover:bg-accent/90 hover:text-accent-foreground",
       },
       {
         color: "primary",
         variant: "outline",
         className:
-          "border-primary text-primary hover:border-transparent hover:bg-primary/90 hover:text-primary-foreground",
+          "border-primary text-primary hover:bg-primary/90 hover:text-primary-foreground",
       },
       {
         color: "secondary",
         variant: "outline",
         className:
-          "border-secondary text-secondary hover:border-transparent hover:bg-secondary/90 hover:text-secondary-foreground",
+          "border-secondary text-secondary hover:bg-secondary/90 hover:text-secondary-foreground",
       },
       {
         color: "danger",
         variant: "outline",
         className:
-          "border-danger text-danger-1 hover:border-transparent hover:bg-danger/90 hover:text-danger-foreground",
+          "border-danger text-danger-1 hover:bg-danger/90 hover:text-danger-foreground",
       },
       // Outline Ghost Color Modifiers
       {
@@ -153,170 +128,163 @@ const buttonVariants = cva(
         color: "accent",
         variant: "outline",
         className:
-          "border-current text-current hover:border-transparent hover:bg-accent/80 hover:text-accent-foreground",
+          "border-current text-current hover:bg-accent/80 hover:text-accent-foreground",
       },
       {
         isGhost: true,
         color: "primary",
         variant: "outline",
         className:
-          "border-current text-current hover:border-transparent hover:bg-primary/80 hover:text-primary-foreground",
+          "border-current text-current hover:bg-primary/80 hover:text-primary-foreground",
       },
       {
         isGhost: true,
         color: "secondary",
         variant: "outline",
         className:
-          "border-current text-current hover:border-transparent hover:bg-secondary/80 hover:text-secondary-foreground",
+          "border-current text-current hover:bg-secondary/80 hover:text-secondary-foreground",
       },
       {
         isGhost: true,
         color: "danger",
         variant: "outline",
         className:
-          "border-current text-current hover:border-transparent hover:bg-danger/80 hover:text-danger-foreground",
+          "border-current text-current hover:bg-danger/80 hover:text-danger-foreground",
       },
       // Text Color Variants
       {
         color: "accent",
         variant: "text",
-        className: "text-accent-1 hover:bg-transparent hover:text-accent-1/80",
+        className: "text-accent-1 hover:text-accent-1/80",
       },
       {
         color: "primary",
         variant: "text",
-        className: "text-primary hover:bg-transparent hover:text-primary-1/80",
+        className: "text-primary hover:text-primary-1/80",
       },
       {
         color: "secondary",
         variant: "text",
-        className:
-          "text-secondary hover:bg-transparent hover:text-secondary/80",
+        className: "text-secondary hover:text-secondary/80",
       },
       {
         color: "danger",
         variant: "text",
-        className: "text-danger-1 hover:bg-transparent hover:text-danger-1/80",
+        className: "text-danger-1 hover:text-danger-1/80",
       },
       // Text Ghost Color Modifiers
       {
         isGhost: true,
         variant: "text",
-        className: "text-current hover:bg-transparent hover:text-neutral-3/80",
+        className: "text-current hover:text-neutral-3/80",
       },
       {
         isGhost: true,
         color: "accent",
         variant: "text",
-        className: "text-current hover:bg-transparent hover:text-accent-1/80",
+        className: "text-current hover:text-accent-1/80",
       },
       {
         isGhost: true,
         color: "primary",
         variant: "text",
-        className: "text-current hover:bg-transparent hover:text-primary/80",
+        className: "text-current hover:text-primary/80",
       },
       {
         isGhost: true,
         color: "secondary",
         variant: "text",
-        className: "text-current hover:bg-transparent hover:text-secondary/80",
+        className: "text-current hover:text-secondary/80",
       },
       {
         isGhost: true,
         color: "danger",
         variant: "text",
-        className: "text-current hover:bg-transparent hover:text-danger-1/80",
+        className: "text-current hover:text-danger-1/80",
       },
-      // Variant Size Modifiers
+      // Outline Size Variants
       {
+        variant: "outline",
         size: "xs",
-        variant: ["solid", "outline", "text"],
-        className: "text-caption",
+        className: "border-1",
       },
       {
+        variant: "outline",
         size: "sm",
-        variant: ["solid", "outline", "text"],
-        className: "text-label",
+        className: "border-(length:--fs-0-25)",
       },
       {
+        variant: "outline",
         size: "md",
-        variant: ["solid", "outline", "text"],
-        className: "text-body",
+        className: "border-(length:--fs-0-25)",
       },
       {
+        variant: "outline",
         size: "lg",
-        variant: ["solid", "outline", "text"],
-        className: "text-subheading",
+        className: "border-(length:--fs-0-375)",
       },
       {
+        variant: "outline",
         size: "xl",
-        variant: ["solid", "outline", "text"],
-        className: "text-subtitle",
+        className: "border-(length:--fs-0-5)",
       },
       // Rounded Shape Size Variants
       {
         shape: "rounded",
         size: "xs",
-        className: "rounded-xs",
+        className: "rounded-fs-xs",
       },
       {
         shape: "rounded",
         size: "sm",
-        className: "rounded-sm",
+        className: "rounded-fs-sm",
       },
       {
         shape: "rounded",
         size: "md",
-        className: "rounded-md",
+        className: "rounded-fs-md",
       },
       {
         shape: "rounded",
         size: "lg",
-        className: "rounded-lg",
+        className: "rounded-fs-lg",
       },
       {
         shape: "rounded",
         size: "xl",
-        className: "rounded-xl",
+        className: "rounded-fs-xl",
       },
       // Icon Size Modifiers
       {
         isIcon: true,
         size: "xs",
-        className: "size-6 p-0",
+        className: "size-fs-6",
       },
       {
         isIcon: true,
         size: "sm",
-        className: "size-8 p-0.5",
+        className: "size-fs-8",
       },
       {
         isIcon: true,
         size: "md",
-        className: "size-10 p-1",
+        className: "size-fs-10",
       },
       {
         isIcon: true,
         size: "lg",
-        className: "size-12 p-1.5",
+        className: "size-fs-12",
       },
       {
         isIcon: true,
         size: "xl",
-        className: "size-14 p-2",
+        className: "size-fs-14",
       },
       // Text Icon Size Modifiers
       {
         isIcon: true,
         variant: "text",
-        className: "size-fit p-1",
-      },
-      {
-        isIcon: true,
-        variant: "text",
-        size: ["xs", "sm", "md", "lg", "xl"],
-        className: "size-fit p-1",
+        className: "size-fit p-fs-0-5",
       },
       // Shadow Size Modifiers
       {
