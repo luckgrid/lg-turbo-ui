@@ -1,0 +1,291 @@
+/* CSS Variables */
+
+/* Color Scale */
+/* - TailwindCSS Colors: https://tailwindcss.com/docs/colors */
+/* - OKLCH Color Picker & Converter: https://oklch.com/#80,0,0,100 */
+
+:root {
+  /* Light gray color scale */
+  --cs-light-base-0: oklch(100% 0 0);
+  --cs-light-base-1: oklch(96.18% 0 0);
+  --cs-light-base-2: oklch(92.36% 0 0);
+  --cs-light-base-3: oklch(88.54% 0 0);
+  --cs-light-base-4: oklch(84.72% 0 0);
+  --cs-light-base-5: oklch(80.9% 0 0);
+  --cs-light-base-6: oklch(77.08% 0 0);
+  --cs-light-base-7: oklch(73.26% 0 0);
+  --cs-light-base-8: oklch(69.44% 0 0);
+  --cs-light-base-9: oklch(65.62% 0 0);
+  --cs-light-base-10: oklch(61.8% 0 0);
+  --cs-light-base-11: oklch(57.98% 0 0);
+  --cs-light-base-12: oklch(54.16% 0 0);
+  --cs-light-base-13: oklch(50.34% 0 0);
+  --cs-light-base-14: oklch(46.52% 0 0);
+  --cs-light-base-15: oklch(42.7% 0 0);
+  --cs-light-base-16: oklch(38.88% 0 0);
+
+  /* Dark gray color scale */
+  --cs-dark-base-0: oklch(0% 0 0);
+  --cs-dark-base-1: oklch(5.573% 0 0);
+  --cs-dark-base-2: oklch(9.82% 0 0);
+  --cs-dark-base-3: oklch(13.64% 0 0);
+  --cs-dark-base-4: oklch(17.46% 0 0);
+  --cs-dark-base-5: oklch(21.28% 0 0);
+  --cs-dark-base-6: oklch(25.1% 0 0);
+  --cs-dark-base-7: oklch(28.92% 0 0);
+  --cs-dark-base-8: oklch(32.74% 0 0);
+  --cs-dark-base-9: oklch(36.56% 0 0);
+  --cs-dark-base-10: oklch(40.38% 0 0);
+  --cs-dark-base-11: oklch(44.2% 0 0);
+  --cs-dark-base-12: oklch(48.02% 0 0);
+  --cs-dark-base-13: oklch(51.84% 0 0);
+  --cs-dark-base-14: oklch(55.66% 0 0);
+  --cs-dark-base-15: oklch(59.48% 0 0);
+  --cs-dark-base-16: oklch(62.44% 0 0);
+
+  /* Accent color scale */
+  --cs-light-accent: oklch(77% 0.127 197);
+  --cs-dark-accent: oklch(53% 0.0888 197);
+
+  /* Danger status color scale */
+  --cs-light-danger: oklch(63% 0.25 15);
+  --cs-dark-danger: oklch(37% 0.125 15);
+}
+
+:root,
+.light,
+[data-theme="light"] {
+  color-scheme: light;
+
+  --background: var(--cs-light-base-0);
+  --background-1: var(--cs-light-base-1);
+  --background-2: var(--cs-light-base-2);
+  --background-3: var(--cs-light-base-3);
+  --foreground: var(--cs-dark-base-0);
+
+  --input: var(--cs-light-base-0);
+  --border: var(--cs-light-base-5);
+  --ring: var(--cs-dark-base-11);
+
+  --card: var(--cs-light-base-4);
+  --card-1: var(--cs-light-base-5);
+  --card-2: var(--cs-light-base-6);
+  --card-3: var(--cs-light-base-7);
+  --card-foreground: var(--cs-dark-base-2);
+
+  --popover: var(--cs-light-base-5);
+  --popover-1: var(--cs-light-base-6);
+  --popover-2: var(--cs-light-base-7);
+  --popover-3: var(--cs-light-base-8);
+  --popover-foreground: var(--cs-dark-base-1);
+
+  --neutral: var(--cs-light-base-4);
+  --neutral-1: var(--cs-light-base-12);
+  --neutral-foreground: var(--cs-dark-base-11);
+  --neutral-foreground-1: var(--cs-dark-base-3);
+
+  --accent: var(--cs-light-accent);
+  --accent-1: var(--cs-dark-accent);
+  --accent-foreground: var(--cs-dark-base-0);
+  --accent-foreground-1: var(--cs-light-base-0);
+
+  --primary: var(--cs-dark-base-0);
+  --primary-foreground: var(--cs-light-base-0);
+
+  --secondary: var(--cs-dark-base-10);
+  --secondary-foreground: var(--cs-light-base-4);
+
+  --danger: var(--cs-light-danger);
+  --danger-1: var(--cs-dark-danger);
+  --danger-foreground: var(--cs-dark-base-3);
+  --danger-foreground-1: var(--cs-light-base-3);
+}
+
+.dark,
+[data-theme="dark"] {
+  color-scheme: dark;
+
+  --background: var(--cs-dark-base-0);
+  --background-1: var(--cs-dark-base-1);
+  --background-2: var(--cs-dark-base-2);
+  --background-3: var(--cs-dark-base-3);
+  --foreground: var(--cs-light-base-0);
+
+  --input: var(--cs-dark-base-0);
+  --border: var(--cs-dark-base-5);
+  --ring: var(--cs-light-base-11);
+
+  --card: var(--cs-dark-base-4);
+  --card-1: var(--cs-dark-base-5);
+  --card-2: var(--cs-dark-base-6);
+  --card-3: var(--cs-dark-base-7);
+  --card-foreground: var(--cs-light-base-2);
+
+  --popover: var(--cs-dark-base-5);
+  --popover-1: var(--cs-dark-base-6);
+  --popover-2: var(--cs-dark-base-7);
+  --popover-3: var(--cs-dark-base-8);
+  --popover-foreground: var(--cs-light-base-1);
+
+  --neutral: var(--cs-dark-base-4);
+  --neutral-1: var(--cs-dark-base-16);
+  --neutral-foreground: var(--cs-light-base-6);
+  --neutral-foreground-1: var(--cs-light-base-3);
+
+  --accent: var(--cs-dark-accent);
+  --accent-1: var(--cs-light-accent);
+  --accent-foreground: var(--cs-light-base-0);
+  --accent-foreground-1: var(--cs-dark-base-0);
+
+  --primary: var(--cs-light-base-0);
+  --primary-foreground: var(--cs-dark-base-0);
+
+  --secondary: var(--cs-light-base-10);
+  --secondary-foreground: var(--cs-dark-base-4);
+
+  --danger: var(--cs-dark-danger);
+  --danger-1: var(--cs-light-danger);
+  --danger-foreground: var(--cs-light-base-3);
+  --danger-foreground-1: var(--cs-dark-base-3);
+}
+
+/* Typography Scale */
+/* - Fluid Type Scale Calculator: https://www.fluid-type-scale.com/calculate?minFontSize=16&minWidth=448&minRatio=1.25&maxFontSize=20&maxWidth=1440&maxRatio=1.333&steps=xs%2Csm%2Cbase%2Cmd%2Clg%2Cxl%2C2xl%2C3xl%2C4xl&baseStep=base&prefix=ts&useContainerWidth=false&includeFallbacks=true&useRems=true&remValue=16&decimals=2&previewFont=Inter&previewText=Almost+before+we+knew+it%2C+we+had+left+the+ground&previewWidth=944 */
+/* - Fluid Type Scale Generator: https://typescale.com/ */
+/* - Modular Type Scale Generator: https://precise-type.com/modular-scale.html */
+
+/* For browsers that support clamp */
+@supports (font-size: clamp(1rem, 1vi, 1rem)) {
+  :root {
+    --ts-xs: clamp(0.64rem, 0.1vi + 0.61rem, 0.7rem);
+    --ts-sm: clamp(0.8rem, 0.22vi + 0.74rem, 0.94rem);
+    --ts-base: clamp(1rem, 0.4vi + 0.89rem, 1.25rem);
+    --ts-md: clamp(1.25rem, 0.67vi + 1.06rem, 1.67rem);
+    --ts-lg: clamp(1.56rem, 1.06vi + 1.27rem, 2.22rem);
+    --ts-xl: clamp(1.95rem, 1.63vi + 1.5rem, 2.96rem);
+    --ts-2xl: clamp(2.44rem, 2.43vi + 1.76rem, 3.95rem);
+    --ts-3xl: clamp(3.05rem, 3.56vi + 2.05rem, 5.26rem);
+    --ts-4xl: clamp(3.81rem, 5.16vi + 2.37rem, 7.01rem);
+  }
+}
+
+/* For browsers that don't support clamp */
+@supports not (font-size: clamp(1rem, 1vi, 1rem)) {
+  :root {
+    --ts-xs: 0.64rem;
+    --ts-sm: 0.8rem;
+    --ts-base: 1rem;
+    --ts-md: 1.25rem;
+    --ts-lg: 1.56rem;
+    --ts-xl: 1.95rem;
+    --ts-2xl: 2.44rem;
+    --ts-3xl: 3.05rem;
+    --ts-4xl: 3.81rem;
+  }
+
+  @media screen and (min-width: var(--breakpoint-md, 48rem)) {
+    :root {
+      --ts-xs: 0.67rem;
+      --ts-sm: 0.87rem;
+      --ts-base: 1.13rem;
+      --ts-md: 1.46rem;
+      --ts-lg: 1.89rem;
+      --ts-xl: 2.46rem;
+      --ts-2xl: 3.19rem;
+      --ts-3xl: 4.16rem;
+      --ts-4xl: 5.41rem;
+    }
+  }
+
+  @media screen and (min-width: var(--breakpoint-xl, 80rem)) {
+    :root {
+      --ts-xs: 0.7rem;
+      --ts-sm: 0.94rem;
+      --ts-base: 1.25rem;
+      --ts-md: 1.67rem;
+      --ts-lg: 2.22rem;
+      --ts-xl: 2.96rem;
+      --ts-2xl: 3.95rem;
+      --ts-3xl: 5.26rem;
+      --ts-4xl: 7.01rem;
+    }
+  }
+}
+
+/* Spacing Scale */
+/* - Fluid Scale Calculator: https://www.fluid-type-scale.com/calculate?minFontSize=21.12&minWidth=448&minRatio=1.333&maxFontSize=42.24&maxWidth=1440&maxRatio=1.5&steps=3xs%2C2xs%2Cxs%2Csm%2Cbase%2Cmd%2Clg%2Cxl%2C2xl%2C3xl%2C4xl%2C5xl%2C6xl&baseStep=base&prefix=fs&useContainerWidth=false&includeFallbacks=true&useRems=true&remValue=16&decimals=2&previewFont=Inter&previewText=Almost+before+we+knew+it%2C+we+had+left+the+ground&previewWidth=944 */
+/* - Fluid Spacing Calculator: https://utopia.fyi/space/calculator/?c=448,21.12,1.2,1440,42.24,1.25,5,2,&s=0.75|0.5,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
+
+/* For browsers that support clamp  */
+@supports (padding: clamp(1rem, 1vi, 1rem)) {
+  :root {
+    --fs-1: clamp(0.42rem, 0.17vi + 0.37rem, 0.52rem);
+    --fs-2: clamp(0.56rem, 0.36vi + 0.46rem, 0.78rem);
+    --fs-3: clamp(0.74rem, 0.69vi + 0.55rem, 1.17rem);
+    --fs-4: clamp(0.99rem, 1.24vi + 0.64rem, 1.76rem);
+    --fs-5: clamp(1.32rem, 2.13vi + 0.72rem, 2.64rem);
+    --fs-6: clamp(1.76rem, 3.55vi + 0.77rem, 3.96rem);
+    --fs-7: clamp(2.35rem, 5.8vi + 0.72rem, 5.94rem);
+    --fs-8: clamp(3.13rem, 9.33vi + 0.51rem, 8.91rem);
+    --fs-9: clamp(4.17rem, 14.83vi + 0.01rem, 13.37rem);
+    --fs-10: clamp(5.56rem, 23.37vi + -0.99rem, 20.05rem);
+    --fs-11: clamp(7.41rem, 36.56vi + -2.83rem, 30.07rem);
+    --fs-12: clamp(9.87rem, 56.83vi + -6.04rem, 45.11rem);
+    --fs-13: clamp(13.16rem, 87.91vi + -11.45rem, 67.66rem);
+  }
+}
+
+/* For browsers that don't support clamp */
+@supports not (padding: clamp(1rem, 1vi, 1rem)) {
+  :root {
+    --fs-1: 0.42rem;
+    --fs-2: 0.56rem;
+    --fs-3: 0.74rem;
+    --fs-4: 0.99rem;
+    --fs-5: 1.32rem;
+    --fs-6: 1.76rem;
+    --fs-7: 2.35rem;
+    --fs-8: 3.13rem;
+    --fs-9: 4.17rem;
+    --fs-10: 5.56rem;
+    --fs-11: 7.41rem;
+    --fs-12: 9.87rem;
+    --fs-13: 13.16rem;
+  }
+
+  @media screen and (min-width: var(--breakpoint-md, 48rem)) {
+    :root {
+      --fs-1: 0.47rem;
+      --fs-2: 0.67rem;
+      --fs-3: 0.96rem;
+      --fs-4: 1.38rem;
+      --fs-5: 1.98rem;
+      --fs-6: 2.86rem;
+      --fs-7: 4.14rem;
+      --fs-8: 6.02rem;
+      --fs-9: 8.77rem;
+      --fs-10: 12.8rem;
+      --fs-11: 18.74rem;
+      --fs-12: 27.49rem;
+      --fs-13: 40.41rem;
+    }
+  }
+
+  @media screen and (min-width: var(--breakpoint-xl, 80rem)) {
+    :root {
+      --fs-1: 0.52rem;
+      --fs-2: 0.78rem;
+      --fs-3: 1.17rem;
+      --fs-4: 1.76rem;
+      --fs-5: 2.64rem;
+      --fs-6: 3.96rem;
+      --fs-7: 5.94rem;
+      --fs-8: 8.91rem;
+      --fs-9: 13.37rem;
+      --fs-10: 20.05rem;
+      --fs-11: 30.07rem;
+      --fs-12: 45.11rem;
+      --fs-13: 67.66rem;
+    }
+  }
+}

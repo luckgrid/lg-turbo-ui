@@ -11,7 +11,7 @@ const buttonVariants = cva(
     "inline-flex items-center justify-center",
     "relative h-10 gap-1.5 px-5 py-3",
     "bg-neutral text-neutral-foreground hover:bg-neutral/90",
-    "whitespace-nowrap text-base font-medium",
+    "whitespace-nowrap text-body font-medium",
     "cursor-pointer transition-[color,box-shadow]",
     "disabled:pointer-events-none disabled:opacity-50",
     "outline-offset-1 outline-neutral/50 ring-neutral/25",
@@ -43,11 +43,11 @@ const buttonVariants = cva(
         ],
       },
       size: {
-        xs: "h-6 gap-1 px-3 py-1 text-xs font-normal [&_svg:not([class*='size-'])]:size-3",
-        sm: "h-8 gap-1 px-4 py-2 text-sm font-medium [&_svg:not([class*='size-'])]:size-3.5",
-        md: "h-10 gap-1.5 px-5 py-3 text-base font-medium [&_svg:not([class*='size-'])]:size-4",
-        lg: "h-12 gap-1.5 px-6 py-4 text-lg font-semibold [&_svg:not([class*='size-'])]:size-4.5",
-        xl: "h-14 gap-2 px-7 py-5 text-xl font-semibold [&_svg:not([class*='size-'])]:size-5",
+        xs: "h-6 gap-1 px-3 py-1 text-caption font-normal [&_svg:not([class*='size-'])]:size-3",
+        sm: "h-8 gap-1 px-4 py-2 text-label font-medium [&_svg:not([class*='size-'])]:size-3.5",
+        md: "h-10 gap-1.5 px-5 py-3 text-body font-medium [&_svg:not([class*='size-'])]:size-4",
+        lg: "h-12 gap-1.5 px-6 py-4 text-subheading font-semibold [&_svg:not([class*='size-'])]:size-4.5",
+        xl: "h-14 gap-2 px-7 py-5 text-subtitle font-semibold [&_svg:not([class*='size-'])]:size-5",
       },
       variant: {
         solid: "",
@@ -228,6 +228,32 @@ const buttonVariants = cva(
         variant: "text",
         className: "text-current hover:bg-transparent hover:text-danger-1/80",
       },
+      // Variant Size Modifiers
+      {
+        size: "xs",
+        variant: ["solid", "outline", "text"],
+        className: "text-caption",
+      },
+      {
+        size: "sm",
+        variant: ["solid", "outline", "text"],
+        className: "text-label",
+      },
+      {
+        size: "md",
+        variant: ["solid", "outline", "text"],
+        className: "text-body",
+      },
+      {
+        size: "lg",
+        variant: ["solid", "outline", "text"],
+        className: "text-subheading",
+      },
+      {
+        size: "xl",
+        variant: ["solid", "outline", "text"],
+        className: "text-subtitle",
+      },
       // Rounded Shape Size Variants
       {
         shape: "rounded",
@@ -319,7 +345,7 @@ const buttonVariants = cva(
         className: "shadow-xl",
       },
     ],
-  },
+  }
 );
 
 type ButtonVariantProps = VariantProps<typeof buttonVariants>;
@@ -356,7 +382,7 @@ function Button({
           isGhost,
           withShadow,
           className,
-        }),
+        })
       )}
       {...props}
     />

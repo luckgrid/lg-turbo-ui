@@ -6,38 +6,38 @@ import { metadata } from "@/configs/app";
 export default function Page() {
   return (
     <main className="flex flex-col min-h-svh">
-      <header className="container flex flex-col items-center justify-center gap-4 py-16 px-4">
+      <header className="container flex flex-col flex-1 items-center justify-center gap-4 py-16 px-4">
         <Image
           alt="Logo"
           src="/assets/logos/logo.png"
-          width={125}
-          height={125}
+          width={200}
+          height={200}
           priority
           className="dark:invert"
         />
-        <div className="flex flex-col gap-2max-w-3xl mx-auto text-center">
+        <div className="flex flex-col gap-2 max-w-3xl mx-auto text-center">
           <h1 className="text-balance">{metadata.name}</h1>
-          <p className="text-balance text-neutral-foreground">
+          <p className="text-subheading text-balance text-neutral-foreground">
             {metadata.description}
           </p>
         </div>
       </header>
       <section className="flex flex-col flex-1 gap-8 py-8 bg-background-2">
         <div className="container flex flex-col gap-4 px-4">
-          <h2 className="text-balance">{metadata.title}</h2>
+          <h2 className="text-heading text-balance">{metadata.title}</h2>
         </div>
         <div className="container flex flex-wrap gap-4 px-4">
           <Card space="container">
-            <h4>React & Tailwind Components</h4>
+            <h3 className="text-body">React + Tailwind CSS</h3>
           </Card>
           <Card space="container">
-            <h4>Next Ready</h4>
+            <h3 className="text-body">NextJS Ready</h3>
           </Card>
           <Card space="container">
-            <h4>Open Source</h4>
+            <h3 className="text-body">Open Source</h3>
           </Card>
           <Card space="container">
-            <h4>CVA Design System</h4>
+            <h3 className="text-body">CVA Design System</h3>
           </Card>
         </div>
       </section>

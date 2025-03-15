@@ -6,8 +6,8 @@ import { metadata } from "@/configs/app";
 
 export default function Page() {
   return (
-    <main className="flex flex-col min-h-svh gap-32">
-      <header className="container flex flex-col items-center justify-center gap-4 py-8 px-4">
+    <main className="flex flex-col min-h-svh gap-fs-8">
+      <header className="container flex flex-col flex-1 items-center justify-center gap-fs-4 py-fs-8 px-fs-4">
         <Image
           alt="Logo"
           src="/assets/logos/logo.png"
@@ -16,27 +16,29 @@ export default function Page() {
           priority
           className="dark:invert"
         />
-        <h1 className="text-center text-balance">{metadata.name}</h1>
-        <p className="max-w-lg mx-auto text-center text-balance text-neutral-foreground">
-          {metadata.description}
-        </p>
+        <div className="flex flex-col gap-fs-2 max-w-3xl mx-auto text-center">
+          <h1 className="text-title text-balance">{metadata.name}</h1>
+          <p className="text-balance text-neutral-foreground">
+            {metadata.description}
+          </p>
+        </div>
       </header>
-      <section className="container flex flex-col items-center justify-center gap-16 py-8 px-4">
-        <header className="flex flex-col gap-2 items-center text-center">
-          <h2>Button Component</h2>
-          <p className="max-w-lg mx-auto text-balance text-neutral-foreground">
+      <section className="flex flex-col flex-1 items-center justify-center gap-fs-8 py-fs-8 px-fs-4">
+        <header className="container flex flex-col gap-fs-2 items-center text-center">
+          <h2 className="text-heading">Button Component</h2>
+          <p className="max-w-2xl mx-auto text-balance text-neutral-foreground">
             The Button component is a versatile and customizable component that
             can be used to create a variety of buttons.
           </p>
           <Button>Default (Neutral) Button</Button>
         </header>
-        <div className="flex flex-wrap gap-12 justify-center">
-          <div className="flex flex-col gap-4">
-            <h3 className="text-center text-balance">
+        <div className="container flex flex-wrap gap-fs-6 justify-center">
+          <div className="flex flex-col gap-fs-4">
+            <h3 className="text-subheading text-center text-balance">
               Solid Variant Button Colors
             </h3>
-            <div className="flex flex-wrap items-center justify-center gap-4">
-              <div className="flex flex-col gap-2">
+            <div className="flex flex-wrap items-center justify-center gap-fs-4">
+              <div className="flex flex-col gap-fs-2">
                 <Button variant="solid">Neutral</Button>
                 <Button color="accent" variant="solid">
                   Accent
@@ -51,7 +53,7 @@ export default function Page() {
                   Danger
                 </Button>
               </div>
-              <div className="flex flex-col gap-2">
+              <div className="flex flex-col gap-fs-2">
                 <Button variant="solid" isIcon aria-label="Solid Neutral Icon">
                   <Star />
                 </Button>
@@ -88,7 +90,7 @@ export default function Page() {
                   <Star />
                 </Button>
               </div>
-              <div className="flex flex-col gap-2">
+              <div className="flex flex-col gap-fs-2">
                 <Button isGhost variant="solid">
                   Neutral Ghost
                 </Button>
@@ -105,7 +107,7 @@ export default function Page() {
                   Danger Ghost
                 </Button>
               </div>
-              <div className="flex flex-col gap-2">
+              <div className="flex flex-col gap-fs-2">
                 <Button
                   variant="solid"
                   isGhost
@@ -154,11 +156,11 @@ export default function Page() {
             </div>
           </div>
           <div className="flex flex-col gap-4">
-            <h3 className="text-center text-balance">
+            <h3 className="text-subheading text-center text-balance">
               Outline Variant Button Colors
             </h3>
-            <div className="flex flex-wrap items-center justify-center gap-4">
-              <div className="flex flex-col gap-2">
+            <div className="flex flex-wrap items-center justify-center gap-fs-4">
+              <div className="flex flex-col gap-fs-2">
                 <Button variant="outline">Neutral</Button>
                 <Button color="accent" variant="outline">
                   Accent
@@ -173,7 +175,7 @@ export default function Page() {
                   Danger
                 </Button>
               </div>
-              <div className="flex flex-col gap-2">
+              <div className="flex flex-col gap-fs-2">
                 <Button
                   variant="outline"
                   isIcon
@@ -214,7 +216,7 @@ export default function Page() {
                   <Star />
                 </Button>
               </div>
-              <div className="flex flex-col gap-2">
+              <div className="flex flex-col gap-fs-2">
                 <Button isGhost variant="outline">
                   Neutral Ghost
                 </Button>
@@ -231,7 +233,7 @@ export default function Page() {
                   Danger Ghost
                 </Button>
               </div>
-              <div className="flex flex-col gap-2">
+              <div className="flex flex-col gap-fs-2">
                 <Button
                   variant="outline"
                   isGhost
@@ -280,11 +282,11 @@ export default function Page() {
             </div>
           </div>
           <div className="flex flex-col gap-4">
-            <h3 className="text-center text-balance">
+            <h3 className="text-subheading text-center text-balance">
               Text Variant Button Colors
             </h3>
-            <div className="flex flex-wrap items-center justify-center gap-4">
-              <div className="flex flex-col gap-2">
+            <div className="flex flex-wrap items-center justify-center gap-fs-4">
+              <div className="flex flex-col gap-fs-2">
                 <Button
                   size="xs"
                   variant="text"
@@ -330,7 +332,7 @@ export default function Page() {
                   <Star />
                 </Button>
               </div>
-              <div className="flex flex-col gap-2">
+              <div className="flex flex-col gap-fs-2">
                 <Button variant="text">Neutral</Button>
                 <Button color="accent" variant="text">
                   Accent
@@ -345,7 +347,7 @@ export default function Page() {
                   Danger
                 </Button>
               </div>
-              <div className="flex flex-col gap-2">
+              <div className="flex flex-col gap-fs-2">
                 <Button variant="text" isIcon aria-label="Text Neutral Icon">
                   <Star />
                 </Button>
@@ -382,7 +384,7 @@ export default function Page() {
                   <Star />
                 </Button>
               </div>
-              <div className="flex flex-col gap-2">
+              <div className="flex flex-col gap-fs-2">
                 <Button isGhost variant="text">
                   Neutral Ghost
                 </Button>
@@ -399,7 +401,7 @@ export default function Page() {
                   Danger Ghost
                 </Button>
               </div>
-              <div className="flex flex-col gap-2">
+              <div className="flex flex-col gap-fs-2">
                 <Button
                   variant="text"
                   isGhost
@@ -448,236 +450,240 @@ export default function Page() {
             </div>
           </div>
         </div>
-        <div className="flex flex-wrap gap-12 justify-center">
-          <div className="flex flex-col gap-4">
-            <h3 className="text-center text-balance">
-              Pill Shape Button Sizes
-            </h3>
-            <div className="flex flex-wrap items-center justify-center gap-4">
-              <div className="flex flex-col gap-2">
-                <Button shape="pill" size="xs">
-                  Extra Small
-                </Button>
-                <Button shape="pill" size="sm">
-                  Small
-                </Button>
-                <Button shape="pill" size="md">
-                  Medium
-                </Button>
-                <Button shape="pill" size="lg">
-                  Large
-                </Button>
-                <Button shape="pill" size="xl">
-                  Extra Large
-                </Button>
-              </div>
-              <div className="flex flex-col gap-2">
-                <Button
-                  shape="pill"
-                  size="xs"
-                  isIcon
-                  aria-label="Pill Neutral Icon"
-                >
-                  <Star />
-                </Button>
-                <Button
-                  shape="pill"
-                  size="sm"
-                  isIcon
-                  aria-label="Pill Accent Icon"
-                >
-                  <Star />
-                </Button>
-                <Button
-                  shape="pill"
-                  size="md"
-                  isIcon
-                  aria-label="Pill Primary Icon"
-                >
-                  <Star />
-                </Button>
-                <Button
-                  shape="pill"
-                  size="lg"
-                  isIcon
-                  aria-label="Pill Secondary Icon"
-                >
-                  <Star />
-                </Button>
-                <Button
-                  shape="pill"
-                  size="xl"
-                  isIcon
-                  aria-label="Pill Danger Icon"
-                >
-                  <Star />
-                </Button>
-              </div>
-            </div>
-          </div>
-          <div className="flex flex-col gap-4">
-            <h3 className="text-center text-balance">Rounded Button Sizes</h3>
-            <div className="flex flex-wrap items-center justify-center gap-4">
-              <div className="flex flex-col gap-2">
-                <Button
-                  shape="rounded"
-                  size="xs"
-                  variant="outline"
-                  color="primary"
-                >
-                  Extra Small
-                </Button>
-                <Button
-                  shape="rounded"
-                  size="sm"
-                  variant="outline"
-                  color="primary"
-                >
-                  Small
-                </Button>
-                <Button
-                  shape="rounded"
-                  size="md"
-                  variant="outline"
-                  color="primary"
-                >
-                  Medium
-                </Button>
-                <Button
-                  shape="rounded"
-                  size="lg"
-                  variant="outline"
-                  color="primary"
-                >
-                  Large
-                </Button>
-                <Button
-                  shape="rounded"
-                  size="xl"
-                  variant="outline"
-                  color="primary"
-                >
-                  Extra Large
-                </Button>
-              </div>
-              <div className="flex flex-col gap-2">
-                <Button
-                  shape="rounded"
-                  size="xs"
-                  variant="outline"
-                  color="primary"
-                  isIcon
-                  aria-label="Rounded Neutral Icon"
-                >
-                  <Star />
-                </Button>
-                <Button
-                  shape="rounded"
-                  size="sm"
-                  variant="outline"
-                  color="primary"
-                  isIcon
-                  aria-label="Rounded Accent Icon"
-                >
-                  <Star />
-                </Button>
-                <Button
-                  shape="rounded"
-                  size="md"
-                  variant="outline"
-                  color="primary"
-                  isIcon
-                  aria-label="Rounded Primary Icon"
-                >
-                  <Star />
-                </Button>
-                <Button
-                  shape="rounded"
-                  size="lg"
-                  variant="outline"
-                  color="primary"
-                  isIcon
-                  aria-label="Rounded Secondary Icon"
-                >
-                  <Star />
-                </Button>
-                <Button
-                  shape="rounded"
-                  size="xl"
-                  variant="outline"
-                  color="primary"
-                  isIcon
-                  aria-label="Rounded Danger Icon"
-                >
-                  <Star />
-                </Button>
+        <div className="flex flex-col bg-background-1">
+          <div className="container flex flex-wrap gap-fs-4 justify-center">
+            <div className="flex flex-col gap-4">
+              <h3 className="text-subheading text-center text-balance">
+                Pill Shape Button Sizes
+              </h3>
+              <div className="flex flex-wrap items-center justify-center gap-fs-4">
+                <div className="flex flex-col gap-fs-2">
+                  <Button shape="pill" size="xs">
+                    Extra Small
+                  </Button>
+                  <Button shape="pill" size="sm">
+                    Small
+                  </Button>
+                  <Button shape="pill" size="md">
+                    Medium
+                  </Button>
+                  <Button shape="pill" size="lg">
+                    Large
+                  </Button>
+                  <Button shape="pill" size="xl">
+                    Extra Large
+                  </Button>
+                </div>
+                <div className="flex flex-col gap-fs-2">
+                  <Button
+                    shape="pill"
+                    size="xs"
+                    isIcon
+                    aria-label="Pill Neutral Icon"
+                  >
+                    <Star />
+                  </Button>
+                  <Button
+                    shape="pill"
+                    size="sm"
+                    isIcon
+                    aria-label="Pill Accent Icon"
+                  >
+                    <Star />
+                  </Button>
+                  <Button
+                    shape="pill"
+                    size="md"
+                    isIcon
+                    aria-label="Pill Primary Icon"
+                  >
+                    <Star />
+                  </Button>
+                  <Button
+                    shape="pill"
+                    size="lg"
+                    isIcon
+                    aria-label="Pill Secondary Icon"
+                  >
+                    <Star />
+                  </Button>
+                  <Button
+                    shape="pill"
+                    size="xl"
+                    isIcon
+                    aria-label="Pill Danger Icon"
+                  >
+                    <Star />
+                  </Button>
+                </div>
               </div>
             </div>
-          </div>
-          <div className="flex flex-col gap-4">
-            <h3 className="text-center text-balance">
-              Sharp Shape Button Sizes
-            </h3>
-            <div className="flex flex-wrap items-center justify-center gap-4">
-              <div className="flex flex-col gap-2">
-                <Button
-                  shape="sharp"
-                  size="xs"
-                  color="secondary"
-                  variant="outline"
-                  isGhost
-                >
-                  <Star />
-                  Extra Small
-                </Button>
-                <Button
-                  shape="sharp"
-                  size="sm"
-                  color="secondary"
-                  variant="outline"
-                  isGhost
-                >
-                  <Star />
-                  Small
-                </Button>
-                <Button
-                  shape="sharp"
-                  size="md"
-                  color="secondary"
-                  variant="outline"
-                  isGhost
-                >
-                  <Star />
-                  Medium
-                </Button>
-                <Button
-                  shape="sharp"
-                  size="lg"
-                  color="secondary"
-                  variant="outline"
-                  isGhost
-                >
-                  <Star />
-                  Large
-                </Button>
-                <Button
-                  shape="sharp"
-                  size="xl"
-                  color="secondary"
-                  variant="outline"
-                  isGhost
-                >
-                  <Star />
-                  Extra Large
-                </Button>
+            <div className="flex flex-col gap-fs-4">
+              <h3 className="text-subheading text-center text-balance">
+                Rounded Button Sizes
+              </h3>
+              <div className="flex flex-wrap items-center justify-center gap-fs-4">
+                <div className="flex flex-col gap-fs-2">
+                  <Button
+                    shape="rounded"
+                    size="xs"
+                    variant="outline"
+                    color="primary"
+                  >
+                    Extra Small
+                  </Button>
+                  <Button
+                    shape="rounded"
+                    size="sm"
+                    variant="outline"
+                    color="primary"
+                  >
+                    Small
+                  </Button>
+                  <Button
+                    shape="rounded"
+                    size="md"
+                    variant="outline"
+                    color="primary"
+                  >
+                    Medium
+                  </Button>
+                  <Button
+                    shape="rounded"
+                    size="lg"
+                    variant="outline"
+                    color="primary"
+                  >
+                    Large
+                  </Button>
+                  <Button
+                    shape="rounded"
+                    size="xl"
+                    variant="outline"
+                    color="primary"
+                  >
+                    Extra Large
+                  </Button>
+                </div>
+                <div className="flex flex-col gap-fs-2">
+                  <Button
+                    shape="rounded"
+                    size="xs"
+                    variant="outline"
+                    color="primary"
+                    isIcon
+                    aria-label="Rounded Neutral Icon"
+                  >
+                    <Star />
+                  </Button>
+                  <Button
+                    shape="rounded"
+                    size="sm"
+                    variant="outline"
+                    color="primary"
+                    isIcon
+                    aria-label="Rounded Accent Icon"
+                  >
+                    <Star />
+                  </Button>
+                  <Button
+                    shape="rounded"
+                    size="md"
+                    variant="outline"
+                    color="primary"
+                    isIcon
+                    aria-label="Rounded Primary Icon"
+                  >
+                    <Star />
+                  </Button>
+                  <Button
+                    shape="rounded"
+                    size="lg"
+                    variant="outline"
+                    color="primary"
+                    isIcon
+                    aria-label="Rounded Secondary Icon"
+                  >
+                    <Star />
+                  </Button>
+                  <Button
+                    shape="rounded"
+                    size="xl"
+                    variant="outline"
+                    color="primary"
+                    isIcon
+                    aria-label="Rounded Danger Icon"
+                  >
+                    <Star />
+                  </Button>
+                </div>
+              </div>
+            </div>
+            <div className="flex flex-col gap-fs-4">
+              <h3 className="text-subheading text-center text-balance">
+                Sharp Shape Button Sizes
+              </h3>
+              <div className="flex flex-wrap items-center justify-center gap-fs-4">
+                <div className="flex flex-col gap-fs-2">
+                  <Button
+                    shape="sharp"
+                    size="xs"
+                    color="secondary"
+                    variant="outline"
+                    isGhost
+                  >
+                    <Star />
+                    Extra Small
+                  </Button>
+                  <Button
+                    shape="sharp"
+                    size="sm"
+                    color="secondary"
+                    variant="outline"
+                    isGhost
+                  >
+                    <Star />
+                    Small
+                  </Button>
+                  <Button
+                    shape="sharp"
+                    size="md"
+                    color="secondary"
+                    variant="outline"
+                    isGhost
+                  >
+                    <Star />
+                    Medium
+                  </Button>
+                  <Button
+                    shape="sharp"
+                    size="lg"
+                    color="secondary"
+                    variant="outline"
+                    isGhost
+                  >
+                    <Star />
+                    Large
+                  </Button>
+                  <Button
+                    shape="sharp"
+                    size="xl"
+                    color="secondary"
+                    variant="outline"
+                    isGhost
+                  >
+                    <Star />
+                    Extra Large
+                  </Button>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </section>
-      <footer className="flex flex-col gap-4 py-2 bg-secondary text-secondary-foreground">
-        <div className="container flex flex-col gap-4 px-4">
-          <small>
+      <footer className="flex flex-col gap-fs-4 py-fs-2 bg-secondary text-secondary-foreground">
+        <div className="container flex flex-col gap-fs-4 px-fs-4">
+          <p className="text-caption">
             &copy; {new Date().getFullYear()},{" "}
             <a
               className="underline underline-offset-1"
@@ -697,7 +703,7 @@ export default function Page() {
               MIT License
             </a>
             .
-          </small>
+          </p>
         </div>
       </footer>
     </main>
