@@ -6,7 +6,7 @@ import { metadata } from "@/configs/app";
 export default function Page() {
   return (
     <main className="flex flex-col min-h-svh">
-      <header className="container flex flex-col flex-1 items-center justify-center gap-4 py-16 px-4">
+      <header className="flex flex-col flex-1 items-center justify-center gap-fs-4 py-fs-8 px-fs-4">
         <Image
           alt="Logo"
           src="/assets/logos/logo.png"
@@ -15,18 +15,23 @@ export default function Page() {
           priority
           className="dark:invert"
         />
-        <div className="flex flex-col gap-2 max-w-3xl mx-auto text-center">
+        <div className="container max-w-4xl flex flex-col gap-fs-2 text-center">
           <h1 className="text-balance">{metadata.name}</h1>
-          <p className="text-subheading text-balance text-neutral-foreground">
-            {metadata.description}
+          <p className="text-balance text-neutral-foreground">
+            {metadata.title}
           </p>
         </div>
       </header>
-      <section className="flex flex-col flex-1 gap-8 py-8 bg-background-2">
-        <div className="container flex flex-col gap-4 px-4">
-          <h2 className="text-heading text-balance">{metadata.title}</h2>
-        </div>
-        <div className="container flex flex-wrap gap-4 px-4">
+      <section className="flex flex-col flex-1 gap-fs-6 py-fs-6 bg-background-2">
+        <header className="container flex flex-col gap-fs-2 px-fs-4">
+          <h2 className="text-heading text-balance">
+            Organize your brands, products and services
+          </h2>
+          <p className="max-w-6xl text-pretty text-neutral-foreground">
+            {metadata.description}
+          </p>
+        </header>
+        <div className="container flex flex-wrap gap-fs-4 px-fs-4">
           <Card space="container">
             <h3 className="text-body">React + Tailwind CSS</h3>
           </Card>
@@ -41,9 +46,9 @@ export default function Page() {
           </Card>
         </div>
       </section>
-      <footer className="flex flex-col gap-4 py-2 bg-secondary text-secondary-foreground">
-        <div className="container flex flex-col gap-4 px-4">
-          <small>
+      <footer className="flex flex-col gap-fs-4 py-fs-2 bg-background-3 text-neutral-foreground/75">
+        <div className="container flex flex-col gap-fs-4 px-fs-4">
+          <p className="text-caption">
             &copy; {new Date().getFullYear()},{" "}
             <a
               className="underline underline-offset-1"
@@ -63,7 +68,7 @@ export default function Page() {
               MIT License
             </a>
             .
-          </small>
+          </p>
         </div>
       </footer>
     </main>

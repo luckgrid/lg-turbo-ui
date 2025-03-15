@@ -6,8 +6,8 @@ import { metadata } from "@/configs/app";
 
 export default function Page() {
   return (
-    <main className="flex flex-col min-h-svh gap-fs-8">
-      <header className="container flex flex-col flex-1 items-center justify-center gap-fs-4 py-fs-8 px-fs-4">
+    <main className="flex flex-col min-h-svh">
+      <header className="container flex flex-col flex-1 items-center justify-center gap-fs-6 py-fs-12 px-fs-6">
         <Image
           alt="Logo"
           src="/assets/logos/logo.png"
@@ -16,15 +16,15 @@ export default function Page() {
           priority
           className="dark:invert"
         />
-        <div className="flex flex-col gap-fs-2 max-w-3xl mx-auto text-center">
+        <div className="flex flex-col gap-fs-3 max-w-3xl mx-auto text-center">
           <h1 className="text-title text-balance">{metadata.name}</h1>
           <p className="text-balance text-neutral-foreground">
             {metadata.description}
           </p>
         </div>
       </header>
-      <section className="flex flex-col flex-1 items-center justify-center gap-fs-8 py-fs-8 px-fs-4">
-        <header className="container flex flex-col gap-fs-2 items-center text-center">
+      <section className="flex flex-col flex-1 items-center justify-center gap-fs-8 py-fs-10 px-fs-6 bg-background-1">
+        <header className="container flex flex-col gap-fs-3 items-center text-center">
           <h2 className="text-heading">Button Component</h2>
           <p className="max-w-2xl mx-auto text-balance text-neutral-foreground">
             The Button component is a versatile and customizable component that
@@ -32,12 +32,12 @@ export default function Page() {
           </p>
           <Button>Default (Neutral) Button</Button>
         </header>
-        <div className="container flex flex-wrap gap-fs-6 justify-center">
-          <div className="flex flex-col gap-fs-4">
+        <div className="container flex flex-wrap gap-fs-10 justify-center">
+          <div className="flex flex-col gap-fs-6">
             <h3 className="text-subheading text-center text-balance">
               Solid Variant Button Colors
             </h3>
-            <div className="flex flex-wrap items-center justify-center gap-fs-4">
+            <div className="flex flex-wrap items-center justify-center gap-fs-6">
               <div className="flex flex-col gap-fs-2">
                 <Button variant="solid">Neutral</Button>
                 <Button color="accent" variant="solid">
@@ -159,7 +159,7 @@ export default function Page() {
             <h3 className="text-subheading text-center text-balance">
               Outline Variant Button Colors
             </h3>
-            <div className="flex flex-wrap items-center justify-center gap-fs-4">
+            <div className="flex flex-wrap items-center justify-center gap-fs-6">
               <div className="flex flex-col gap-fs-2">
                 <Button variant="outline">Neutral</Button>
                 <Button color="accent" variant="outline">
@@ -285,7 +285,7 @@ export default function Page() {
             <h3 className="text-subheading text-center text-balance">
               Text Variant Button Colors
             </h3>
-            <div className="flex flex-wrap items-center justify-center gap-fs-4">
+            <div className="flex flex-wrap items-center justify-center gap-fs-6">
               <div className="flex flex-col gap-fs-2">
                 <Button
                   size="xs"
@@ -450,13 +450,13 @@ export default function Page() {
             </div>
           </div>
         </div>
-        <div className="flex flex-col bg-background-1">
-          <div className="container flex flex-wrap gap-fs-4 justify-center">
+        <div className="container flex flex-col">
+          <div className="flex flex-wrap gap-fs-6 justify-center">
             <div className="flex flex-col gap-4">
               <h3 className="text-subheading text-center text-balance">
                 Pill Shape Button Sizes
               </h3>
-              <div className="flex flex-wrap items-center justify-center gap-fs-4">
+              <div className="flex flex-wrap items-center justify-center gap-fs-6">
                 <div className="flex flex-col gap-fs-2">
                   <Button shape="pill" size="xs">
                     Extra Small
@@ -518,11 +518,11 @@ export default function Page() {
                 </div>
               </div>
             </div>
-            <div className="flex flex-col gap-fs-4">
+            <div className="flex flex-col gap-fs-6">
               <h3 className="text-subheading text-center text-balance">
                 Rounded Button Sizes
               </h3>
-              <div className="flex flex-wrap items-center justify-center gap-fs-4">
+              <div className="flex flex-wrap items-center justify-center gap-fs-6">
                 <div className="flex flex-col gap-fs-2">
                   <Button
                     shape="rounded"
@@ -619,11 +619,11 @@ export default function Page() {
                 </div>
               </div>
             </div>
-            <div className="flex flex-col gap-fs-4">
+            <div className="flex flex-col gap-fs-6">
               <h3 className="text-subheading text-center text-balance">
                 Sharp Shape Button Sizes
               </h3>
-              <div className="flex flex-wrap items-center justify-center gap-fs-4">
+              <div className="flex flex-wrap items-center justify-center gap-fs-6">
                 <div className="flex flex-col gap-fs-2">
                   <Button
                     shape="sharp"
@@ -681,12 +681,12 @@ export default function Page() {
           </div>
         </div>
       </section>
-      <footer className="flex flex-col gap-fs-4 py-fs-2 bg-secondary text-secondary-foreground">
-        <div className="container flex flex-col gap-fs-4 px-fs-4">
+      <footer className="flex flex-col gap-fs-6 py-fs-2 bg-background-3 text-neutral-foreground/75">
+        <div className="container flex flex-col gap-fs-6 px-fs-6">
           <p className="text-caption">
             &copy; {new Date().getFullYear()},{" "}
             <a
-              className="underline underline-offset-1"
+              className="underline underline-offset-1 hover:text-neutral-foreground"
               href={metadata.organization.url}
               target="_blank"
               rel="noopener noreferrer"
@@ -695,7 +695,7 @@ export default function Page() {
             </a>{" "}
             . This code is open source under the{" "}
             <a
-              className="underline underline-offset-1"
+              className="underline underline-offset-1 hover:text-neutral-foreground"
               href="https://opensource.org/licenses/MIT"
               target="_blank"
               rel="noopener noreferrer"

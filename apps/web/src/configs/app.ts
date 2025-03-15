@@ -4,9 +4,10 @@ export const baseUrl = `${getBaseUrl()}/`;
 
 export const metadata = {
   name: "LG Turbo UI",
-  title: "Luckgrid's Turborepo Workspace with Next/React TailwindCSS UI",
+  title:
+    "A fully-loaded monorepo workspace powered by Turbo, NextJS, React, & TailwindCSS, including a modern UI library integrated with Shadcn/UI & CVA Design System",
   description:
-    "A template for turborepo workspaces with a React and TailwindCSS UI for building Next.js Apps.",
+    "LG Turbo UI is a comprehensive monorepo workspace template that combines the power of Turborepo, Next.js, React, and TailwindCSS. It features a modern UI library built with Shadcn/UI components and implements the CVA Design System, providing everything you need to build scalable and beautiful web applications.",
   locale: "en-US",
   url: baseUrl,
   organization: {

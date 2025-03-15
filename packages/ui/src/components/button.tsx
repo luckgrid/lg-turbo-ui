@@ -52,8 +52,8 @@ const buttonVariants = cva(
       variant: {
         solid: "",
         outline:
-          "border-2 border-neutral bg-transparent text-neutral-1 hover:border-transparent hover:bg-neutral/90 hover:text-neutral-foreground",
-        text: "size-auto px-1 py-0 border-none underline underline-offset-2 bg-transparent text-neutral-1 hover:bg-transparent hover:text-neutral-1/80",
+          "border-2 border-neutral bg-transparent text-neutral-3 hover:border-transparent hover:bg-neutral/90 hover:text-neutral-foreground",
+        text: "size-fit px-1 py-0 border-none underline underline-offset-2 bg-transparent text-neutral-3 hover:bg-transparent hover:text-neutral-3/80",
       },
       // Style Modifiers
       isIcon: {
@@ -202,7 +202,7 @@ const buttonVariants = cva(
       {
         isGhost: true,
         variant: "text",
-        className: "text-current hover:bg-transparent hover:text-neutral-1/80",
+        className: "text-current hover:bg-transparent hover:text-neutral-3/80",
       },
       {
         isGhost: true,
@@ -310,13 +310,13 @@ const buttonVariants = cva(
       {
         isIcon: true,
         variant: "text",
-        className: "size-auto p-0",
+        className: "size-fit p-1",
       },
       {
         isIcon: true,
         variant: "text",
         size: ["xs", "sm", "md", "lg", "xl"],
-        className: "size-auto p-0",
+        className: "size-fit p-1",
       },
       // Shadow Size Modifiers
       {
@@ -345,7 +345,7 @@ const buttonVariants = cva(
         className: "shadow-xl",
       },
     ],
-  }
+  },
 );
 
 type ButtonVariantProps = VariantProps<typeof buttonVariants>;
@@ -382,7 +382,7 @@ function Button({
           isGhost,
           withShadow,
           className,
-        })
+        }),
       )}
       {...props}
     />
