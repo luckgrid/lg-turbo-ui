@@ -1,0 +1,35 @@
+{
+  "name": "@workspace/ui-next",
+  "version": "0.0.0",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "lint": "eslint . --max-warnings 0",
+    "typecheck": "tsc --noEmit",
+    "clean": "pnpm run clean:output",
+    "clean:modules": "rm -rf node_modules",
+    "clean:output": "rm -rf .turbo dist"
+  },
+  "devDependencies": {
+    "@types/node": "catalog:",
+    "@types/react": "catalog:",
+    "@types/react-dom": "catalog:",
+    "@workspace/ui": "workspace:*",
+    "@workspace/eslint-config": "workspace:*",
+    "@workspace/typescript-config": "workspace:*",
+    "next": "catalog:",
+    "next-themes": "catalog:",
+    "typescript": "catalog:"
+  },
+  "peerDependencies": {
+    "next": "catalog:",
+    "react": "catalog:",
+    "react-dom": "catalog:"
+  },
+  "exports": {
+    "./next.config": "./next.config.mjs",
+    "./components/*": "./src/components/*.tsx",
+    "./lib/*": "./src/lib/*.ts",
+    "./providers/*": "./src/providers/*.tsx"
+  }
+}

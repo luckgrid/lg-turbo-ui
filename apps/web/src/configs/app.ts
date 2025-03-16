@@ -1,17 +1,46 @@
-import { getBaseUrl } from "@/lib/helpers";
+import type { Metadata } from "next";
 
-export const baseUrl = `${getBaseUrl()}/`;
+import { getBaseUrl } from "@workspace/ui-next/lib/utils";
+import {
+  metadata as sharedMetadata,
+  metadataOrganization,
+} from "@workspace/ui-next/lib/metadata";
 
-export const metadata = {
+const APP_PORT = process.env.APP_PORT || "3000";
+const BASE_URL = getBaseUrl(APP_PORT);
+
+const config = {
   name: "LG Turbo UI",
-  title: "Luckgrid's Turborepo Workspace with Next/React TailwindCSS UI",
+  title:
+    "A fully-loaded monorepo workspace powered by Turbo, NextJS, React, & TailwindCSS, including a modern UI library integrated with Shadcn/UI & CVA Design System",
   description:
-    "A template for turborepo workspaces with a React and TailwindCSS UI for building Next.js Apps.",
+    "LG Turbo UI is a comprehensive monorepo workspace template that combines the power of Turborepo, Next.js, React, and TailwindCSS. It features a modern UI library built with Shadcn/UI components and implements the CVA Design System, providing everything you need to build scalable and beautiful web applications.",
   locale: "en-US",
-  url: baseUrl,
+  url: BASE_URL,
+  organization: metadataOrganization,
 };
 
-export const colors = {
-  background: "#ffffff",
-  primary: "#000000",
+const metadata: Metadata = {
+  ...sharedMetadata,
+  applicationName: config.name,
+  title: {
+    default: `${config.name} | ${config.title}`,
+    template: `${config.name} | %s`,
+  },
+  description: config.description,
+  openGraph: {
+    ...sharedMetadata.openGraph,
+    siteName: config.name,
+    title: config.title,
+    description: config.description,
+    locale: config.locale,
+    url: config.url,
+  },
+  twitter: {
+    ...sharedMetadata.twitter,
+    title: config.title,
+    description: config.description,
+  },
 };
+
+export { BASE_URL, config, metadata };

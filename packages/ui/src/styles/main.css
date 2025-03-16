@@ -1,167 +1,20 @@
 @import "tailwindcss";
+@import "./variables.css";
+@import "./themes.css";
 
 @source "../../../apps/**/*.{ts,tsx}";
 @source "../../../components/**/*.{ts,tsx}";
 @source "../**/*.{ts,tsx}";
 
 @plugin "tailwindcss-animate";
+@plugin "tailwindcss-motion";
+@import "tailwindcss-intersect";
 
 @variant dark (&:is(.dark, [data-theme="dark"] *));
 @variant light (&:is(.light, [data-theme="light"] *));
 
-@theme {
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-/* OKLCH Color Picker & Converter: https://oklch.com/#80,0,0,100 */
-:root {
-  /* Light gray color scale */
-  --cs-light-base-0: oklch(100% 0 0);
-  --cs-light-base-1: oklch(96.18% 0 0);
-  --cs-light-base-2: oklch(92.36% 0 0);
-  --cs-light-base-3: oklch(88.54% 0 0);
-  --cs-light-base-4: oklch(84.72% 0 0);
-  --cs-light-base-5: oklch(80.9% 0 0);
-  --cs-light-base-6: oklch(77.08% 0 0);
-  --cs-light-base-7: oklch(73.26% 0 0);
-  --cs-light-base-8: oklch(69.44% 0 0);
-  --cs-light-base-9: oklch(65.62% 0 0);
-  --cs-light-base-10: oklch(61.8% 0 0);
-  --cs-light-base-11: oklch(57.98% 0 0);
-  --cs-light-base-12: oklch(54.16% 0 0);
-  --cs-light-base-13: oklch(50.34% 0 0);
-  --cs-light-base-14: oklch(46.52% 0 0);
-  --cs-light-base-15: oklch(42.7% 0 0);
-  --cs-light-base-16: oklch(38.88% 0 0);
-
-  /* Dark gray color scale */
-  --cs-dark-base-0: oklch(0% 0 0);
-  --cs-dark-base-1: oklch(5.573% 0 0);
-  --cs-dark-base-2: oklch(9.82% 0 0);
-  --cs-dark-base-3: oklch(13.64% 0 0);
-  --cs-dark-base-4: oklch(17.46% 0 0);
-  --cs-dark-base-5: oklch(21.28% 0 0);
-  --cs-dark-base-6: oklch(25.1% 0 0);
-  --cs-dark-base-7: oklch(28.92% 0 0);
-  --cs-dark-base-8: oklch(32.74% 0 0);
-  --cs-dark-base-9: oklch(36.56% 0 0);
-  --cs-dark-base-10: oklch(40.38% 0 0);
-  --cs-dark-base-11: oklch(44.2% 0 0);
-  --cs-dark-base-12: oklch(48.02% 0 0);
-  --cs-dark-base-13: oklch(51.84% 0 0);
-  --cs-dark-base-14: oklch(55.66% 0 0);
-  --cs-dark-base-15: oklch(59.48% 0 0);
-  --cs-dark-base-16: oklch(62.44% 0 0);
-
-  /* Accent Colors */
-  --cs-light-accent: oklch(77% 0.127 197);
-  --cs-dark-accent: oklch(53% 0.0888 197);
-
-  /* Status Colors */
-  --cs-light-danger: oklch(63% 0.25 15);
-  --cs-dark-danger: oklch(37% 0.125 15);
-}
-
-:root,
-.light,
-[data-theme="light"] {
-  color-scheme: light;
-
-  --background: var(--cs-light-base-0);
-  --background-1: var(--cs-light-base-1);
-  --background-2: var(--cs-light-base-2);
-  --background-3: var(--cs-light-base-3);
-  --foreground: var(--cs-dark-base-0);
-
-  --input: var(--cs-light-base-0);
-  --border: var(--cs-light-base-5);
-  --ring: var(--cs-dark-base-11);
-
-  --card: var(--cs-light-base-4);
-  --card-1: var(--cs-light-base-5);
-  --card-2: var(--cs-light-base-6);
-  --card-3: var(--cs-light-base-7);
-  --card-foreground: var(--cs-dark-base-2);
-
-  --popover: var(--cs-light-base-5);
-  --popover-1: var(--cs-light-base-6);
-  --popover-2: var(--cs-light-base-7);
-  --popover-3: var(--cs-light-base-8);
-  --popover-foreground: var(--cs-dark-base-1);
-
-  --neutral: var(--cs-light-base-4);
-  --neutral-1: var(--cs-light-base-12);
-  --neutral-foreground: var(--cs-dark-base-11);
-  --neutral-foreground-1: var(--cs-dark-base-3);
-
-  --accent: var(--cs-light-accent);
-  --accent-1: var(--cs-dark-accent);
-  --accent-foreground: var(--cs-dark-base-0);
-  --accent-foreground-1: var(--cs-light-base-0);
-
-  --primary: var(--cs-dark-base-0);
-  --primary-foreground: var(--cs-light-base-0);
-
-  --secondary: var(--cs-dark-base-10);
-  --secondary-foreground: var(--cs-light-base-4);
-
-  --danger: var(--cs-light-danger);
-  --danger-1: var(--cs-dark-danger);
-  --danger-foreground: var(--cs-dark-base-3);
-  --danger-foreground-1: var(--cs-light-base-3);
-}
-
-.dark,
-[data-theme="dark"] {
-  color-scheme: dark;
-
-  --background: var(--cs-dark-base-0);
-  --background-1: var(--cs-dark-base-1);
-  --background-2: var(--cs-dark-base-2);
-  --background-3: var(--cs-dark-base-3);
-  --foreground: var(--cs-light-base-0);
-
-  --input: var(--cs-dark-base-0);
-  --border: var(--cs-dark-base-5);
-  --ring: var(--cs-light-base-11);
-
-  --card: var(--cs-dark-base-4);
-  --card-1: var(--cs-dark-base-5);
-  --card-2: var(--cs-dark-base-6);
-  --card-3: var(--cs-dark-base-7);
-  --card-foreground: var(--cs-light-base-2);
-
-  --popover: var(--cs-dark-base-5);
-  --popover-1: var(--cs-dark-base-6);
-  --popover-2: var(--cs-dark-base-7);
-  --popover-3: var(--cs-dark-base-8);
-  --popover-foreground: var(--cs-light-base-1);
-
-  --neutral: var(--cs-dark-base-4);
-  --neutral-1: var(--cs-dark-base-16);
-  --neutral-foreground: var(--cs-light-base-6);
-  --neutral-foreground-1: var(--cs-light-base-3);
-
-  --accent: var(--cs-dark-accent);
-  --accent-1: var(--cs-light-accent);
-  --accent-foreground: var(--cs-light-base-0);
-  --accent-foreground-1: var(--cs-dark-base-0);
-
-  --primary: var(--cs-light-base-0);
-  --primary-foreground: var(--cs-dark-base-0);
-
-  --secondary: var(--cs-light-base-10);
-  --secondary-foreground: var(--cs-dark-base-4);
-
-  --danger: var(--cs-dark-danger);
-  --danger-1: var(--cs-light-danger);
-  --danger-foreground: var(--cs-light-base-3);
-  --danger-foreground-1: var(--cs-dark-base-3);
-}
-
 @theme inline {
-  /* Colors */
+  /* Semantic Colors */
   --color-background: var(--background);
   --color-background-1: var(--background-1);
   --color-background-2: var(--background-2);
@@ -186,6 +39,8 @@
 
   --color-neutral: var(--neutral);
   --color-neutral-1: var(--neutral-1);
+  --color-neutral-2: var(--neutral-2);
+  --color-neutral-3: var(--neutral-3);
   --color-neutral-foreground: var(--neutral-foreground);
   --color-neutral-foreground-1: var(--neutral-foreground-1);
 
@@ -205,15 +60,83 @@
   --color-danger-foreground: var(--danger-foreground);
   --color-danger-foreground-1: var(--danger-foreground-1);
 
-  /* Spacing */
-  --spacing: 0.333rem;
+  /* Fluid Typography */
+  --text-caption: var(--ts-xs); /* For small captions, footnotes, or metadata */
+  --text-label: var(--ts-sm); /* For form labels and small UI elements */
+  --text-body: var(--ts-base); /* For main body text or paragraphs */
+  --text-subheading: var(
+    --ts-md
+  ); /* For secondary headings within content sections */
+  --text-subtitle: var(
+    --ts-lg
+  ); /* For contextual subtitles or supporting titles */
+  --text-heading: var(--ts-xl); /* For primary section headings */
+  --text-title: var(--ts-2xl); /* For page or article titles */
+  --text-headline: var(
+    --ts-3xl
+  ); /* For large, prominent headlines that draw attention */
+  --text-epic: var(
+    --ts-4xl
+  ); /* For huge banner or hero text that makes a strong visual impact */
+
+  /* Fluid Spacing */
+  --spacing-fs-0-25: var(--fs-0-25);
+  --spacing-fs-0-375: var(--fs-0-375);
+  --spacing-fs-0-5: var(--fs-0-5);
+  --spacing-fs-0-625: var(--fs-0-625);
+  --spacing-fs-0-75: var(--fs-0-75);
+  --spacing-fs-1: var(--fs-1);
+  --spacing-fs-2: var(--fs-2);
+  --spacing-fs-3: var(--fs-3);
+  --spacing-fs-4: var(--fs-4);
+  --spacing-fs-5: var(--fs-5);
+  --spacing-fs-6: var(--fs-6);
+  --spacing-fs-7: var(--fs-7);
+  --spacing-fs-8: var(--fs-8);
+  --spacing-fs-9: var(--fs-9);
+  --spacing-fs-10: var(--fs-10);
+  --spacing-fs-11: var(--fs-11);
+  --spacing-fs-12: var(--fs-12);
+  --spacing-fs-13: var(--fs-13);
+  --spacing-fs-14: var(--fs-14);
+  --spacing-fs-15: var(--fs-15);
+  --spacing-fs-16: var(--fs-16);
+  --spacing-fs-17: var(--fs-17);
+  --spacing-fs-18: var(--fs-18);
+  --spacing-fs-19: var(--fs-19);
+  --spacing-fs-20: var(--fs-20);
+  --spacing-fs-21: var(--fs-21);
+  --spacing-fs-22: var(--fs-22);
+  --spacing-fs-23: var(--fs-23);
+  --spacing-fs-24: var(--fs-24);
+  --spacing-fs-25: var(--fs-25);
+  --spacing-fs-26: var(--fs-26);
+  --spacing-fs-27: var(--fs-27);
+  --spacing-fs-28: var(--fs-28);
+  --spacing-fs-29: var(--fs-29);
+  --spacing-fs-30: var(--fs-30);
+  --spacing-fs-31: var(--fs-31);
+  --spacing-fs-32: var(--fs-32);
+  --spacing-fs-33: var(--fs-33);
+  --spacing-fs-34: var(--fs-34);
+  --spacing-fs-35: var(--fs-35);
+  --spacing-fs-36: var(--fs-36);
+  --spacing-fs-37: var(--fs-37);
+  --spacing-fs-38: var(--fs-38);
 
   /* Border Radius */
-  --radius-xs: calc(--spacing(1) - 3px);
-  --radius-sm: calc(--spacing(1) - 1.5px);
-  --radius-md: --spacing(1);
-  --radius-lg: calc(--spacing(1) + 3px);
+  --radius-xs: calc(--spacing(1) - 0.5px);
+  --radius-sm: calc(--spacing(1) + 1px);
+  --radius-md: calc(--spacing(1) + 2px);
+  --radius-lg: calc(--spacing(1) + 4px);
   --radius-xl: calc(--spacing(1) + 6px);
+
+  /* Fluid Border Radius */
+  --radius-fs-xs: var(--fs-0-25);
+  --radius-fs-sm: var(--fs-0-375);
+  --radius-fs-md: var(--fs-0-5);
+  --radius-fs-lg: var(--fs-0-625);
+  --radius-fs-xl: var(--fs-0-75);
 
   /* Animations */
   --animate-accordion-down: accordion-down 0.2s ease-out;
@@ -247,10 +170,81 @@
   body {
     background-color: var(--background);
     color: var(--foreground);
+    font-size: var(--text-body);
+  }
+
+  h1 {
+    font-size: var(--text-headline);
+    font-weight: var(--font-weight-bold);
+  }
+
+  h2 {
+    font-size: var(--text-title);
+    font-weight: var(--font-weight-bold);
+  }
+
+  h3 {
+    font-size: var(--text-heading);
+    font-weight: var(--font-weight-semibold);
+  }
+
+  h4 {
+    font-size: var(--text-subtitle);
+    font-weight: var(--font-weight-semibold);
+  }
+
+  h5 {
+    font-size: var(--text-subheading);
+    font-weight: var(--font-weight-medium);
+  }
+
+  h6 {
+    font-size: var(--text-body);
+    font-weight: var(--font-weight-medium);
+  }
+
+  label,
+  th {
+    font-size: var(--text-label);
+    font-weight: var(--font-weight-medium);
   }
 }
 
 @utility container {
   margin-inline: auto;
   max-width: var(--breakpoint-2xl);
+}
+
+/* Adds octagon shaped borders around a parent element (experimental) */
+@utility shape-ticket {
+  position: relative;
+  outline-style: none;
+  border-radius: 0;
+  margin-block: --spacing(2);
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 0;
+    border-inline-width: --spacing(2);
+    border-inline-style: solid;
+    border-inline-color: transparent;
+  }
+
+  &::before {
+    top: --spacing(-2);
+    border-bottom-width: --spacing(2);
+    border-bottom-style: solid;
+    border-bottom-color: inherit;
+  }
+
+  &::after {
+    bottom: --spacing(-2);
+    border-top-width: --spacing(2);
+    border-top-style: solid;
+    border-top-color: inherit;
+  }
 }

@@ -1,6 +1,8 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
-  transpilePackages: ["@workspace/ui"],
-}
+import { config as sharedConfig } from "@workspace/ui-next/next.config";
 
-export default nextConfig
+/** @type {import('next').NextConfig} */
+const config = {
+  ...sharedConfig,
+};
+
+export default config;

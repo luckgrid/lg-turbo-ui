@@ -10,7 +10,7 @@
     "format": "prettier --write \"**/*.{ts,tsx,md,css}\"",
     "typecheck": "turbo run typecheck",
     "clean": "turbo run clean && pnpm run clean:output && pnpm run clean:packages",
-    "clean:i": "pnpm run clean && pnpm run i",
+    "clean:i": "pnpm run clean && pnpm i",
     "clean:modules": "turbo run clean:modules && rm -rf node_modules",
     "clean:output": "rm -rf .turbo .next",
     "clean:packages": "rm -rf pnpm-lock.yaml && rm -rf node_modules"
@@ -22,7 +22,7 @@
     "turbo": "^2.4.4",
     "typescript": "catalog:"
   },
-  "packageManager": "pnpm@10.6.1",
+  "packageManager": "pnpm@10.6.3",
   "engines": {
     "node": ">=20"
   }

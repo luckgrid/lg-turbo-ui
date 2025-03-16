@@ -15,6 +15,7 @@
   },
   "dependencies": {
     "@workspace/ui": "workspace:*",
+    "@workspace/ui-next": "workspace:*",
     "lucide-react": "catalog:",
     "next": "catalog:",
     "next-themes": "catalog:",

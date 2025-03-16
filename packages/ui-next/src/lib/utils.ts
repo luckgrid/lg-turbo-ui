@@ -1,5 +1,5 @@
-// Get app's base URL based on environment
-export const getBaseUrl = () => {
+// Get an app's base URL based on environment and port settings
+export const getBaseUrl = (port: string = process.env.PORT || "3000") => {
   if (process.env.NEXT_PUBLIC_APP_URL) {
     return process.env.NEXT_PUBLIC_APP_URL;
   }
@@ -15,5 +15,5 @@ export const getBaseUrl = () => {
     return `https://${process.env.VERCEL_URL}`;
   }
 
-  return `http://localhost:${process.env.PORT ?? "3001"}`;
+  return `http://localhost:${port}`;
 };

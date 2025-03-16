@@ -1,12 +1,8 @@
-"use client";
-
 import * as React from "react";
 import { cva, type VariantProps } from "class-variance-authority";
 
-import {
-  SlotElement,
-  type SlotElementProps,
-} from "@workspace/ui/primitives/element";
+import { SlotElement } from "@workspace/ui/primitives/element";
+import type { SlotElementProps } from "@workspace/ui/primitives/element";
 import { cn } from "@workspace/ui/lib/utils";
 
 // TODO:
@@ -31,15 +27,8 @@ const cardVariants = cva("flex flex-col", {
     },
     shape: {
       pill: "rounded-full",
-      rounded: "rounded-lg",
+      rounded: "rounded-fs-lg",
       sharp: "rounded-none",
-    },
-    size: {
-      xs: "",
-      sm: "",
-      md: "",
-      lg: "",
-      xl: "",
     },
     space: {
       container: "",
@@ -59,7 +48,7 @@ const cardVariants = cva("flex flex-col", {
       ],
     },
     noBorder: {
-      false: "border-2",
+      false: "border-(length:--fs-0-25)",
     },
     noColor: {
       false: "bg-card text-card-foreground",
@@ -68,7 +57,7 @@ const cardVariants = cva("flex flex-col", {
       false: "shadow-lg",
     },
     noSpace: {
-      false: "gap-4 py-6",
+      false: "gap-fs-4 py-fs-6",
     },
   },
   compoundVariants: [
@@ -88,37 +77,11 @@ const cardVariants = cva("flex flex-col", {
       noColor: false,
       className: "bg-card-3 border-card-foreground/25",
     },
-    // Shadow Size Variant Modifiers
-    {
-      size: "xs",
-      noShadow: false,
-      className: "shadow-sm",
-    },
-    {
-      size: "sm",
-      noShadow: false,
-      className: "shadow-md",
-    },
-    {
-      size: "md",
-      noShadow: false,
-      className: "shadow-lg",
-    },
-    {
-      size: "lg",
-      noShadow: false,
-      className: "shadow-xl",
-    },
-    {
-      size: "xl",
-      noShadow: false,
-      className: "shadow-2xl",
-    },
     // Container Space Variant Modifiers
     {
       space: "container",
       noSpace: false,
-      className: "gap-y-3 gap-x-6 p-6",
+      className: "gap-y-fs-3 gap-x-fs-6 p-fs-6",
     },
     {
       space: "container",
@@ -135,7 +98,7 @@ const cardVariants = cva("flex flex-col", {
       space: "wrapper",
       variant: "section",
       noSpace: false,
-      className: "py-6",
+      className: "py-fs-6",
     },
   ],
   defaultVariants: {
@@ -154,7 +117,6 @@ type CardProps<T extends React.ElementType = "div"> = SlotElementProps<T> &
 function Card({
   layer,
   shape,
-  size,
   space,
   variant,
   isAction,
@@ -172,7 +134,6 @@ function Card({
         cardVariants({
           layer,
           shape,
-          size,
           space,
           variant,
           isAction,
@@ -195,15 +156,8 @@ const cardHeaderVariants = cva("flex flex-col", {
     // Style Variants
     shape: {
       pill: "rounded-full",
-      rounded: "rounded-lg",
+      rounded: "rounded-fs-lg",
       sharp: "rounded-none",
-    },
-    size: {
-      xs: "",
-      sm: "",
-      md: "",
-      lg: "",
-      xl: "",
     },
     space: {
       container: "",
@@ -214,7 +168,7 @@ const cardHeaderVariants = cva("flex flex-col", {
     },
     // Style Modifiers
     noSpace: {
-      false: "gap-y-3 gap-x-6 px-6",
+      false: "gap-y-fs-3 gap-x-fs-6 px-fs-6",
     },
   },
   compoundVariants: [
@@ -236,7 +190,6 @@ type CardHeaderProps = React.ComponentProps<"header"> & CardHeaderVariantProps;
 
 function CardHeader({
   shape,
-  size,
   space,
   variant,
   noSpace,
@@ -249,7 +202,6 @@ function CardHeader({
       className={cn(
         cardHeaderVariants({
           shape,
-          size,
           space,
           variant,
           noSpace,
@@ -268,15 +220,8 @@ const cardBodyVariants = cva("flex flex-col", {
     // Style Variants
     shape: {
       pill: "rounded-full",
-      rounded: "rounded-lg",
+      rounded: "rounded-fs-lg",
       sharp: "rounded-none",
-    },
-    size: {
-      xs: "",
-      sm: "",
-      md: "",
-      lg: "",
-      xl: "",
     },
     space: {
       container: "",
@@ -284,7 +229,7 @@ const cardBodyVariants = cva("flex flex-col", {
     },
     // Style Modifiers
     noSpace: {
-      false: "gap-y-3 gap-x-6 px-6",
+      false: "gap-y-fs-3 gap-x-fs-6 px-fs-6",
     },
   },
   compoundVariants: [
@@ -307,7 +252,6 @@ type CardBodyProps<T extends React.ElementType = "div"> = SlotElementProps<T> &
 
 function CardBody({
   shape,
-  size,
   space,
   noSpace,
   className,
@@ -319,7 +263,6 @@ function CardBody({
       className={cn(
         cardBodyVariants({
           shape,
-          size,
           space,
           noSpace,
           className,
@@ -337,15 +280,8 @@ const cardFooterVariants = cva("flex flex-col", {
     // Style Variants
     shape: {
       pill: "rounded-full",
-      rounded: "rounded-lg",
+      rounded: "rounded-fs-lg",
       sharp: "rounded-none",
-    },
-    size: {
-      xs: "",
-      sm: "",
-      md: "",
-      lg: "",
-      xl: "",
     },
     space: {
       container: "",
@@ -357,7 +293,7 @@ const cardFooterVariants = cva("flex flex-col", {
     },
     // Style Modifiers
     noSpace: {
-      false: "gap-y-3 gap-x-6 px-6",
+      false: "gap-y-fs-3 gap-x-fs-6 px-fs-6",
     },
   },
   compoundVariants: [
@@ -371,7 +307,7 @@ const cardFooterVariants = cva("flex flex-col", {
     {
       variant: "actions",
       noSpace: false,
-      className: "gap-x-3",
+      className: "gap-x-fs-3",
     },
   ],
   defaultVariants: {
@@ -385,7 +321,6 @@ type CardFooterProps = React.ComponentProps<"footer"> & CardFooterVariantProps;
 
 function CardFooter({
   shape,
-  size,
   space,
   variant,
   noSpace,
@@ -398,7 +333,6 @@ function CardFooter({
       className={cn(
         cardFooterVariants({
           shape,
-          size,
           space,
           variant,
           noSpace,
@@ -412,19 +346,5 @@ function CardFooter({
 
 // Card Component Exports
 
-export type {
-  CardProps,
-  CardVariantProps,
-  CardHeaderProps,
-  CardBodyProps,
-  CardFooterProps,
-};
-
-export {
-  cardVariants,
-  cardHeaderVariants,
-  cardBodyVariants,
-  cardFooterVariants,
-};
-
+export type { CardProps, CardHeaderProps, CardBodyProps, CardFooterProps };
 export { Card, CardHeader, CardBody, CardFooter };
