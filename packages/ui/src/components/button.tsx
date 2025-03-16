@@ -7,6 +7,12 @@ import { Link } from "@workspace/ui/primitives/link";
 import type { LinkProps } from "@workspace/ui/primitives/link";
 import { cn } from "@workspace/ui/lib/utils";
 
+// TODO:
+// - update fluid scale vars for icon size, borders and outline modifiers
+// - improve animations and add noAnimation modifier
+// - add ticket shape variant style modifiers
+// - add button link variant for underline settings
+
 const buttonVariants = cva(
   [
     "inline-flex items-center justify-center",
@@ -285,7 +291,7 @@ const buttonVariants = cva(
         className: "shadow-xl",
       },
     ],
-  },
+  }
 );
 
 type ButtonVariantProps = VariantProps<typeof buttonVariants>;
@@ -321,7 +327,7 @@ function Button<T extends React.ElementType = "button">({
           isGhost,
           withShadow,
           className,
-        }),
+        })
       )}
       {...props}
     />
@@ -352,7 +358,7 @@ function ButtonLink({
           isGhost,
           withShadow,
           className,
-        }),
+        })
       )}
       {...props}
     />
