@@ -1,0 +1,12 @@
+{
+  "extends": "@workspace/typescript-config/next-library.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@workspace/ui/*": ["../ui/src/*"],
+      "@workspace/ui-next/*": ["./src/*"]
+    }
+  },
+  "include": ["."],
+  "exclude": ["node_modules", "dist"]
+}

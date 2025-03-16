@@ -1,12 +1,8 @@
-"use client";
-
 import * as React from "react";
 import { cva, type VariantProps } from "class-variance-authority";
 
-import {
-  SlotElement,
-  type SlotElementProps,
-} from "@workspace/ui/primitives/element";
+import { SlotElement } from "@workspace/ui/primitives/element";
+import type { SlotElementProps } from "@workspace/ui/primitives/element";
 import { cn } from "@workspace/ui/lib/utils";
 
 // TODO:
@@ -31,7 +27,7 @@ const cardVariants = cva("flex flex-col", {
     },
     shape: {
       pill: "rounded-full",
-      rounded: "rounded-lg",
+      rounded: "rounded-fs-lg",
       sharp: "rounded-none",
     },
     space: {
@@ -160,7 +156,7 @@ const cardHeaderVariants = cva("flex flex-col", {
     // Style Variants
     shape: {
       pill: "rounded-full",
-      rounded: "rounded-lg",
+      rounded: "rounded-fs-lg",
       sharp: "rounded-none",
     },
     space: {
@@ -224,7 +220,7 @@ const cardBodyVariants = cva("flex flex-col", {
     // Style Variants
     shape: {
       pill: "rounded-full",
-      rounded: "rounded-lg",
+      rounded: "rounded-fs-lg",
       sharp: "rounded-none",
     },
     space: {
@@ -284,7 +280,7 @@ const cardFooterVariants = cva("flex flex-col", {
     // Style Variants
     shape: {
       pill: "rounded-full",
-      rounded: "rounded-lg",
+      rounded: "rounded-fs-lg",
       sharp: "rounded-none",
     },
     space: {

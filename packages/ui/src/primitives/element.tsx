@@ -1,5 +1,3 @@
-"use client";
-
 import * as React from "react";
 import { Slot } from "@radix-ui/react-slot";
 import type { SlotProps } from "@radix-ui/react-slot";
@@ -13,7 +11,7 @@ function Element<T extends React.ElementType = "div">({
   as: Primitive = "div",
   ...props
 }: ElementProps<T>) {
-  return <Primitive {...props} />;
+  return <Primitive data-slot="element" {...props} />;
 }
 
 type SlotElementProps<T extends React.ElementType = "div"> = SlotProps &
@@ -27,10 +25,10 @@ function SlotElement<T extends React.ElementType = "div">({
   ...props
 }: SlotElementProps<T>) {
   if (asChild) {
-    return <Slot {...props} />;
+    return <Slot data-slot="slot-element" {...props} />;
   }
 
-  return <Primitive {...props} />;
+  return <Primitive data-slot="element" {...props} />;
 }
 
 export type { ElementProps, SlotElementProps };

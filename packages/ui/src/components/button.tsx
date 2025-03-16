@@ -1,19 +1,20 @@
-"use client";
-
 import * as React from "react";
-import { Slot } from "@radix-ui/react-slot";
 import { cva, type VariantProps } from "class-variance-authority";
 
+import { SlotElement } from "@workspace/ui/primitives/element";
+import type { SlotElementProps } from "@workspace/ui/primitives/element";
+import { Link } from "@workspace/ui/primitives/link";
+import type { LinkProps } from "@workspace/ui/primitives/link";
 import { cn } from "@workspace/ui/lib/utils";
 
 const buttonVariants = cva(
   [
     "inline-flex items-center justify-center",
-    "relative gap-fs-0-75 px-fs-5 py-fs-1",
-    "bg-neutral text-neutral-foreground hover:bg-neutral/90",
+    "relative gap-fs-0-75 px-fs-5 py-fs-1 border-(length:--fs-0-25)",
+    "border-neutral bg-neutral text-neutral-foreground hover:border-transparent hover:bg-neutral/90",
     "whitespace-nowrap text-body font-medium",
     "cursor-pointer transition-[color,box-shadow]",
-    "active:motion-scale-in-95 active:motion-duration-200 active:motion-ease-spring-bouncy",
+    "active:motion-scale-in-[0.95] active:motion-duration-200 active:motion-ease-spring-bouncy",
     "disabled:pointer-events-none disabled:opacity-50",
     "outline-offset-1 outline-neutral/50 ring-neutral/25",
     "focus-visible:ring-4 focus-visible:outline-1 aria-invalid:focus-visible:ring-0",
@@ -24,17 +25,17 @@ const buttonVariants = cva(
       // Style Variants
       color: {
         accent:
-          "bg-accent text-accent-foreground outline-accent/50 ring-accent/25 hover:bg-accent/90",
+          "border-accent bg-accent text-accent-foreground outline-accent/50 ring-accent/25 hover:bg-accent/90",
         primary:
-          "bg-primary text-primary-foreground outline-primary/50 ring-primary/25 hover:bg-primary/90",
+          "border-primary bg-primary text-primary-foreground outline-primary/50 ring-primary/25 hover:bg-primary/90",
         secondary:
-          "bg-secondary text-secondary-foreground outline-secondary/50 ring-secondary/25 hover:bg-secondary/90",
+          "border-secondary bg-secondary text-secondary-foreground outline-secondary/50 ring-secondary/25 hover:bg-secondary/90",
         danger:
-          "bg-danger text-danger-foreground outline-danger/50 ring-danger/25 hover:bg-danger/90",
+          "border-danger bg-danger text-danger-foreground outline-danger/50 ring-danger/25 hover:bg-danger/90",
       },
       shape: {
         pill: "rounded-full",
-        rounded: "rounded-md",
+        rounded: "rounded-fs-md",
         sharp: "rounded-none",
         ticket: [
           "py-fs-0-25 shape-ticket",
@@ -44,17 +45,17 @@ const buttonVariants = cva(
         ],
       },
       size: {
-        xs: "gap-fs-0-5 px-fs-1 py-fs-0-25 text-caption font-normal [&_svg:not([class*='size-'])]:size-fs-1",
-        sm: "gap-fs-0-625 px-fs-3 py-fs-0-5 text-label font-medium [&_svg:not([class*='size-'])]:size-fs-2",
-        md: "gap-fs-0-75 px-fs-5 py-fs-0-75 text-body font-medium [&_svg:not([class*='size-'])]:size-fs-3",
-        lg: "gap-fs-1 px-fs-7 py-fs-1 text-subheading font-semibold [&_svg:not([class*='size-'])]:size-fs-4",
-        xl: "gap-fs-2 px-fs-9 py-fs-2 text-subtitle font-semibold [&_svg:not([class*='size-'])]:size-fs-6",
+        xs: "active:motion-scale-in-[0.93] gap-fs-0-5 px-fs-1 py-fs-0-25 text-caption border-1 font-normal [&_svg:not([class*='size-'])]:size-fs-1",
+        sm: "active:motion-scale-in-[0.94] gap-fs-0-625 px-fs-3 py-fs-0-5 text-label border-(length:--fs-0-25) font-medium [&_svg:not([class*='size-'])]:size-fs-2",
+        md: "active:motion-scale-in-[0.95] gap-fs-0-75 px-fs-5 py-fs-0-75 border-(length:--fs-0-25) text-body font-medium [&_svg:not([class*='size-'])]:size-fs-3",
+        lg: "active:motion-scale-in-[0.96] gap-fs-1 px-fs-7 py-fs-1 border-(length:--fs-0-375) text-subheading font-semibold [&_svg:not([class*='size-'])]:size-fs-4",
+        xl: "active:motion-scale-in-[0.97] gap-fs-2 px-fs-9 py-fs-2 border-(length:--fs-0-5) text-subtitle font-semibold [&_svg:not([class*='size-'])]:size-fs-6",
       },
       variant: {
         solid: "",
         outline:
-          "border-(length:--fs-0-25) border-neutral bg-transparent text-neutral-3 hover:border-transparent hover:bg-neutral/90 hover:text-neutral-foreground",
-        text: "size-fit px-1 py-0 border-none underline underline-offset-2 bg-transparent text-neutral-3 hover:bg-transparent hover:text-neutral-3/80",
+          "bg-transparent text-neutral-3 hover:bg-neutral/90 hover:text-neutral-foreground",
+        text: "active:motion-scale-in-[1] size-fit px-1 py-0 border-none underline underline-offset-2 bg-transparent text-neutral-3 hover:bg-transparent hover:text-neutral-3/80",
       },
       // Style Modifiers
       isIcon: {
@@ -122,35 +123,31 @@ const buttonVariants = cva(
       {
         isGhost: true,
         variant: "outline",
-        className: "border-current",
+        className: "border-current/40 text-current",
       },
       {
         isGhost: true,
         color: "accent",
         variant: "outline",
-        className:
-          "border-current text-current hover:bg-accent/80 hover:text-accent-foreground",
+        className: "hover:bg-accent/80 hover:text-accent-foreground",
       },
       {
         isGhost: true,
         color: "primary",
         variant: "outline",
-        className:
-          "border-current text-current hover:bg-primary/80 hover:text-primary-foreground",
+        className: "hover:bg-primary/80 hover:text-primary-foreground",
       },
       {
         isGhost: true,
         color: "secondary",
         variant: "outline",
-        className:
-          "border-current text-current hover:bg-secondary/80 hover:text-secondary-foreground",
+        className: "hover:bg-secondary/80 hover:text-secondary-foreground",
       },
       {
         isGhost: true,
         color: "danger",
         variant: "outline",
-        className:
-          "border-current text-current hover:bg-danger/80 hover:text-danger-foreground",
+        className: "hover:bg-danger/80 hover:text-danger-foreground",
       },
       // Text Color Variants
       {
@@ -203,32 +200,6 @@ const buttonVariants = cva(
         variant: "text",
         className: "text-current hover:bg-transparent hover:text-danger-1/80",
       },
-      // Outline Size Variants
-      {
-        variant: "outline",
-        size: "xs",
-        className: "border-1",
-      },
-      {
-        variant: "outline",
-        size: "sm",
-        className: "border-(length:--fs-0-25)",
-      },
-      {
-        variant: "outline",
-        size: "md",
-        className: "border-(length:--fs-0-25)",
-      },
-      {
-        variant: "outline",
-        size: "lg",
-        className: "border-(length:--fs-0-375)",
-      },
-      {
-        variant: "outline",
-        size: "xl",
-        className: "border-(length:--fs-0-5)",
-      },
       // Rounded Shape Size Variants
       {
         shape: "rounded",
@@ -259,12 +230,12 @@ const buttonVariants = cva(
       {
         isIcon: true,
         size: "xs",
-        className: "size-fs-6",
+        className: "size-fs-4",
       },
       {
         isIcon: true,
         size: "sm",
-        className: "size-fs-8",
+        className: "size-fs-6",
       },
       {
         isIcon: true,
@@ -274,12 +245,12 @@ const buttonVariants = cva(
       {
         isIcon: true,
         size: "lg",
-        className: "size-fs-12",
+        className: "size-fs-16",
       },
       {
         isIcon: true,
         size: "xl",
-        className: "size-fs-14",
+        className: "size-fs-20",
       },
       // Text Icon Size Modifiers
       {
@@ -319,13 +290,13 @@ const buttonVariants = cva(
 
 type ButtonVariantProps = VariantProps<typeof buttonVariants>;
 
-type ButtonProps = React.ComponentProps<"button"> &
-  ButtonVariantProps & {
-    asChild?: boolean;
-  };
+type ButtonProps<T extends React.ElementType = "button"> = SlotElementProps<T> &
+  ButtonVariantProps;
 
-function Button({
-  asChild,
+type ButtonLinkProps = Omit<ButtonProps<"a">, "as" | "asChild"> & LinkProps;
+
+function Button<T extends React.ElementType = "button">({
+  as = "button",
   className,
   color,
   shape,
@@ -335,12 +306,11 @@ function Button({
   isGhost,
   withShadow,
   ...props
-}: ButtonProps) {
-  const Component = asChild ? Slot : "button";
-
+}: ButtonProps<T>) {
   return (
-    <Component
+    <SlotElement
       data-slot="button"
+      as={as}
       className={cn(
         buttonVariants({
           color,
@@ -358,5 +328,36 @@ function Button({
   );
 }
 
-export type { ButtonProps };
-export { Button };
+function ButtonLink({
+  className,
+  color,
+  shape,
+  size,
+  variant,
+  isIcon,
+  isGhost,
+  withShadow,
+  ...props
+}: ButtonLinkProps) {
+  return (
+    <Link
+      data-slot="button-link"
+      className={cn(
+        buttonVariants({
+          color,
+          shape,
+          size,
+          variant,
+          isIcon,
+          isGhost,
+          withShadow,
+          className,
+        }),
+      )}
+      {...props}
+    />
+  );
+}
+
+export type { ButtonProps, ButtonLinkProps };
+export { Button, ButtonLink };

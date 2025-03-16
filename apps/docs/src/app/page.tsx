@@ -2,37 +2,42 @@ import Image from "next/image";
 import { Star } from "lucide-react";
 
 import { Button } from "@workspace/ui/components/button";
-import { metadata } from "@/configs/app";
+import { Link } from "@workspace/ui/components/link";
+import { config } from "@/configs/app";
 
 export default function Page() {
   return (
     <main className="flex flex-col min-h-svh">
-      <header className="container flex flex-col flex-1 items-center justify-center gap-fs-6 py-fs-12 px-fs-6">
-        <Image
-          alt="Logo"
-          src="/assets/logos/logo.png"
-          width={125}
-          height={125}
-          priority
-          className="dark:invert"
-        />
-        <div className="flex flex-col gap-fs-3 max-w-3xl mx-auto text-center">
-          <h1 className="text-title text-balance">{metadata.name}</h1>
-          <p className="text-balance text-neutral-foreground">
-            {metadata.description}
-          </p>
+      <header className="flex flex-col flex-1 items-center justify-center py-fs-12 bg-background-2">
+        <div className="container flex flex-col gap-fs-3 px-fs-6 items-center justify-center">
+          <Image
+            alt="Logo"
+            src="/assets/logos/logo.png"
+            width={125}
+            height={125}
+            priority
+            className="dark:invert"
+          />
+          <div className="flex flex-col gap-fs-3 max-w-3xl mx-auto text-center">
+            <h1 className="text-title text-balance">{config.name}</h1>
+            <p className="text-balance text-neutral-foreground">
+              {config.description}
+            </p>
+          </div>
         </div>
       </header>
-      <section className="flex flex-col flex-1 items-center justify-center gap-fs-8 py-fs-10 px-fs-6 bg-background-1">
-        <header className="container flex flex-col gap-fs-3 items-center text-center">
-          <h2 className="text-heading">Button Component</h2>
-          <p className="max-w-2xl mx-auto text-balance text-neutral-foreground">
-            The Button component is a versatile and customizable component that
-            can be used to create a variety of buttons.
-          </p>
-          <Button>Default (Neutral) Button</Button>
+      <section className="flex flex-col flex-1 gap-fs-8">
+        <header className="flex flex-col flex-1 py-fs-10 px-fs-6 bg-background-1">
+          <div className="container flex flex-col gap-fs-3 items-center text-center">
+            <h2 className="text-heading">Button Component</h2>
+            <p className="max-w-2xl mx-auto text-balance text-neutral-foreground">
+              The Button component is a versatile and customizable component
+              that can be used to create a variety of buttons.
+            </p>
+            <Button>Default (Neutral) Button</Button>
+          </div>
         </header>
-        <div className="container flex flex-wrap gap-fs-10 justify-center">
+        <div className="container flex flex-wrap gap-fs-10 py-fs-10 px-fs-6 justify-center">
           <div className="flex flex-col gap-fs-6">
             <h3 className="text-subheading text-center text-balance">
               Solid Variant Button Colors
@@ -450,7 +455,7 @@ export default function Page() {
             </div>
           </div>
         </div>
-        <div className="container flex flex-col">
+        <div className="container flex flex-col py-fs-10 px-fs-6">
           <div className="flex flex-wrap gap-fs-6 justify-center">
             <div className="flex flex-col gap-4">
               <h3 className="text-subheading text-center text-balance">
@@ -682,26 +687,26 @@ export default function Page() {
         </div>
       </section>
       <footer className="flex flex-col py-fs-1 bg-background-3 text-neutral-foreground/75">
-        <div className="container flex flex-col gap-fs-6 px-fs-6">
+        <div className="container flex flex-col gap-fs-4 px-fs-6">
           <p className="text-caption">
             &copy; {new Date().getFullYear()},{" "}
-            <a
-              className="underline underline-offset-1 hover:text-neutral-foreground"
-              href={metadata.organization.url}
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              href={config.organization.url}
+              color="accent"
+              isExternal
+              noIcon
             >
-              {metadata.organization.name} Inc
-            </a>{" "}
+              {config.organization.name} Inc
+            </Link>
             . This code is open source under the{" "}
-            <a
-              className="underline underline-offset-1 hover:text-neutral-foreground"
+            <Link
               href="https://opensource.org/licenses/MIT"
-              target="_blank"
-              rel="noopener noreferrer"
+              color="accent"
+              isExternal
+              noIcon
             >
               MIT License
-            </a>
+            </Link>
             .
           </p>
         </div>

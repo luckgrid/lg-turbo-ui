@@ -13,11 +13,6 @@
 @variant dark (&:is(.dark, [data-theme="dark"] *));
 @variant light (&:is(.light, [data-theme="light"] *));
 
-@theme {
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
 @theme inline {
   /* Semantic Colors */
   --color-background: var(--background);

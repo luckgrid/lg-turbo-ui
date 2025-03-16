@@ -1,8 +1,9 @@
 import type { MetadataRoute } from "next";
 
-import { baseUrl } from "@/configs/app";
+import { BASE_URL } from "@/configs/app";
 
-// Robots api ref: https://nextjs.org/docs/app/api-reference/file-conventions/metadata/robots
+// Next Robots API: https://nextjs.org/docs/app/api-reference/file-conventions/metadata/robots
+
 export default function robots(): MetadataRoute.Robots {
   return {
     rules: {
@@ -11,6 +12,6 @@ export default function robots(): MetadataRoute.Robots {
       //   allow: "/",
       disallow: "/",
     },
-    sitemap: `${baseUrl}sitemap.xml`,
+    sitemap: `${BASE_URL}/sitemap.xml`,
   };
 }

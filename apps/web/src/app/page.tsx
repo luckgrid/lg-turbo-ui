@@ -1,7 +1,9 @@
 import Image from "next/image";
 
+import { ButtonLink } from "@workspace/ui/components/button";
 import { Card } from "@workspace/ui/components/card";
-import { metadata } from "@/configs/app";
+import { Link } from "@workspace/ui/components/link";
+import { config } from "@/configs/app";
 
 export default function Page() {
   return (
@@ -13,13 +15,29 @@ export default function Page() {
           width={200}
           height={200}
           priority
-          className="motion-opacity-in-0 motion-blur-in-sm dark:invert"
+          className="motion-blur-in-sm dark:invert"
         />
         <div className="motion-opacity-in-0 motion-translate-y-in-50 container max-w-4xl flex flex-col gap-fs-3 text-center">
-          <h1 className="text-balance">{metadata.name}</h1>
-          <p className="text-balance text-neutral-foreground">
-            {metadata.title}
-          </p>
+          <h1 className="text-balance">{config.name}</h1>
+          <p className="text-balance text-neutral-foreground">{config.title}</p>
+        </div>
+        <div className="motion-preset-fade-lg motion-delay-400 flex flex-col gap-fs-3 items-center justify-center">
+          <ButtonLink
+            href="https://github.com/luckgrid/lg-turbo-ui"
+            color="primary"
+            size="xl"
+            isExternal
+            noIcon
+          >
+            Get Started
+          </ButtonLink>
+          <ButtonLink
+            href="https://github.com/luckgrid/lg-turbo-ui/discussions"
+            variant="text"
+            isExternal
+          >
+            Join the Discussion
+          </ButtonLink>
         </div>
       </header>
       <section className="flex flex-col flex-1 gap-fs-6 py-fs-12 bg-background-2">
@@ -28,7 +46,7 @@ export default function Page() {
             Organize your brands, products and services
           </h2>
           <p className="max-w-6xl text-pretty text-neutral-foreground">
-            {metadata.description}
+            {config.description}
           </p>
         </header>
         <div className="container flex flex-wrap gap-fs-3 px-fs-6">
@@ -50,23 +68,23 @@ export default function Page() {
         <div className="container flex flex-col gap-fs-4 px-fs-6">
           <p className="text-caption">
             &copy; {new Date().getFullYear()},{" "}
-            <a
-              className="underline underline-offset-1"
-              href={metadata.organization.url}
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              href={config.organization.url}
+              color="accent"
+              isExternal
+              noIcon
             >
-              {metadata.organization.name} Inc
-            </a>
+              {config.organization.name} Inc
+            </Link>
             . This code is open source under the{" "}
-            <a
-              className="underline underline-offset-1"
+            <Link
               href="https://opensource.org/licenses/MIT"
-              target="_blank"
-              rel="noopener noreferrer"
+              color="accent"
+              isExternal
+              noIcon
             >
               MIT License
-            </a>
+            </Link>
             .
           </p>
         </div>

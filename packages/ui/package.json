@@ -16,8 +16,6 @@
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "lucide-react": "catalog:",
-    "react": "catalog:",
-    "react-dom": "catalog:",
     "tailwind-merge": "^3.0.2",
     "zod": "catalog:"
   },
@@ -35,6 +33,10 @@
     "tailwindcss-motion": "^1.1.0",
     "typescript": "catalog:"
   },
+  "peerDependencies": {
+    "react": "catalog:",
+    "react-dom": "catalog:"
+  },
   "exports": {
     "./main.css": "./src/styles/main.css",
     "./postcss.config": "./postcss.config.mjs",
@@ -42,6 +44,7 @@
     "./hooks/*": "./src/hooks/*.ts",
     "./lib/*": "./src/lib/*.ts",
     "./primitives/*": "./src/primitives/*.tsx",
+    "./providers/*": "./src/providers/*.tsx",
     "./styles/*": "./src/styles/*.css"
   }
 }
