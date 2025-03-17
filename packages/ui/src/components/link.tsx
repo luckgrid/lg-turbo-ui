@@ -18,9 +18,9 @@ const linkVariants = cva(
     variants: {
       // Style Variants
       color: {
+        accent: "outline-accent/50 hover:text-accent-1",
         primary: "outline-primary/50 hover:text-primary",
         secondary: "outline-secondary/50 hover:text-secondary",
-        accent: "outline-accent/50 hover:text-accent-1",
         danger: "outline-danger/50 hover:text-danger-1",
       },
       underline: {

@@ -291,7 +291,7 @@ const buttonVariants = cva(
         className: "shadow-xl",
       },
     ],
-  }
+  },
 );
 
 type ButtonVariantProps = VariantProps<typeof buttonVariants>;
@@ -327,7 +327,7 @@ function Button<T extends React.ElementType = "button">({
           isGhost,
           withShadow,
           className,
-        })
+        }),
       )}
       {...props}
     />
@@ -358,7 +358,7 @@ function ButtonLink({
           isGhost,
           withShadow,
           className,
-        })
+        }),
       )}
       {...props}
     />

@@ -3,21 +3,30 @@ import Image from "next/image";
 import { ButtonLink } from "@workspace/ui/components/button";
 import { Card } from "@workspace/ui/components/card";
 import { Link } from "@workspace/ui/components/link";
+import { Section } from "@workspace/ui/components/section";
+
 import { config } from "@/configs/app";
 
 export default function Page() {
   return (
     <main className="flex flex-col min-h-svh">
-      <header className="flex flex-col flex-1 items-center justify-center gap-fs-6 py-fs-24 px-fs-4">
+      <Section
+        as="header"
+        classNames={{
+          container: "items-center justify-center gap-fs-8",
+        }}
+        variant="hero"
+        withContainer
+      >
         <Image
           alt="Logo"
           src="/assets/logos/logo.png"
           width={200}
           height={200}
           priority
-          className="motion-blur-in-sm dark:invert"
+          className="motion-preset-spin motion-loop-once motion-opacity-in-0 motion-scale-in-25 motion-duration-200 dark:invert"
         />
-        <div className="motion-opacity-in-0 motion-translate-y-in-50 container max-w-4xl flex flex-col gap-fs-3 text-center">
+        <div className="motion-opacity-in-0 motion-translate-y-in-50 max-w-4xl mx-auto flex flex-col gap-fs-3 text-center">
           <h1 className="text-balance">{config.name}</h1>
           <p className="text-balance text-neutral-foreground">{config.title}</p>
         </div>
@@ -39,8 +48,8 @@ export default function Page() {
             Join the Discussion
           </ButtonLink>
         </div>
-      </header>
-      <section className="flex flex-col flex-1 gap-fs-6 py-fs-12 bg-background-2">
+      </Section>
+      <Section className="bg-background-2">
         <header className="container flex flex-col gap-fs-3 px-fs-6">
           <h2 className="text-heading text-balance">
             Organize your brands, products and services
@@ -63,7 +72,7 @@ export default function Page() {
             <h3 className="text-body">CVA Design System</h3>
           </Card>
         </div>
-      </section>
+      </Section>
       <footer className="flex flex-col py-fs-1 bg-background-3 text-neutral-foreground/75">
         <div className="container flex flex-col gap-fs-4 px-fs-6">
           <p className="text-caption">
