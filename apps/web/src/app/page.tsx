@@ -13,7 +13,7 @@ export default function Page() {
       <Section
         as="header"
         classNames={{
-          container: "items-center justify-center gap-fs-8",
+          container: "items-center justify-center",
         }}
         variant="hero"
         withContainer

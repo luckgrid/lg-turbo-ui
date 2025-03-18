@@ -1,4 +1,5 @@
-import { cva, type VariantProps } from "class-variance-authority";
+import { cva } from "class-variance-authority";
+import type { VariantProps } from "class-variance-authority";
 
 import { Link as PrimitiveLink } from "@workspace/ui/primitives/link";
 import type { LinkProps as PrimitiveLinkProps } from "@workspace/ui/primitives/link";

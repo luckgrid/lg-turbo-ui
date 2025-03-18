@@ -1,136 +1,49 @@
 import * as React from "react";
-import { cva, type VariantProps } from "class-variance-authority";
+import { cva, cx } from "class-variance-authority";
+import type { VariantProps } from "class-variance-authority";
 
-import { SlotElement } from "@workspace/ui/primitives/element";
-import type { SlotElementProps } from "@workspace/ui/primitives/element";
+import { Wrapper, wrapperVariants } from "@workspace/ui/primitives/wrapper";
+import type {
+  WrapperProps,
+  WrapperVariantProps,
+} from "@workspace/ui/primitives/wrapper";
+import { Container as PrimitiveContainer } from "@workspace/ui/primitives/container";
+import type { ContainerProps } from "@workspace/ui/primitives/container";
 import { cn } from "@workspace/ui/lib/utils";
 
-// TODO:
-// - use Wrapper and Container primitives to compose section components
-
-const sectionVariants = cva("flex flex-col", {
+const sectionWrapperVariants = cva("", {
   variants: {
     // Style Variants
-    color: {
-      neutral: "bg-background text-foreground",
-      primary: "bg-primary/20 text-foreground",
-      secondary: "bg-secondary/20 text-foreground",
-    },
-    layer: {
-      display: "",
-      layout: "",
-      overlay: "",
-    },
-    layout: {
-      grid: "grid grid-cols-12",
-      split: "md:flex-row",
-    },
-    level: {
-      "1": "",
-      "2": "",
-      "3": "",
-    },
-    size: {
-      auto: "flex-auto",
-      full: "flex-1 min-h-svh",
-    },
-    space: {
-      container: "",
-      wrapper: "",
-    },
     variant: {
       bar: "",
-      hero: "flex-1",
+      cta: "",
+      hero: "",
     },
     // Style Modifiers
-    noSpace: {
-      false: "gap-fs-6 py-fs-24",
-    },
     withBorder: {
       true: "border-y-(length:--fs-0-375)",
     },
-    withContainer: {
-      true: "",
-    },
-  },
-  compoundVariants: [
-    // Neutral Color Variant Modifiers
-    {
-      color: "neutral",
-      level: "1",
-      className: "bg-background-1",
-    },
-    {
-      color: "neutral",
-      level: "2",
-      className: "bg-background-2",
-    },
-    {
-      color: "neutral",
-      level: "3",
-      className: "bg-background-3",
-    },
-    // Primary Color Variant Modifiers
-    {
-      color: "primary",
-      level: "1",
-      className: "bg-primary/30",
-    },
-    {
-      color: "primary",
-      level: "2",
-      className: "bg-primary/40",
-    },
-    {
-      color: "primary",
-      level: "3",
-      className: "bg-primary/50",
-    },
-    // Secondary Color Variant Modifiers
-    {
-      color: "secondary",
-      level: "1",
-      className: "bg-secondary/30",
-    },
-    {
-      color: "secondary",
-      level: "2",
-      className: "bg-secondary/40",
-    },
-    {
-      color: "secondary",
-      level: "3",
-      className: "bg-secondary/50",
-    },
-    // Container Space Variant Modifiers
-    {
-      space: "container",
-      noSpace: false,
-      className: "gap-y-fs-3 gap-x-fs-6 px-fs-6",
-    },
-    // Wrapper Space Variant Modifiers
-    {
-      space: "wrapper",
-      noSpace: false,
-      className: "gap-0 py-0",
-    },
-    // Hero Space Variant Modifiers
-    {
-      variant: "hero",
-      noSpace: false,
-      className: "gap-fs-8 py-fs-36",
-    },
-    {
-      space: "container",
-      variant: "hero",
-      noSpace: false,
-      className: "gap-x-fs-16",
-    },
-  ],
-  defaultVariants: {
-    noSpace: false,
   },
 });
+
+type SectionWrapperVariantProps = VariantProps<typeof sectionWrapperVariants> &
+  WrapperVariantProps;
+
+const sectionVariants = ({
+  color,
+  group,
+  layout,
+  level,
+  scale,
+  size,
+  space,
+  variant,
+  withBorder,
+}: SectionWrapperVariantProps) =>
+  cx(
+    wrapperVariants({ color, group, layout, level, scale, size, space }),
+    sectionWrapperVariants({ variant, withBorder })
+  );
 
 type SectionVariantProps = VariantProps<typeof sectionVariants>;
 
@@ -139,59 +52,73 @@ type SectionClassNames = {
   container?: string;
 };
 
-type SectionProps<T extends React.ElementType = "section"> =
-  SlotElementProps<T> &
-    SectionVariantProps & {
-      classNames?: SectionClassNames;
-    };
+type SectionProps<T extends React.ElementType = "section"> = WrapperProps<T> &
+  SectionVariantProps & {
+    classNames?: SectionClassNames;
+    container?: Omit<ContainerProps, "className">;
+    withContainer?: boolean;
+  };
 
 function Section<T extends React.ElementType = "section">({
   as = "section",
   children,
   className,
   classNames,
+  container,
   color,
-  layer,
+  group = "layout",
   layout,
   level,
-  size,
-  space,
+  scale,
+  size = "auto",
+  space = "block",
   variant,
-  noSpace,
   withBorder,
   withContainer,
   ...props
 }: SectionProps<T>) {
-  const Container = withContainer ? "div" : React.Fragment;
+  const Container = withContainer ? PrimitiveContainer : React.Fragment;
+  const wrapperScale = scale || variant === "hero" ? "3" : "2";
+
+  const containerProps = {
+    color: container?.color || color,
+    group: container?.group || group,
+    layout: container?.layout || layout,
+    level: container?.level || level,
+    scale: container?.scale || scale,
+    size: container?.size || size,
+    space: container?.space || "inline",
+  };
 
   return (
-    <SlotElement
+    <Wrapper
       data-slot="section"
       as={as}
       className={cn(
         sectionVariants({
           color,
-          layer,
+          group,
           layout,
           level,
+          scale: wrapperScale,
           size,
           space,
           variant,
-          noSpace,
           withBorder,
-          withContainer,
-          className,
         }),
         classNames?.section,
+        className
       )}
       {...props}
     >
       <Container
-        className={cn("container flex flex-col px-fs-6", classNames?.container)}
+        data-slot="section-container"
+        className={classNames?.container}
+        {...containerProps}
       >
         {children}
       </Container>
-    </SlotElement>
+    </Wrapper>
   );
 }
 
