@@ -1,3 +1,4 @@
+import { SiGithub } from "@icons-pack/react-simple-icons";
 import Image from "next/image";
 
 import { ButtonLink } from "@workspace/ui/components/button";
@@ -29,7 +30,7 @@ export default function Page() {
             color="primary"
             size="xl"
             isExternal
-            noIcon
+            noExternalIcon
           >
             Get Started
           </ButtonLink>
@@ -78,15 +79,15 @@ export default function Page() {
           </Card>
         </SectionContainer>
       </Section>
-      <footer className="flex flex-col py-fs-1 bg-background-3 text-neutral-foreground/75">
-        <div className="container flex flex-col gap-fs-4 px-fs-6">
+      <footer className="flex flex-col py-1 bg-background-3 text-neutral-foreground/75">
+        <div className="container flex flex-row items-center justify-between gap-fs-4 px-fs-6">
           <p className="text-caption">
             &copy; {new Date().getFullYear()},{" "}
             <Link
               href={config.organization.url}
               color="accent"
               isExternal
-              noIcon
+              noExternalIcon
             >
               {config.organization.name} Inc
             </Link>
@@ -95,12 +96,23 @@ export default function Page() {
               href="https://opensource.org/licenses/MIT"
               color="accent"
               isExternal
-              noIcon
+              noExternalIcon
             >
               MIT License
             </Link>
             .
           </p>
+          <ButtonLink
+            href="https://github.com/luckgrid/lg-turbo-ui"
+            shape="pill"
+            size="sm"
+            isGhost
+            isIcon
+            isExternal
+            noExternalIcon
+          >
+            <SiGithub />
+          </ButtonLink>
         </div>
       </footer>
     </main>

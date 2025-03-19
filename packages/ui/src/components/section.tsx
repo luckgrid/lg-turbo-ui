@@ -393,7 +393,7 @@ function Section<T extends React.ElementType = "section">({
           withBorder,
         }),
         classNames?.section,
-        className
+        className,
       )}
       {...props}
     >

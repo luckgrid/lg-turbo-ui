@@ -11,6 +11,9 @@ import { SlotElement } from "@workspace/ui/primitives/element";
 
 // Box Primitive Variants
 
+// Base Box Styles
+const boxBase = "relative box-border";
+
 // Box Color API Properties - sets border, background, and text color for a box
 const boxColor = {
   base: "bg-background text-foreground",
@@ -52,6 +55,14 @@ const boxScale = {
   "3": "",
 };
 
+// Box Shape API Properties - defines the shape of the box to modify the border radius and additional shape modifiers for the box
+const boxShape = {
+  pill: "rounded-full",
+  rounded: "rounded-fs-lg",
+  sharp: "rounded-none",
+  ticket: "shape-ticket",
+};
+
 // Box Size API Properties - defines the size of the box to set the box sizing based on layout and other variants for the box
 const boxSize = {
   auto: "flex-auto",
@@ -76,13 +87,14 @@ const boxVariant = {
 
 // Box Primitive Component
 
-const boxVariants = cva("relative box-border", {
+const boxVariants = cva(boxBase, {
   variants: {
     color: boxColor,
     group: boxGroup,
     layout: boxLayout,
     level: boxLevel,
     scale: boxScale,
+    shape: boxShape,
     size: boxSize,
     space: boxSpace,
     variant: boxVariant,
@@ -219,6 +231,7 @@ function Box<T extends React.ElementType = "div">({
   layout,
   level,
   scale,
+  shape,
   size,
   space,
   variant,
@@ -235,11 +248,12 @@ function Box<T extends React.ElementType = "div">({
           layout,
           level,
           scale,
+          shape,
           size,
           space,
           variant,
           className,
-        })
+        }),
       )}
       {...props}
     />
@@ -250,11 +264,13 @@ function Box<T extends React.ElementType = "div">({
 
 export {
   Box,
+  boxBase,
   boxColor,
   boxGroup,
   boxLayout,
   boxLevel,
   boxScale,
+  boxShape,
   boxSize,
   boxSpace,
   boxVariant,

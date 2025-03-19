@@ -14,13 +14,17 @@
     "clean:output": "rm -rf .next .turbo"
   },
   "dependencies": {
+    "@hookform/resolvers": "catalog:",
+    "@icons-pack/react-simple-icons": "catalog:",
     "@workspace/ui": "workspace:*",
     "@workspace/ui-next": "workspace:*",
     "lucide-react": "catalog:",
     "next": "catalog:",
     "next-themes": "catalog:",
     "react": "catalog:",
-    "react-dom": "catalog:"
+    "react-dom": "catalog:",
+    "react-hook-form": "catalog:",
+    "zod": "catalog:"
   },
   "devDependencies": {
     "@types/node": "catalog:",

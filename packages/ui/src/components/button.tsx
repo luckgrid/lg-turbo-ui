@@ -1,12 +1,12 @@
-import * as React from "react";
-import { cva } from "class-variance-authority";
 import type { VariantProps } from "class-variance-authority";
+import { cva } from "class-variance-authority";
+import * as React from "react";
 
-import { SlotElement } from "@workspace/ui/primitives/element";
-import type { SlotElementProps } from "@workspace/ui/primitives/element";
-import { Link } from "@workspace/ui/primitives/link";
-import type { LinkProps } from "@workspace/ui/primitives/link";
 import { cn } from "@workspace/ui/lib/utils";
+import type { SlotElementProps } from "@workspace/ui/primitives/element";
+import { SlotElement } from "@workspace/ui/primitives/element";
+import type { LinkProps } from "@workspace/ui/primitives/link";
+import { Link } from "@workspace/ui/primitives/link";
 
 // TODO:
 // - update fluid scale vars for icon size, borders and outline modifiers
@@ -76,6 +76,27 @@ const buttonVariants = cva(
       },
     },
     compoundVariants: [
+      // Default Ghost Color Modifiers
+      {
+        isGhost: true,
+        color: "accent",
+        className: "hover:bg-accent/90 hover:text-accent-foreground",
+      },
+      {
+        isGhost: true,
+        color: "primary",
+        className: "hover:bg-primary/90 hover:text-primary-foreground",
+      },
+      {
+        isGhost: true,
+        color: "secondary",
+        className: "hover:bg-secondary/90 hover:text-secondary-foreground",
+      },
+      {
+        isGhost: true,
+        color: "danger",
+        className: "hover:bg-danger/90 hover:text-danger-foreground",
+      },
       // Solid Ghost Color Modifiers
       {
         isGhost: true,
@@ -346,6 +367,7 @@ function ButtonLink({
   withShadow,
   ...props
 }: ButtonLinkProps) {
+  console.log(color);
   return (
     <Link
       data-slot="button-link"
@@ -366,5 +388,5 @@ function ButtonLink({
   );
 }
 
-export type { ButtonProps, ButtonLinkProps };
 export { Button, ButtonLink };
+export type { ButtonLinkProps, ButtonProps };
