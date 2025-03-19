@@ -6,10 +6,10 @@ import { cn } from "@workspace/ui/lib/utils";
 import type { SlotElementProps } from "@workspace/ui/primitives/element";
 import { SlotElement } from "@workspace/ui/primitives/element";
 
-// Box Primitive Variants
-
 // TODO:
 // - Add box placement variants (i.e. items-center, justify-center, etc...)
+
+// Box Primitive Variants
 
 // Box Color API Properties - sets border, background, and text color for a box
 const boxColor = {
@@ -33,7 +33,7 @@ const boxGroup = {
 const boxLayout = {
   col: "flex flex-col",
   grid: "grid grid-cols-12",
-  row: "md:flex-row",
+  row: "flex-wrap md:flex-row md:flex-wrap-reverse",
 };
 
 // Box Level API Properties - defines the level of the box to modify the background color, shadow and other variants for the box
@@ -239,7 +239,7 @@ function Box<T extends React.ElementType = "div">({
           space,
           variant,
           className,
-        }),
+        })
       )}
       {...props}
     />

@@ -18,6 +18,7 @@ import {
 // TODO:
 // - replace isCentered modifier with placement variant from box primitive
 // - replace sectionScale scale modifier in component with compound variants that adjusts space scale for hero variant
+// - split up section and section container into separate component files inside a section component module
 
 const sectionVariants = cva("", {
   variants: {
@@ -53,6 +54,22 @@ const sectionVariants = cva("", {
     },
   },
   compoundVariants: [
+    // Base Color Variants
+    {
+      color: "base",
+      level: "1",
+      className: "bg-background-1",
+    },
+    {
+      color: "base",
+      level: "2",
+      className: "bg-background-3",
+    },
+    {
+      color: "base",
+      level: "3",
+      className: "bg-card",
+    },
     // Neutral Color Variant Modifiers
     {
       color: "neutral",
@@ -152,6 +169,8 @@ const sectionVariants = cva("", {
   ],
   defaultVariants: {
     group: "layout",
+    size: "auto",
+    space: "block",
   },
 });
 
@@ -252,6 +271,7 @@ const sectionContainerVariants = cva("", {
   ],
   defaultVariants: {
     group: "layout",
+    space: "inline",
   },
 });
 
@@ -318,12 +338,12 @@ function Section<T extends React.ElementType = "section">({
   classNames,
   container,
   color,
-  group = "layout",
+  group,
   layout,
   level,
   scale,
-  size = "auto",
-  space = "block",
+  size,
+  space,
   variant,
   isCentered,
   withBorder,
@@ -331,7 +351,7 @@ function Section<T extends React.ElementType = "section">({
   ...props
 }: SectionProps<T>) {
   const Container = withContainer ? SectionContainer : React.Fragment;
-  const sectionScale = scale || variant === "hero" ? "3" : "2";
+  const sectionScale = variant === "hero" ? "3" : scale;
 
   function getContainerSpace() {
     if (container?.space) return container.space;
@@ -347,7 +367,7 @@ function Section<T extends React.ElementType = "section">({
     layout: container?.layout || layout,
     level: container?.level || level,
     scale: container?.scale || scale,
-    size: container?.size || size,
+    size: container?.size,
     space: getContainerSpace(),
     variant: container?.variant || variant,
     isCentered: isCentered && withContainer ? true : false,
@@ -371,7 +391,7 @@ function Section<T extends React.ElementType = "section">({
           withBorder,
         }),
         classNames?.section,
-        className,
+        className
       )}
       {...props}
     >
@@ -382,5 +402,5 @@ function Section<T extends React.ElementType = "section">({
   );
 }
 
-export { Section };
-export type { SectionProps };
+export { Section, SectionContainer };
+export type { SectionContainerProps, SectionProps };
