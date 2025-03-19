@@ -21,11 +21,20 @@ Use corepack (recommended, but not required) to manage different pnpm versions. 
 
 The ui package components are dependant on React and TailwindCSS, which were initially generated using Shadcn/UI. For more information, please reference the following docs:
 
-- [Shadcn/UI Docs](https://ui.shadcn.com/docs).
+- [Shadcn/UI Docs](https://ui.shadcn.com/docs)
+- [Radix UI Docs](https://www.radix-ui.com/primitives/docs/overview/introduction)
 - [React Docs](https://react.dev/learn)
 - [React API](https://react.dev/reference/react)
 - [TailwindCSS Docs](https://tailwindcss.com/docs/installation/using-postcss)
 - [CVA Docs](https://cva.style/docs)
+
+#### UI Animation Dependencies
+
+The ui package includes additional tailwindcss plugins to enhance ux with motion animations and scroll intersection observers to control when animations should run.
+
+- [TailwindCSS Animate Docs](https://www.radix-ui.com/primitives/docs/overview/introduction)
+- [TailwindCSS Motion Animation Docs](https://docs.rombo.co/tailwind)
+- [TailwindCSS Scroll Animation Docs](https://docs.rombo.co/tailwind/scroll-animations)
 
 #### App Dependencies
 
@@ -176,4 +185,4 @@ import { Button } from "@workspace/ui/components/button";
 
 ## Kudos
 
-> Template was initialized from [Shadcn/ui Monorepo Template](https://github.com/shadcn-ui/ui/tree/canary/templates/monorepo-next)
+> Template was initialized from [Shadcn/UI Monorepo Template](https://github.com/shadcn-ui/ui/tree/main/templates/monorepo-next)

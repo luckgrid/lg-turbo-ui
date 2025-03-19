@@ -353,6 +353,7 @@ function Section<T extends React.ElementType = "section">({
   const Container = withContainer ? SectionContainer : React.Fragment;
   const sectionScale = variant === "hero" ? "3" : scale;
 
+  // Modify container space variant based on section space variant
   function getContainerSpace() {
     if (container?.space) return container.space;
     if (space === "block") return "inline";
@@ -361,6 +362,7 @@ function Section<T extends React.ElementType = "section">({
     return "inline";
   }
 
+  // Modify container props based on section variants
   const containerProps = {
     color: container?.color || color,
     group: container?.group || group,

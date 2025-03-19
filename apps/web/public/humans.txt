@@ -1,6 +1,6 @@
 /* TEAM */
 
-Founder, Design, Engineering & Architecture: Damir Vazgird
+Design, Engineering & Architecture: Damir Vazgird
 Site: damir.io
 Contact: dvazgird [at] gmail.com
 Twitter: @dvazgird
@@ -14,8 +14,8 @@ Twitter: @turborepo
 App Framework: NextJS
 Twitter: @nextjs
 
-CSS Utility: TailwindCSS
-Twitter: @tailwindcss
+UI Library: React
+Twitter: @reactjs
 
 UI Primitives: Radix UI
 Twitter: @radix_ui
@@ -23,20 +23,29 @@ Twitter: @radix_ui
 UI Components: Shadcn/UI
 Twitter: @shadcn
 
-UI Utility Animation: TailwindCSS Animate
+UI Form: React Hook Form
+Twitter: @HookForm
+
+UI Design System: CVA
+Github: @joe-bell
+
+CSS Utility: TailwindCSS
+Twitter: @tailwindcss
+
+CSS Animation: TailwindCSS Animate
 Github: @jamiebuilds
 
-UX Motion Animation: TailwindCSS Motion
+CSS Motion Animation: TailwindCSS Motion
 Twitter: @rombohq
 
-UX Intersection Observer: TailwindCSS Intersect
+CSS Scroll Animation: TailwindCSS Intersect
 Github: @heidkaemper
-
-Design System: CVA
-Github: @joe-bell
 
 Language: TypeScript
 Twitter: @TypeScript
+
+Schema Validation: Zod
+Twittter: @colinhacks
 
 /* SITE */
 
@@ -44,4 +53,4 @@ Last Update: 2024/03/19
 Language: English
 Doctype: HTML5
 IDE: Cursor
-Software: Turborepo, React, NextJS, Radix UI, TailwindCSS, TailwindCSS Animate, TailwindCSS Motion, TailwindCSS Intersect, CVA, TypeScript
+Software: Turborepo, React, NextJS, Shadcn/UI, CVA, TailwindCSS, TypeScript, Zod
