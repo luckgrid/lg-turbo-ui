@@ -1,9 +1,9 @@
-import Image from "next/image";
 import { Star } from "lucide-react";
+import Image from "next/image";
 
+import { config } from "@/configs/app";
 import { Button } from "@workspace/ui/components/button";
 import { Link } from "@workspace/ui/components/link";
-import { config } from "@/configs/app";
 
 export default function Page() {
   return (

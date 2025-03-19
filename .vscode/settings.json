@@ -1,11 +1,10 @@
 {
-  "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": "explicit"
-  },
+  "editor.codeActionsOnSave": [
+    "source.addMissingImports",
+    "source.organizeImports",
+    "source.fixAll.eslint"
+  ],
   "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "search.exclude": {
-    "pnpm-lock.yaml": true
-  },
   "editor.formatOnSave": true,
   "eslint.rules.customizations": [{ "rule": "*", "severity": "warn" }],
   "eslint.runtime": "node",
@@ -14,7 +13,10 @@
     { "pattern": "packages/*/" }
   ],
   "prettier.ignorePath": ".gitignore",
-  "[typescript,typescriptreact]": {
+  "search.exclude": {
+    "pnpm-lock.yaml": true
+  },
+  "[typescript,typescriptreact,css,postcss,json,markdown,yaml,github-actions-workflow]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "tailwindCSS.experimental.classRegex": [
@@ -27,5 +29,6 @@
     "next/dist/client/router.d.ts",
     "lucide-react"
   ],
+  "typescript.preferences.preferTypeOnlyAutoImports": true,
   "typescript.tsdk": "node_modules/typescript/lib"
 }

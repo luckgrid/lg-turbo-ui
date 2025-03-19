@@ -23,16 +23,25 @@ Twitter: @radix_ui
 UI Components: Shadcn/UI
 Twitter: @shadcn
 
+UI Utility Animation: TailwindCSS Animate
+Github: @jamiebuilds
+
+UX Motion Animation: TailwindCSS Motion
+Twitter: @rombohq
+
+UX Intersection Observer: TailwindCSS Intersect
+Github: @heidkaemper
+
 Design System: CVA
-Twitter: @joebell_
+Github: @joe-bell
 
 Language: TypeScript
 Twitter: @TypeScript
 
 /* SITE */
 
-Last Update: 2024/03/01
+Last Update: 2024/03/19
 Language: English
 Doctype: HTML5
 IDE: Cursor
-Software: Turborepo, React, NextJS, Radix UI, TailwindCSS, CVA, TypeScript
+Software: Turborepo, React, NextJS, Radix UI, TailwindCSS, TailwindCSS Animate, TailwindCSS Motion, TailwindCSS Intersect, CVA, TypeScript

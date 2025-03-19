@@ -10,14 +10,7 @@ import { config } from "@/configs/app";
 export default function Page() {
   return (
     <main className="flex flex-col min-h-svh">
-      <Section
-        as="header"
-        classNames={{
-          container: "items-center justify-center",
-        }}
-        variant="hero"
-        withContainer
-      >
+      <Section as="header" variant="hero" isCentered withContainer>
         <Image
           alt="Logo"
           src="/assets/logos/logo.png"

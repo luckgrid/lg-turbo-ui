@@ -29,7 +29,7 @@
     "@workspace/typescript-config": "workspace:*",
     "tailwindcss": "^4.0.14",
     "tailwindcss-animate": "^1.0.7",
-    "tailwindcss-intersect": "^2.1.0",
+    "tailwindcss-intersect": "^2.2.0",
     "tailwindcss-motion": "^1.1.0",
     "typescript": "catalog:"
   },
