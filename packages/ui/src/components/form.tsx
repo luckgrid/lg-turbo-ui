@@ -1,20 +1,20 @@
 "use client";
 
-import * as React from "react";
-import * as LabelPrimitive from "@radix-ui/react-label";
 import { Slot } from "@radix-ui/react-slot";
+import type { VariantProps } from "class-variance-authority";
+import { cva } from "class-variance-authority";
+import * as React from "react";
+import type { ControllerProps, FieldPath, FieldValues } from "react-hook-form";
 import {
   Controller,
   FormProvider,
   useFormContext,
   useFormState,
-  type ControllerProps,
-  type FieldPath,
-  type FieldValues,
 } from "react-hook-form";
 
-import { cn } from "@workspace/ui/lib/utils";
+import type { LabelProps } from "@workspace/ui/components/label";
 import { Label } from "@workspace/ui/components/label";
+import { cn } from "@workspace/ui/lib/utils";
 
 const Form = FormProvider;
 
@@ -58,6 +58,10 @@ const useFormField = () => {
   return {
     id,
     name: fieldContext.name,
+    fieldId: `${id}-form-field`,
+    descriptionErrorId: `${id}-form-description-error`,
+    descriptionHintId: `${id}-form-description-hint`,
+    // Deprecated
     formItemId: `${id}-form-item`,
     formDescriptionId: `${id}-form-item-description`,
     formMessageId: `${id}-form-item-message`,
@@ -80,24 +84,21 @@ function FormItem({ className, ...props }: React.ComponentProps<"div">) {
     <FormItemContext.Provider value={{ id }}>
       <div
         data-slot="form-item"
-        className={cn("grid gap-2", className)}
+        className={cn("grid gap-fs-0-5", className)}
         {...props}
       />
     </FormItemContext.Provider>
   );
 }
 
-function FormLabel({
-  className,
-  ...props
-}: React.ComponentProps<typeof LabelPrimitive.Root>) {
+function FormLabel({ className, ...props }: LabelProps) {
   const { error, formItemId } = useFormField();
 
   return (
     <Label
       data-slot="form-label"
       data-error={!!error}
-      className={cn("data-[error=true]:text-destructive", className)}
+      className={cn("data-[error=true]:text-danger-1", className)}
       htmlFor={formItemId}
       {...props}
     />
@@ -123,46 +124,86 @@ function FormControl({ ...props }: React.ComponentProps<typeof Slot>) {
   );
 }
 
-function FormDescription({ className, ...props }: React.ComponentProps<"p">) {
-  const { formDescriptionId } = useFormField();
+const formDescriptionVariants = cva("font-sans text-label", {
+  variants: {
+    // Style Variants
+    size: {
+      sm: "text-caption",
+      md: "text-body",
+      lg: "text-subheading",
+    },
+    variant: {
+      error: "text-danger-1/75",
+      hint: "text-neutral-foreground/75",
+    },
+  },
+});
 
-  return (
-    <p
-      data-slot="form-description"
-      id={formDescriptionId}
-      className={cn("text-muted-foreground text-sm", className)}
-      {...props}
-    />
-  );
-}
+type FormDescriptionVariantProps = VariantProps<typeof formDescriptionVariants>;
 
-function FormMessage({ className, ...props }: React.ComponentProps<"p">) {
-  const { error, formMessageId } = useFormField();
-  const body = error ? String(error?.message ?? "") : props.children;
+type FormDescriptionProps = FormDescriptionVariantProps &
+  React.ComponentProps<"p">;
 
-  if (!body) {
-    return null;
+function FormDescription({
+  children,
+  className,
+  size,
+  variant,
+  ...props
+}: FormDescriptionProps) {
+  const { error, descriptionErrorId, descriptionHintId } = useFormField();
+  const errorMessage = error?.message ? String(error.message) : null;
+
+  // Show error message if there is an error and message
+  if (errorMessage) {
+    return (
+      <p
+        data-slot="form-description"
+        id={descriptionErrorId}
+        className={cn(
+          formDescriptionVariants({
+            size,
+            variant: "error",
+            className,
+          }),
+        )}
+        {...props}
+      >
+        {errorMessage}
+      </p>
+    );
   }
 
-  return (
-    <p
-      data-slot="form-message"
-      id={formMessageId}
-      className={cn("text-destructive text-sm", className)}
-      {...props}
-    >
-      {body}
-    </p>
-  );
+  // Show children with error variant if there is an error
+  if (children) {
+    return (
+      <p
+        data-slot="form-description"
+        id={descriptionHintId}
+        className={cn(
+          formDescriptionVariants({
+            size,
+            variant: error ? "error" : "hint",
+            className,
+          }),
+        )}
+        {...props}
+      >
+        {children}
+      </p>
+    );
+  }
+
+  // Return null if no description to display
+  return null;
 }
 
 export {
-  useFormField,
   Form,
-  FormItem,
-  FormLabel,
   FormControl,
   FormDescription,
-  FormMessage,
   FormField,
+  FormItem,
+  FormLabel,
+  useFormField,
 };

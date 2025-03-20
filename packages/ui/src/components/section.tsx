@@ -35,6 +35,7 @@ const sectionVariants = cva("", {
     scale: boxScale,
     size: boxSize,
     space: {
+      unset: "",
       block: "py-fs-12 gap-y-fs-6 gap-x-fs-12",
       frame: "p-fs-8 gap-fs-4",
       inline: "px-fs-6 gap-y-fs-3 gap-x-fs-6",

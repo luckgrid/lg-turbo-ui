@@ -72,6 +72,7 @@ const boxSize = {
 
 // Box Space API Properties - defines the space of the box to set the box spacing based on layout and other variants for the box
 const boxSpace = {
+  unset: "",
   block: "py-fs-6 gap-y-fs-3 gap-x-fs-6",
   frame: "p-fs-6 gap-fs-6",
   inline: "px-fs-6 gap-y-fs-3 gap-x-fs-6",
@@ -274,7 +275,6 @@ export {
   boxSize,
   boxSpace,
   boxVariant,
-  boxVariants,
 };
 
 export type { BoxProps, BoxVariantProps };

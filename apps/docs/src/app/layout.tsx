@@ -1,11 +1,11 @@
 import "@workspace/ui/main.css";
 
-import { cn } from "@workspace/ui/lib/utils";
 import { fontVariables } from "@workspace/ui-next/lib/fonts";
 import { viewport as viewportConfig } from "@workspace/ui-next/lib/viewport";
+import { cn } from "@workspace/ui/lib/utils";
 
 import { Providers } from "@/components/providers";
-import { config, metadata as appMetadata } from "@/configs/app";
+import { metadata as appMetadata, config } from "@/configs/app";
 
 export const metadata = appMetadata;
 export const viewport = viewportConfig;

@@ -1,14 +1,25 @@
-import * as React from "react";
-
-import type { InputProps } from "@workspace/ui/primitives/input";
+import type { InputProps as PrimitiveInputProps } from "@workspace/ui/primitives/input";
 import { Input as PrimitiveInput } from "@workspace/ui/primitives/input";
 
-function Input<T extends React.ElementType = "input">({
-  as = "input",
-  ...props
-}: InputProps<T>) {
+type InputProps = Omit<PrimitiveInputProps<"input">, "variant">;
+
+function Input({ as = "input", ...props }: InputProps) {
   return <PrimitiveInput data-slot="input" as={as} {...props} />;
 }
 
-export { Input };
-export type { InputProps };
+type FileInputProps = Omit<PrimitiveInputProps<"input">, "variant">;
+
+function FileInput({ as = "input", ...props }: FileInputProps) {
+  return (
+    <PrimitiveInput
+      data-slot="input"
+      as={as}
+      type="file"
+      variant="file"
+      {...props}
+    />
+  );
+}
+
+export { FileInput, Input };
+export type { FileInputProps, InputProps };

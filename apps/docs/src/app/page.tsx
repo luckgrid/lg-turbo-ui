@@ -29,7 +29,7 @@ export default function Page() {
         <header className="flex flex-col flex-1 py-fs-10 bg-background-1">
           <div className="container flex flex-col gap-fs-3 px-fs-6">
             <h2 className="text-heading">Button Component</h2>
-            <p className="max-w-2xl text-balance text-neutral-foreground">
+            <p className="text-balance text-neutral-foreground">
               The Button component is a versatile and customizable component
               that can be used to create a variety of buttons.
             </p>
@@ -42,7 +42,7 @@ export default function Page() {
         <header className="flex flex-col flex-1 py-fs-10 bg-background-1">
           <div className="container flex flex-col gap-fs-3 px-fs-6">
             <h2 className="text-heading">Form Component</h2>
-            <p className="max-w-2xl text-balance text-neutral-foreground">
+            <p className="text-balance text-neutral-foreground">
               The form component uses react-hook-form, zod and various ui
               components for composing flexible forms with built-in state and
               validation handlers.

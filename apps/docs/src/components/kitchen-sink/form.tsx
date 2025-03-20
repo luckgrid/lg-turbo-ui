@@ -13,10 +13,10 @@ import {
   FormField,
   FormItem,
   FormLabel,
-  FormMessage,
 } from "@workspace/ui/components/form";
 import { Input } from "@workspace/ui/components/input";
 import { SectionContainer } from "@workspace/ui/components/section";
+import { Textarea } from "@workspace/ui/components/textarea";
 
 const formSchema = z.object({
   email: z.string().email({ message: "Please enter a valid email address" }),
@@ -59,17 +59,44 @@ export function FormKitchenSink() {
           >
             <FormField
               control={form.control}
+              name="email"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel isRequired>Email</FormLabel>
+                  <FormControl>
+                    <Input placeholder="dev@luckgrid.net" {...field} />
+                  </FormControl>
+                  <FormDescription>This is your contact email.</FormDescription>
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
               name="username"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Username</FormLabel>
+                  <FormLabel isRequired>Username</FormLabel>
                   <FormControl>
-                    <Input placeholder="Enter your username" {...field} />
+                    <Input placeholder="1337-h4x0r" {...field} />
                   </FormControl>
                   <FormDescription>
                     This is your public display name.
                   </FormDescription>
-                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="bio"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Bio</FormLabel>
+                  <FormControl>
+                    <Textarea
+                      placeholder="A short description about yourself (optional)"
+                      {...field}
+                    />
+                  </FormControl>
                 </FormItem>
               )}
             />

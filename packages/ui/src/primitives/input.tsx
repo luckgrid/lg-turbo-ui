@@ -7,72 +7,93 @@ import { boxBase, boxShape } from "@workspace/ui/primitives/box";
 import type { ElementProps } from "@workspace/ui/primitives/element";
 import { Element } from "@workspace/ui/primitives/element";
 
-const inputVariants = cva(
-  [
-    boxBase,
-    "bg-input transition-[color,box-shadow]",
-    "flex gap-fs-0-75 px-fs-3 py-fs-1 border-(length:--fs-0-25) text-body",
-    "file:inline-flex file:text-foreground file:border-0 file:bg-transparent file:font-medium",
-    "placeholder:text-neutral-foreground aria-invalid:placeholder:text-danger-1",
-    "selection:bg-primary selection:text-primary-foreground",
-    "disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50",
-    "border-border outline-offset-1 outline-ring/50 ring-ring/25",
-    "focus-visible:border-ring focus-visible:ring-4 focus-visible:outline-1",
-    "aria-invalid:border-danger aria-invalid:outline-danger/50 aria-invalid:ring-danger/25",
-  ],
-  {
-    variants: {
-      // Style Variants
-      shape: boxShape,
-      size: {
-        sm: "gap-fs-0-5 px-fs-2 py-fs-0-5 border-1 text-label",
-        md: "gap-fs-0-75 px-fs-4 py-fs-2 border-(length:--fs-0-25) text-body",
-        lg: "gap-fs-1 px-fs-6 py-fs-3 border-(length:--fs-0-375) text-body",
-      },
-      // Style Modifiers
-      isReadonly: {
-        true: "cursor-default p-0",
-      },
-      withShadow: {
-        true: "shadow-sm",
-      },
+const inputBase = [
+  boxBase,
+  "flex transition-[color,box-shadow]",
+  "gap-fs-0-75 px-fs-3 py-fs-1 border-(length:--fs-0-25)",
+  "border-border outline-offset-1 outline-ring/75 bg-input text-body",
+  "placeholder:text-neutral-foreground/50 placeholder:text-neutral-foreground/75",
+  "selection:bg-primary selection:text-primary-foreground",
+  "focus-visible:border-ring focus-visible:outline-1",
+  "aria-invalid:border-danger focus-visible:aria-invalid:border-danger-1 aria-invalid:outline-danger/75",
+];
+
+const inputVariants = cva(inputBase, {
+  variants: {
+    // Style Variants
+    shape: {
+      pill: boxShape.pill,
+      rounded: boxShape.rounded,
+      sharp: boxShape.sharp,
     },
-    compoundVariants: [
-      // Rounded Shape Size Variants
-      {
-        shape: "rounded",
-        size: "sm",
-        className: "rounded-fs-sm",
-      },
-      {
-        shape: "rounded",
-        size: "md",
-        className: "rounded-fs-md",
-      },
-      {
-        shape: "rounded",
-        size: "lg",
-        className: "rounded-fs-lg",
-      },
-      // Shadow Size Modifiers
-      {
-        withShadow: true,
-        size: "sm",
-        className: "shadow-xs",
-      },
-      {
-        withShadow: true,
-        size: "md",
-        className: "shadow-sm",
-      },
-      {
-        withShadow: true,
-        size: "lg",
-        className: "shadow-md",
-      },
-    ],
+    size: {
+      sm: "gap-fs-0-5 px-fs-2 py-fs-1 border-1 text-label",
+      md: "gap-fs-0-75 px-fs-4 py-fs-2 border-(length:--fs-0-25) text-body",
+      lg: "gap-fs-1 px-fs-5 py-fs-3 border-(length:--fs-0-375) focus-visible:outline-(length:--fs-0-025) text-subheading",
+    },
+    variant: {
+      file: "file:inline-flex file:text-foreground file:border-0 file:bg-transparent file:font-medium",
+      textarea: "field-sizing-content min-h-25",
+    },
+    // Style Modifiers
+    isReadonly: {
+      true: "cursor-default p-0",
+    },
+    withShadow: {
+      true: "shadow-sm",
+    },
   },
-);
+  compoundVariants: [
+    // Rounded Shape Size Variants
+    {
+      shape: "rounded",
+      size: "sm",
+      className: "rounded-fs-sm",
+    },
+    {
+      shape: "rounded",
+      size: "md",
+      className: "rounded-fs-md",
+    },
+    {
+      shape: "rounded",
+      size: "lg",
+      className: "rounded-fs-lg",
+    },
+    // Textarea Variant Size Modifiers
+    {
+      variant: "textarea",
+      size: "sm",
+      className: "min-h-15",
+    },
+    {
+      variant: "textarea",
+      size: "md",
+      className: "min-h-30",
+    },
+    {
+      variant: "textarea",
+      size: "lg",
+      className: "min-h-40",
+    },
+    // Shadow Size Modifiers
+    {
+      withShadow: true,
+      size: "sm",
+      className: "shadow-xs",
+    },
+    {
+      withShadow: true,
+      size: "md",
+      className: "shadow-sm",
+    },
+    {
+      withShadow: true,
+      size: "lg",
+      className: "shadow-md",
+    },
+  ],
+});
 
 type InputVariantProps = VariantProps<typeof inputVariants>;
 
@@ -84,6 +105,7 @@ function Input<T extends React.ElementType = "input">({
   className,
   shape,
   size,
+  variant,
   isReadonly,
   withShadow,
   ...props
@@ -93,12 +115,19 @@ function Input<T extends React.ElementType = "input">({
       data-slot="input-primitive"
       as={as}
       className={cn(
-        inputVariants({ shape, size, isReadonly, withShadow, className }),
+        inputVariants({
+          shape,
+          size,
+          variant,
+          isReadonly,
+          withShadow,
+          className,
+        }),
       )}
       {...props}
     />
   );
 }
 
-export { Input };
+export { Input, inputBase };
 export type { InputProps };
