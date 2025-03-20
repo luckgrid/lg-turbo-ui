@@ -32,7 +32,7 @@ The ui package components are dependant on React and TailwindCSS, which were ini
 
 The ui package includes additional tailwindcss plugins to enhance ux with motion animations and scroll intersection observers to control when animations should run.
 
-- [TailwindCSS Animate Docs](https://www.radix-ui.com/primitives/docs/overview/introduction)
+- [TailwindCSS Animate Docs](https://github.com/Wombosvideo/tw-animate-css?tab=readme-ov-file#usage)
 - [TailwindCSS Motion Animation Docs](https://docs.rombo.co/tailwind)
 - [TailwindCSS Scroll Animation Docs](https://docs.rombo.co/tailwind/scroll-animations)
 

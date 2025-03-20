@@ -33,7 +33,7 @@ CSS Utility: TailwindCSS
 Twitter: @tailwindcss
 
 CSS Animation: TailwindCSS Animate
-Github: @jamiebuilds
+Github: @Wombosvideo
 
 CSS Motion Animation: TailwindCSS Motion
 Twitter: @rombohq
