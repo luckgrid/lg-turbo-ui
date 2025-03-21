@@ -3,6 +3,7 @@ import { cva } from "class-variance-authority";
 import * as React from "react";
 
 import { cn } from "@workspace/ui/lib/utils";
+import { boxShape } from "@workspace/ui/primitives/box";
 import type { SlotElementProps } from "@workspace/ui/primitives/element";
 import { SlotElement } from "@workspace/ui/primitives/element";
 import type { LinkProps } from "@workspace/ui/primitives/link";
@@ -17,7 +18,7 @@ import { Link } from "@workspace/ui/primitives/link";
 const buttonVariants = cva(
   [
     "inline-flex items-center justify-center",
-    "relative gap-fs-0-75 px-fs-5 py-fs-1 border-(length:--fs-0-25)",
+    "relative gap-fs-0-75 px-fs-5 py-fs-2 border-(length:--fs-0-25)",
     "border-neutral bg-neutral text-neutral-foreground hover:border-transparent hover:bg-neutral/90",
     "whitespace-nowrap text-body font-medium",
     "cursor-pointer transition-[color,box-shadow]",
@@ -41,22 +42,22 @@ const buttonVariants = cva(
           "border-danger bg-danger text-danger-foreground outline-danger/50 ring-danger/25 hover:bg-danger/90",
       },
       shape: {
-        pill: "rounded-full",
+        pill: boxShape.pill,
+        sharp: boxShape.sharp,
         rounded: "rounded-fs-md",
-        sharp: "rounded-none",
         ticket: [
-          "py-fs-0-25 shape-ticket",
+          "shape-ticket py-fs-0-1",
           "before:border-b-neutral after:border-t-neutral",
           "hover:before:border-b-neutral/90 hover:after:border-t-neutral/90",
           "focus-visible:ring-0 focus-visible:outline-none",
         ],
       },
       size: {
-        xs: "active:motion-scale-in-[0.93] gap-fs-0-5 px-fs-1 py-fs-0-25 text-caption border-1 font-normal [&_svg:not([class*='size-'])]:size-fs-1",
-        sm: "active:motion-scale-in-[0.94] gap-fs-0-625 px-fs-3 py-fs-0-5 text-label border-(length:--fs-0-25) font-medium [&_svg:not([class*='size-'])]:size-fs-2",
-        md: "active:motion-scale-in-[0.95] gap-fs-0-75 px-fs-5 py-fs-0-75 border-(length:--fs-0-25) text-body font-medium [&_svg:not([class*='size-'])]:size-fs-3",
-        lg: "active:motion-scale-in-[0.96] gap-fs-1 px-fs-7 py-fs-1 border-(length:--fs-0-375) text-subheading font-semibold [&_svg:not([class*='size-'])]:size-fs-4",
-        xl: "active:motion-scale-in-[0.97] gap-fs-2 px-fs-9 py-fs-2 border-(length:--fs-0-5) text-subtitle font-semibold [&_svg:not([class*='size-'])]:size-fs-6",
+        xs: "active:motion-scale-in-[0.93] gap-fs-0-5 px-fs-1 py-fs-0-5 text-caption border-1 font-normal [&_svg:not([class*='size-'])]:size-fs-1",
+        sm: "active:motion-scale-in-[0.94] gap-fs-0-625 px-fs-3 py-fs-1 text-label border-(length:--fs-0-25) font-medium [&_svg:not([class*='size-'])]:size-fs-2",
+        md: "active:motion-scale-in-[0.95] gap-fs-0-75 px-fs-5 py-fs-2 border-(length:--fs-0-25) text-body font-medium [&_svg:not([class*='size-'])]:size-fs-3",
+        lg: "active:motion-scale-in-[0.96] gap-fs-1 px-fs-7 py-fs-3 border-(length:--fs-0-375) text-subheading font-semibold [&_svg:not([class*='size-'])]:size-fs-5",
+        xl: "active:motion-scale-in-[0.97] gap-fs-2 px-fs-9 py-fs-4 border-(length:--fs-0-5) text-subtitle font-semibold [&_svg:not([class*='size-'])]:size-fs-7",
       },
       variant: {
         solid: "",
@@ -66,7 +67,7 @@ const buttonVariants = cva(
       },
       // Style Modifiers
       isIcon: {
-        true: "size-fs-10 p-0",
+        true: "size-fs-12 p-0 [&_svg:not([class*='size-'])]:size-fs-6",
       },
       isGhost: {
         true: "border-transparent bg-transparent text-current hover:bg-neutral/90 hover:text-neutral-foreground",
@@ -258,27 +259,27 @@ const buttonVariants = cva(
       {
         isIcon: true,
         size: "xs",
-        className: "size-fs-4",
+        className: "size-fs-6 [&_svg:not([class*='size-'])]:size-fs-3",
       },
       {
         isIcon: true,
         size: "sm",
-        className: "size-fs-6",
+        className: "size-fs-8 [&_svg:not([class*='size-'])]:size-fs-4",
       },
       {
         isIcon: true,
         size: "md",
-        className: "size-fs-10",
+        className: "size-fs-12 [&_svg:not([class*='size-'])]:size-fs-6",
       },
       {
         isIcon: true,
         size: "lg",
-        className: "size-fs-16",
+        className: "size-fs-16 [&_svg:not([class*='size-'])]:size-fs-8",
       },
       {
         isIcon: true,
         size: "xl",
-        className: "size-fs-20",
+        className: "size-fs-20 [&_svg:not([class*='size-'])]:size-fs-10",
       },
       // Text Icon Size Modifiers
       {
@@ -313,7 +314,7 @@ const buttonVariants = cva(
         className: "shadow-xl",
       },
     ],
-  },
+  }
 );
 
 type ButtonVariantProps = VariantProps<typeof buttonVariants>;
@@ -349,7 +350,7 @@ function Button<T extends React.ElementType = "button">({
           isGhost,
           withShadow,
           className,
-        }),
+        })
       )}
       {...props}
     />
@@ -380,7 +381,7 @@ function ButtonLink({
           isGhost,
           withShadow,
           className,
-        }),
+        })
       )}
       {...props}
     />

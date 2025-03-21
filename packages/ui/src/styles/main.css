@@ -192,6 +192,10 @@
     font-size: var(--text-label);
     font-weight: var(--font-weight-medium);
   }
+
+  button {
+    line-height: 1;
+  }
 }
 
 @utility container {

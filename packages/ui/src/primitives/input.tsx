@@ -15,7 +15,8 @@ const inputBase = [
   "placeholder:text-neutral-foreground/50 placeholder:text-neutral-foreground/75",
   "selection:bg-primary selection:text-primary-foreground",
   "focus-visible:border-ring focus-visible:outline-1",
-  "aria-invalid:border-danger focus-visible:aria-invalid:border-danger-1 aria-invalid:outline-danger/75",
+  "aria-invalid:border-danger aria-invalid:outline-danger/75",
+  "focus-visible:aria-invalid:border-danger-1 focus-visible:aria-invalid:outline-danger-1/75",
 ];
 
 const inputVariants = cva(inputBase, {
@@ -122,7 +123,7 @@ function Input<T extends React.ElementType = "input">({
           isReadonly,
           withShadow,
           className,
-        }),
+        })
       )}
       {...props}
     />

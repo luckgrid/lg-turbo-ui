@@ -49,7 +49,7 @@ const formSchema = z.object({
     .default(false)
     .refine(
       (value) => value === true,
-      "You must agree to the terms and conditions to continue",
+      "You must agree to the terms and conditions to continue"
     ),
   newsletterSubscription: z.boolean().default(false),
   newsletterCategory: z.enum(["all", "design", "engineering", "marketing"]),
@@ -143,7 +143,7 @@ export function FormKitchenSink() {
                       onCheckedChange={field.onChange}
                     />
                   </FormControl>
-                  <div className="space-y-fs-0-75 leading-none">
+                  <div className="flex flex-col gap-fs-0-5 leading-none">
                     <FormLabel size="md">
                       I agree to the terms and conditions
                     </FormLabel>
@@ -163,10 +163,12 @@ export function FormKitchenSink() {
                       onCheckedChange={field.onChange}
                     />
                   </FormControl>
-                  <div className="space-y-fs-0-75 leading-none">
-                    <FormLabel>I want to receive updates to my email</FormLabel>
+                  <div className="flex flex-col gap-fs-0-5 leading-none">
+                    <FormLabel size="md">
+                      I want to receive updates to my email
+                    </FormLabel>
                     <FormDescription>
-                      We'll never spam you or sell your private information.
+                      We'll never spam you or sell your private information
                     </FormDescription>
                   </div>
                 </FormField>
