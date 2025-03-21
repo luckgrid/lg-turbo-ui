@@ -367,7 +367,6 @@ function ButtonLink({
   withShadow,
   ...props
 }: ButtonLinkProps) {
-  console.log(color);
   return (
     <Link
       data-slot="button-link"

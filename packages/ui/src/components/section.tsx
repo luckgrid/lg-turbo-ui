@@ -170,6 +170,7 @@ const sectionVariants = cva("", {
   ],
   defaultVariants: {
     group: "layout",
+    layout: "col",
     size: "auto",
     space: "block",
   },
@@ -272,6 +273,7 @@ const sectionContainerVariants = cva("", {
   ],
   defaultVariants: {
     group: "layout",
+    layout: "col",
     space: "inline",
   },
 });

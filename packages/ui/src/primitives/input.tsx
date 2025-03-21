@@ -130,4 +130,4 @@ function Input<T extends React.ElementType = "input">({
 }
 
 export { Input, inputBase };
-export type { InputProps };
+export type { InputProps, InputVariantProps };

@@ -36,7 +36,7 @@ const boxGroup = {
 const boxLayout = {
   col: "flex flex-col",
   grid: "grid grid-cols-12",
-  row: "flex-wrap md:flex-row md:flex-wrap-reverse",
+  row: "flex flex-col sm:flex-row sm:flex-wrap",
 };
 
 // Box Level API Properties - defines the level of the box to modify the background color, shadow and other variants for the box
@@ -214,9 +214,6 @@ const boxVariants = cva(boxBase, {
       className: "px-fs-18 gap-y-fs-9 gap-x-fs-18",
     },
   ],
-  defaultVariants: {
-    layout: "col",
-  },
 });
 
 type BoxVariantProps = VariantProps<typeof boxVariants>;

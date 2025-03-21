@@ -1,25 +1,55 @@
-import type { InputProps as PrimitiveInputProps } from "@workspace/ui/primitives/input";
+import type { InputProps } from "@workspace/ui/primitives/input";
 import { Input as PrimitiveInput } from "@workspace/ui/primitives/input";
 
-type InputProps = Omit<PrimitiveInputProps<"input">, "variant">;
+// NOTE:
+// - the reason variant prop is hardcoded (i.e. null, file, textarea) is to prevent external control of the variant prop
+// - not omitting the variant prop because the input primitive's compound variants relies on it to modify some size variants
 
-function Input({ as = "input", ...props }: InputProps) {
-  return <PrimitiveInput data-slot="input" as={as} {...props} />;
+// Text Input Component
+
+function Input<T extends React.ElementType = "input">({
+  as = "input",
+  ...props
+}: InputProps<T>) {
+  return <PrimitiveInput data-slot="input" as={as} {...props} variant={null} />;
 }
 
-type FileInputProps = Omit<PrimitiveInputProps<"input">, "variant">;
+// File Input Component
 
-function FileInput({ as = "input", ...props }: FileInputProps) {
+function FileInput<T extends React.ElementType = "input">({
+  as = "input",
+  ...props
+}: InputProps<T>) {
   return (
     <PrimitiveInput
-      data-slot="input"
+      data-slot="file-input"
       as={as}
       type="file"
-      variant="file"
       {...props}
+      variant="file"
     />
   );
 }
 
-export { FileInput, Input };
-export type { FileInputProps, InputProps };
+// Textarea Input Component
+
+type TextareaProps<T extends React.ElementType = "textarea"> = InputProps<T>;
+
+function Textarea<T extends React.ElementType = "textarea">({
+  as = "textarea",
+  ...props
+}: TextareaProps<T>) {
+  return (
+    <PrimitiveInput
+      data-slot="textarea"
+      as={as}
+      {...props}
+      variant="textarea"
+    />
+  );
+}
+
+// Input Component Exports
+
+export { FileInput, Input, Textarea };
+export type { InputProps, TextareaProps };
