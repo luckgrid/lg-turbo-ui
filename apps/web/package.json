@@ -14,6 +14,7 @@
     "clean:output": "rm -rf .next .turbo"
   },
   "dependencies": {
+    "@icons-pack/react-simple-icons": "catalog:",
     "@workspace/ui": "workspace:*",
     "@workspace/ui-next": "workspace:*",
     "lucide-react": "catalog:",

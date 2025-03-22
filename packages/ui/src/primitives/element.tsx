@@ -1,6 +1,6 @@
-import * as React from "react";
-import { Slot } from "@radix-ui/react-slot";
 import type { SlotProps } from "@radix-ui/react-slot";
+import { Slot } from "@radix-ui/react-slot";
+import * as React from "react";
 
 type ElementProps<T extends React.ElementType = "div"> =
   React.ComponentPropsWithRef<T> & {
@@ -31,5 +31,5 @@ function SlotElement<T extends React.ElementType = "div">({
   return <Primitive data-slot="element" {...props} />;
 }
 
-export type { ElementProps, SlotElementProps };
 export { Element, SlotElement };
+export type { ElementProps, SlotElementProps };

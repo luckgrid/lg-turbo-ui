@@ -1,11 +1,16 @@
 import * as React from "react";
-import { cva, type VariantProps } from "class-variance-authority";
+import { cva } from "class-variance-authority";
+import type { VariantProps } from "class-variance-authority";
 
 import { SlotElement } from "@workspace/ui/primitives/element";
 import type { SlotElementProps } from "@workspace/ui/primitives/element";
 import { cn } from "@workspace/ui/lib/utils";
 
 // TODO:
+// - setup color variants to modify card colors instead of using noColor modifier
+// -- remove noColor modifier and set default color to neutral
+// -- add level variant to scale card colors
+// -- use layer variant to also modify card colors based on color and level variant
 // - compose card component variants with baseCardVariants using cx: https://cva.style/docs/getting-started/composing-components
 // -- create cardBaseVariants, cardWrapperVariants, cardContainerVariants, etc...
 // -- create card primitives that share variant props with new variants
@@ -20,6 +25,11 @@ import { cn } from "@workspace/ui/lib/utils";
 const cardVariants = cva("flex flex-col", {
   variants: {
     // Style Variants
+    color: {
+      neutral: "",
+      primary: "",
+      secondary: "",
+    },
     layer: {
       display: "",
       layout: "",
@@ -114,7 +124,8 @@ type CardVariantProps = VariantProps<typeof cardVariants>;
 type CardProps<T extends React.ElementType = "div"> = SlotElementProps<T> &
   CardVariantProps;
 
-function Card({
+function Card<T extends React.ElementType = "div">({
+  as = "div",
   layer,
   shape,
   space,
@@ -126,10 +137,11 @@ function Card({
   noSpace,
   className,
   ...props
-}: CardProps) {
+}: CardProps<T>) {
   return (
     <SlotElement
       data-slot="card"
+      as={as}
       className={cn(
         cardVariants({
           layer,
@@ -250,16 +262,18 @@ type CardBodyVariantProps = VariantProps<typeof cardBodyVariants>;
 type CardBodyProps<T extends React.ElementType = "div"> = SlotElementProps<T> &
   CardBodyVariantProps;
 
-function CardBody({
+function CardBody<T extends React.ElementType = "div">({
+  as = "div",
   shape,
   space,
   noSpace,
   className,
   ...props
-}: CardBodyProps) {
+}: CardBodyProps<T>) {
   return (
     <SlotElement
       data-slot="card-body"
+      as={as}
       className={cn(
         cardBodyVariants({
           shape,

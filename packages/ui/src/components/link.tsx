@@ -1,4 +1,5 @@
-import { cva, type VariantProps } from "class-variance-authority";
+import { cva } from "class-variance-authority";
+import type { VariantProps } from "class-variance-authority";
 
 import { Link as PrimitiveLink } from "@workspace/ui/primitives/link";
 import type { LinkProps as PrimitiveLinkProps } from "@workspace/ui/primitives/link";
@@ -18,9 +19,9 @@ const linkVariants = cva(
     variants: {
       // Style Variants
       color: {
+        accent: "outline-accent/50 hover:text-accent-1",
         primary: "outline-primary/50 hover:text-primary",
         secondary: "outline-secondary/50 hover:text-secondary",
-        accent: "outline-accent/50 hover:text-accent-1",
         danger: "outline-danger/50 hover:text-danger-1",
       },
       underline: {

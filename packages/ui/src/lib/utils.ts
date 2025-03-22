@@ -89,6 +89,17 @@ const twMerge = extendTailwindMerge({
         "fs-37",
         "fs-38",
       ],
+      text: [
+        "caption",
+        "label",
+        "body",
+        "subheading",
+        "subtitle",
+        "heading",
+        "title",
+        "headline",
+        "epic",
+      ],
     },
     classGroups: {
       "font-size": [

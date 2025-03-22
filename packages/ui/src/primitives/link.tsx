@@ -1,7 +1,7 @@
-import * as React from "react";
-import { Slot, Slottable } from "@radix-ui/react-slot";
 import type { SlotProps } from "@radix-ui/react-slot";
+import { Slot, Slottable } from "@radix-ui/react-slot";
 import { ExternalLink } from "lucide-react";
+import * as React from "react";
 
 import { cn } from "@workspace/ui/lib/utils";
 
@@ -15,7 +15,7 @@ type LinkProps = React.ComponentProps<"a"> &
     classNames?: LinkClassNames;
     asChild?: boolean;
     isExternal?: boolean;
-    noIcon?: boolean;
+    noExternalIcon?: boolean;
   };
 
 function Link({
@@ -26,7 +26,7 @@ function Link({
   rel,
   target,
   isExternal,
-  noIcon,
+  noExternalIcon,
   ...props
 }: LinkProps) {
   const Primitive = asChild ? Slot : "a";
@@ -40,10 +40,12 @@ function Link({
       {...props}
     >
       <Slottable>{children}</Slottable>
-      {isExternal && !noIcon && <ExternalLink className={classNames?.icon} />}
+      {isExternal && !noExternalIcon && (
+        <ExternalLink className={classNames?.icon} />
+      )}
     </Primitive>
   );
 }
 
-export type { LinkProps };
 export { Link };
+export type { LinkProps };
