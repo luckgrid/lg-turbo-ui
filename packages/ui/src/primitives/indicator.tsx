@@ -22,8 +22,7 @@ const indicatorInput = [
   "active:not-disabled:motion-scale-in-90 active:not-disabled:motion-duration-300 active:not-disabled:motion-ease-spring-bouncy",
   "disabled:cursor-not-allowed disabled:opacity-50",
   "focus-visible:outline-1 focus-visible:ring-3",
-  "aria-invalid:border-danger aria-invalid:outline-danger/50 aria-invalid:ring-danger/25",
-  "focus-visible:aria-invalid:border-danger-1 focus-visible:aria-invalid:outline-danger-1/50 focus-visible:aria-invalid:ring-danger-1/25",
+  "aria-invalid:border-danger-1 focus-visible:aria-invalid:outline-danger-1/50 focus-visible:aria-invalid:ring-danger-1/25",
 ];
 
 const indicatorShape = {

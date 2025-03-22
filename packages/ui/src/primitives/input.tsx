@@ -11,36 +11,44 @@ const inputBase = [
   boxBase,
   "flex w-full transition-[background-color,border-color,color,box-shadow,opacity,fill,stroke]",
   "gap-fs-0-75 px-fs-3 py-fs-1 border-(length:--fs-0-25)",
-  "border-border outline-offset-1 outline-ring/75 bg-input text-body",
+  "outline-offset-1 outline-ring/75 border-border bg-input",
+  "text-body text-left text-pretty",
   "placeholder:text-neutral-foreground/50 placeholder:text-neutral-foreground/75",
   "selection:bg-primary selection:text-primary-foreground",
-  "disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50",
+  "disabled:cursor-not-allowed disabled:opacity-50",
   "focus-visible:border-ring focus-visible:outline-1",
-  "aria-invalid:border-danger aria-invalid:outline-danger/75",
-  "focus-visible:aria-invalid:border-danger-1 focus-visible:aria-invalid:outline-danger-1/75",
+  "aria-invalid:border-danger-1 focus-visible:aria-invalid:outline-danger-1/75",
 ];
+
+const inputShape = {
+  pill: boxShape.pill,
+  rounded: boxShape.rounded,
+  sharp: boxShape.sharp,
+};
+
+const inputSize = {
+  sm: "gap-fs-0-5 px-fs-2 py-fs-1 border-1 text-label",
+  md: "gap-fs-0-75 px-fs-4 py-fs-2 border-(length:--fs-0-25) text-body",
+  lg: "gap-fs-1 px-fs-5 py-fs-3 border-(length:--fs-0-375) focus-visible:outline-(length:--fs-0-025) text-subheading",
+};
+
+const inputVariant = {
+  file: "file:inline-flex file:text-foreground file:border-0 file:bg-transparent file:font-medium",
+  select: [
+    "items-center justify-between gap-fs-2",
+    "hover:bg-input/80 data-[placeholder]:text-neutral-foreground/50 [&_svg:not([class*='text-'])]:text-neutral-foreground/50",
+    "[&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg]:opacity-50 [&_svg:not([class*='size-'])]:size-fs-4 [&[data-state=open]>svg]:rotate-180",
+  ],
+  textarea: "field-sizing-content min-h-25",
+};
 
 const inputVariants = cva(inputBase, {
   variants: {
     // Style Variants
-    shape: {
-      pill: boxShape.pill,
-      rounded: boxShape.rounded,
-      sharp: boxShape.sharp,
-    },
-    size: {
-      sm: "gap-fs-0-5 px-fs-2 py-fs-1 border-1 text-label",
-      md: "gap-fs-0-75 px-fs-4 py-fs-2 border-(length:--fs-0-25) text-body",
-      lg: "gap-fs-1 px-fs-5 py-fs-3 border-(length:--fs-0-375) focus-visible:outline-(length:--fs-0-025) text-subheading",
-    },
-    variant: {
-      file: "file:inline-flex file:text-foreground file:border-0 file:bg-transparent file:font-medium",
-      textarea: "field-sizing-content min-h-25",
-    },
+    shape: inputShape,
+    size: inputSize,
+    variant: inputVariant,
     // Style Modifiers
-    isReadonly: {
-      true: "cursor-default p-0",
-    },
     noShadow: {
       false: "shadow-sm",
     },
@@ -111,7 +119,6 @@ function Input<T extends React.ElementType = "input">({
   shape,
   size,
   variant,
-  isReadonly,
   noShadow,
   ...props
 }: InputProps<T>) {
@@ -124,7 +131,6 @@ function Input<T extends React.ElementType = "input">({
           shape,
           size,
           variant,
-          isReadonly,
           noShadow,
           className,
         }),
@@ -134,5 +140,5 @@ function Input<T extends React.ElementType = "input">({
   );
 }
 
-export { Input, inputBase };
+export { Input, inputBase, inputShape, inputSize, inputVariant };
 export type { InputProps, InputVariantProps };

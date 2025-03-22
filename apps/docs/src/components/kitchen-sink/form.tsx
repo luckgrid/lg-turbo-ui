@@ -1,9 +1,11 @@
 "use client";
 
 import { zodResolver } from "@hookform/resolvers/zod";
+import * as React from "react";
 import { FormProvider, useForm } from "react-hook-form";
 import { z } from "zod";
 
+import { Link } from "@workspace/ui-next/components/link";
 import { toast } from "@workspace/ui-next/components/toaster";
 import { Button } from "@workspace/ui/components/button";
 import { Card } from "@workspace/ui/components/card";
@@ -49,25 +51,31 @@ const formSchema = z.object({
     .default(false)
     .refine(
       (value) => value === true,
-      "You must agree to the terms and conditions to continue",
+      "You must agree to our terms and conditions to continue",
     ),
-  newsletterSubscription: z.boolean().default(false),
-  newsletterCategory: z.enum(["all", "design", "engineering", "marketing"]),
+  newsletterSubscription: z.boolean().default(false).optional(),
+  newsletterCategory: z
+    .enum(["all", "design", "engineering", "marketing"])
+    .optional(),
 });
 
 type FormValues = z.infer<typeof formSchema>;
 
+const formDefaultValues: FormValues = {
+  email: "",
+  username: "",
+  name: "",
+  experience: "",
+  bio: "",
+  legalAgreement: false,
+  newsletterSubscription: true,
+  newsletterCategory: "all",
+};
+
 export function FormKitchenSink() {
   const form = useForm<FormValues>({
     resolver: zodResolver(formSchema),
-    defaultValues: {
-      email: "",
-      username: "",
-      name: "",
-      bio: "",
-      newsletterSubscription: true,
-      newsletterCategory: "all",
-    },
+    defaultValues: formDefaultValues,
   });
 
   function onSubmit(values: FormValues) {
@@ -75,9 +83,18 @@ export function FormKitchenSink() {
     toast.success("The form has been submitted successfully");
   }
 
+  React.useEffect(() => {
+    if (form.formState.isSubmitSuccessful) {
+      form.reset(formDefaultValues);
+    }
+  }, [form.formState.isSubmitSuccessful, form.reset]);
+
   return (
     <SectionContainer>
-      <Card className="max-w-2xl bg-background-1" space="container">
+      <Card
+        className="intersect-once intersect:motion-preset-rebound-right max-w-2xl bg-background-1"
+        space="container"
+      >
         <h3 className="text-subheading text-balance">
           Form Inside a Card Component
         </h3>
@@ -85,7 +102,7 @@ export function FormKitchenSink() {
           <Form onSubmit={form.handleSubmit(onSubmit)}>
             <Field
               control={form.control}
-              hint="This is your contact email"
+              hint="This will be your primary contact. You can add additional contacts later."
               label="Email"
               name="email"
               placeholder="dev@luckgrid.net"
@@ -93,21 +110,27 @@ export function FormKitchenSink() {
             />
             <Field
               control={form.control}
-              hint="This is your username"
+              hint="This will be your username. You can change it later."
               label="Username"
               name="username"
               placeholder="1337-h4x0r"
               isRequired
             />
-            <Field control={form.control} label="Experience" name="experience">
+            <Field
+              control={form.control}
+              hint="Choosing an experience level is completely optional."
+              label="Experience"
+              name="experience"
+            >
               {(field) => (
                 <Select
-                  onValueChange={field.onChange}
                   defaultValue={field.value}
+                  key={field.value}
+                  onValueChange={field.onChange}
                 >
                   <FormControl>
                     <SelectTrigger>
-                      <SelectValue placeholder="Select your level of experience (optional)" />
+                      <SelectValue placeholder="Select your level" />
                     </SelectTrigger>
                   </FormControl>
                   <SelectContent>
@@ -119,15 +142,10 @@ export function FormKitchenSink() {
                 </Select>
               )}
             </Field>
-            <Field
-              control={form.control}
-              hint="This is your bio"
-              label="Bio"
-              name="bio"
-            >
+            <Field control={form.control} label="Bio" name="bio">
               {(field) => (
                 <Textarea
-                  placeholder="A short description about yourself (optional)"
+                  placeholder="Write a short description about yourself..."
                   {...field}
                 />
               )}
@@ -147,7 +165,11 @@ export function FormKitchenSink() {
                     <FormLabel size="md" variant="indicator">
                       I agree to the terms and conditions
                     </FormLabel>
-                    <FormDescription />
+                    <FormDescription>
+                      Make sure to read the{" "}
+                      <Link href="#">terms and conditions</Link> before using
+                      our services.
+                    </FormDescription>
                   </div>
                 </FormField>
               )}
@@ -165,10 +187,11 @@ export function FormKitchenSink() {
                   </FormControl>
                   <div className="flex flex-col gap-fs-0-75 leading-none">
                     <FormLabel size="md" variant="indicator">
-                      I want to receive updates to my email
+                      I want to subscribe to the newsletter
                     </FormLabel>
                     <FormDescription>
-                      We'll never spam you or sell your private information
+                      We don't spam or sell any private information. You may
+                      unsubscribe at any time.
                     </FormDescription>
                   </div>
                 </FormField>
@@ -179,11 +202,12 @@ export function FormKitchenSink() {
               name="newsletterCategory"
               render={({ field }) => (
                 <FormField className="gap-y-fs-2">
-                  <FormLabel>I want to receive updates about...</FormLabel>
+                  <FormLabel>Send me info about:</FormLabel>
                   <FormControl>
                     <RadioGroup
-                      onValueChange={field.onChange}
                       defaultValue={field.value}
+                      onValueChange={field.onChange}
+                      key={field.value}
                     >
                       <FormField className="items-center" layout="row">
                         <FormControl>
@@ -224,8 +248,9 @@ export function FormKitchenSink() {
               )}
             />
             <Button
-              className="sm:justify-self-end"
+              className="mt-fs-4 sm:justify-self-end"
               color="primary"
+              size="md"
               type="submit"
             >
               Submit

@@ -35,7 +35,7 @@ const sectionVariants = cva("", {
     scale: boxScale,
     size: boxSize,
     space: {
-      unset: "",
+      unset: boxSpace.unset,
       block: "py-fs-12 gap-y-fs-6 gap-x-fs-12",
       frame: "p-fs-8 gap-fs-4",
       inline: "px-fs-6 gap-y-fs-3 gap-x-fs-6",
@@ -270,6 +270,54 @@ const sectionContainerVariants = cva("", {
       level: "3",
       className: "bg-secondary/60",
     },
+    // 0 Space Scale
+    {
+      scale: "0",
+      space: "block",
+      className: "py-6 gap-y-3 gap-x-6",
+    },
+    {
+      scale: "0",
+      space: "frame",
+      className: "p-6 gap-6",
+    },
+    {
+      scale: "0",
+      space: "inline",
+      className: "px-6 gap-y-3 gap-x-6",
+    },
+    // 2 Space Scale
+    {
+      scale: "2",
+      space: "block",
+      className: "py-fs-12 gap-y-fs-6 gap-x-fs-12",
+    },
+    {
+      scale: "2",
+      space: "frame",
+      className: "p-fs-12 gap-fs-12",
+    },
+    {
+      scale: "2",
+      space: "inline",
+      className: "px-fs-12 gap-y-fs-6 gap-x-fs-12",
+    },
+    // 3 Space Scale
+    {
+      scale: "3",
+      space: "block",
+      className: "py-fs-18 gap-y-fs-9 gap-x-fs-18",
+    },
+    {
+      scale: "3",
+      space: "frame",
+      className: "p-fs-18 gap-fs-18",
+    },
+    {
+      scale: "3",
+      space: "inline",
+      className: "px-fs-18 gap-y-fs-9 gap-x-fs-18",
+    },
   ],
   defaultVariants: {
     group: "layout",
@@ -371,7 +419,7 @@ function Section<T extends React.ElementType = "section">({
     group: container?.group || group,
     layout: container?.layout || layout,
     level: container?.level || level,
-    scale: container?.scale || scale,
+    scale: container?.scale || sectionScale,
     size: container?.size,
     space: getContainerSpace(),
     variant: container?.variant || variant,

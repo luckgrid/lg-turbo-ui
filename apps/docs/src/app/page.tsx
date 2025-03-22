@@ -76,8 +76,8 @@ export default function Page() {
           </p>
           <ButtonLink
             href="https://github.com/luckgrid/lg-turbo-ui"
-            shape="pill"
             size="sm"
+            variant="text"
             isGhost
             isIcon
             isExternal

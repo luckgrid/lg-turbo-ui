@@ -261,20 +261,15 @@ export function ButtonKitchenSink() {
           <div className="flex flex-wrap items-center justify-center gap-fs-6">
             <div className="flex flex-col items-center justify-center gap-fs-2">
               <Button
-                size="xs"
-                variant="text"
-                isIcon
-                aria-label="Extra Small Text Icon"
-              >
-                <Star />
-              </Button>
-              <Button
                 size="sm"
                 color="accent"
                 variant="text"
                 isIcon
                 aria-label="Small Text Icon"
               >
+                <Star />
+              </Button>
+              <Button variant="text" isIcon aria-label="Default Text Icon">
                 <Star />
               </Button>
               <Button
@@ -292,15 +287,6 @@ export function ButtonKitchenSink() {
                 variant="text"
                 isIcon
                 aria-label="Large Text Icon"
-              >
-                <Star />
-              </Button>
-              <Button
-                size="xl"
-                color="danger"
-                variant="text"
-                isIcon
-                aria-label="Extra Large Text Icon"
               >
                 <Star />
               </Button>
@@ -431,37 +417,27 @@ export function ButtonKitchenSink() {
             </h3>
             <div className="flex flex-wrap items-center justify-center gap-fs-6">
               <div className="flex flex-col items-center justify-center gap-fs-2">
-                <Button shape="pill" size="xs">
-                  Extra Small
-                </Button>
                 <Button shape="pill" size="sm">
                   Small
                 </Button>
+                <Button shape="pill">Default</Button>
                 <Button shape="pill" size="md">
                   Medium
                 </Button>
                 <Button shape="pill" size="lg">
                   Large
                 </Button>
-                <Button shape="pill" size="xl">
-                  Extra Large
-                </Button>
               </div>
               <div className="flex flex-col items-center justify-center gap-fs-2">
-                <Button
-                  shape="pill"
-                  size="xs"
-                  isIcon
-                  aria-label="Pill Neutral Icon"
-                >
-                  <Star />
-                </Button>
                 <Button
                   shape="pill"
                   size="sm"
                   isIcon
                   aria-label="Pill Accent Icon"
                 >
+                  <Star />
+                </Button>
+                <Button shape="pill" isIcon aria-label="Pill Neutral Icon">
                   <Star />
                 </Button>
                 <Button
@@ -480,14 +456,6 @@ export function ButtonKitchenSink() {
                 >
                   <Star />
                 </Button>
-                <Button
-                  shape="pill"
-                  size="xl"
-                  isIcon
-                  aria-label="Pill Danger Icon"
-                >
-                  <Star />
-                </Button>
               </div>
             </div>
           </div>
@@ -499,19 +467,14 @@ export function ButtonKitchenSink() {
               <div className="flex flex-col items-center justify-center gap-fs-2">
                 <Button
                   shape="rounded"
-                  size="xs"
-                  variant="outline"
-                  color="primary"
-                >
-                  Extra Small
-                </Button>
-                <Button
-                  shape="rounded"
                   size="sm"
                   variant="outline"
                   color="primary"
                 >
                   Small
+                </Button>
+                <Button shape="rounded" variant="outline" color="primary">
+                  Default
                 </Button>
                 <Button
                   shape="rounded"
@@ -529,26 +492,8 @@ export function ButtonKitchenSink() {
                 >
                   Large
                 </Button>
-                <Button
-                  shape="rounded"
-                  size="xl"
-                  variant="outline"
-                  color="primary"
-                >
-                  Extra Large
-                </Button>
               </div>
               <div className="flex flex-col gap-fs-2">
-                <Button
-                  shape="rounded"
-                  size="xs"
-                  variant="outline"
-                  color="primary"
-                  isIcon
-                  aria-label="Rounded Neutral Icon"
-                >
-                  <Star />
-                </Button>
                 <Button
                   shape="rounded"
                   size="sm"
@@ -556,6 +501,15 @@ export function ButtonKitchenSink() {
                   color="primary"
                   isIcon
                   aria-label="Rounded Accent Icon"
+                >
+                  <Star />
+                </Button>
+                <Button
+                  shape="rounded"
+                  variant="outline"
+                  color="primary"
+                  isIcon
+                  aria-label="Rounded Neutral Icon"
                 >
                   <Star />
                 </Button>
@@ -579,16 +533,6 @@ export function ButtonKitchenSink() {
                 >
                   <Star />
                 </Button>
-                <Button
-                  shape="rounded"
-                  size="xl"
-                  variant="outline"
-                  color="primary"
-                  isIcon
-                  aria-label="Rounded Danger Icon"
-                >
-                  <Star />
-                </Button>
               </div>
             </div>
           </div>
@@ -600,16 +544,6 @@ export function ButtonKitchenSink() {
               <div className="flex flex-col items-center justify-center gap-fs-2">
                 <Button
                   shape="sharp"
-                  size="xs"
-                  color="secondary"
-                  variant="outline"
-                  isGhost
-                >
-                  <Star />
-                  Extra Small
-                </Button>
-                <Button
-                  shape="sharp"
                   size="sm"
                   color="secondary"
                   variant="outline"
@@ -617,6 +551,15 @@ export function ButtonKitchenSink() {
                 >
                   <Star />
                   Small
+                </Button>
+                <Button
+                  shape="sharp"
+                  color="secondary"
+                  variant="outline"
+                  isGhost
+                >
+                  <Star />
+                  Default
                 </Button>
                 <Button
                   shape="sharp"
@@ -637,16 +580,6 @@ export function ButtonKitchenSink() {
                 >
                   <Star />
                   Large
-                </Button>
-                <Button
-                  shape="sharp"
-                  size="xl"
-                  color="secondary"
-                  variant="outline"
-                  isGhost
-                >
-                  <Star />
-                  Extra Large
                 </Button>
               </div>
             </div>

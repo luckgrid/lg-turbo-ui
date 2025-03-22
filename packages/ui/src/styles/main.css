@@ -148,6 +148,7 @@
   body {
     background-color: var(--background);
     color: var(--foreground);
+    font-family: var(--font-sans);
     font-size: var(--text-body);
   }
 
@@ -190,10 +191,6 @@
   th {
     font-size: var(--text-label);
     font-weight: var(--font-weight-medium);
-  }
-
-  button {
-    line-height: 1;
   }
 }
 

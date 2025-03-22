@@ -68,27 +68,24 @@ function FormField({ className, layout, size, ...props }: FormFieldProps) {
 
 // Primitive Form Description Component
 
-const formDescriptionVariants = cva(
-  "font-sans text-label italic transition-[color]",
-  {
-    variants: {
-      // Style Variants
-      size: {
-        sm: "text-caption",
-        md: "text-body",
-        lg: "text-subheading",
-      },
-      variant: {
-        error: "text-danger-1/75",
-        hint: "text-neutral-foreground/50",
-      },
-      // Style Modifiers
-      isDisabled: {
-        true: "opacity-50",
-      },
+const formDescriptionVariants = cva("font-sans text-label italic", {
+  variants: {
+    // Style Variants
+    size: {
+      sm: "text-caption",
+      md: "text-body",
+      lg: "text-subheading",
+    },
+    variant: {
+      error: "text-danger-1/75",
+      hint: "text-neutral-foreground/50",
+    },
+    // Style Modifiers
+    isDisabled: {
+      true: "opacity-50",
     },
   },
-);
+});
 
 type FormDescriptionVariantProps = VariantProps<typeof formDescriptionVariants>;
 
