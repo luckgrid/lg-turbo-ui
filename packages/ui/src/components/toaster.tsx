@@ -7,6 +7,7 @@ import { Toaster as Sonner, toast } from "sonner";
 
 // TODO:
 // - add toasterVariants with updated styles using ui theme variables - https://sonner.emilkowal.ski/styling
+// -- add a reusable toast function with theme style overrides
 
 type ToasterProps = SonnerProps;
 

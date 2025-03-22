@@ -2,10 +2,11 @@ import type { VariantProps } from "class-variance-authority";
 import { cva } from "class-variance-authority";
 
 import { cn } from "@workspace/ui/lib/utils";
+import { boxBase } from "@workspace/ui/primitives/box";
 
 // Primitive Form Component
 
-const formVariants = cva("grid gap-fs-4", {
+const formVariants = cva([boxBase, "grid gap-fs-4"], {
   variants: {
     // Style Variants
     size: {
@@ -32,7 +33,7 @@ function Form({ className, size, ...props }: FormProps) {
 
 // Primitive Form Field Component
 
-const formFieldVariants = cva("gap-y-fs-0-5 gap-x-fs-1", {
+const formFieldVariants = cva([boxBase, "gap-y-fs-0-5 gap-x-fs-1 w-full"], {
   variants: {
     // Style Variants
     layout: {
@@ -67,20 +68,27 @@ function FormField({ className, layout, size, ...props }: FormFieldProps) {
 
 // Primitive Form Description Component
 
-const formDescriptionVariants = cva("font-sans text-label italic", {
-  variants: {
-    // Style Variants
-    size: {
-      sm: "text-caption",
-      md: "text-body",
-      lg: "text-subheading",
-    },
-    variant: {
-      error: "text-danger-1/75",
-      hint: "text-neutral-foreground/50",
+const formDescriptionVariants = cva(
+  "font-sans text-label italic transition-[color]",
+  {
+    variants: {
+      // Style Variants
+      size: {
+        sm: "text-caption",
+        md: "text-body",
+        lg: "text-subheading",
+      },
+      variant: {
+        error: "text-danger-1/75",
+        hint: "text-neutral-foreground/50",
+      },
+      // Style Modifiers
+      isDisabled: {
+        true: "opacity-50",
+      },
     },
   },
-});
+);
 
 type FormDescriptionVariantProps = VariantProps<typeof formDescriptionVariants>;
 
@@ -91,12 +99,15 @@ function FormDescription({
   className,
   size,
   variant,
+  isDisabled,
   ...props
 }: FormDescriptionProps) {
   return (
     <p
       data-slot="form-description"
-      className={cn(formDescriptionVariants({ size, variant, className }))}
+      className={cn(
+        formDescriptionVariants({ size, variant, isDisabled, className }),
+      )}
       {...props}
     />
   );

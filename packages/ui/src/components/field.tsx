@@ -16,7 +16,6 @@ import {
 } from "@workspace/ui/components/form";
 import type { InputProps } from "@workspace/ui/components/input";
 import { Input } from "@workspace/ui/components/input";
-import type { LabelVariantProps } from "@workspace/ui/components/label";
 import type {
   FormDescriptionVariantProps,
   FormFieldVariantProps,
@@ -52,7 +51,8 @@ type FieldProps<
     | FormFieldVariantProps["size"]
     | InputProps<"input">["size"]
     | FormDescriptionVariantProps["size"];
-  isRequired?: LabelVariantProps["isRequired"];
+  isDisabled?: boolean;
+  isRequired?: boolean;
 };
 
 function Field<
@@ -68,6 +68,7 @@ function Field<
   placeholder,
   shape,
   size,
+  isDisabled,
   isRequired,
 }: FieldProps<TFieldValues, TName>) {
   return (
@@ -76,7 +77,9 @@ function Field<
       name={name}
       render={({ field }) => (
         <FormField size={size} layout={layout}>
-          <FormLabel isRequired={isRequired}>{label}</FormLabel>
+          <FormLabel isDisabled={isDisabled} isRequired={isRequired}>
+            {label}
+          </FormLabel>
           {children ? (
             typeof children === "function" ? (
               <FormControl>{children(field)}</FormControl>
@@ -86,6 +89,7 @@ function Field<
           ) : (
             <FormControl>
               <Input
+                disabled={isDisabled}
                 shape={shape}
                 size={size as InputProps<"input">["size"]}
                 placeholder={placeholder}
@@ -93,7 +97,9 @@ function Field<
               />
             </FormControl>
           )}
-          <FormDescription size={size}>{hint}</FormDescription>
+          <FormDescription size={size} isDisabled={isDisabled}>
+            {hint}
+          </FormDescription>
         </FormField>
       )}
     />

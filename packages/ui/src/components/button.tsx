@@ -21,8 +21,8 @@ const buttonVariants = cva(
     "relative gap-fs-0-75 px-fs-5 py-fs-2 border-(length:--fs-0-25)",
     "border-neutral bg-neutral text-neutral-foreground hover:border-transparent hover:bg-neutral/90",
     "whitespace-nowrap text-body font-medium",
-    "cursor-pointer transition-[color,box-shadow]",
-    "active:motion-scale-in-[0.95] active:motion-duration-200 active:motion-ease-spring-bouncy",
+    "cursor-pointer transition-[background-color,border-color,color,box-shadow,opacity,text-decoration-color,fill,stroke]",
+    "active:motion-scale-in-[0.95] active:motion-duration-300 active:motion-ease-spring-bouncy",
     "disabled:pointer-events-none disabled:opacity-50",
     "outline-offset-1 outline-neutral/50 ring-neutral/25",
     "focus-visible:ring-4 focus-visible:outline-1 aria-invalid:focus-visible:ring-0",
@@ -314,7 +314,7 @@ const buttonVariants = cva(
         className: "shadow-xl",
       },
     ],
-  }
+  },
 );
 
 type ButtonVariantProps = VariantProps<typeof buttonVariants>;
@@ -326,6 +326,7 @@ type ButtonLinkProps = Omit<ButtonProps<"a">, "as" | "asChild"> & LinkProps;
 
 function Button<T extends React.ElementType = "button">({
   as = "button",
+  type = "button",
   className,
   color,
   shape,
@@ -340,6 +341,7 @@ function Button<T extends React.ElementType = "button">({
     <SlotElement
       data-slot="button"
       as={as}
+      type={type}
       className={cn(
         buttonVariants({
           color,
@@ -350,7 +352,7 @@ function Button<T extends React.ElementType = "button">({
           isGhost,
           withShadow,
           className,
-        })
+        }),
       )}
       {...props}
     />
@@ -381,7 +383,7 @@ function ButtonLink({
           isGhost,
           withShadow,
           className,
-        })
+        }),
       )}
       {...props}
     />

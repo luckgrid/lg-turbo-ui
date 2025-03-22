@@ -12,11 +12,12 @@ import { cn } from "@workspace/ui/lib/utils";
 
 const labelVariants = cva(
   [
-    "select-none inline-flex items-center gap-fs-0-25",
+    "select-none transition-[color]",
+    "inline-flex items-center gap-fs-0-25",
     "font-medium text-label",
     "data-[error=true]:text-danger-1",
     "group-data-[disabled=true]:pointer-events-none group-data-[disabled=true]:opacity-50",
-    "peer-disabled:cursor-not-allowed peer-disabled:opacity-50",
+    "peer-disabled:opacity-50",
   ],
   {
     variants: {
@@ -26,11 +27,24 @@ const labelVariants = cva(
         md: "text-body gap-fs-0-375",
         lg: "text-subheading gap-fs-0-5",
       },
+      variant: {
+        indicator: "peer-disabled:cursor-not-allowed",
+      },
       // Style Modifiers
+      isDisabled: {
+        true: "opacity-50",
+      },
       isRequired: {
         true: "after:content-['*'] after:text-danger-1",
       },
     },
+    compoundVariants: [
+      {
+        variant: "indicator",
+        isDisabled: true,
+        className: "cursor-not-allowed",
+      },
+    ],
   },
 );
 
@@ -39,13 +53,22 @@ type LabelVariantProps = VariantProps<typeof labelVariants>;
 type LabelProps = LabelVariantProps &
   React.ComponentProps<typeof LabelPrimitive.Root>;
 
-function Label({ className, size, isRequired, ...props }: LabelProps) {
+function Label({
+  className,
+  size,
+  variant,
+  isDisabled,
+  isRequired,
+  ...props
+}: LabelProps) {
   return (
     <LabelPrimitive.Root
       data-slot="label"
       className={cn(
         labelVariants({
           size,
+          variant,
+          isDisabled,
           isRequired,
           className,
         }),

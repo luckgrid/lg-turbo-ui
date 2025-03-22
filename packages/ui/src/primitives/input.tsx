@@ -9,11 +9,12 @@ import { Element } from "@workspace/ui/primitives/element";
 
 const inputBase = [
   boxBase,
-  "flex transition-[color,box-shadow]",
+  "flex w-full transition-[background-color,border-color,color,box-shadow,opacity,fill,stroke]",
   "gap-fs-0-75 px-fs-3 py-fs-1 border-(length:--fs-0-25)",
   "border-border outline-offset-1 outline-ring/75 bg-input text-body",
   "placeholder:text-neutral-foreground/50 placeholder:text-neutral-foreground/75",
   "selection:bg-primary selection:text-primary-foreground",
+  "disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50",
   "focus-visible:border-ring focus-visible:outline-1",
   "aria-invalid:border-danger aria-invalid:outline-danger/75",
   "focus-visible:aria-invalid:border-danger-1 focus-visible:aria-invalid:outline-danger-1/75",
@@ -40,8 +41,8 @@ const inputVariants = cva(inputBase, {
     isReadonly: {
       true: "cursor-default p-0",
     },
-    withShadow: {
-      true: "shadow-sm",
+    noShadow: {
+      false: "shadow-sm",
     },
   },
   compoundVariants: [
@@ -79,21 +80,24 @@ const inputVariants = cva(inputBase, {
     },
     // Shadow Size Modifiers
     {
-      withShadow: true,
+      noShadow: false,
       size: "sm",
       className: "shadow-xs",
     },
     {
-      withShadow: true,
+      noShadow: false,
       size: "md",
       className: "shadow-sm",
     },
     {
-      withShadow: true,
+      noShadow: false,
       size: "lg",
       className: "shadow-md",
     },
   ],
+  defaultVariants: {
+    noShadow: false,
+  },
 });
 
 type InputVariantProps = VariantProps<typeof inputVariants>;
@@ -108,7 +112,7 @@ function Input<T extends React.ElementType = "input">({
   size,
   variant,
   isReadonly,
-  withShadow,
+  noShadow,
   ...props
 }: InputProps<T>) {
   return (
@@ -121,9 +125,9 @@ function Input<T extends React.ElementType = "input">({
           size,
           variant,
           isReadonly,
-          withShadow,
+          noShadow,
           className,
-        })
+        }),
       )}
       {...props}
     />

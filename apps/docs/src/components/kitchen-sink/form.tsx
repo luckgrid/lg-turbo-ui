@@ -49,7 +49,7 @@ const formSchema = z.object({
     .default(false)
     .refine(
       (value) => value === true,
-      "You must agree to the terms and conditions to continue"
+      "You must agree to the terms and conditions to continue",
     ),
   newsletterSubscription: z.boolean().default(false),
   newsletterCategory: z.enum(["all", "design", "engineering", "marketing"]),
@@ -143,8 +143,8 @@ export function FormKitchenSink() {
                       onCheckedChange={field.onChange}
                     />
                   </FormControl>
-                  <div className="flex flex-col gap-fs-0-5 leading-none">
-                    <FormLabel size="md">
+                  <div className="flex flex-col gap-fs-0-75 leading-none">
+                    <FormLabel size="md" variant="indicator">
                       I agree to the terms and conditions
                     </FormLabel>
                     <FormDescription />
@@ -163,8 +163,8 @@ export function FormKitchenSink() {
                       onCheckedChange={field.onChange}
                     />
                   </FormControl>
-                  <div className="flex flex-col gap-fs-0-5 leading-none">
-                    <FormLabel size="md">
+                  <div className="flex flex-col gap-fs-0-75 leading-none">
+                    <FormLabel size="md" variant="indicator">
                       I want to receive updates to my email
                     </FormLabel>
                     <FormDescription>
@@ -178,41 +178,44 @@ export function FormKitchenSink() {
               control={form.control}
               name="newsletterCategory"
               render={({ field }) => (
-                <FormField className="space-y-3">
+                <FormField className="gap-y-fs-2">
                   <FormLabel>I want to receive updates about...</FormLabel>
                   <FormControl>
                     <RadioGroup
                       onValueChange={field.onChange}
                       defaultValue={field.value}
-                      className="flex flex-col space-y-1"
                     >
-                      <FormField className="flex items-center space-x-3 space-y-0">
+                      <FormField className="items-center" layout="row">
                         <FormControl>
                           <RadioGroupItem value="all" />
                         </FormControl>
-                        <FormLabel className="font-normal">
+                        <FormLabel className="font-normal" variant="indicator">
                           Everything
                         </FormLabel>
                       </FormField>
-                      <FormField className="flex items-center space-x-3 space-y-0">
+                      <FormField className="items-center" layout="row">
                         <FormControl>
                           <RadioGroupItem value="design" />
                         </FormControl>
-                        <FormLabel className="font-normal">Design</FormLabel>
+                        <FormLabel className="font-normal" variant="indicator">
+                          Design
+                        </FormLabel>
                       </FormField>
-                      <FormField className="flex items-center space-x-3 space-y-0">
+                      <FormField className="items-center" layout="row">
                         <FormControl>
                           <RadioGroupItem value="engineering" />
                         </FormControl>
-                        <FormLabel className="font-normal">
+                        <FormLabel className="font-normal" variant="indicator">
                           Engineering
                         </FormLabel>
                       </FormField>
-                      <FormField className="flex items-center space-x-3 space-y-0">
+                      <FormField className="items-center" layout="row">
                         <FormControl>
                           <RadioGroupItem value="marketing" />
                         </FormControl>
-                        <FormLabel className="font-normal">Marketing</FormLabel>
+                        <FormLabel className="font-normal" variant="indicator">
+                          Marketing
+                        </FormLabel>
                       </FormField>
                     </RadioGroup>
                   </FormControl>
