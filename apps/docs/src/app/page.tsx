@@ -22,7 +22,9 @@ export default function Page() {
             priority
             className="dark:invert"
           />
-          <h1 className="text-title text-balance">{config.name}</h1>
+          <h1 className="text-title text-balance text-center md:text-left">
+            LG Turbo UI Kitchen Sink
+          </h1>
         </div>
       </header>
       <section className="flex flex-col flex-1 gap-fs-8">
