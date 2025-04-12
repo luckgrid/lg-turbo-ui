@@ -4,11 +4,10 @@
   "type": "module",
   "private": true,
   "scripts": {
-    "lint": "eslint . --max-warnings 0",
-    "typecheck": "tsc --noEmit",
-    "clean": "pnpm run clean:output",
-    "clean:modules": "rm -rf node_modules",
-    "clean:output": "rm -rf .turbo dist"
+    "lint": "eslint",
+    "typecheck": "tsc --noEmit --emitDeclarationOnly false",
+    "clean": "git clean -xdf .turbo dist node_modules",
+    "ui:add": "pnpm dlx shadcn@latest add"
   },
   "dependencies": {
     "@hookform/resolvers": "catalog:",
@@ -29,13 +28,14 @@
     "zod": "catalog:"
   },
   "devDependencies": {
-    "@tailwindcss/postcss": "^4.0.14",
+    "@tailwindcss/postcss": "catalog:",
     "@turbo/gen": "catalog:",
     "@types/node": "catalog:",
     "@types/react": "catalog:",
     "@types/react-dom": "catalog:",
     "@workspace/eslint-config": "workspace:*",
     "@workspace/typescript-config": "workspace:*",
+    "eslint": "catalog:",
     "tailwindcss": "^4.0.14",
     "tailwindcss-intersect": "^2.2.0",
     "tailwindcss-motion": "^1.1.0",

@@ -1,15 +1,16 @@
 import type { Metadata } from "next";
 
-import { getBaseUrl } from "@workspace/ui-next/lib/utils";
 import {
-  metadata as sharedMetadata,
   metadataOrganization,
+  metadata as sharedMetadata,
 } from "@workspace/ui-next/lib/metadata";
+import { getBaseUrl } from "@workspace/ui-next/lib/utils";
 
-const APP_PORT = process.env.APP_PORT || "3000";
+const APP_PORT = process.env.PORT || "3000";
 const BASE_URL = getBaseUrl(APP_PORT);
 
 const config = {
+  shortName: "LG UI",
   name: "LG Turbo UI",
   title:
     "A fully-loaded monorepo workspace powered by Turbo, NextJS, React, & TailwindCSS, including a modern UI library integrated with Shadcn/UI & CVA Design System",
@@ -22,6 +23,7 @@ const config = {
 
 const metadata: Metadata = {
   ...sharedMetadata,
+  metadataBase: new URL(BASE_URL),
   applicationName: config.name,
   title: {
     default: `${config.name} | ${config.title}`,

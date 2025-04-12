@@ -4,15 +4,12 @@
   "type": "module",
   "private": true,
   "scripts": {
-    "clean": "pnpm run clean:output",
-    "clean:modules": "rm -rf node_modules",
-    "clean:output": "rm -rf .turbo"
+    "clean": "git clean -xdf node_modules"
   },
   "devDependencies": {
+    "@eslint/js": "^9.24.0",
     "@next/eslint-plugin-next": "^15.2.1",
-    "@typescript-eslint/eslint-plugin": "^8.26.0",
-    "@typescript-eslint/parser": "^8.26.0",
-    "eslint": "^9.22.0",
+    "eslint": "catalog:",
     "eslint-config-prettier": "^10.1.1",
     "eslint-plugin-only-warn": "^1.1.0",
     "eslint-plugin-react": "^7.37.4",
@@ -25,6 +22,7 @@
   "exports": {
     "./base": "./base.js",
     "./next-js": "./next.js",
+    "./next-internal": "./next-internal.js",
     "./react-internal": "./react-internal.js"
   }
 }

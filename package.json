@@ -3,27 +3,27 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "build": "turbo build",
+    "build": "turbo run build",
     "start": "turbo run start",
-    "dev": "turbo dev",
-    "lint": "turbo lint",
-    "format": "prettier --write \"**/*.{ts,tsx,md,css}\"",
+    "dev": "turbo run dev",
+    "lint": "turbo run lint",
+    "lint:fix": "pnpm lint --fix",
     "typecheck": "turbo run typecheck",
-    "clean": "turbo run clean && pnpm run clean:output && pnpm run clean:packages",
-    "clean:i": "pnpm run clean && pnpm i",
-    "clean:modules": "turbo run clean:modules && rm -rf node_modules",
-    "clean:output": "rm -rf .turbo .next",
-    "clean:packages": "rm -rf pnpm-lock.yaml && rm -rf node_modules"
+    "format": "prettier --write \"**/*.{ts,tsx,md,css}\"",
+    "clean": "turbo run clean",
+    "clean:git": "git clean -xdf .turbo node_modules",
+    "env:encrypt": "turbo run env:encrypt",
+    "ui:add": "turbo run ui:add -F @workspace/ui --"
   },
   "devDependencies": {
     "@workspace/eslint-config": "workspace:*",
     "@workspace/typescript-config": "workspace:*",
-    "prettier": "^3.5.3",
-    "turbo": "^2.4.4",
+    "prettier": "catalog:",
+    "turbo": "^2.5.0",
     "typescript": "catalog:"
   },
-  "packageManager": "pnpm@10.6.3",
+  "packageManager": "pnpm@10.8.0",
   "engines": {
-    "node": ">=20"
+    "node": ">=22.14.0"
   }
 }

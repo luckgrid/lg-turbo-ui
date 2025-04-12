@@ -238,6 +238,22 @@
     --fs-37: clamp(4.875rem, 2.6734rem + 7.8629vw, 9.75rem);
     /* Fluid Spacing 38: 80px → 160px */
     --fs-38: clamp(5rem, 2.7419rem + 8.0645vw, 10rem);
+    /* Fluid Spacing 39: 82px → 164px */
+    --fs-39: clamp(5.125rem, 2.8105rem + 8.2661vw, 10.25rem);
+    /* Fluid Spacing 40: 84px → 168px */
+    --fs-40: clamp(5.25rem, 2.879rem + 8.4677vw, 10.5rem);
+    /* Fluid Spacing 41: 86px → 172px */
+    --fs-41: clamp(5.375rem, 2.9476rem + 8.6693vw, 10.75rem);
+    /* Fluid Spacing 42: 88px → 176px */
+    --fs-42: clamp(5.5rem, 3.0161rem + 8.8709vw, 11rem);
+    /* Fluid Spacing 43: 90px → 180px */
+    --fs-43: clamp(5.625rem, 3.0847rem + 9.0725vw, 11.25rem);
+    /* Fluid Spacing 44: 92px → 184px */
+    --fs-44: clamp(5.75rem, 3.1532rem + 9.2741vw, 11.5rem);
+    /* Fluid Spacing 45: 94px → 188px */
+    --fs-45: clamp(5.875rem, 3.2218rem + 9.4757vw, 11.75rem);
+    /* Fluid Spacing 46: 96px → 192px */
+    --fs-46: clamp(6rem, 3.2903rem + 9.6773vw, 12rem);
   }
 }
 
@@ -288,6 +304,14 @@
     --fs-36: 4.75rem;
     --fs-37: 4.875rem;
     --fs-38: 5rem;
+    --fs-39: 5.125rem;
+    --fs-40: 5.25rem;
+    --fs-41: 5.375rem;
+    --fs-42: 5.5rem;
+    --fs-43: 5.625rem;
+    --fs-44: 5.75rem;
+    --fs-45: 5.875rem;
+    --fs-46: 6rem;
   }
 
   @media screen and (min-width: var(--breakpoint-md, 48rem)) {
@@ -336,6 +360,14 @@
       --fs-36: 7.125rem; /* (4.75rem + 9.5rem) / 2 */
       --fs-37: 7.3125rem; /* (4.875rem + 9.75rem) / 2 */
       --fs-38: 7.5rem; /* (5rem + 10rem) / 2 */
+      --fs-39: 7.6875rem; /* (5.125rem + 10.25rem) / 2 */
+      --fs-40: 7.875rem; /* (5.25rem + 10.5rem) / 2 */
+      --fs-41: 8.0625rem; /* (5.375rem + 10.75rem) / 2 */
+      --fs-42: 8.25rem; /* (5.5rem + 11rem) / 2 */
+      --fs-43: 8.4375rem; /* (5.625rem + 11.25rem) / 2 */
+      --fs-44: 8.625rem; /* (5.75rem + 11.5rem) / 2 */
+      --fs-45: 8.8125rem; /* (5.875rem + 11.75rem) / 2 */
+      --fs-46: 9rem; /* (6rem + 12rem) / 2 */
     }
   }
 
@@ -385,6 +417,14 @@
       --fs-36: 9.5rem;
       --fs-37: 9.75rem;
       --fs-38: 10rem;
+      --fs-39: 10.25rem;
+      --fs-40: 10.5rem;
+      --fs-41: 10.75rem;
+      --fs-42: 11rem;
+      --fs-43: 11.25rem;
+      --fs-44: 11.5rem;
+      --fs-45: 11.75rem;
+      --fs-46: 12rem;
     }
   }
 }

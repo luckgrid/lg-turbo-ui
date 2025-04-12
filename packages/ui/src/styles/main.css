@@ -1,4 +1,5 @@
 @import "tailwindcss";
+
 @import "./variables.css";
 @import "./themes.css";
 
@@ -123,6 +124,14 @@
   --spacing-fs-36: var(--fs-36);
   --spacing-fs-37: var(--fs-37);
   --spacing-fs-38: var(--fs-38);
+  --spacing-fs-39: var(--fs-39);
+  --spacing-fs-40: var(--fs-40);
+  --spacing-fs-41: var(--fs-41);
+  --spacing-fs-42: var(--fs-42);
+  --spacing-fs-43: var(--fs-43);
+  --spacing-fs-44: var(--fs-44);
+  --spacing-fs-45: var(--fs-45);
+  --spacing-fs-46: var(--fs-46);
 
   /* Border Radius */
   --radius-xs: calc(--spacing(1) - 0.5px);
@@ -130,6 +139,9 @@
   --radius-md: calc(--spacing(1) + 2px);
   --radius-lg: calc(--spacing(1) + 4px);
   --radius-xl: calc(--spacing(1) + 6px);
+  --radius-2xl: calc(--spacing(1) + 8px);
+  --radius-3xl: calc(--spacing(1) + 10px);
+  --radius-4xl: calc(--spacing(1) + 12px);
 
   /* Fluid Border Radius */
   --radius-fs-xs: var(--fs-0-25);
@@ -137,6 +149,20 @@
   --radius-fs-md: var(--fs-0-5);
   --radius-fs-lg: var(--fs-0-625);
   --radius-fs-xl: var(--fs-0-75);
+  --radius-fs-2xl: var(--fs-1);
+  --radius-fs-3xl: var(--fs-2);
+  --radius-fs-4xl: var(--fs-3);
+
+  /* Breakpoints */
+  --breakpoint-2xs: 20rem; /* 320px */
+  --breakpoint-xs: 30rem; /* 480px */
+  --breakpoint-sm: 40rem; /* 640px */
+  --breakpoint-md: 48rem; /* 768px */
+  --breakpoint-lg: 64rem; /* 1024px */
+  --breakpoint-xl: 80rem; /* 1280px */
+  --breakpoint-2xl: 90rem; /* 1440px */
+  --breakpoint-3xl: 105rem; /* 1680px */
+  --breakpoint-4xl: 120rem; /* 1920px */
 }
 
 @layer base {
@@ -146,6 +172,9 @@
   }
 
   body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100svh;
     background-color: var(--background);
     color: var(--foreground);
     font-family: var(--font-sans);
@@ -197,38 +226,4 @@
 @utility container {
   margin-inline: auto;
   max-width: var(--breakpoint-2xl);
-}
-
-/* Adds octagon shaped borders around a parent element (experimental) */
-@utility shape-ticket {
-  position: relative;
-  outline-style: none;
-  border-radius: 0;
-  margin-block: --spacing(2);
-
-  &::before,
-  &::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    width: 100%;
-    height: 0;
-    border-inline-width: --spacing(2);
-    border-inline-style: solid;
-    border-inline-color: transparent;
-  }
-
-  &::before {
-    top: --spacing(-2);
-    border-bottom-width: --spacing(2);
-    border-bottom-style: solid;
-    border-bottom-color: inherit;
-  }
-
-  &::after {
-    bottom: --spacing(-2);
-    border-top-width: --spacing(2);
-    border-top-style: solid;
-    border-top-color: inherit;
-  }
 }

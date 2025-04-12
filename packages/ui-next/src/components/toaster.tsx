@@ -7,7 +7,13 @@ import { useTheme } from "next-themes";
 function Toaster({ ...props }: ToasterProps) {
   const { theme } = useTheme();
 
-  return <Sonner theme={theme as ToasterProps["theme"]} {...props} />;
+  return (
+    <Sonner
+      data-slot="next-toaster"
+      theme={theme as ToasterProps["theme"]}
+      {...props}
+    />
+  );
 }
 
 export { toast, Toaster };

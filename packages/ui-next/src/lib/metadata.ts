@@ -6,30 +6,47 @@ import type { Metadata } from "next";
 // - Maskable Icons: https://developer.chrome.com/docs/lighthouse/pwa/maskable-icon-audit/?utm_source=lighthouse&utm_medium=devtools#how_to_add_maskable_icon_support_to_your_pwa
 // - Maskable Icon Gen: https://maskable.app/editor
 
-// TODO: Generate icons and images using Next's OG Image Response API: https://nextjs.org/docs/app/api-reference/functions/image-response
+// TODO:
+// - Generate icons and images using Next's OG Image Response API: https://nextjs.org/docs/app/api-reference/functions/image-response
+// - Get organization metadata from environment variables
 
-type Icons = NonNullable<Metadata["icons"]>;
-type OpenGraph = NonNullable<Metadata["openGraph"]>;
-type OpenGraphImages = NonNullable<OpenGraph["images"]>;
-type Twitter = NonNullable<Metadata["twitter"]>;
-type TwitterImages = NonNullable<Twitter["images"]>;
-type MetadataImages = OpenGraphImages | TwitterImages;
+type MetadataOpenGraph = NonNullable<Metadata["openGraph"]>;
+type MetadataOpenGraphImages = NonNullable<MetadataOpenGraph["images"]>;
 
-const metadataOrganization = {
+type MetadataTwitter = NonNullable<Metadata["twitter"]>;
+type MetadataTwitterImages = NonNullable<MetadataTwitter["images"]>;
+
+type MetadataAuthors = NonNullable<Metadata["authors"]>;
+type MetadataIcons = NonNullable<Metadata["icons"]>;
+type MetadataImages = MetadataOpenGraphImages | MetadataTwitterImages;
+
+type MetadataOrganization = {
+  name: string;
+  email: string;
+  url: string;
+};
+
+const metadataAuthors: MetadataAuthors = {
+  name: "Luckgrid",
+  url: "https://www.luckgrid.net",
+};
+
+const metadataOrganization: MetadataOrganization = {
   email: "admin@luckgrid.net",
   name: "Luckgrid",
-  url: "https://luckgrid.net",
+  url: "https://www.luckgrid.net",
 };
 
 const metadataImages: MetadataImages = [
   {
     width: 1200,
-    height: 630,
+    height: 675,
+    type: "image/png",
     url: "/assets/images/banner.png",
   },
 ];
 
-const metadataIcons: Icons = [
+const metadataIcons: MetadataIcons = [
   {
     rel: "apple-touch-icon",
     sizes: "180x180",
@@ -47,27 +64,40 @@ const metadataIcons: Icons = [
   },
 ];
 
-const metadataOpenGraph: OpenGraph = {
+const metadataOpenGraph: MetadataOpenGraph = {
   type: "website",
-  images: metadataImages as OpenGraphImages,
+  images: metadataImages as MetadataOpenGraphImages,
 };
 
-const metadataTwitter: Twitter = {
+const metadataTwitter: MetadataTwitter = {
   card: "summary_large_image",
-  images: metadataImages as TwitterImages,
+  images: metadataImages as MetadataTwitterImages,
 };
 
 const metadata: Metadata = {
+  authors: metadataAuthors,
   icons: metadataIcons,
   openGraph: metadataOpenGraph,
   twitter: metadataTwitter,
 };
 
 export {
-  metadataOrganization,
+  metadata,
+  metadataAuthors,
   metadataIcons,
   metadataImages,
   metadataOpenGraph,
+  metadataOrganization,
   metadataTwitter,
-  metadata,
+};
+
+export type {
+  MetadataAuthors,
+  MetadataIcons,
+  MetadataImages,
+  MetadataOpenGraph,
+  MetadataOpenGraphImages,
+  MetadataOrganization,
+  MetadataTwitter,
+  MetadataTwitterImages,
 };

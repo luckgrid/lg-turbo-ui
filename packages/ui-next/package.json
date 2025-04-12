@@ -4,11 +4,9 @@
   "type": "module",
   "private": true,
   "scripts": {
-    "lint": "eslint . --max-warnings 0",
-    "typecheck": "tsc --noEmit",
-    "clean": "pnpm run clean:output",
-    "clean:modules": "rm -rf node_modules",
-    "clean:output": "rm -rf .turbo dist"
+    "lint": "eslint",
+    "typecheck": "tsc --noEmit --emitDeclarationOnly false",
+    "clean": "git clean -xdf .turbo node_modules"
   },
   "devDependencies": {
     "@types/node": "catalog:",
@@ -17,6 +15,7 @@
     "@workspace/ui": "workspace:*",
     "@workspace/eslint-config": "workspace:*",
     "@workspace/typescript-config": "workspace:*",
+    "eslint": "catalog:",
     "next": "catalog:",
     "next-themes": "catalog:",
     "typescript": "catalog:"

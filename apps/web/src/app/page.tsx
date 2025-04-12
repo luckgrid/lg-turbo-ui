@@ -26,7 +26,7 @@ export default function Page() {
         </div>
         <div className="motion-preset-fade-lg motion-delay-400 flex flex-col gap-fs-3 items-center justify-center">
           <ButtonLink
-            href="https://github.com/luckgrid/lg-turbo-ui"
+            href="https://github.com/new?template_name=lg-turbo-ui&template_owner=luckgrid"
             color="primary"
             size="lg"
             isExternal

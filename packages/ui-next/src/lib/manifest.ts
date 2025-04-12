@@ -31,8 +31,8 @@ const manifestIcons: MetadataRoute.Manifest["icons"] = [
 const manifest: MetadataRoute.Manifest = {
   start_url: "/",
   display: "standalone",
-  background_color: color.light,
-  theme_color: color.dark,
+  background_color: color.background,
+  theme_color: color.theme,
   icons: manifestIcons,
 };
 

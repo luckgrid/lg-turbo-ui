@@ -41,8 +41,6 @@ function SelectValue({
 
 // Select Trigger Component
 
-// data-[size=default]:h-9 data-[size=sm]:h-8
-
 const selectTriggerVariants = cva(
   [
     inputBase,
