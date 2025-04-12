@@ -4,7 +4,20 @@ Use this template to start a turborepo workspace with a ready to go Next v15, Re
 
 ## Dev Backlog
 
--
+### Setup Additional Workspaces
+
+- Add configs workspace to contain eslint, typescript, prettier, etc
+- Add services workspace to contain shared backend services and actions
+
+### UI Package Architecture
+
+- Organize ui components into groups that share similar primitives and style variants
+- Create additional ui libraries to contain more complex code blocks related to the same feature or module (i.e. shop, blog, docs, auth, platform, etc...)
+
+### Design System Package
+
+- Decouple UI from Design by creating a separate package for a unified design system to integrate with multiple ui packages.
+- Create a framework agnostic tailwind design system that will integrate into any framework or library (not just React by default).
 
 ## Dev Roadmap
 
