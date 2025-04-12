@@ -5,10 +5,11 @@ export const baseConfig = {
   transpilePackages: ["@workspace/ui", "@workspace/ui-next"],
 };
 
+// TODO:
+// - handle vercel project domain redirects - https://vercel.com/docs/environment-variables/system-environment-variables
+
 // Base Domain Redirects
 export function baseRedirects() {
-  if (!process.env.APP_PRODUCTION_URL) return [];
-
   const redirects = [];
 
   // Redirect app's root production domain to www (permanent)

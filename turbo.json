@@ -14,11 +14,7 @@
       "env": [
         "AIRTABLE_BASE_ID",
         "AIRTABLE_NEWSLETTER_SUBS_TABLE_ID",
-        "AIRTABLE_SECRET_API_TOKEN",
-        "APP_PRODUCTION_DOMAIN",
-        "APP_PRODUCTION_URL",
-        "APP_FQDN",
-        "APP_URL"
+        "AIRTABLE_SECRET_API_TOKEN"
       ],
       "inputs": ["$TURBO_DEFAULT$", ".env*"],
       "outputs": [".next/**", "!.next/cache/**"]
@@ -46,5 +42,19 @@
   },
   "globalDependencies": ["**/.env", "**/.env.*", "**/.env.*local"],
   "globalEnv": [],
-  "globalPassThroughEnv": ["CI", "DOTENV_PRIVATE_KEY", "NODE_ENV", "PORT", "npm_lifecycle_event"]
+  "globalPassThroughEnv": [
+    "APP_FQDN",
+    "APP_URL",
+    "APP_PRODUCTION_DOMAIN",
+    "APP_PRODUCTION_URL",
+    "CI",
+    "DOTENV_PRIVATE_KEY",
+    "NODE_ENV",
+    "PORT",
+    "VERCEL",
+    "VERCEL_ENV",
+    "VERCEL_PROJECT_PRODUCTION_URL",
+    "VERCEL_URL",
+    "npm_lifecycle_event"
+  ]
 }

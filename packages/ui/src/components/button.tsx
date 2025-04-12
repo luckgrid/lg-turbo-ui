@@ -58,12 +58,6 @@ const buttonVariants = cva(
         pill: boxShape.pill,
         sharp: boxShape.sharp,
         rounded: "rounded-fs-md",
-        ticket: [
-          "shape-ticket py-fs-0-5",
-          "before:border-b-neutral after:border-t-neutral",
-          "hover:before:border-b-neutral/90 hover:after:border-t-neutral/90",
-          "focus-visible:ring-0 focus-visible:outline-none",
-        ],
       },
       size: {
         sm: [
