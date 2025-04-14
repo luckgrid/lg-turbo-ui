@@ -1,11 +1,11 @@
-import type { VariantProps } from "class-variance-authority";
-import { cva } from "class-variance-authority";
-import * as React from "react";
+import { cn } from '@workspace/ui/lib/utils';
+import { boxShape } from '@workspace/ui/primitives/box';
+import { SlotElement } from '@workspace/ui/primitives/element';
+import { cva } from 'class-variance-authority';
+import * as React from 'react';
 
-import { cn } from "@workspace/ui/lib/utils";
-import { boxShape } from "@workspace/ui/primitives/box";
-import type { SlotElementProps } from "@workspace/ui/primitives/element";
-import { SlotElement } from "@workspace/ui/primitives/element";
+import type { SlotElementProps } from '@workspace/ui/primitives/element';
+import type { VariantProps } from 'class-variance-authority';
 
 type MediaElement = {
   src: string | URL;
@@ -14,7 +14,7 @@ type MediaElement = {
   height?: number;
 };
 
-const mediaVariants = cva("", {
+const mediaVariants = cva('', {
   variants: {
     shape: {
       pill: boxShape.pill,
@@ -22,21 +22,21 @@ const mediaVariants = cva("", {
       sharp: boxShape.sharp,
     },
     size: {
-      sm: "",
-      md: "",
-      lg: "",
+      sm: '',
+      md: '',
+      lg: '',
     },
   },
 });
 
 type MediaVariantProps = VariantProps<typeof mediaVariants>;
 
-type MediaProps<T extends React.ElementType = "img"> = SlotElementProps<T> &
+type MediaProps<T extends React.ElementType = 'img'> = SlotElementProps<T> &
   MediaVariantProps &
-  Pick<Partial<MediaElement>, "src">;
+  Pick<Partial<MediaElement>, 'src'>;
 
-function Media<T extends React.ElementType = "img">({
-  as = "img",
+function Media<T extends React.ElementType = 'img'>({
+  as = 'img',
   className,
   shape,
   size,

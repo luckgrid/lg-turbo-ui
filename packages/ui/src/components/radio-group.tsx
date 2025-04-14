@@ -1,28 +1,28 @@
-"use client";
+'use client';
 
-import * as RadioGroupPrimitive from "@radix-ui/react-radio-group";
-import type { VariantProps } from "class-variance-authority";
-import { cva } from "class-variance-authority";
-import { CircleIcon } from "lucide-react";
-import * as React from "react";
-
-import { cn } from "@workspace/ui/lib/utils";
-import { boxBase } from "@workspace/ui/primitives/box";
+import * as RadioGroupPrimitive from '@radix-ui/react-radio-group';
+import { cn } from '@workspace/ui/lib/utils';
+import { boxBase } from '@workspace/ui/primitives/box';
 import {
   indicatorBase,
   indicatorShape,
   indicatorSize,
   indicatorVariant,
-} from "@workspace/ui/primitives/indicator";
+} from '@workspace/ui/primitives/indicator';
+import { cva } from 'class-variance-authority';
+import { CircleIcon } from 'lucide-react';
+import * as React from 'react';
+
+import type { VariantProps } from 'class-variance-authority';
 
 // Radio Group Component
 
-const radioGroupVariants = cva([boxBase, "grid gap-fs-1"], {
+const radioGroupVariants = cva([boxBase, 'grid gap-fs-1'], {
   variants: {
     size: {
-      sm: "gap-fs-0-5",
-      md: "gap-fs-2",
-      lg: "gap-fs-3",
+      sm: 'gap-fs-0-5',
+      md: 'gap-fs-2',
+      lg: 'gap-fs-3',
     },
   },
 });
@@ -67,11 +67,11 @@ const radioGroupItemVariants = cva([indicatorBase, indicatorVariant.radio], {
     },
     // Style Modifiers
     noShadow: {
-      false: "shadow-sm",
+      false: 'shadow-sm',
     },
   },
   defaultVariants: {
-    shape: "circle",
+    shape: 'circle',
     noShadow: false,
   },
 });

@@ -1,11 +1,4 @@
-"use client";
-
-import type {
-  ControllerRenderProps,
-  FieldPath,
-  FieldValues,
-  UseFormReturn,
-} from "react-hook-form";
+'use client';
 
 import {
   FormControl,
@@ -13,14 +6,20 @@ import {
   FormField,
   FormFieldController,
   FormLabel,
-} from "@workspace/ui/components/form";
-import type { InputProps } from "@workspace/ui/components/input";
-import { Input } from "@workspace/ui/components/input";
+} from '@workspace/ui/components/form';
+import { Input } from '@workspace/ui/components/input';
+import type { InputProps } from '@workspace/ui/components/input';
 import type {
   FormDescriptionVariantProps,
   FormFieldVariantProps,
-} from "@workspace/ui/primitives/form";
-import type { InputVariantProps } from "@workspace/ui/primitives/input";
+} from '@workspace/ui/primitives/form';
+import type { InputVariantProps } from '@workspace/ui/primitives/input';
+import type {
+  ControllerRenderProps,
+  FieldPath,
+  FieldValues,
+  UseFormReturn,
+} from 'react-hook-form';
 
 // TODO:
 // - Update render method to handle additional field compositions (i.e. checkbox, radio-group, etc...)
@@ -40,17 +39,17 @@ type FieldProps<
   children?:
     | React.ReactNode
     | ((field: FieldRenderProps<TFieldValues, TName>) => React.ReactNode);
-  control: UseFormReturn<TFieldValues>["control"];
+  control: UseFormReturn<TFieldValues>['control'];
   hint?: string;
   label: string;
-  layout?: FormFieldVariantProps["layout"];
+  layout?: FormFieldVariantProps['layout'];
   name: TName;
   placeholder?: string;
-  shape?: InputVariantProps["shape"];
+  shape?: InputVariantProps['shape'];
   size?:
-    | FormFieldVariantProps["size"]
-    | InputProps<"input">["size"]
-    | FormDescriptionVariantProps["size"];
+    | FormFieldVariantProps['size']
+    | InputProps<'input'>['size']
+    | FormDescriptionVariantProps['size'];
   isDisabled?: boolean;
   isRequired?: boolean;
 };
@@ -81,7 +80,7 @@ function Field<
             {label}
           </FormLabel>
           {children ? (
-            typeof children === "function" ? (
+            typeof children === 'function' ? (
               <FormControl>{children(field)}</FormControl>
             ) : (
               children
@@ -91,7 +90,7 @@ function Field<
               <Input
                 disabled={isDisabled}
                 shape={shape}
-                size={size as InputProps<"input">["size"]}
+                size={size as InputProps<'input'>['size']}
                 placeholder={placeholder}
                 {...field}
               />

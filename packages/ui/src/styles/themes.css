@@ -6,7 +6,7 @@
 
 :root,
 .light,
-[data-theme="light"] {
+[data-theme='light'] {
   color-scheme: light;
 
   --background: var(--cs-base-23);
@@ -58,7 +58,7 @@
 /* Base Dark Theme */
 
 .dark,
-[data-theme="dark"] {
+[data-theme='dark'] {
   color-scheme: dark;
 
   --background: var(--cs-base-0);

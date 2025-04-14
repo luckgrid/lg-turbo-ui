@@ -1,38 +1,37 @@
-"use client";
+'use client';
 
-import * as LabelPrimitive from "@radix-ui/react-label";
-import type { VariantProps } from "class-variance-authority";
-import { cva } from "class-variance-authority";
-import * as React from "react";
-
-import { cn } from "@workspace/ui/lib/utils";
+import * as LabelPrimitive from '@radix-ui/react-label';
+import { cn } from '@workspace/ui/lib/utils';
+import { cva } from 'class-variance-authority';
+import * as React from 'react';
+import type { VariantProps } from 'class-variance-authority';
 
 // TODO:
 // - extend label (and other similar text based components) from common text primitive
 
 const labelVariants = cva(
   [
-    "select-none transition-[color]",
-    "inline-flex items-center gap-fs-0-25",
-    "font-medium text-label",
-    "data-[error=true]:text-danger-1",
-    "group-data-[disabled=true]:pointer-events-none group-data-[disabled=true]:opacity-50",
-    "peer-disabled:opacity-50",
+    'select-none transition-[color]',
+    'inline-flex items-center gap-fs-0-25',
+    'font-medium text-label',
+    'data-[error=true]:text-danger-1',
+    'group-data-[disabled=true]:pointer-events-none group-data-[disabled=true]:opacity-50',
+    'peer-disabled:opacity-50',
   ],
   {
     variants: {
       // Style Variants
       size: {
-        sm: "font-normal text-caption",
-        md: "text-body gap-fs-0-375",
-        lg: "text-subheading gap-fs-0-5",
+        sm: 'font-normal text-caption',
+        md: 'text-body gap-fs-0-375',
+        lg: 'text-subheading gap-fs-0-5',
       },
       variant: {
-        indicator: "peer-disabled:cursor-not-allowed",
+        indicator: 'peer-disabled:cursor-not-allowed',
       },
       // Style Modifiers
       isDisabled: {
-        true: "opacity-50",
+        true: 'opacity-50',
       },
       isRequired: {
         true: "after:content-['*'] after:text-danger-1",
@@ -40,9 +39,9 @@ const labelVariants = cva(
     },
     compoundVariants: [
       {
-        variant: "indicator",
+        variant: 'indicator',
         isDisabled: true,
-        className: "cursor-not-allowed",
+        className: 'cursor-not-allowed',
       },
     ],
   },

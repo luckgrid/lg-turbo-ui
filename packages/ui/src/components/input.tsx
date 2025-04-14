@@ -1,5 +1,5 @@
-import type { InputProps } from "@workspace/ui/primitives/input";
-import { Input as PrimitiveInput } from "@workspace/ui/primitives/input";
+import { Input as PrimitiveInput } from '@workspace/ui/primitives/input';
+import type { InputProps } from '@workspace/ui/primitives/input';
 
 // NOTE:
 // - the reason variant prop is hardcoded (i.e. null, file, textarea) is to prevent external control of the variant prop
@@ -7,8 +7,8 @@ import { Input as PrimitiveInput } from "@workspace/ui/primitives/input";
 
 // Text Input Component
 
-function Input<T extends React.ElementType = "input">({
-  as = "input",
+function Input<T extends React.ElementType = 'input'>({
+  as = 'input',
   ...props
 }: InputProps<T>) {
   return <PrimitiveInput data-slot="input" as={as} {...props} variant={null} />;
@@ -16,8 +16,8 @@ function Input<T extends React.ElementType = "input">({
 
 // File Input Component
 
-function FileInput<T extends React.ElementType = "input">({
-  as = "input",
+function FileInput<T extends React.ElementType = 'input'>({
+  as = 'input',
   ...props
 }: InputProps<T>) {
   return (
@@ -33,10 +33,10 @@ function FileInput<T extends React.ElementType = "input">({
 
 // Textarea Input Component
 
-type TextareaProps<T extends React.ElementType = "textarea"> = InputProps<T>;
+type TextareaProps<T extends React.ElementType = 'textarea'> = InputProps<T>;
 
-function Textarea<T extends React.ElementType = "textarea">({
-  as = "textarea",
+function Textarea<T extends React.ElementType = 'textarea'>({
+  as = 'textarea',
   ...props
 }: TextareaProps<T>) {
   return (

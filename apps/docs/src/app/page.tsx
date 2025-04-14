@@ -1,13 +1,13 @@
-import { SiGithub } from "@icons-pack/react-simple-icons";
-import Image from "next/image";
+import { SiGithub } from '@icons-pack/react-simple-icons';
 
-import { Button, ButtonLink } from "@workspace/ui/components/button";
-import { Link } from "@workspace/ui/components/link";
-import { Section } from "@workspace/ui/components/section";
+import { Button, ButtonLink } from '@workspace/ui/components/button';
+import { Link } from '@workspace/ui/components/link';
+import { Section } from '@workspace/ui/components/section';
+import Image from 'next/image';
 
-import { ButtonKitchenSink } from "@/components/kitchen-sink/button";
-import { FormKitchenSink } from "@/components/kitchen-sink/form";
-import { config } from "@/configs/app";
+import { ButtonKitchenSink } from '@/components/kitchen-sink/button';
+import { FormKitchenSink } from '@/components/kitchen-sink/form';
+import { config } from '@/configs/app';
 
 export default function Page() {
   return (
@@ -56,7 +56,7 @@ export default function Page() {
       <footer className="flex flex-col py-1 bg-background-3 text-neutral-foreground/75">
         <div className="container flex flex-row items-center justify-between gap-fs-4 px-fs-6">
           <p className="text-caption">
-            &copy; {new Date().getFullYear()},{" "}
+            &copy; {new Date().getFullYear()},{' '}
             <Link
               href={config.organization.url}
               color="accent"
@@ -65,7 +65,7 @@ export default function Page() {
             >
               {config.organization.name} Inc
             </Link>
-            . This code is open source under the{" "}
+            . This code is open source under the{' '}
             <Link
               href="https://opensource.org/licenses/MIT"
               color="accent"

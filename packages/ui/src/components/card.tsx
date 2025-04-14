@@ -1,10 +1,9 @@
-import * as React from "react";
-import { cva } from "class-variance-authority";
-import type { VariantProps } from "class-variance-authority";
-
-import { SlotElement } from "@workspace/ui/primitives/element";
-import type { SlotElementProps } from "@workspace/ui/primitives/element";
-import { cn } from "@workspace/ui/lib/utils";
+import { cn } from '@workspace/ui/lib/utils';
+import { SlotElement } from '@workspace/ui/primitives/element';
+import { cva } from 'class-variance-authority';
+import * as React from 'react';
+import type { SlotElementProps } from '@workspace/ui/primitives/element';
+import type { VariantProps } from 'class-variance-authority';
 
 // TODO:
 // - setup color variants to modify card colors instead of using noColor modifier
@@ -22,93 +21,93 @@ import { cn } from "@workspace/ui/lib/utils";
 
 // Card Component
 
-const cardVariants = cva("flex flex-col", {
+const cardVariants = cva('flex flex-col', {
   variants: {
     // Style Variants
     color: {
-      neutral: "",
-      primary: "",
-      secondary: "",
+      neutral: '',
+      primary: '',
+      secondary: '',
     },
     layer: {
-      display: "",
-      layout: "",
-      overlay: "",
+      display: '',
+      layout: '',
+      overlay: '',
     },
     shape: {
-      pill: "rounded-full",
-      rounded: "rounded-fs-lg",
-      sharp: "rounded-none",
+      pill: 'rounded-full',
+      rounded: 'rounded-fs-lg',
+      sharp: 'rounded-none',
     },
     space: {
-      container: "",
-      wrapper: "",
+      container: '',
+      wrapper: '',
     },
     variant: {
-      media: "",
-      section: "",
+      media: '',
+      section: '',
     },
     // Style Modifiers
     isAction: {
       true: [
-        "no-underline cursor-pointer transition-[color,box-shadow]",
-        "disabled:pointer-events-none disabled:opacity-75",
-        "outline-offset-1 outline-card/50",
-        "focus-visible:ring-4 focus-visible:outline-1 aria-invalid:focus-visible:ring-0",
+        'no-underline cursor-pointer transition-[color,box-shadow]',
+        'disabled:pointer-events-none disabled:opacity-75',
+        'outline-offset-1 outline-card/50',
+        'focus-visible:ring-4 focus-visible:outline-1 aria-invalid:focus-visible:ring-0',
       ],
     },
     noBorder: {
-      false: "border-(length:--fs-0-25)",
+      false: 'border-(length:--fs-0-25)',
     },
     noColor: {
-      false: "bg-card text-card-foreground",
+      false: 'bg-card text-card-foreground',
     },
     noShadow: {
-      false: "shadow-lg",
+      false: 'shadow-lg',
     },
     noSpace: {
-      false: "gap-fs-4 py-fs-6",
+      false: 'gap-fs-4 py-fs-6',
     },
   },
   compoundVariants: [
     // Color Layer Variant Modifiers
     {
-      layer: "layout",
+      layer: 'layout',
       noColor: false,
-      className: "bg-card-1 border-card-2",
+      className: 'bg-card-1 border-card-2',
     },
     {
-      layer: "display",
+      layer: 'display',
       noColor: false,
-      className: "bg-card-2 border-card-3",
+      className: 'bg-card-2 border-card-3',
     },
     {
-      layer: "overlay",
+      layer: 'overlay',
       noColor: false,
-      className: "bg-card-3 border-card-foreground/25",
+      className: 'bg-card-3 border-card-foreground/25',
     },
     // Container Space Variant Modifiers
     {
-      space: "container",
+      space: 'container',
       noSpace: false,
-      className: "gap-y-fs-3 gap-x-fs-6 p-fs-6",
+      className: 'gap-y-fs-3 gap-x-fs-6 p-fs-6',
     },
     {
-      space: "container",
-      variant: "section",
-      className: "container",
+      space: 'container',
+      variant: 'section',
+      className: 'container',
     },
     // Wrapper Space Variant Modifiers
     {
-      space: "wrapper",
+      space: 'wrapper',
       noSpace: false,
-      className: "gap-0 py-0",
+      className: 'gap-0 py-0',
     },
     {
-      space: "wrapper",
-      variant: "section",
+      space: 'wrapper',
+      variant: 'section',
       noSpace: false,
-      className: "py-fs-6",
+      className: 'py-fs-6',
     },
   ],
   defaultVariants: {
@@ -121,11 +120,11 @@ const cardVariants = cva("flex flex-col", {
 
 type CardVariantProps = VariantProps<typeof cardVariants>;
 
-type CardProps<T extends React.ElementType = "div"> = SlotElementProps<T> &
+type CardProps<T extends React.ElementType = 'div'> = SlotElementProps<T> &
   CardVariantProps;
 
-function Card<T extends React.ElementType = "div">({
-  as = "div",
+function Card<T extends React.ElementType = 'div'>({
+  as = 'div',
   layer,
   shape,
   space,
@@ -163,32 +162,32 @@ function Card<T extends React.ElementType = "div">({
 
 // Card Header Component
 
-const cardHeaderVariants = cva("flex flex-col", {
+const cardHeaderVariants = cva('flex flex-col', {
   variants: {
     // Style Variants
     shape: {
-      pill: "rounded-full",
-      rounded: "rounded-fs-lg",
-      sharp: "rounded-none",
+      pill: 'rounded-full',
+      rounded: 'rounded-fs-lg',
+      sharp: 'rounded-none',
     },
     space: {
-      container: "",
-      wrapper: "",
+      container: '',
+      wrapper: '',
     },
     variant: {
-      bar: "items-center justify-between",
+      bar: 'items-center justify-between',
     },
     // Style Modifiers
     noSpace: {
-      false: "gap-y-fs-3 gap-x-fs-6 px-fs-6",
+      false: 'gap-y-fs-3 gap-x-fs-6 px-fs-6',
     },
   },
   compoundVariants: [
     // Wrapper Space Variant Modifiers
     {
-      space: "wrapper",
+      space: 'wrapper',
       noSpace: false,
-      className: "px-0",
+      className: 'px-0',
     },
   ],
   defaultVariants: {
@@ -198,7 +197,7 @@ const cardHeaderVariants = cva("flex flex-col", {
 
 type CardHeaderVariantProps = VariantProps<typeof cardHeaderVariants>;
 
-type CardHeaderProps = React.ComponentProps<"header"> & CardHeaderVariantProps;
+type CardHeaderProps = React.ComponentProps<'header'> & CardHeaderVariantProps;
 
 function CardHeader({
   shape,
@@ -227,29 +226,29 @@ function CardHeader({
 
 // Card Body Component
 
-const cardBodyVariants = cva("flex flex-col", {
+const cardBodyVariants = cva('flex flex-col', {
   variants: {
     // Style Variants
     shape: {
-      pill: "rounded-full",
-      rounded: "rounded-fs-lg",
-      sharp: "rounded-none",
+      pill: 'rounded-full',
+      rounded: 'rounded-fs-lg',
+      sharp: 'rounded-none',
     },
     space: {
-      container: "",
-      wrapper: "",
+      container: '',
+      wrapper: '',
     },
     // Style Modifiers
     noSpace: {
-      false: "gap-y-fs-3 gap-x-fs-6 px-fs-6",
+      false: 'gap-y-fs-3 gap-x-fs-6 px-fs-6',
     },
   },
   compoundVariants: [
     // Wrapper Space Variant Modifiers
     {
-      space: "wrapper",
+      space: 'wrapper',
       noSpace: false,
-      className: "px-0",
+      className: 'px-0',
     },
   ],
   defaultVariants: {
@@ -259,11 +258,11 @@ const cardBodyVariants = cva("flex flex-col", {
 
 type CardBodyVariantProps = VariantProps<typeof cardBodyVariants>;
 
-type CardBodyProps<T extends React.ElementType = "div"> = SlotElementProps<T> &
+type CardBodyProps<T extends React.ElementType = 'div'> = SlotElementProps<T> &
   CardBodyVariantProps;
 
-function CardBody<T extends React.ElementType = "div">({
-  as = "div",
+function CardBody<T extends React.ElementType = 'div'>({
+  as = 'div',
   shape,
   space,
   noSpace,
@@ -289,39 +288,39 @@ function CardBody<T extends React.ElementType = "div">({
 
 // Card Footer Component
 
-const cardFooterVariants = cva("flex flex-col", {
+const cardFooterVariants = cva('flex flex-col', {
   variants: {
     // Style Variants
     shape: {
-      pill: "rounded-full",
-      rounded: "rounded-fs-lg",
-      sharp: "rounded-none",
+      pill: 'rounded-full',
+      rounded: 'rounded-fs-lg',
+      sharp: 'rounded-none',
     },
     space: {
-      container: "",
-      wrapper: "",
+      container: '',
+      wrapper: '',
     },
     variant: {
-      actions: "items-center justify-end",
-      bar: "items-center justify-between",
+      actions: 'items-center justify-end',
+      bar: 'items-center justify-between',
     },
     // Style Modifiers
     noSpace: {
-      false: "gap-y-fs-3 gap-x-fs-6 px-fs-6",
+      false: 'gap-y-fs-3 gap-x-fs-6 px-fs-6',
     },
   },
   compoundVariants: [
     // Wrapper Space Variant Modifiers
     {
-      space: "wrapper",
+      space: 'wrapper',
       noSpace: false,
-      className: "px-0",
+      className: 'px-0',
     },
     // Variant Space Modifiers
     {
-      variant: "actions",
+      variant: 'actions',
       noSpace: false,
-      className: "gap-x-fs-3",
+      className: 'gap-x-fs-3',
     },
   ],
   defaultVariants: {
@@ -331,7 +330,7 @@ const cardFooterVariants = cva("flex flex-col", {
 
 type CardFooterVariantProps = VariantProps<typeof cardFooterVariants>;
 
-type CardFooterProps = React.ComponentProps<"footer"> & CardFooterVariantProps;
+type CardFooterProps = React.ComponentProps<'footer'> & CardFooterVariantProps;
 
 function CardFooter({
   shape,

@@ -1,18 +1,18 @@
-"use client";
+'use client';
 
-import * as CheckboxPrimitive from "@radix-ui/react-checkbox";
-import type { VariantProps } from "class-variance-authority";
-import { cva } from "class-variance-authority";
-import { CheckIcon } from "lucide-react";
-import * as React from "react";
-
-import { cn } from "@workspace/ui/lib/utils";
+import * as CheckboxPrimitive from '@radix-ui/react-checkbox';
+import { cn } from '@workspace/ui/lib/utils';
 import {
   indicatorBase,
   indicatorShape,
   indicatorSize,
   indicatorVariant,
-} from "@workspace/ui/primitives/indicator";
+} from '@workspace/ui/primitives/indicator';
+import { cva } from 'class-variance-authority';
+import { CheckIcon } from 'lucide-react';
+import * as React from 'react';
+
+import type { VariantProps } from 'class-variance-authority';
 
 const checkboxVariants = cva([indicatorBase, indicatorVariant.checkbox], {
   variants: {
@@ -34,41 +34,41 @@ const checkboxVariants = cva([indicatorBase, indicatorVariant.checkbox], {
     },
     // Style Modifiers
     noShadow: {
-      false: "shadow-sm",
+      false: 'shadow-sm',
     },
   },
   compoundVariants: [
     // Rounded Shape Size Variants
     {
-      shape: "rounded",
-      size: "sm",
-      className: "rounded-fs-sm",
+      shape: 'rounded',
+      size: 'sm',
+      className: 'rounded-fs-sm',
     },
     {
-      shape: "rounded",
-      size: "md",
-      className: "rounded-fs-md",
+      shape: 'rounded',
+      size: 'md',
+      className: 'rounded-fs-md',
     },
     {
-      shape: "rounded",
-      size: "lg",
-      className: "rounded-fs-lg",
+      shape: 'rounded',
+      size: 'lg',
+      className: 'rounded-fs-lg',
     },
     // Shadow Size Modifiers
     {
       noShadow: false,
-      size: "sm",
-      className: "shadow-xs",
+      size: 'sm',
+      className: 'shadow-xs',
     },
     {
       noShadow: false,
-      size: "md",
-      className: "shadow-md",
+      size: 'md',
+      className: 'shadow-md',
     },
     {
       noShadow: false,
-      size: "lg",
-      className: "shadow-lg",
+      size: 'lg',
+      className: 'shadow-lg',
     },
   ],
   defaultVariants: {

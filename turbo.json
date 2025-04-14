@@ -2,34 +2,33 @@
   "$schema": "https://turbo.build/schema.json",
   "ui": "tui",
   "tasks": {
+    "build": {
+      "dependsOn": ["^build"],
+      "inputs": ["$TURBO_DEFAULT$", ".env*"],
+      "outputs": [".next/**", "!.next/cache/**", "dist/**"]
+    },
+    "dev": {
+      "dependsOn": ["^dev"],
+      "cache": false,
+      "persistent": false
+    },
+    "start": {
+      "dependsOn": ["^build"]
+    },
     "clean": {
       "cache": false
     },
-    "dev": {
-      "cache": false,
-      "persistent": true
-    },
-    "build": {
-      "dependsOn": ["^build"],
-      "env": [
-        "AIRTABLE_BASE_ID",
-        "AIRTABLE_NEWSLETTER_SUBS_TABLE_ID",
-        "AIRTABLE_SECRET_API_TOKEN"
-      ],
-      "inputs": ["$TURBO_DEFAULT$", ".env*"],
-      "outputs": [".next/**", "!.next/cache/**"]
-    },
-    "start": {
-      "dependsOn": ["^start"],
-      "cache": false,
-      "interactive": false,
-      "persistent": true
+    "format": {
+      "outputs": [".cache/.prettiercache"],
+      "outputLogs": "new-only"
     },
     "lint": {
-      "dependsOn": ["^lint"]
+      "dependsOn": ["^build"],
+      "outputs": [".cache/.eslintcache"]
     },
     "typecheck": {
-      "dependsOn": ["^typecheck"]
+      "dependsOn": ["^build"],
+      "outputs": [".cache/tsbuildinfo.json"]
     },
     "env:encrypt": {
       "cache": false,
@@ -40,21 +39,7 @@
       "interactive": true
     }
   },
-  "globalDependencies": ["**/.env", "**/.env.*", "**/.env.*local"],
+  "globalDependencies": ["**/.env.*local"],
   "globalEnv": [],
-  "globalPassThroughEnv": [
-    "APP_FQDN",
-    "APP_URL",
-    "APP_PRODUCTION_DOMAIN",
-    "APP_PRODUCTION_URL",
-    "CI",
-    "DOTENV_PRIVATE_KEY",
-    "NODE_ENV",
-    "PORT",
-    "VERCEL",
-    "VERCEL_ENV",
-    "VERCEL_PROJECT_PRODUCTION_URL",
-    "VERCEL_URL",
-    "npm_lifecycle_event"
-  ]
+  "globalPassThroughEnv": ["CI", "NODE_ENV", "PORT", "npm_lifecycle_event"]
 }

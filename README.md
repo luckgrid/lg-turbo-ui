@@ -9,18 +9,21 @@ Use this template to start a turborepo workspace with a ready to go Next v15, Re
 - Add configs workspace to contain eslint, typescript, prettier, etc
 - Add services workspace to contain shared backend services and actions
 
-### UI Package Architecture
+### Improved UI Architecture
 
-- Organize ui components into groups that share similar primitives and style variants
+- Organize ui components into groups that share similar primitives and style variants. Remove old primitives dir from ui in favor of new component groups which will share primitives internally. This should reduce complexity associated with inheritance chains and deep nesting
 - Create additional ui libraries to contain more complex code blocks related to the same feature or module (i.e. shop, blog, docs, auth, platform, etc...)
 
-### Design System Package
+### Turbo Design System
 
+- Clone a new project from lg-turbo-ui called lg-turbo-ds, with a mirror branch to sync ui changes with design system changes
 - Decouple UI from Design by creating a separate package for a unified design system to integrate with multiple ui packages.
 - Create a framework agnostic tailwind design system that will integrate into any framework or library (not just React by default).
+- Reduce dependencies on Radix-UI and other third party libraries in favor of native browser solutions using HTML and CSS. For example, using [select element with custom styles](https://developer.chrome.com/blog/a-customizable-select) or [dialog element for the modal](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/dialog).
 
 ## Dev Roadmap
 
+- Update incremental build processes to include next apps and config packages to output cache for types
 - App registry (and/or package) for common configs, utils, and assets to share between apps.
 - Stories for UI components and primitives using storybook.
 - Unit tests for UI components and primitives using vitest.
@@ -207,7 +210,7 @@ Your `main.css` is already set up to use the components from the `ui` package.
 To use the components in your app, import them from the `ui` package.
 
 ```tsx
-import { Button } from "@workspace/ui/components/button";
+import { Button } from '@workspace/ui/components/button';
 ```
 
 ---

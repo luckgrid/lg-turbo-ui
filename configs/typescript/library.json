@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "display": "Library",
+  "extends": "./base.json",
+  "compilerOptions": {
+    "allowJs": true,
+    "checkJs": true,
+    "composite": true,
+    "disableSourceOfProjectReferenceRedirect": true,
+    "emitDeclarationOnly": true,
+    "incremental": true,
+    "noEmit": false,
+    "sourceMap": true,
+    "verbatimModuleSyntax": true,
+
+    "outDir": "${configDir}/dist"
+  }
+}

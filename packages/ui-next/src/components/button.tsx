@@ -1,12 +1,11 @@
-import type { LinkProps } from "next/link";
-import Link from "next/link";
-
-import type { ButtonLinkProps as UIButtonLinkProps } from "@workspace/ui/components/button";
-import { ButtonLink as UIButtonLink } from "@workspace/ui/components/button";
+import { ButtonLink as UIButtonLink } from '@workspace/ui/components/button';
+import Link from 'next/link';
+import type { ButtonLinkProps as UIButtonLinkProps } from '@workspace/ui/components/button';
+import type { LinkProps } from 'next/link';
 
 // - Next Link API: https://nextjs.org/docs/app/api-reference/components/link
 
-type ButtonLinkProps = Omit<UIButtonLinkProps, "asChild"> & LinkProps;
+type ButtonLinkProps = Omit<UIButtonLinkProps, 'asChild'> & LinkProps;
 
 function ButtonLink({
   children,

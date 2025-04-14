@@ -1,6 +1,5 @@
-import { Star } from "lucide-react";
-
-import { Button } from "@workspace/ui/components/button";
+import { Button } from '@workspace/ui/components/button';
+import { Star } from 'lucide-react';
 
 export function ButtonKitchenSink() {
   return (

@@ -1,49 +1,56 @@
 packages:
-  - "apps/*"
-  - "configs/*"
-  - "packages/*"
-  - "services/*"
+  - 'apps/*'
+  - 'configs/*'
+  - 'packages/*'
+  - 'services/*'
 
 catalog:
-  # api services
-  airtable: ^0.12.2
+  # tools
+  '@turbo/gen': ^2.5.0
+  turbo: ^2.5.0
+  '@dotenvx/dotenvx': ^1.39.1
 
-  # configs and utils
-  "@turbo/gen": ^2.5.0
-  "@dotenvx/dotenvx": ^1.39.1
+  # configs
   eslint: ^9.24.0
   prettier: ^3.5.3
+  typescript: ^5.8.3
+  typescript-eslint: ^8.26.0
+
+  # schemas
+  valibot: ^0.1.0
   zod: ^3.24.2
 
-  # design system
-  "@tailwindcss/postcss": ^4.1.3
+  # services
+  airtable: ^0.12.2
+
+  # css
+  '@tailwindcss/postcss': ^4.1.3
   tailwindcss: ^4.1.3
-  # css utils
   class-variance-authority: ^0.7.1
   clsx: ^2.1.1
 
-  # maskito masks
-  "@maskito/core": ^3.6.0
-  "@maskito/react": ^3.6.0
+  # forms
+  '@maskito/core': ^3.6.0
+  '@maskito/react': ^3.6.0
 
   # react
   react: ^19.1.0
   react-dom: ^19.1.0
   # react icons
-  "@icons-pack/react-simple-icons": ^12.5.0
+  '@icons-pack/react-simple-icons': ^12.5.0
   lucide-react: ^0.487.0
-  # react hook form
-  "@hookform/resolvers": ^5.0.1
+  # react forms
+  '@hookform/resolvers': ^5.0.1
   react-hook-form: ^7.55.0
 
   # next
   next: ^15.3.0
   next-themes: ^0.4.6
+  # next configs
+  '@next/eslint-plugin-next': ^15.3.0
 
-  # typescript
-  typescript: ^5.8.3
   # types
-  "@types/node": ^22.14.0
+  '@types/node': ^22.14.0
   # react types
-  "@types/react": ^19.1.0
-  "@types/react-dom": ^19.1.1
+  '@types/react': ^19.1.0
+  '@types/react-dom': ^19.1.1

@@ -1,14 +1,20 @@
 {
   "name": "@workspace/ui",
   "version": "0.0.0",
+  "license": "MIT",
   "type": "module",
   "private": true,
   "scripts": {
+    "build": "tsc",
+    "dev": "tsc",
+    "clean": "git clean -xdf .cache .turbo dist node_modules",
+    "format": "prettier --check . --ignore-path ../../.gitignore",
+    "format:diff": "prettier src --write --list-different",
     "lint": "eslint",
     "typecheck": "tsc --noEmit --emitDeclarationOnly false",
-    "clean": "git clean -xdf .turbo dist node_modules",
     "ui:add": "pnpm dlx shadcn@latest add"
   },
+  "prettier": "@workspace/prettier-config",
   "dependencies": {
     "@hookform/resolvers": "catalog:",
     "@radix-ui/react-accordion": "^1.2.3",
@@ -25,17 +31,19 @@
     "react-hook-form": "catalog:",
     "sonner": "^2.0.1",
     "tailwind-merge": "^3.0.2",
+    "valibot": "catalog:",
     "zod": "catalog:"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "catalog:",
-    "@turbo/gen": "catalog:",
     "@types/node": "catalog:",
     "@types/react": "catalog:",
     "@types/react-dom": "catalog:",
     "@workspace/eslint-config": "workspace:*",
+    "@workspace/prettier-config": "workspace:*",
     "@workspace/typescript-config": "workspace:*",
     "eslint": "catalog:",
+    "prettier": "catalog:",
     "tailwindcss": "^4.0.14",
     "tailwindcss-intersect": "^2.2.0",
     "tailwindcss-motion": "^1.1.0",
@@ -46,14 +54,32 @@
     "react": "catalog:",
     "react-dom": "catalog:"
   },
+  "files": [
+    "dist"
+  ],
   "exports": {
     "./main.css": "./src/styles/main.css",
     "./postcss.config": "./postcss.config.mjs",
-    "./components/*": "./src/components/*.tsx",
-    "./hooks/*": "./src/hooks/*.ts",
-    "./lib/*": "./src/lib/*.ts",
-    "./primitives/*": "./src/primitives/*.tsx",
-    "./providers/*": "./src/providers/*.tsx",
+    "./components/*": {
+      "default": "./src/components/*.tsx",
+      "types": "./dist/src/components/*.d.ts"
+    },
+    "./hooks/*": {
+      "default": "./src/hooks/*.ts",
+      "types": "./dist/src/hooks/*.d.ts"
+    },
+    "./lib/*": {
+      "default": "./src/lib/*.ts",
+      "types": "./dist/src/lib/*.d.ts"
+    },
+    "./primitives/*": {
+      "default": "./src/primitives/*.tsx",
+      "types": "./dist/src/primitives/*.d.ts"
+    },
+    "./providers/*": {
+      "default": "./src/providers/*.tsx",
+      "types": "./dist/src/providers/*.d.ts"
+    },
     "./styles/*": "./src/styles/*.css"
   }
 }

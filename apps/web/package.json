@@ -1,21 +1,23 @@
 {
   "name": "web",
   "version": "0.0.0",
+  "license": "MIT",
   "type": "module",
   "private": true,
   "scripts": {
-    "env": "dotenvx",
     "env:encrypt": "dotenvx encrypt -k '*_SECRET_API_TOKEN'",
     "env:debug": "dotenvx get --all --pretty-print",
     "env:run": "dotenvx run --",
-    "env:run:debug": "pnpm env:debug && dotenvx run --debug -f .env* --",
-    "dev": "pnpm env:run next dev --turbopack --port 3000",
+    "env:run:dev": "pnpm env:debug && dotenvx run --debug -f .env* --",
+    "clean": "git clean -xdf .cache .next .turbo node_modules",
+    "dev": "pnpm env:run:dev next dev --turbopack --port 3000",
     "build": "pnpm env:run next build",
     "start": "pnpm env:run next start --port 3000",
-    "lint": "next lint",
-    "typecheck": "tsc --noEmit --emitDeclarationOnly false",
-    "clean": "git clean -xdf .next .turbo node_modules"
+    "format": "prettier --check . --ignore-path .prettierignore --ignore-path ../../.gitignore",
+    "lint": "eslint",
+    "typecheck": "tsc"
   },
+  "prettier": "@workspace/prettier-config",
   "dependencies": {
     "@dotenvx/dotenvx": "catalog:",
     "@icons-pack/react-simple-icons": "catalog:",
@@ -26,14 +28,18 @@
     "next": "catalog:",
     "next-themes": "catalog:",
     "react": "catalog:",
-    "react-dom": "catalog:"
+    "react-dom": "catalog:",
+    "valibot": "catalog:"
   },
   "devDependencies": {
     "@types/node": "catalog:",
     "@types/react": "catalog:",
     "@types/react-dom": "catalog:",
     "@workspace/eslint-config": "workspace:*",
+    "@workspace/prettier-config": "workspace:*",
     "@workspace/typescript-config": "workspace:*",
+    "eslint": "catalog:",
+    "prettier": "catalog:",
     "typescript": "catalog:"
   }
 }

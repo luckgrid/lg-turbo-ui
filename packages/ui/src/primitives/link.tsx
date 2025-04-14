@@ -1,16 +1,16 @@
-import type { SlotProps } from "@radix-ui/react-slot";
-import { Slot, Slottable } from "@radix-ui/react-slot";
-import { ExternalLink } from "lucide-react";
-import * as React from "react";
+import { Slot, Slottable } from '@radix-ui/react-slot';
+import { cn } from '@workspace/ui/lib/utils';
+import { ExternalLink } from 'lucide-react';
+import * as React from 'react';
 
-import { cn } from "@workspace/ui/lib/utils";
+import type { SlotProps } from '@radix-ui/react-slot';
 
 type LinkClassNames = {
   link?: string;
   icon?: string;
 };
 
-type LinkProps = React.ComponentProps<"a"> &
+type LinkProps = React.ComponentProps<'a'> &
   SlotProps & {
     classNames?: LinkClassNames;
     asChild?: boolean;
@@ -29,13 +29,13 @@ function Link({
   noExternalIcon,
   ...props
 }: LinkProps) {
-  const Primitive = asChild ? Slot : "a";
+  const Primitive = asChild ? Slot : 'a';
 
   return (
     <Primitive
       data-slot="link-primitive"
-      rel={rel || isExternal ? "noopener noreferrer" : undefined}
-      target={target || isExternal ? "_blank" : "_self"}
+      rel={rel || isExternal ? 'noopener noreferrer' : undefined}
+      target={target || isExternal ? '_blank' : '_self'}
       className={cn(classNames?.link, className)}
       {...props}
     >

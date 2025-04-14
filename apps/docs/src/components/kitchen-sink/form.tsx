@@ -1,16 +1,11 @@
-"use client";
+'use client';
 
-import { zodResolver } from "@hookform/resolvers/zod";
-import * as React from "react";
-import { FormProvider, useForm } from "react-hook-form";
-import { z } from "zod";
+import { zodResolver } from '@hookform/resolvers/zod';
 
-import { Link } from "@workspace/ui-next/components/link";
-import { toast } from "@workspace/ui-next/components/toaster";
-import { Button } from "@workspace/ui/components/button";
-import { Card } from "@workspace/ui/components/card";
-import { Checkbox } from "@workspace/ui/components/checkbox";
-import { Field } from "@workspace/ui/components/field";
+import { Button } from '@workspace/ui/components/button';
+import { Card } from '@workspace/ui/components/card';
+import { Checkbox } from '@workspace/ui/components/checkbox';
+import { Field } from '@workspace/ui/components/field';
 import {
   Form,
   FormControl,
@@ -18,20 +13,25 @@ import {
   FormField,
   FormFieldController,
   FormLabel,
-} from "@workspace/ui/components/form";
-import { Textarea } from "@workspace/ui/components/input";
+} from '@workspace/ui/components/form';
+import { Textarea } from '@workspace/ui/components/input';
 import {
   RadioGroup,
   RadioGroupItem,
-} from "@workspace/ui/components/radio-group";
-import { SectionContainer } from "@workspace/ui/components/section";
+} from '@workspace/ui/components/radio-group';
+import { SectionContainer } from '@workspace/ui/components/section';
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@workspace/ui/components/select";
+} from '@workspace/ui/components/select';
+import { Link } from '@workspace/ui-next/components/link';
+import { toast } from '@workspace/ui-next/components/toaster';
+import * as React from 'react';
+import { FormProvider, useForm } from 'react-hook-form';
+import { z } from 'zod';
 
 // TODO:
 // - disable newsletterCategory fields when newsletterSubscription is false
@@ -39,9 +39,9 @@ import {
 // - add additional form field state related render conditions to handle various field component edge cases
 
 const formSchema = z.object({
-  email: z.string().email({ message: "Please enter a valid email address" }),
+  email: z.string().email({ message: 'Please enter a valid email address' }),
   username: z.string().min(2, {
-    message: "Username must be at least 2 characters",
+    message: 'Username must be at least 2 characters',
   }),
   name: z.string().optional(),
   experience: z.string().optional(),
@@ -51,36 +51,38 @@ const formSchema = z.object({
     .default(false)
     .refine(
       (value) => value === true,
-      "You must agree to our terms and conditions to continue",
+      'You must agree to our terms and conditions to continue',
     ),
   newsletterSubscription: z.boolean().default(false).optional(),
   newsletterCategory: z
-    .enum(["all", "design", "engineering", "marketing"])
+    .enum(['all', 'design', 'engineering', 'marketing'])
     .optional(),
 });
 
+type FormInput = z.input<typeof formSchema>;
 type FormValues = z.infer<typeof formSchema>;
+type FormOutput = z.output<typeof formSchema>;
 
 const formDefaultValues: FormValues = {
-  email: "",
-  username: "",
-  name: "",
-  experience: "",
-  bio: "",
+  email: '',
+  username: '',
+  name: '',
+  experience: '',
+  bio: '',
   legalAgreement: false,
   newsletterSubscription: true,
-  newsletterCategory: "all",
+  newsletterCategory: 'all',
 };
 
 export function FormKitchenSink() {
-  const form = useForm<FormValues>({
+  const form = useForm<FormInput, FormValues, FormOutput>({
     resolver: zodResolver(formSchema),
     defaultValues: formDefaultValues,
   });
 
   function onSubmit(values: FormValues) {
     console.log(values);
-    toast.success("The form has been submitted successfully");
+    toast.success('The form has been submitted successfully');
   }
 
   React.useEffect(() => {
@@ -166,7 +168,7 @@ export function FormKitchenSink() {
                       I agree to the terms and conditions
                     </FormLabel>
                     <FormDescription>
-                      Make sure to read the{" "}
+                      Make sure to read the{' '}
                       <Link href="#">terms and conditions</Link> before using
                       our services.
                     </FormDescription>

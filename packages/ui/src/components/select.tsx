@@ -1,19 +1,19 @@
-"use client";
+'use client';
 
-import * as SelectPrimitive from "@radix-ui/react-select";
-import type { VariantProps } from "class-variance-authority";
-import { cva } from "class-variance-authority";
-import { CheckIcon, ChevronDownIcon, ChevronUpIcon } from "lucide-react";
-import * as React from "react";
-
-import { cn } from "@workspace/ui/lib/utils";
-import { boxBase } from "@workspace/ui/primitives/box";
+import * as SelectPrimitive from '@radix-ui/react-select';
+import { cn } from '@workspace/ui/lib/utils';
+import { boxBase } from '@workspace/ui/primitives/box';
 import {
   inputBase,
   inputShape,
   inputSize,
   inputVariant,
-} from "@workspace/ui/primitives/input";
+} from '@workspace/ui/primitives/input';
+import { cva } from 'class-variance-authority';
+import { CheckIcon, ChevronDownIcon, ChevronUpIcon } from 'lucide-react';
+import * as React from 'react';
+
+import type { VariantProps } from 'class-variance-authority';
 
 // Select Component
 
@@ -45,7 +45,7 @@ const selectTriggerVariants = cva(
   [
     inputBase,
     inputVariant.select,
-    "*:data-[slot=select-value]:line-clamp-1 *:data-[slot=select-value]:flex *:data-[slot=select-value]:items-center *:data-[slot=select-value]:gap-fs-2",
+    '*:data-[slot=select-value]:line-clamp-1 *:data-[slot=select-value]:flex *:data-[slot=select-value]:items-center *:data-[slot=select-value]:gap-fs-2',
   ],
   {
     variants: {
@@ -54,41 +54,41 @@ const selectTriggerVariants = cva(
       size: inputSize,
       // Style Modifiers
       noShadow: {
-        false: "shadow-sm",
+        false: 'shadow-sm',
       },
     },
     compoundVariants: [
       // Rounded Shape Size Variants
       {
-        shape: "rounded",
-        size: "sm",
-        className: "rounded-fs-sm",
+        shape: 'rounded',
+        size: 'sm',
+        className: 'rounded-fs-sm',
       },
       {
-        shape: "rounded",
-        size: "md",
-        className: "rounded-fs-md",
+        shape: 'rounded',
+        size: 'md',
+        className: 'rounded-fs-md',
       },
       {
-        shape: "rounded",
-        size: "lg",
-        className: "rounded-fs-lg",
+        shape: 'rounded',
+        size: 'lg',
+        className: 'rounded-fs-lg',
       },
       // Shadow Size Modifiers
       {
         noShadow: false,
-        size: "sm",
-        className: "shadow-xs",
+        size: 'sm',
+        className: 'shadow-xs',
       },
       {
         noShadow: false,
-        size: "md",
-        className: "shadow-sm",
+        size: 'md',
+        className: 'shadow-sm',
       },
       {
         noShadow: false,
-        size: "lg",
-        className: "shadow-md",
+        size: 'lg',
+        className: 'shadow-md',
       },
     ],
     defaultVariants: {
@@ -132,68 +132,68 @@ function SelectTrigger({
 const selectContentVariants = cva(
   [
     boxBase,
-    "z-50 overflow-x-hidden overflow-y-auto",
-    "max-h-(--radix-select-content-available-height) min-w-[8rem] origin-(--radix-select-content-transform-origin)",
-    "border bg-popover text-popover-foreground",
-    "data-[state=open]:animate-in data-[state=open]:fade-in-0 data-[state=open]:zoom-in-95",
-    "data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95",
-    "data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2",
+    'z-50 overflow-x-hidden overflow-y-auto',
+    'max-h-(--radix-select-content-available-height) min-w-[8rem] origin-(--radix-select-content-transform-origin)',
+    'border bg-popover text-popover-foreground',
+    'data-[state=open]:animate-in data-[state=open]:fade-in-0 data-[state=open]:zoom-in-95',
+    'data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95',
+    'data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2',
   ],
   {
     variants: {
       // Style Variants
       position: {
-        "item-aligned": "",
+        'item-aligned': '',
         popper:
-          "data-[side=bottom]:translate-y-1 data-[side=left]:-translate-x-1 data-[side=right]:translate-x-1 data-[side=top]:-translate-y-1",
+          'data-[side=bottom]:translate-y-1 data-[side=left]:-translate-x-1 data-[side=right]:translate-x-1 data-[side=top]:-translate-y-1',
       },
       shape: inputShape,
       size: {
-        sm: "",
-        md: "",
-        lg: "",
+        sm: '',
+        md: '',
+        lg: '',
       },
       // Style Modifiers
       noShadow: {
-        false: "shadow-md",
+        false: 'shadow-md',
       },
     },
     compoundVariants: [
       // Rounded Shape Size Variants
       {
-        shape: "rounded",
-        size: "sm",
-        className: "rounded-fs-sm",
+        shape: 'rounded',
+        size: 'sm',
+        className: 'rounded-fs-sm',
       },
       {
-        shape: "rounded",
-        size: "md",
-        className: "rounded-fs-md",
+        shape: 'rounded',
+        size: 'md',
+        className: 'rounded-fs-md',
       },
       {
-        shape: "rounded",
-        size: "lg",
-        className: "rounded-fs-lg",
+        shape: 'rounded',
+        size: 'lg',
+        className: 'rounded-fs-lg',
       },
       // Shadow Size Modifiers
       {
         noShadow: false,
-        size: "sm",
-        className: "shadow-xs",
+        size: 'sm',
+        className: 'shadow-xs',
       },
       {
         noShadow: false,
-        size: "md",
-        className: "shadow-sm",
+        size: 'md',
+        className: 'shadow-sm',
       },
       {
         noShadow: false,
-        size: "lg",
-        className: "shadow-md",
+        size: 'lg',
+        className: 'shadow-md',
       },
     ],
     defaultVariants: {
-      position: "popper",
+      position: 'popper',
       noShadow: false,
     },
   },
@@ -226,9 +226,9 @@ function SelectContent({
         <SelectScrollUpButton />
         <SelectPrimitive.Viewport
           className={cn(
-            "p-fs-0-5",
-            position === "popper" &&
-              "h-[var(--radix-select-trigger-height)] w-full min-w-[var(--radix-select-trigger-width)] scroll-my-fs-1",
+            'p-fs-0-5',
+            position === 'popper' &&
+              'h-[var(--radix-select-trigger-height)] w-full min-w-[var(--radix-select-trigger-width)] scroll-my-fs-1',
           )}
         >
           {children}
@@ -253,7 +253,7 @@ function SelectLabel({
     <SelectPrimitive.Label
       data-slot="select-label"
       className={cn(
-        "text-neutral-foreground px-fs-2 py-fs-1 text-label",
+        'text-neutral-foreground px-fs-2 py-fs-1 text-label',
         className,
       )}
       {...props}
@@ -270,11 +270,11 @@ function SelectLabel({
 const selectItemVariants = cva(
   [
     boxBase,
-    "w-full cursor-default outline-hidden select-none",
-    "flex items-center gap-fs-2 py-fs-1 pr-fs-8 pl-fs-2 text-label",
-    "focus:bg-primary focus:text-primary-foreground",
-    "data-[disabled]:pointer-events-none data-[disabled]:opacity-50",
-    "*:[span]:last:flex *:[span]:last:items-center *:[span]:last:gap-fs-2",
+    'w-full cursor-default outline-hidden select-none',
+    'flex items-center gap-fs-2 py-fs-1 pr-fs-8 pl-fs-2 text-label',
+    'focus:bg-primary focus:text-primary-foreground',
+    'data-[disabled]:pointer-events-none data-[disabled]:opacity-50',
+    '*:[span]:last:flex *:[span]:last:items-center *:[span]:last:gap-fs-2',
     "[&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-fs-4",
     "[&_svg:not([class*='text-'])]:text-neutral-foreground focus:[&_svg:not([class*='text-'])]:text-primary-foreground",
   ],
@@ -283,27 +283,27 @@ const selectItemVariants = cva(
       // Style Variants
       shape: inputShape,
       size: {
-        sm: "gap-fs-1 py-fs-0-5 pr-fs-6 pl-fs-1 text-caption",
-        md: "gap-fs-3 py-fs-2 pr-fs-10 pl-fs-3 text-label",
-        lg: "gap-fs-4 py-fs-3 pr-fs-12 pl-fs-4 text-body",
+        sm: 'gap-fs-1 py-fs-0-5 pr-fs-6 pl-fs-1 text-caption',
+        md: 'gap-fs-3 py-fs-2 pr-fs-10 pl-fs-3 text-label',
+        lg: 'gap-fs-4 py-fs-3 pr-fs-12 pl-fs-4 text-body',
       },
     },
     compoundVariants: [
       // Rounded Shape Size Variants
       {
-        shape: "rounded",
-        size: "sm",
-        className: "rounded-fs-sm",
+        shape: 'rounded',
+        size: 'sm',
+        className: 'rounded-fs-sm',
       },
       {
-        shape: "rounded",
-        size: "md",
-        className: "rounded-fs-md",
+        shape: 'rounded',
+        size: 'md',
+        className: 'rounded-fs-md',
       },
       {
-        shape: "rounded",
-        size: "lg",
-        className: "rounded-fs-lg",
+        shape: 'rounded',
+        size: 'lg',
+        className: 'rounded-fs-lg',
       },
     ],
   },
@@ -347,7 +347,7 @@ function SelectSeparator({
     <SelectPrimitive.Separator
       data-slot="select-separator"
       className={cn(
-        "bg-border pointer-events-none -mx-fs-1 my-fs-1 h-fs-0-25",
+        'bg-border pointer-events-none -mx-fs-1 my-fs-1 h-fs-0-25',
         className,
       )}
       {...props}
@@ -369,7 +369,7 @@ function SelectScrollUpButton({
     <SelectPrimitive.ScrollUpButton
       data-slot="select-scroll-up-button"
       className={cn(
-        "flex cursor-default items-center justify-center py-fs-1",
+        'flex cursor-default items-center justify-center py-fs-1',
         className,
       )}
       {...props}
@@ -387,7 +387,7 @@ function SelectScrollDownButton({
     <SelectPrimitive.ScrollDownButton
       data-slot="select-scroll-down-button"
       className={cn(
-        "flex cursor-default items-center justify-center py-fs-1",
+        'flex cursor-default items-center justify-center py-fs-1',
         className,
       )}
       {...props}

@@ -1,21 +1,21 @@
-"use client";
+'use client';
 
-import { Slot } from "@radix-ui/react-slot";
-import * as React from "react";
-import type { ControllerProps, FieldPath, FieldValues } from "react-hook-form";
-import { Controller, useFormContext, useFormState } from "react-hook-form";
-
-import type { LabelProps } from "@workspace/ui/components/label";
-import { Label } from "@workspace/ui/components/label";
-import type {
-  FormDescriptionProps,
-  FormFieldProps,
-} from "@workspace/ui/primitives/form";
+import { Slot } from '@radix-ui/react-slot';
+import { Label } from '@workspace/ui/components/label';
 import {
   Form,
   FormDescription as PrimitiveFormDescription,
   FormField as PrimitiveFormField,
-} from "@workspace/ui/primitives/form";
+} from '@workspace/ui/primitives/form';
+import * as React from 'react';
+import { Controller, useFormContext, useFormState } from 'react-hook-form';
+
+import type { LabelProps } from '@workspace/ui/components/label';
+import type {
+  FormDescriptionProps,
+  FormFieldProps,
+} from '@workspace/ui/primitives/form';
+import type { ControllerProps, FieldPath, FieldValues } from 'react-hook-form';
 
 // TODO:
 // - Add FormProvider wrapper around Form primitive with proper typing using UseFormReturn
@@ -58,7 +58,7 @@ const useFormField = () => {
   const fieldState = getFieldState(controllerContext.name, formState);
 
   if (!controllerContext) {
-    throw new Error("useFormField should be used within <FormFieldController>");
+    throw new Error('useFormField should be used within <FormFieldController>');
   }
 
   const { id } = fieldContext;
@@ -158,7 +158,7 @@ function FormDescription({ children, ...props }: FormDescriptionProps) {
       <PrimitiveFormDescription
         data-slot="form-hint"
         id={descriptionHintId}
-        variant={error || invalid ? "error" : "hint"}
+        variant={error || invalid ? 'error' : 'hint'}
         {...props}
       >
         {children}

@@ -1,4 +1,1 @@
-import { config } from "@workspace/ui-next/next.config";
-
-/** @type {import('next').NextConfig} */
-export default config;
+export { default } from '@workspace/ui-next/next.config';

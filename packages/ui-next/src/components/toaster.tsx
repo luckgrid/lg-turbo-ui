@@ -1,8 +1,8 @@
-"use client";
+'use client';
 
-import type { ToasterProps } from "@workspace/ui/components/toaster";
-import { Toaster as Sonner, toast } from "@workspace/ui/components/toaster";
-import { useTheme } from "next-themes";
+import { Toaster as Sonner, toast } from '@workspace/ui/components/toaster';
+import { useTheme } from 'next-themes';
+import type { ToasterProps } from '@workspace/ui/components/toaster';
 
 function Toaster({ ...props }: ToasterProps) {
   const { theme } = useTheme();
@@ -10,7 +10,7 @@ function Toaster({ ...props }: ToasterProps) {
   return (
     <Sonner
       data-slot="next-toaster"
-      theme={theme as ToasterProps["theme"]}
+      theme={theme as ToasterProps['theme']}
       {...props}
     />
   );

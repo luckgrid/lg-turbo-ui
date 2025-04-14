@@ -1,37 +1,36 @@
-import { cva } from "class-variance-authority";
-import type { VariantProps } from "class-variance-authority";
-
-import { Link as PrimitiveLink } from "@workspace/ui/primitives/link";
-import type { LinkProps as PrimitiveLinkProps } from "@workspace/ui/primitives/link";
-import { cn } from "@workspace/ui/lib/utils";
+import { cn } from '@workspace/ui/lib/utils';
+import { Link as PrimitiveLink } from '@workspace/ui/primitives/link';
+import { cva } from 'class-variance-authority';
+import type { LinkProps as PrimitiveLinkProps } from '@workspace/ui/primitives/link';
+import type { VariantProps } from 'class-variance-authority';
 
 const linkVariants = cva(
   [
-    "flex-inline items-center gap-fs-0-75",
-    "cursor-pointer transition-colors",
-    "text-current hover:text-current/90 underline-offset-1",
-    "disabled:pointer-events-none disabled:opacity-50",
-    "outline-offset-2 outline-ring/50",
-    "focus-visible:outline-1 aria-invalid:focus-visible:outline-0",
-    "[&_svg]:pointer-events-none [&_svg]:shrink-0",
+    'flex-inline items-center gap-fs-0-75',
+    'cursor-pointer transition-colors',
+    'text-current hover:text-current/90 underline-offset-1',
+    'disabled:pointer-events-none disabled:opacity-50',
+    'outline-offset-2 outline-ring/50',
+    'focus-visible:outline-1 aria-invalid:focus-visible:outline-0',
+    '[&_svg]:pointer-events-none [&_svg]:shrink-0',
   ],
   {
     variants: {
       // Style Variants
       color: {
-        accent: "outline-accent/50 hover:text-accent-1",
-        primary: "outline-primary/50 hover:text-primary",
-        secondary: "outline-secondary/50 hover:text-secondary",
-        danger: "outline-danger/50 hover:text-danger-1",
+        accent: 'outline-accent/50 hover:text-accent-1',
+        primary: 'outline-primary/50 hover:text-primary',
+        secondary: 'outline-secondary/50 hover:text-secondary',
+        danger: 'outline-danger/50 hover:text-danger-1',
       },
       underline: {
-        accent: "no-underline hover:underline",
-        always: "underline hover:underline",
-        never: "no-underline hover:no-underline",
+        accent: 'no-underline hover:underline',
+        always: 'underline hover:underline',
+        never: 'no-underline hover:no-underline',
       },
     },
     defaultVariants: {
-      underline: "always",
+      underline: 'always',
     },
   },
 );
