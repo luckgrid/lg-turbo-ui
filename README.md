@@ -9,6 +9,12 @@ Use this template to start a turborepo workspace with a ready to go Next v15, Re
 - Add configs workspace to contain eslint, typescript, prettier, etc
 - Add services workspace to contain shared backend services and actions
 
+### Improved Configs and Tasks
+
+- Update incremental build processes to include next apps and config packages to output cache for types
+- Separate eslint configs so they can be merged together (i.e. Next should not have React rules by default)
+- Create package for turbo configs so apps and packages can reuse shared configs (i.e. some apps that use the same env variables would have the same tasks in their extended config)
+
 ### Improved UI Architecture
 
 - Organize ui components into groups that share similar primitives and style variants. Remove old primitives dir from ui in favor of new component groups which will share primitives internally. This should reduce complexity associated with inheritance chains and deep nesting
@@ -23,7 +29,6 @@ Use this template to start a turborepo workspace with a ready to go Next v15, Re
 
 ## Dev Roadmap
 
-- Update incremental build processes to include next apps and config packages to output cache for types
 - App registry (and/or package) for common configs, utils, and assets to share between apps.
 - Stories for UI components and primitives using storybook.
 - Unit tests for UI components and primitives using vitest.

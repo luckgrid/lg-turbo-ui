@@ -24,18 +24,6 @@
     "node": ">=22.14.0"
   },
   "prettier": "@workspace/prettier-config",
-  "pnpm": {
-    "overrides": {
-      "@babel/helpers@<7.26.10": "^7.26.10",
-      "cookie@<0.7.0": "^0.7.0",
-      "esbuild@<0.25.0": "^0.25.0"
-    },
-    "onlyBuiltDependencies": [],
-    "ignoredBuiltDependencies": [
-      "@swc/core",
-      "esbuild"
-    ]
-  },
   "devDependencies": {
     "@workspace/prettier-config": "workspace:*",
     "prettier": "catalog:",

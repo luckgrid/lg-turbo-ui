@@ -8,7 +8,6 @@
     "composite": true,
     "disableSourceOfProjectReferenceRedirect": true,
     "emitDeclarationOnly": true,
-    "incremental": true,
     "noEmit": false,
     "sourceMap": true,
     "verbatimModuleSyntax": true,

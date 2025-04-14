@@ -73,11 +73,6 @@ catalogs:
       specifier: ^3.24.2
       version: 3.24.2
 
-overrides:
-  '@babel/helpers@<7.26.10': ^7.26.10
-  cookie@<0.7.0: ^0.7.0
-  esbuild@<0.25.0: ^0.25.0
-
 importers:
 
   .:
