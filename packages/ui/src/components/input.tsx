@@ -1,17 +1,13 @@
 import { Input as PrimitiveInput } from '@workspace/ui/primitives/input';
 import type { InputProps } from '@workspace/ui/primitives/input';
 
-// NOTE:
-// - the reason variant prop is hardcoded (i.e. null, file, textarea) is to prevent external control of the variant prop
-// - not omitting the variant prop because the input primitive's compound variants relies on it to modify some size variants
-
 // Text Input Component
 
 function Input<T extends React.ElementType = 'input'>({
   as = 'input',
   ...props
 }: InputProps<T>) {
-  return <PrimitiveInput data-slot="input" as={as} {...props} variant={null} />;
+  return <PrimitiveInput data-slot="input" as={as} {...props} />;
 }
 
 // File Input Component

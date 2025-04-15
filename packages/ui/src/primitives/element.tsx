@@ -1,35 +1,25 @@
 import { Slot } from '@radix-ui/react-slot';
 import * as React from 'react';
-import type { SlotProps } from '@radix-ui/react-slot';
 
-type ElementProps<T extends React.ElementType = 'div'> =
-  React.ComponentPropsWithRef<T> & {
-    as?: T;
-  };
+type ElementProps<T extends React.ElementType = 'div'> = {
+  as?: T;
+  asChild?: boolean;
+  dataSlot?: string;
+} & React.ComponentPropsWithRef<T>;
 
 function Element<T extends React.ElementType = 'div'>({
-  as: Primitive = 'div',
-  ...props
-}: ElementProps<T>) {
-  return <Primitive data-slot="element" {...props} />;
-}
-
-type SlotElementProps<T extends React.ElementType = 'div'> = SlotProps &
-  ElementProps<T> & {
-    asChild?: boolean;
-  };
-
-function SlotElement<T extends React.ElementType = 'div'>({
-  as: Primitive = 'div',
+  as: Element = 'div' as T,
   asChild,
   ...props
-}: SlotElementProps<T>) {
+}: ElementProps<T>) {
   if (asChild) {
-    return <Slot data-slot="slot-element" {...props} />;
+    return (
+      <Slot data-slot="element" {...(props as Omit<ElementProps, 'as'>)} />
+    );
   }
 
-  return <Primitive data-slot="element" {...props} />;
+  return <Element data-slot="element" {...props} />;
 }
 
-export { Element, SlotElement };
-export type { ElementProps, SlotElementProps };
+export { Element };
+export type { ElementProps };

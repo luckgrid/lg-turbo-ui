@@ -1,19 +1,23 @@
 import { cn } from '@workspace/ui/lib/utils';
-import { boxShape } from '@workspace/ui/primitives/box';
-import { SlotElement } from '@workspace/ui/primitives/element';
+import type { ElementProps } from '@workspace/ui/primitives/element';
+import { Element } from '@workspace/ui/primitives/element';
+import {
+  inputRadius,
+  inputShadow,
+  inputSize,
+} from '@workspace/ui/primitives/input';
+import type { VariantProps } from 'class-variance-authority';
 import { cva } from 'class-variance-authority';
 import { CheckIcon, CircleIcon } from 'lucide-react';
 
-import type { SlotElementProps } from '@workspace/ui/primitives/element';
-import type { VariantProps } from 'class-variance-authority';
-
 // TODO:
+// - Move this code to components/action/indicator
 // - Add indicator wrapper slot element (button or div)
 // -- update indicatorVariants to indicatorWrapperVariants
 // -- create new indicatorVariants to set indicator styles based on variant
 // - Replace size-fs-* with new size-fs-icon-* (need to update variables and main stylesheets)
 
-const indicatorBase = 'shrink-0 size-fs-3';
+const indicatorBase = 'box-border inline-flex shrink-0';
 
 const indicatorInput = [
   'transition-[background-color,border-color,color,box-shadow,opacity,fill,stroke]',
@@ -25,21 +29,26 @@ const indicatorInput = [
   'aria-invalid:border-danger-1 focus-visible:aria-invalid:outline-danger-1/50 focus-visible:aria-invalid:ring-danger-1/25',
 ];
 
-const indicatorShape = {
-  circle: boxShape.pill,
-  rounded: boxShape.rounded,
-  square: boxShape.sharp,
+const indicatorRadius = {
+  ...inputRadius,
+};
+
+const indicatorShadow = {
+  ...inputShadow,
 };
 
 const indicatorSize = {
+  ...inputSize,
+  base: 'size-fs-3',
   sm: 'size-fs-2',
   md: 'size-fs-4',
   lg: 'size-fs-5',
+  full: 'size-fs-6',
 };
 
 const indicatorVariant = {
+  base: "[&_svg:not([class*='size-'])]:size-[1em]",
   checkbox: [indicatorInput, "peer [&_svg:not([class*='size-'])]:size-fs-2"],
-  item: '',
   radio: [
     indicatorInput,
     'text-primary aspect-square',
@@ -50,82 +59,43 @@ const indicatorVariant = {
 
 const indicatorVariants = cva(indicatorBase, {
   variants: {
-    // Style Variants
-    shape: indicatorShape,
+    radius: indicatorRadius,
+    shadow: indicatorShadow,
     size: indicatorSize,
     variant: indicatorVariant,
-    // Style Modifiers
-    noShadow: {
-      false: 'shadow-sm',
-    },
   },
-  compoundVariants: [
-    // Rounded Shape Size Variants
-    {
-      shape: 'rounded',
-      size: 'sm',
-      className: 'rounded-fs-sm',
-    },
-    {
-      shape: 'rounded',
-      size: 'md',
-      className: 'rounded-fs-md',
-    },
-    {
-      shape: 'rounded',
-      size: 'lg',
-      className: 'rounded-fs-lg',
-    },
-    // Shadow Size Modifiers
-    {
-      size: 'sm',
-      noShadow: false,
-      className: 'shadow-xs',
-    },
-    {
-      size: 'md',
-      noShadow: false,
-      className: 'shadow-md',
-    },
-    {
-      size: 'lg',
-      noShadow: false,
-      className: 'shadow-lg',
-    },
-    // Shadow Variant Modifiers
-    {
-      variant: 'item',
-      noShadow: false,
-      className: 'shadow-none',
-    },
-  ],
+  defaultVariants: {
+    radius: 'base',
+    shadow: 'base',
+    size: 'base',
+    variant: 'base',
+  },
 });
 
 type IndicatorVariantProps = VariantProps<typeof indicatorVariants>;
-
-type IndicatorProps<T extends React.ElementType = 'span'> =
-  SlotElementProps<T> & IndicatorVariantProps;
+type IndicatorProps<T extends React.ElementType = 'span'> = ElementProps<T> &
+  IndicatorVariantProps;
 
 function Indicator<T extends React.ElementType = 'span'>({
   as = 'span',
   className,
-  shape,
+  radius,
+  shadow,
   size,
   variant,
-  noShadow,
   ...props
 }: IndicatorProps<T>) {
   return (
-    <SlotElement
+    <Element
       data-slot="indicator"
       as={as}
       className={cn(
-        indicatorVariants({ shape, size, variant, noShadow, className }),
+        indicatorVariants({ radius, shadow, size, variant, className }),
       )}
       {...props}
     >
       {variant === 'radio' ? <CircleIcon /> : <CheckIcon />}
-    </SlotElement>
+    </Element>
   );
 }
 
@@ -133,10 +103,11 @@ export {
   Indicator,
   indicatorBase,
   indicatorInput,
-  indicatorShape,
+  indicatorRadius,
+  indicatorShadow,
   indicatorSize,
   indicatorVariant,
   indicatorVariants,
 };
 
-export type { IndicatorProps, IndicatorVariantProps };
+export type { IndicatorProps };

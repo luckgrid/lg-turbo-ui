@@ -1,10 +1,8 @@
 import { SiGithub } from '@icons-pack/react-simple-icons';
-
 import { Button, ButtonLink } from '@workspace/ui/components/button';
 import { Link } from '@workspace/ui/components/link';
 import { Section } from '@workspace/ui/components/section';
 import Image from 'next/image';
-
 import { ButtonKitchenSink } from '@/components/kitchen-sink/button';
 import { FormKitchenSink } from '@/components/kitchen-sink/form';
 import { config } from '@/configs/app';
@@ -57,12 +55,7 @@ export default function Page() {
         <div className="container flex flex-row items-center justify-between gap-fs-4 px-fs-6">
           <p className="text-caption">
             &copy; {new Date().getFullYear()},{' '}
-            <Link
-              href={config.organization.url}
-              color="accent"
-              isExternal
-              noExternalIcon
-            >
+            <Link href={config.organization.url} color="accent" isExternal>
               {config.organization.name} Inc
             </Link>
             . This code is open source under the{' '}
@@ -70,7 +63,6 @@ export default function Page() {
               href="https://opensource.org/licenses/MIT"
               color="accent"
               isExternal
-              noExternalIcon
             >
               MIT License
             </Link>
@@ -83,7 +75,6 @@ export default function Page() {
             isGhost
             isIcon
             isExternal
-            noExternalIcon
           >
             <SiGithub />
           </ButtonLink>

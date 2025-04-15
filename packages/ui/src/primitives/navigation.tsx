@@ -15,7 +15,7 @@ type LinkProps = React.ComponentProps<'a'> &
     classNames?: LinkClassNames;
     asChild?: boolean;
     isExternal?: boolean;
-    noExternalIcon?: boolean;
+    showExternalIcon?: boolean;
   };
 
 function Link({
@@ -26,7 +26,7 @@ function Link({
   rel,
   target,
   isExternal,
-  noExternalIcon,
+  showExternalIcon,
   ...props
 }: LinkProps) {
   const Primitive = asChild ? Slot : 'a';
@@ -40,7 +40,7 @@ function Link({
       {...props}
     >
       <Slottable>{children}</Slottable>
-      {isExternal && !noExternalIcon && (
+      {isExternal && showExternalIcon && (
         <ExternalLink className={classNames?.icon} />
       )}
     </Primitive>

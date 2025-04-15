@@ -1,7 +1,6 @@
 'use client';
 
 import { zodResolver } from '@hookform/resolvers/zod';
-
 import { Button } from '@workspace/ui/components/button';
 import { Card } from '@workspace/ui/components/card';
 import { Checkbox } from '@workspace/ui/components/checkbox';
@@ -19,7 +18,6 @@ import {
   RadioGroup,
   RadioGroupItem,
 } from '@workspace/ui/components/radio-group';
-import { SectionContainer } from '@workspace/ui/components/section';
 import {
   Select,
   SelectContent,
@@ -27,6 +25,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@workspace/ui/components/select';
+import { Layout } from '@workspace/ui/primitives/layout';
 import { Link } from '@workspace/ui-next/components/link';
 import { toast } from '@workspace/ui-next/components/toaster';
 import * as React from 'react';
@@ -92,11 +91,8 @@ export function FormKitchenSink() {
   }, [form.formState.isSubmitSuccessful, form.reset]);
 
   return (
-    <SectionContainer>
-      <Card
-        className="intersect-once intersect:motion-preset-rebound-right max-w-2xl bg-background-1"
-        space="container"
-      >
+    <Layout className="container px-fs-6">
+      <Card className="intersect-once intersect:motion-preset-rebound-right max-w-2xl p-fs-6 bg-background-1">
         <h3 className="text-subheading text-balance">
           Form Inside a Card Component
         </h3>
@@ -156,7 +152,7 @@ export function FormKitchenSink() {
               control={form.control}
               name="legalAgreement"
               render={({ field }) => (
-                <FormField layout="row">
+                <FormField className="flex flex-row items-start">
                   <FormControl>
                     <Checkbox
                       checked={field.value}
@@ -180,7 +176,7 @@ export function FormKitchenSink() {
               control={form.control}
               name="newsletterSubscription"
               render={({ field }) => (
-                <FormField layout="row">
+                <FormField className="flex flex-row items-start">
                   <FormControl>
                     <Checkbox
                       checked={field.value}
@@ -211,7 +207,7 @@ export function FormKitchenSink() {
                       onValueChange={field.onChange}
                       key={field.value}
                     >
-                      <FormField className="items-center" layout="row">
+                      <FormField className="flex flex-row items-center">
                         <FormControl>
                           <RadioGroupItem value="all" />
                         </FormControl>
@@ -219,7 +215,7 @@ export function FormKitchenSink() {
                           Everything
                         </FormLabel>
                       </FormField>
-                      <FormField className="items-center" layout="row">
+                      <FormField className="flex flex-row items-center">
                         <FormControl>
                           <RadioGroupItem value="design" />
                         </FormControl>
@@ -227,7 +223,7 @@ export function FormKitchenSink() {
                           Design
                         </FormLabel>
                       </FormField>
-                      <FormField className="items-center" layout="row">
+                      <FormField className="flex flex-row items-center">
                         <FormControl>
                           <RadioGroupItem value="engineering" />
                         </FormControl>
@@ -235,7 +231,7 @@ export function FormKitchenSink() {
                           Engineering
                         </FormLabel>
                       </FormField>
-                      <FormField className="items-center" layout="row">
+                      <FormField className="flex flex-row items-center">
                         <FormControl>
                           <RadioGroupItem value="marketing" />
                         </FormControl>
@@ -260,6 +256,6 @@ export function FormKitchenSink() {
           </Form>
         </FormProvider>
       </Card>
-    </SectionContainer>
+    </Layout>
   );
 }

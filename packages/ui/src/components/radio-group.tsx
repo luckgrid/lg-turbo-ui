@@ -2,10 +2,10 @@
 
 import * as RadioGroupPrimitive from '@radix-ui/react-radio-group';
 import { cn } from '@workspace/ui/lib/utils';
-import { boxBase } from '@workspace/ui/primitives/box';
 import {
   indicatorBase,
-  indicatorShape,
+  indicatorRadius,
+  indicatorShadow,
   indicatorSize,
   indicatorVariant,
 } from '@workspace/ui/primitives/indicator';
@@ -17,13 +17,33 @@ import type { VariantProps } from 'class-variance-authority';
 
 // Radio Group Component
 
-const radioGroupVariants = cva([boxBase, 'grid gap-fs-1'], {
+const radioGroupBase = 'box-border grid';
+
+const radioGroupRadius = {
+  ...indicatorRadius,
+};
+
+const radioGroupSize = {
+  ...indicatorSize,
+  base: 'gap-fs-1',
+  sm: 'gap-fs-0-5',
+  md: 'gap-fs-2',
+  lg: 'gap-fs-3',
+  full: 'gap-fs-4',
+};
+
+const radioGroupShadow = {
+  ...indicatorShadow,
+};
+
+const radioGroupVariants = cva(radioGroupBase, {
   variants: {
-    size: {
-      sm: 'gap-fs-0-5',
-      md: 'gap-fs-2',
-      lg: 'gap-fs-3',
-    },
+    radius: radioGroupRadius,
+    size: radioGroupSize,
+    shadow: radioGroupShadow,
+  },
+  defaultVariants: {
+    size: 'base',
   },
 });
 
@@ -32,11 +52,17 @@ type RadioGroupVariantProps = VariantProps<typeof radioGroupVariants>;
 type RadioGroupProps = RadioGroupVariantProps &
   React.ComponentProps<typeof RadioGroupPrimitive.Root>;
 
-function RadioGroup({ className, size, ...props }: RadioGroupProps) {
+function RadioGroup({
+  className,
+  radius,
+  size,
+  shadow,
+  ...props
+}: RadioGroupProps) {
   return (
     <RadioGroupPrimitive.Root
       data-slot="radio-group"
-      className={cn(radioGroupVariants({ size, className }))}
+      className={cn(radioGroupVariants({ radius, size, shadow, className }))}
       {...props}
     />
   );
@@ -44,35 +70,50 @@ function RadioGroup({ className, size, ...props }: RadioGroupProps) {
 
 // Radio Group Item Component
 
-const radioGroupItemVariants = cva([indicatorBase, indicatorVariant.radio], {
+const radioGroupItemBase = [indicatorBase, indicatorVariant.radio];
+
+const radioGroupItemRadius = {
+  ...indicatorRadius,
+};
+
+const radioGroupItemShadow = {
+  ...indicatorShadow,
+};
+
+const radioGroupItemSize = {
+  ...indicatorSize,
+  base: [
+    indicatorSize.base,
+    "size-fs-3 [&_svg:not([class*='size-'])]:size-fs-1 border-(length:--fs-0-25)",
+  ],
+  sm: [
+    indicatorSize.sm,
+    "size-fs-3 [&_svg:not([class*='size-'])]:size-fs-0-5 border-1",
+  ],
+  md: [
+    indicatorSize.md,
+    "size-fs-5 [&_svg:not([class*='size-'])]:size-fs-2 border-(length:--fs-0-375)",
+  ],
+  lg: [
+    indicatorSize.lg,
+    "size-fs-6 [&_svg:not([class*='size-'])]:size-fs-3 border-(length:--fs-0-5)",
+  ],
+  full: [
+    indicatorSize.full,
+    "size-fs-6 [&_svg:not([class*='size-'])]:size-fs-4 border-(length:--fs-0-625)",
+  ],
+};
+
+const radioGroupItemVariants = cva(radioGroupItemBase, {
   variants: {
-    // Style Variants
-    shape: {
-      circle: indicatorShape.circle,
-      square: indicatorShape.square,
-    },
-    size: {
-      sm: [
-        indicatorSize.sm,
-        "size-fs-3 [&_svg:not([class*='size-'])]:size-fs-0-5 border-1",
-      ],
-      md: [
-        indicatorSize.md,
-        "size-fs-5 [&_svg:not([class*='size-'])]:size-fs-2 border-(length:--fs-0-25)",
-      ],
-      lg: [
-        indicatorSize.lg,
-        "size-fs-6 [&_svg:not([class*='size-'])]:size-fs-3 border-(length:--fs-0-375)",
-      ],
-    },
-    // Style Modifiers
-    noShadow: {
-      false: 'shadow-sm',
-    },
+    radius: radioGroupItemRadius,
+    shadow: radioGroupItemShadow,
+    size: radioGroupItemSize,
   },
   defaultVariants: {
-    shape: 'circle',
-    noShadow: false,
+    radius: 'full',
+    size: 'base',
+    shadow: 'base',
   },
 });
 
@@ -83,16 +124,16 @@ type RadioGroupItemProps = RadioGroupItemVariantProps &
 
 function RadioGroupItem({
   className,
-  shape,
+  radius,
   size,
-  noShadow,
+  shadow,
   ...props
 }: RadioGroupItemProps) {
   return (
     <RadioGroupPrimitive.Item
       data-slot="radio-group-item"
       className={cn(
-        radioGroupItemVariants({ shape, size, noShadow, className }),
+        radioGroupItemVariants({ radius, size, shadow, className }),
       )}
       {...props}
     >

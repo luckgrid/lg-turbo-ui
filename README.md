@@ -15,24 +15,17 @@ Use this template to start a turborepo workspace with a ready to go Next v15, Re
 - Separate eslint configs so they can be merged together (i.e. Next should not have React rules by default)
 - Create package for turbo configs so apps and packages can reuse shared configs (i.e. some apps that use the same env variables would have the same tasks in their extended config)
 
-### Improved UI Architecture
+### Setup CI/CD
 
-- Organize ui components into groups that share similar primitives and style variants. Remove old primitives dir from ui in favor of new component groups which will share primitives internally. This should reduce complexity associated with inheritance chains and deep nesting
-- Create additional ui libraries to contain more complex code blocks related to the same feature or module (i.e. shop, blog, docs, auth, platform, etc...)
-
-### Turbo Design System
-
-- Clone a new project from lg-turbo-ui called lg-turbo-ds, with a mirror branch to sync ui changes with design system changes
-- Decouple UI from Design by creating a separate package for a unified design system to integrate with multiple ui packages.
-- Create a framework agnostic tailwind design system that will integrate into any framework or library (not just React by default).
-- Reduce dependencies on Radix-UI and other third party libraries in favor of native browser solutions using HTML and CSS. For example, using [select element with custom styles](https://developer.chrome.com/blog/a-customizable-select) or [dialog element for the modal](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/dialog).
+- Add github configs for workflow and actions
+- Setup lint, typecheck, format tasks to run in github, before merge to main (so server can avoid running them during build)
 
 ## Dev Roadmap
 
 - App registry (and/or package) for common configs, utils, and assets to share between apps.
 - Stories for UI components and primitives using storybook.
 - Unit tests for UI components and primitives using vitest.
-- Integration tests for apps and ui using playwright.
+- Integration tests for apps and packages using playwright.
 
 ## Dev Setup
 
@@ -230,10 +223,10 @@ If you prefer to have your environment files uncommited, make sure to update `.g
 
 For details about managing environment variables inside a turborepo workspace, you can read the following resources:
 
-- https://turbo.build/docs/crafting-your-repository/using-environment-variables#best-practices
-- https://github.com/vercel/turborepo/discussions/9458#foundation
-- https://github.com/t3-oss/create-t3-turbo/issues/397#issuecomment-1630028405
-- https://github.com/dotenvx/dotenvx/issues/557
+- [Turborepo Environment Variables Best Practices](https://turbo.build/docs/crafting-your-repository/using-environment-variables#best-practices)
+- [Turborepo Environment Variables Discussion](https://github.com/vercel/turborepo/discussions/9458)
+- [Validating Environments in Apps](https://github.com/t3-oss/create-t3-turbo/issues/397#issuecomment-1630028405)
+- [](https://github.com/dotenvx/dotenvx/issues/557)
 
 #### Setup for Rapid Prototyping
 
@@ -264,5 +257,8 @@ This is just a simple example of one workflow you can use. The way you manage yo
 
 ## Kudos
 
-> Template was initialized from [Shadcn/UI Monorepo Template](https://github.com/shadcn-ui/ui/tree/main/templates/monorepo-next)
-> Environment and Tooling Discovery from [t3 Turbo](https://github.com/t3-oss/create-t3-turbo), [RT Stack](https://github.com/nktnet1/rt-stack), and [Dotenvx Turborepo Example](https://github.com/dotenvx/examples/tree/main/monorepos/turborepo)
+- [Shadcn/UI Monorepo Template](https://github.com/shadcn-ui/ui/tree/main/templates/monorepo-next) - Initialized from this template
+- [Dotenvx Turborepo Example](https://github.com/dotenvx/examples/tree/main/monorepos/turborepo) - Environment tooling
+- [t3 Turbo](https://github.com/t3-oss/create-t3-turbo) - Reference setup and configs for next apps, eslint, and tsconfig.
+- [RT Stack](https://github.com/nktnet1/rt-stack) - Reference setup and configs for ui, eslint, and tsconfig.
+- [ZT Stack](https://github.com/CarlosZiegler/zt-stack) - Reference setup and configs for auth and email providers.

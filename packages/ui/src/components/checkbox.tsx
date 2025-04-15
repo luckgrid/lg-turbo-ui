@@ -4,7 +4,7 @@ import * as CheckboxPrimitive from '@radix-ui/react-checkbox';
 import { cn } from '@workspace/ui/lib/utils';
 import {
   indicatorBase,
-  indicatorShape,
+  indicatorRadius,
   indicatorSize,
   indicatorVariant,
 } from '@workspace/ui/primitives/indicator';
@@ -16,63 +16,56 @@ import type { VariantProps } from 'class-variance-authority';
 
 const checkboxVariants = cva([indicatorBase, indicatorVariant.checkbox], {
   variants: {
-    // Style Variants
-    shape: indicatorShape,
+    radius: indicatorRadius,
     size: {
+      ...indicatorSize,
+      base: [
+        indicatorSize.base,
+        "[&_svg:not([class*='size-'])]:size-fs-2 border-(length:--fs-0-25)",
+      ],
       sm: [
         indicatorSize.sm,
         "[&_svg:not([class*='size-'])]:size-fs-1 border-1",
       ],
       md: [
         indicatorSize.md,
-        "[&_svg:not([class*='size-'])]:size-fs-3 border-(length:--fs-0-25)",
+        "[&_svg:not([class*='size-'])]:size-fs-3 border-(length:--fs-0-375)",
       ],
       lg: [
         indicatorSize.lg,
-        "[&_svg:not([class*='size-'])]:size-fs-4 border-(length:--fs-0-375)",
+        "[&_svg:not([class*='size-'])]:size-fs-4 border-(length:--fs-0-5)",
+      ],
+      full: [
+        indicatorSize.full,
+        "[&_svg:not([class*='size-'])]:size-fs-5 border-(length:--fs-0-625)",
       ],
     },
     // Style Modifiers
-    noShadow: {
-      false: 'shadow-sm',
+    hasShadow: {
+      true: 'shadow-sm',
     },
   },
   compoundVariants: [
-    // Rounded Shape Size Variants
-    {
-      shape: 'rounded',
-      size: 'sm',
-      className: 'rounded-fs-sm',
-    },
-    {
-      shape: 'rounded',
-      size: 'md',
-      className: 'rounded-fs-md',
-    },
-    {
-      shape: 'rounded',
-      size: 'lg',
-      className: 'rounded-fs-lg',
-    },
     // Shadow Size Modifiers
     {
-      noShadow: false,
-      size: 'sm',
-      className: 'shadow-xs',
+      size: ['unset', 'sm'],
+      hasShadow: true,
+      className: 'shadow-sm',
     },
     {
-      noShadow: false,
-      size: 'md',
+      size: ['base', 'md'],
+      hasShadow: true,
       className: 'shadow-md',
     },
     {
-      noShadow: false,
-      size: 'lg',
+      size: ['lg', 'full'],
+      hasShadow: true,
       className: 'shadow-lg',
     },
   ],
   defaultVariants: {
-    noShadow: false,
+    radius: 'base',
+    size: 'base',
   },
 });
 
@@ -83,9 +76,9 @@ type CheckboxProps = CheckboxVariantProps &
 
 function Checkbox({
   className,
-  shape,
+  radius,
   size,
-  noShadow,
+  hasShadow,
   ...props
 }: CheckboxProps) {
   return (
@@ -93,9 +86,9 @@ function Checkbox({
       data-slot="checkbox"
       className={cn(
         checkboxVariants({
-          shape,
+          radius,
           size,
-          noShadow,
+          hasShadow,
           className,
         }),
       )}

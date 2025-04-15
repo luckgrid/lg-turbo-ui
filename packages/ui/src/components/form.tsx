@@ -4,7 +4,7 @@ import { Slot } from '@radix-ui/react-slot';
 import { Label } from '@workspace/ui/components/label';
 import {
   Form,
-  FormDescription as PrimitiveFormDescription,
+  FormText,
   FormField as PrimitiveFormField,
 } from '@workspace/ui/primitives/form';
 import * as React from 'react';
@@ -12,8 +12,8 @@ import { Controller, useFormContext, useFormState } from 'react-hook-form';
 
 import type { LabelProps } from '@workspace/ui/components/label';
 import type {
-  FormDescriptionProps,
   FormFieldProps,
+  FormTextProps,
 } from '@workspace/ui/primitives/form';
 import type { ControllerProps, FieldPath, FieldValues } from 'react-hook-form';
 
@@ -135,34 +135,36 @@ function FormControl({ ...props }: React.ComponentProps<typeof Slot>) {
 
 // Form Description Component
 
-function FormDescription({ children, ...props }: FormDescriptionProps) {
+function FormDescription({ children, ...props }: FormTextProps) {
   const { error, invalid, descriptionErrorId, descriptionHintId } =
     useFormField();
   const errorMessage = error?.message ? String(error.message) : null;
 
   if (errorMessage) {
     return (
-      <PrimitiveFormDescription
+      <FormText
         data-slot="form-error"
         id={descriptionErrorId}
-        variant="error"
+        status="error"
+        variant="message"
         {...props}
       >
         {errorMessage}
-      </PrimitiveFormDescription>
+      </FormText>
     );
   }
 
   if (children) {
     return (
-      <PrimitiveFormDescription
+      <FormText
         data-slot="form-hint"
         id={descriptionHintId}
-        variant={error || invalid ? 'error' : 'hint'}
+        status={error || invalid ? 'error' : 'base'}
+        variant="message"
         {...props}
       >
         {children}
-      </PrimitiveFormDescription>
+      </FormText>
     );
   }
 

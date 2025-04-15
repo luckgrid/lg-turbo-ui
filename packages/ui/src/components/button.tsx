@@ -1,38 +1,39 @@
 import { cn } from '@workspace/ui/lib/utils';
-import { boxShape } from '@workspace/ui/primitives/box';
-import { SlotElement } from '@workspace/ui/primitives/element';
+import { actionSize } from '@workspace/ui/primitives/action';
+import { boxRadius, boxShadow } from '@workspace/ui/primitives/box';
+import { Element } from '@workspace/ui/primitives/element';
 import { Link } from '@workspace/ui/primitives/link';
 import { cva } from 'class-variance-authority';
 import * as React from 'react';
-
-import type { SlotElementProps } from '@workspace/ui/primitives/element';
-import type { LinkProps } from '@workspace/ui/primitives/link';
+import type { ElementProps } from '@workspace/ui/primitives/element';
+import type { LinkProps } from '@workspace/ui/primitives/navigation';
 import type { VariantProps } from 'class-variance-authority';
 
 // TODO:
 // - update fluid scale vars for icon size, borders and outline modifiers
-// - improve animations and add noAnimation modifier
-// - add ticket shape variant style modifiers
 // - add button link variant for underline settings
-// - create action variant to reuse common style patterns (i.e. animation, outlines, states, etc...)
+// - update action variant to reuse common style patterns (i.e. animation, outlines, states, etc...)
 
 const buttonVariants = cva(
   [
     'inline-flex items-center justify-center',
-    'relative gap-fs-0-5 px-fs-4 py-fs-1 border-(length:--fs-0-25)',
-    'border-neutral bg-neutral text-neutral-foreground hover:border-transparent hover:bg-neutral/90',
     'whitespace-nowrap text-label font-medium tracking-wide leading-none',
     'cursor-pointer transition-[background-color,border-color,color,box-shadow,opacity,text-decoration-color,fill,stroke]',
+    'outline-offset-1',
     'active:not-disabled:motion-scale-in-[0.95] active:not-disabled:motion-duration-300 active:not-disabled:motion-ease-spring-bouncy',
     'disabled:pointer-events-none disabled:opacity-50',
-    'outline-offset-1 outline-neutral/50 ring-neutral/25',
     'focus-visible:ring-4 focus-visible:outline-1 aria-invalid:focus-visible:ring-0',
-    "[&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-fs-2 [&_svg]:shrink-0",
+    "[&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-fs-[1em]",
   ],
   {
     variants: {
       // Style Variants
       color: {
+        base: [
+          'text-neutral-foreground',
+          'bg-neutral hover:bg-neutral/90',
+          'border-neutral outline-neutral/50 ring-neutral/25',
+        ],
         accent: [
           'text-accent-foreground',
           'bg-accent hover:bg-accent/90',
@@ -54,33 +55,43 @@ const buttonVariants = cva(
           'border-danger outline-danger/50 ring-danger/25',
         ],
       },
-      shape: {
-        pill: boxShape.pill,
-        sharp: boxShape.sharp,
-        rounded: 'rounded-fs-md',
-      },
+      radius: boxRadius,
+      shadow: boxShadow,
       size: {
+        ...actionSize,
+        base: [
+          ...actionSize.base,
+          'text-label font-medium tracking-wide leading-[1.375] md:leading-none',
+          'px-fs-4 py-fs-2 border-(length:--fs-0-25)',
+          'active:not-disabled:motion-scale-in-[0.95]',
+        ],
         sm: [
-          'text-caption font-normal tracking-wide leading-none',
-          'gap-fs-0-375 px-fs-2 py-fs-0-75 border-1',
-          "[&_svg:not([class*='size-'])]:size-fs-1",
+          ...actionSize.sm,
+          'text-caption font-normal tracking-wide leading-[1.5] md:leading-none',
+          'px-fs-2 py-fs-1 border-1',
           'active:not-disabled:motion-scale-in-[0.94]',
         ],
         md: [
-          'text-body font-medium tracking-wide leading-none',
-          'gap-fs-0-625 px-fs-6 py-fs-2 border-(length:--fs-0-375)',
-          "[&_svg:not([class*='size-'])]:size-fs-3",
-          'active:not-disabled:motion-scale-in-[0.95]',
+          ...actionSize.md,
+          'text-label font-medium tracking-wide leading-[1.125] md:leading-none',
+          'px-fs-6 py-fs-3 border-(length:--fs-0-375)',
+          'active:not-disabled:motion-scale-in-[0.96]',
         ],
         lg: [
+          ...actionSize.lg,
+          'text-body font-semibold tracking-wide leading-none',
+          'px-fs-8 py-fs-4 border-(length:--fs-0-5)',
+          'active:not-disabled:motion-scale-in-[0.97]',
+        ],
+        full: [
+          ...actionSize.full,
           'text-subheading font-semibold tracking-wide leading-none',
-          'gap-fs-0-75 px-fs-12 py-fs-3 border-(length:--fs-0-5)',
-          "[&_svg:not([class*='size-'])]:size-fs-4",
-          'active:not-disabled:motion-scale-in-[0.96]',
+          'px-fs-10 py-fs-5 border-(length:--fs-0-75)',
+          'active:not-disabled:motion-scale-in-[0.98]',
         ],
       },
       variant: {
-        solid: '',
+        solid: 'hover:border-transparent',
         outline: [
           'bg-transparent hover:bg-neutral/90',
           'text-neutral-3 hover:text-neutral-foreground',
@@ -103,9 +114,6 @@ const buttonVariants = cva(
           'border-transparent bg-transparent hover:bg-neutral/90',
           'text-current hover:text-neutral-foreground',
         ],
-      },
-      withShadow: {
-        true: 'shadow-md',
       },
     },
     compoundVariants: [
@@ -261,22 +269,6 @@ const buttonVariants = cva(
         variant: 'text',
         className: 'text-current hover:bg-transparent hover:text-danger-1/80',
       },
-      // Rounded Shape Size Variants
-      {
-        shape: 'rounded',
-        size: 'sm',
-        className: 'rounded-fs-sm',
-      },
-      {
-        shape: 'rounded',
-        size: 'md',
-        className: 'rounded-fs-md',
-      },
-      {
-        shape: 'rounded',
-        size: 'lg',
-        className: 'rounded-fs-lg',
-      },
       // Ghost Size Modifiers
       {
         size: 'sm',
@@ -315,60 +307,42 @@ const buttonVariants = cva(
         variant: 'text',
         className: 'size-fit p-fs-0-5',
       },
-      // Shadow Size Modifiers
-      {
-        withShadow: true,
-        size: 'sm',
-        className: 'shadow-sm',
-      },
-      {
-        withShadow: true,
-        size: 'md',
-        className: 'shadow-md',
-      },
-      {
-        withShadow: true,
-        size: 'lg',
-        className: 'shadow-lg',
-      },
     ],
   },
 );
 
 type ButtonVariantProps = VariantProps<typeof buttonVariants>;
 
-type ButtonProps<T extends React.ElementType = 'button'> = SlotElementProps<T> &
+type ButtonProps<T extends React.ElementType = 'button'> = ElementProps<T> &
   ButtonVariantProps;
-
-type ButtonLinkProps = Omit<ButtonProps<'a'>, 'as' | 'asChild'> & LinkProps;
 
 function Button<T extends React.ElementType = 'button'>({
   as = 'button',
   type = 'button',
   className,
   color,
-  shape,
+  radius,
+  shadow,
   size,
   variant,
   isIcon,
   isGhost,
-  withShadow,
   ...props
 }: ButtonProps<T>) {
   return (
-    <SlotElement
+    <Element
       data-slot="button"
       as={as}
       type={type}
       className={cn(
         buttonVariants({
           color,
-          shape,
+          radius,
+          shadow,
           size,
           variant,
           isIcon,
           isGhost,
-          withShadow,
           className,
         }),
       )}
@@ -377,15 +351,17 @@ function Button<T extends React.ElementType = 'button'>({
   );
 }
 
+type ButtonLinkProps = Omit<ButtonProps<'a'>, 'as' | 'asChild'> & LinkProps;
+
 function ButtonLink({
   className,
   color,
-  shape,
+  radius,
+  shadow,
   size,
   variant,
   isIcon,
   isGhost,
-  withShadow,
   ...props
 }: ButtonLinkProps) {
   return (
@@ -394,12 +370,12 @@ function ButtonLink({
       className={cn(
         buttonVariants({
           color,
-          shape,
+          radius,
+          shadow,
           size,
           variant,
           isIcon,
           isGhost,
-          withShadow,
           className,
         }),
       )}

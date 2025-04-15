@@ -1,9 +1,9 @@
 import { SiGithub } from '@icons-pack/react-simple-icons';
-
 import { ButtonLink } from '@workspace/ui/components/button';
 import { Card } from '@workspace/ui/components/card';
 import { Link } from '@workspace/ui/components/link';
-import { Section, SectionContainer } from '@workspace/ui/components/section';
+import { Section } from '@workspace/ui/components/section';
+import { Layout } from '@workspace/ui/primitives/layout';
 import Image from 'next/image';
 
 import { config } from '@/configs/app';
@@ -30,7 +30,6 @@ export default function Page() {
             color="primary"
             size="lg"
             isExternal
-            noExternalIcon
           >
             Get Started
           </ButtonLink>
@@ -43,52 +42,35 @@ export default function Page() {
           </ButtonLink>
         </div>
       </Section>
-      <Section color="base" level="1" scale="2">
-        <SectionContainer as="header">
+      <Section>
+        <Layout as="header" className="container">
           <h2 className="text-heading text-balance">
             Organize your brands, products and services
           </h2>
           <p className="max-w-6xl text-pretty text-neutral-foreground">
             {config.description}
           </p>
-        </SectionContainer>
-        <SectionContainer layout="row">
-          <Card
-            space="container"
-            className="intersect-once intersect:motion-preset-focus"
-          >
+        </Layout>
+        <Layout className="container flex flex-row">
+          <Card className="intersect-once intersect:motion-preset-focus">
             <h3 className="text-body">React + Tailwind CSS</h3>
           </Card>
-          <Card
-            space="container"
-            className="intersect-once intersect:motion-preset-focus motion-delay-100"
-          >
+          <Card className="intersect-once intersect:motion-preset-focus motion-delay-100">
             <h3 className="text-body">NextJS Ready</h3>
           </Card>
-          <Card
-            space="container"
-            className="intersect-once intersect:motion-preset-focus motion-delay-200"
-          >
+          <Card className="intersect-once intersect:motion-preset-focus motion-delay-200">
             <h3 className="text-body">Open Source</h3>
           </Card>
-          <Card
-            space="container"
-            className="intersect-once intersect:motion-preset-focus motion-delay-300"
-          >
+          <Card className="intersect-once intersect:motion-preset-focus motion-delay-300">
             <h3 className="text-body">CVA Design System</h3>
           </Card>
-        </SectionContainer>
+        </Layout>
       </Section>
       <footer className="flex flex-col py-1 bg-background-3 text-neutral-foreground/75">
         <div className="container flex flex-row items-center justify-between gap-fs-4 px-fs-6">
           <p className="text-caption">
             &copy; {new Date().getFullYear()},{' '}
-            <Link
-              href={config.organization.url}
-              color="accent"
-              isExternal
-              noExternalIcon
-            >
+            <Link href={config.organization.url} color="accent" isExternal>
               {config.organization.name} Inc
             </Link>
             . This code is open source under the{' '}
@@ -96,7 +78,6 @@ export default function Page() {
               href="https://opensource.org/licenses/MIT"
               color="accent"
               isExternal
-              noExternalIcon
             >
               MIT License
             </Link>
@@ -109,7 +90,6 @@ export default function Page() {
             isGhost
             isIcon
             isExternal
-            noExternalIcon
           >
             <SiGithub />
           </ButtonLink>

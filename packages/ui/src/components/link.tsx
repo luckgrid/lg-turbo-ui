@@ -1,13 +1,28 @@
 import { cn } from '@workspace/ui/lib/utils';
-import { Link as PrimitiveLink } from '@workspace/ui/primitives/link';
+import { Link as PrimitiveLink } from '@workspace/ui/primitives/navigation';
 import { cva } from 'class-variance-authority';
-import type { LinkProps as PrimitiveLinkProps } from '@workspace/ui/primitives/link';
+import type { LinkProps as PrimitiveLinkProps } from '@workspace/ui/primitives/navigation';
 import type { VariantProps } from 'class-variance-authority';
+
+const linkBase = 'flex-inline cursor-pointer transition-colors';
+
+const linkColor = {
+  accent: 'outline-accent/50 hover:text-accent-1',
+  primary: 'outline-primary/50 hover:text-primary',
+  secondary: 'outline-secondary/50 hover:text-secondary',
+  danger: 'outline-danger/50 hover:text-danger-1',
+};
+
+const linkUnderline = {
+  accent: 'no-underline hover:underline',
+  always: 'underline hover:underline',
+  never: 'no-underline hover:no-underline',
+};
 
 const linkVariants = cva(
   [
-    'flex-inline items-center gap-fs-0-75',
-    'cursor-pointer transition-colors',
+    ...linkBase,
+    'items-center gap-fs-0-75',
     'text-current hover:text-current/90 underline-offset-1',
     'disabled:pointer-events-none disabled:opacity-50',
     'outline-offset-2 outline-ring/50',
@@ -17,17 +32,8 @@ const linkVariants = cva(
   {
     variants: {
       // Style Variants
-      color: {
-        accent: 'outline-accent/50 hover:text-accent-1',
-        primary: 'outline-primary/50 hover:text-primary',
-        secondary: 'outline-secondary/50 hover:text-secondary',
-        danger: 'outline-danger/50 hover:text-danger-1',
-      },
-      underline: {
-        accent: 'no-underline hover:underline',
-        always: 'underline hover:underline',
-        never: 'no-underline hover:no-underline',
-      },
+      color: linkColor,
+      underline: linkUnderline,
     },
     defaultVariants: {
       underline: 'always',
@@ -49,5 +55,5 @@ function Link({ className, color, underline, ...props }: LinkProps) {
   );
 }
 
-export type { LinkProps };
 export { Link };
+export type { LinkProps };

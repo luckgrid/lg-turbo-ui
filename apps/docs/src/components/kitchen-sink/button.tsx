@@ -416,31 +416,31 @@ export function ButtonKitchenSink() {
             </h3>
             <div className="flex flex-wrap items-center justify-center gap-fs-6">
               <div className="flex flex-col items-center justify-center gap-fs-2">
-                <Button shape="pill" size="sm">
+                <Button radius="full" size="sm">
                   Small
                 </Button>
-                <Button shape="pill">Default</Button>
-                <Button shape="pill" size="md">
+                <Button radius="full">Default</Button>
+                <Button radius="full" size="md">
                   Medium
                 </Button>
-                <Button shape="pill" size="lg">
+                <Button radius="full" size="lg">
                   Large
                 </Button>
               </div>
               <div className="flex flex-col items-center justify-center gap-fs-2">
                 <Button
-                  shape="pill"
+                  radius="full"
                   size="sm"
                   isIcon
                   aria-label="Pill Accent Icon"
                 >
                   <Star />
                 </Button>
-                <Button shape="pill" isIcon aria-label="Pill Neutral Icon">
+                <Button radius="full" isIcon aria-label="Pill Neutral Icon">
                   <Star />
                 </Button>
                 <Button
-                  shape="pill"
+                  radius="full"
                   size="md"
                   isIcon
                   aria-label="Pill Primary Icon"
@@ -448,7 +448,7 @@ export function ButtonKitchenSink() {
                   <Star />
                 </Button>
                 <Button
-                  shape="pill"
+                  radius="full"
                   size="lg"
                   isIcon
                   aria-label="Pill Secondary Icon"
@@ -464,37 +464,22 @@ export function ButtonKitchenSink() {
             </h3>
             <div className="flex flex-wrap items-center justify-center gap-fs-6">
               <div className="flex flex-col items-center justify-center gap-fs-2">
-                <Button
-                  shape="rounded"
-                  size="sm"
-                  variant="outline"
-                  color="primary"
-                >
+                <Button radius="sm" size="sm" variant="outline" color="primary">
                   Small
                 </Button>
-                <Button shape="rounded" variant="outline" color="primary">
+                <Button radius="base" variant="outline" color="primary">
                   Default
                 </Button>
-                <Button
-                  shape="rounded"
-                  size="md"
-                  variant="outline"
-                  color="primary"
-                >
+                <Button radius="md" size="md" variant="outline" color="primary">
                   Medium
                 </Button>
-                <Button
-                  shape="rounded"
-                  size="lg"
-                  variant="outline"
-                  color="primary"
-                >
+                <Button radius="lg" size="lg" variant="outline" color="primary">
                   Large
                 </Button>
               </div>
               <div className="flex flex-col gap-fs-2">
                 <Button
-                  shape="rounded"
+                  radius="sm"
                   size="sm"
                   variant="outline"
                   color="primary"
@@ -504,7 +489,7 @@ export function ButtonKitchenSink() {
                   <Star />
                 </Button>
                 <Button
-                  shape="rounded"
+                  radius="base"
                   variant="outline"
                   color="primary"
                   isIcon
@@ -513,7 +498,7 @@ export function ButtonKitchenSink() {
                   <Star />
                 </Button>
                 <Button
-                  shape="rounded"
+                  radius="md"
                   size="md"
                   variant="outline"
                   color="primary"
@@ -523,7 +508,7 @@ export function ButtonKitchenSink() {
                   <Star />
                 </Button>
                 <Button
-                  shape="rounded"
+                  radius="lg"
                   size="lg"
                   variant="outline"
                   color="primary"
@@ -542,7 +527,7 @@ export function ButtonKitchenSink() {
             <div className="flex flex-wrap items-center justify-center gap-fs-6">
               <div className="flex flex-col items-center justify-center gap-fs-2">
                 <Button
-                  shape="sharp"
+                  radius="none"
                   size="sm"
                   color="secondary"
                   variant="outline"
@@ -552,7 +537,7 @@ export function ButtonKitchenSink() {
                   Small
                 </Button>
                 <Button
-                  shape="sharp"
+                  radius="none"
                   color="secondary"
                   variant="outline"
                   isGhost
@@ -561,7 +546,7 @@ export function ButtonKitchenSink() {
                   Default
                 </Button>
                 <Button
-                  shape="sharp"
+                  radius="none"
                   size="md"
                   color="secondary"
                   variant="outline"
@@ -571,7 +556,7 @@ export function ButtonKitchenSink() {
                   Medium
                 </Button>
                 <Button
-                  shape="sharp"
+                  radius="none"
                   size="lg"
                   color="secondary"
                   variant="outline"

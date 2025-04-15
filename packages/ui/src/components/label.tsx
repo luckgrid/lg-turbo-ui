@@ -2,18 +2,37 @@
 
 import * as LabelPrimitive from '@radix-ui/react-label';
 import { cn } from '@workspace/ui/lib/utils';
+import { formTextSize, formTextStatus } from '@workspace/ui/primitives/form';
 import { cva } from 'class-variance-authority';
 import * as React from 'react';
 import type { VariantProps } from 'class-variance-authority';
 
-// TODO:
-// - extend label (and other similar text based components) from common text primitive
+const labelBase = 'inline-flex select-none transition-[color]';
+
+const labelSize = {
+  ...formTextSize,
+  base: 'gap-fs-0-25 font-medium text-label',
+  sm: 'gap-fs-0-25 font-normal text-caption',
+  md: 'gap-fs-0-375 font-medium text-body',
+  lg: 'gap-fs-0-5 font-semibold text-subheading',
+  full: 'gap-fs-0-75 font-semibold text-subtitle',
+};
+
+const labelStatus = {
+  ...formTextStatus,
+  base: 'text-border',
+  error: 'text-danger-1',
+};
+
+const labelVariant = {
+  base: '',
+  indicator: 'peer-disabled:cursor-not-allowed',
+};
 
 const labelVariants = cva(
   [
-    'select-none transition-[color]',
-    'inline-flex items-center gap-fs-0-25',
-    'font-medium text-label',
+    ...labelBase,
+    'items-center gap-fs-0-25',
     'data-[error=true]:text-danger-1',
     'group-data-[disabled=true]:pointer-events-none group-data-[disabled=true]:opacity-50',
     'peer-disabled:opacity-50',
@@ -21,26 +40,17 @@ const labelVariants = cva(
   {
     variants: {
       // Style Variants
-      size: {
-        sm: 'font-normal text-caption',
-        md: 'text-body gap-fs-0-375',
-        lg: 'text-subheading gap-fs-0-5',
-      },
-      variant: {
-        indicator: 'peer-disabled:cursor-not-allowed',
-      },
-      // Style Modifiers
-      isDisabled: {
-        true: 'opacity-50',
-      },
+      size: labelSize,
+      status: labelStatus,
+      variant: labelVariant,
       isRequired: {
         true: "after:content-['*'] after:text-danger-1",
       },
     },
     compoundVariants: [
       {
+        status: 'disabled',
         variant: 'indicator',
-        isDisabled: true,
         className: 'cursor-not-allowed',
       },
     ],
@@ -55,8 +65,8 @@ type LabelProps = LabelVariantProps &
 function Label({
   className,
   size,
+  status,
   variant,
-  isDisabled,
   isRequired,
   ...props
 }: LabelProps) {
@@ -66,8 +76,8 @@ function Label({
       className={cn(
         labelVariants({
           size,
+          status,
           variant,
-          isDisabled,
           isRequired,
           className,
         }),

@@ -5,7 +5,8 @@ import { cn } from '@workspace/ui/lib/utils';
 import { boxBase } from '@workspace/ui/primitives/box';
 import {
   inputBase,
-  inputShape,
+  inputRadius,
+  inputShadow,
   inputSize,
   inputVariant,
 } from '@workspace/ui/primitives/input';
@@ -49,50 +50,14 @@ const selectTriggerVariants = cva(
   ],
   {
     variants: {
-      // Style Variants
-      shape: inputShape,
+      radius: inputRadius,
+      shadow: inputShadow,
       size: inputSize,
-      // Style Modifiers
-      noShadow: {
-        false: 'shadow-sm',
-      },
     },
-    compoundVariants: [
-      // Rounded Shape Size Variants
-      {
-        shape: 'rounded',
-        size: 'sm',
-        className: 'rounded-fs-sm',
-      },
-      {
-        shape: 'rounded',
-        size: 'md',
-        className: 'rounded-fs-md',
-      },
-      {
-        shape: 'rounded',
-        size: 'lg',
-        className: 'rounded-fs-lg',
-      },
-      // Shadow Size Modifiers
-      {
-        noShadow: false,
-        size: 'sm',
-        className: 'shadow-xs',
-      },
-      {
-        noShadow: false,
-        size: 'md',
-        className: 'shadow-sm',
-      },
-      {
-        noShadow: false,
-        size: 'lg',
-        className: 'shadow-md',
-      },
-    ],
     defaultVariants: {
-      noShadow: false,
+      radius: 'base',
+      shadow: 'base',
+      size: 'base',
     },
   },
 );
@@ -105,18 +70,16 @@ type SelectTriggerProps = SelectTriggerVariantProps &
 function SelectTrigger({
   children,
   className,
-  shape,
+  radius,
+  shadow,
   size,
-  noShadow,
   ...props
 }: SelectTriggerProps) {
   return (
     <SelectPrimitive.Trigger
       data-slot="select-trigger"
       data-size={size}
-      className={cn(
-        selectTriggerVariants({ shape, size, noShadow, className }),
-      )}
+      className={cn(selectTriggerVariants({ radius, size, shadow, className }))}
       {...props}
     >
       {children}
@@ -147,54 +110,15 @@ const selectContentVariants = cva(
         popper:
           'data-[side=bottom]:translate-y-1 data-[side=left]:-translate-x-1 data-[side=right]:translate-x-1 data-[side=top]:-translate-y-1',
       },
-      shape: inputShape,
-      size: {
-        sm: '',
-        md: '',
-        lg: '',
-      },
-      // Style Modifiers
-      noShadow: {
-        false: 'shadow-md',
-      },
+      radius: inputRadius,
+      shadow: inputShadow,
+      size: inputSize,
     },
-    compoundVariants: [
-      // Rounded Shape Size Variants
-      {
-        shape: 'rounded',
-        size: 'sm',
-        className: 'rounded-fs-sm',
-      },
-      {
-        shape: 'rounded',
-        size: 'md',
-        className: 'rounded-fs-md',
-      },
-      {
-        shape: 'rounded',
-        size: 'lg',
-        className: 'rounded-fs-lg',
-      },
-      // Shadow Size Modifiers
-      {
-        noShadow: false,
-        size: 'sm',
-        className: 'shadow-xs',
-      },
-      {
-        noShadow: false,
-        size: 'md',
-        className: 'shadow-sm',
-      },
-      {
-        noShadow: false,
-        size: 'lg',
-        className: 'shadow-md',
-      },
-    ],
     defaultVariants: {
       position: 'popper',
-      noShadow: false,
+      radius: 'base',
+      shadow: 'base',
+      size: 'base',
     },
   },
 );
@@ -208,9 +132,9 @@ function SelectContent({
   className,
   children,
   position,
-  shape,
+  radius,
+  shadow,
   size,
-  noShadow,
   ...props
 }: SelectContentProps) {
   return (
@@ -218,7 +142,7 @@ function SelectContent({
       <SelectPrimitive.Content
         data-slot="select-content"
         className={cn(
-          selectContentVariants({ position, shape, size, noShadow, className }),
+          selectContentVariants({ position, radius, size, shadow, className }),
         )}
         position={position}
         {...props}
@@ -281,31 +205,14 @@ const selectItemVariants = cva(
   {
     variants: {
       // Style Variants
-      shape: inputShape,
-      size: {
-        sm: 'gap-fs-1 py-fs-0-5 pr-fs-6 pl-fs-1 text-caption',
-        md: 'gap-fs-3 py-fs-2 pr-fs-10 pl-fs-3 text-label',
-        lg: 'gap-fs-4 py-fs-3 pr-fs-12 pl-fs-4 text-body',
-      },
+      radius: inputRadius,
+      shadow: inputShadow,
+      size: inputSize,
     },
-    compoundVariants: [
-      // Rounded Shape Size Variants
-      {
-        shape: 'rounded',
-        size: 'sm',
-        className: 'rounded-fs-sm',
-      },
-      {
-        shape: 'rounded',
-        size: 'md',
-        className: 'rounded-fs-md',
-      },
-      {
-        shape: 'rounded',
-        size: 'lg',
-        className: 'rounded-fs-lg',
-      },
-    ],
+    defaultVariants: {
+      radius: 'base',
+      size: 'base',
+    },
   },
 );
 
@@ -317,14 +224,15 @@ type SelectItemProps = SelectItemVariantProps &
 function SelectItem({
   children,
   className,
-  shape,
+  radius,
+  shadow,
   size,
   ...props
 }: SelectItemProps) {
   return (
     <SelectPrimitive.Item
       data-slot="select-item"
-      className={cn(selectItemVariants({ shape, size, className }))}
+      className={cn(selectItemVariants({ radius, size, shadow, className }))}
       {...props}
     >
       <span className="absolute right-fs-2 size-fs-3 flex items-center justify-center">

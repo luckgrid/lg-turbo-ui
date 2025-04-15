@@ -1,6 +1,12 @@
 import { cn } from '@workspace/ui/lib/utils';
-import { boxBase, boxShape } from '@workspace/ui/primitives/box';
+import {
+  boxBase,
+  boxRadius,
+  boxShadow,
+  boxSize,
+} from '@workspace/ui/primitives/box';
 import { Element } from '@workspace/ui/primitives/element';
+import { formStatus } from '@workspace/ui/primitives/form';
 import { cva } from 'class-variance-authority';
 import * as React from 'react';
 
@@ -8,11 +14,10 @@ import type { ElementProps } from '@workspace/ui/primitives/element';
 import type { VariantProps } from 'class-variance-authority';
 
 const inputBase = [
-  boxBase,
-  'flex w-full transition-[background-color,border-color,color,box-shadow,opacity,fill,stroke]',
-  'gap-fs-0-75 px-fs-3 py-fs-1 border-(length:--fs-0-25)',
+  ...boxBase,
+  'w-full transition-[background-color,border-color,color,box-shadow,opacity,fill,stroke]',
   'outline-offset-1 outline-ring/75 border-border bg-input',
-  'text-body text-left text-pretty',
+  'text-left text-pretty',
   'placeholder:text-neutral-foreground/50 placeholder:text-neutral-foreground/75',
   'selection:bg-primary selection:text-primary-foreground',
   'disabled:cursor-not-allowed disabled:opacity-50',
@@ -20,19 +25,30 @@ const inputBase = [
   'aria-invalid:border-danger-1 focus-visible:aria-invalid:outline-danger-1/75',
 ];
 
-const inputShape = {
-  pill: boxShape.pill,
-  rounded: boxShape.rounded,
-  sharp: boxShape.sharp,
+const inputRadius = {
+  ...boxRadius,
+};
+
+const inputShadow = {
+  ...boxShadow,
 };
 
 const inputSize = {
+  ...boxSize,
+  base: 'gap-fs-0-75 px-fs-3 py-fs-1 border-(length:--fs-0-25) text-body',
   sm: 'gap-fs-0-5 px-fs-2 py-fs-1 border-1 text-label',
   md: 'gap-fs-0-75 px-fs-4 py-fs-2 border-(length:--fs-0-25) text-body',
   lg: 'gap-fs-1 px-fs-5 py-fs-3 border-(length:--fs-0-375) focus-visible:outline-(length:--fs-0-025) text-subheading',
+  full: 'gap-fs-2 px-fs-6 py-fs-4 border-(length:--fs-0-5) text-subheading',
+};
+
+const inputStatus = {
+  ...formStatus,
 };
 
 const inputVariant = {
+  action: '',
+  base: '',
   file: 'file:inline-flex file:text-foreground file:border-0 file:bg-transparent file:font-medium',
   select: [
     'items-center justify-between gap-fs-2',
@@ -44,67 +60,35 @@ const inputVariant = {
 
 const inputVariants = cva(inputBase, {
   variants: {
-    // Style Variants
-    shape: inputShape,
+    radius: inputRadius,
+    shadow: inputShadow,
     size: inputSize,
+    status: inputStatus,
     variant: inputVariant,
-    // Style Modifiers
-    noShadow: {
-      false: 'shadow-sm',
-    },
   },
   compoundVariants: [
-    // Rounded Shape Size Variants
-    {
-      shape: 'rounded',
-      size: 'sm',
-      className: 'rounded-fs-sm',
-    },
-    {
-      shape: 'rounded',
-      size: 'md',
-      className: 'rounded-fs-md',
-    },
-    {
-      shape: 'rounded',
-      size: 'lg',
-      className: 'rounded-fs-lg',
-    },
     // Textarea Variant Size Modifiers
     {
+      size: ['unset', 'sm'],
       variant: 'textarea',
-      size: 'sm',
       className: 'min-h-15',
     },
     {
+      size: ['base', 'md'],
       variant: 'textarea',
-      size: 'md',
       className: 'min-h-30',
     },
     {
+      size: ['lg', 'full'],
       variant: 'textarea',
-      size: 'lg',
       className: 'min-h-40',
-    },
-    // Shadow Size Modifiers
-    {
-      noShadow: false,
-      size: 'sm',
-      className: 'shadow-xs',
-    },
-    {
-      noShadow: false,
-      size: 'md',
-      className: 'shadow-sm',
-    },
-    {
-      noShadow: false,
-      size: 'lg',
-      className: 'shadow-md',
     },
   ],
   defaultVariants: {
-    noShadow: false,
+    radius: 'base',
+    shadow: 'base',
+    size: 'base',
+    variant: 'base',
   },
 });
 
@@ -116,10 +100,11 @@ type InputProps<T extends React.ElementType = 'input'> = ElementProps<T> &
 function Input<T extends React.ElementType = 'input'>({
   as = 'input',
   className,
-  shape,
+  radius,
   size,
+  shadow,
+  status,
   variant,
-  noShadow,
   ...props
 }: InputProps<T>) {
   return (
@@ -128,10 +113,11 @@ function Input<T extends React.ElementType = 'input'>({
       as={as}
       className={cn(
         inputVariants({
-          shape,
+          radius,
           size,
+          shadow,
+          status,
           variant,
-          noShadow,
           className,
         }),
       )}
@@ -140,5 +126,14 @@ function Input<T extends React.ElementType = 'input'>({
   );
 }
 
-export { Input, inputBase, inputShape, inputSize, inputVariant };
+export {
+  Input,
+  inputBase,
+  inputRadius,
+  inputShadow,
+  inputSize,
+  inputStatus,
+  inputVariant,
+};
+
 export type { InputProps, InputVariantProps };

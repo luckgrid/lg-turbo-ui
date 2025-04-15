@@ -10,8 +10,8 @@ import {
 import { Input } from '@workspace/ui/components/input';
 import type { InputProps } from '@workspace/ui/components/input';
 import type {
-  FormDescriptionVariantProps,
   FormFieldVariantProps,
+  FormTextVariantProps,
 } from '@workspace/ui/primitives/form';
 import type { InputVariantProps } from '@workspace/ui/primitives/input';
 import type {
@@ -42,15 +42,14 @@ type FieldProps<
   control: UseFormReturn<TFieldValues>['control'];
   hint?: string;
   label: string;
-  layout?: FormFieldVariantProps['layout'];
   name: TName;
   placeholder?: string;
-  shape?: InputVariantProps['shape'];
+  radius?: InputVariantProps['radius'];
   size?:
     | FormFieldVariantProps['size']
     | InputProps<'input'>['size']
-    | FormDescriptionVariantProps['size'];
-  isDisabled?: boolean;
+    | FormTextVariantProps['size'];
+  status?: FormFieldVariantProps['status'];
   isRequired?: boolean;
 };
 
@@ -62,12 +61,11 @@ function Field<
   control,
   hint,
   label,
-  layout,
   name,
   placeholder,
-  shape,
+  radius,
   size,
-  isDisabled,
+  status,
   isRequired,
 }: FieldProps<TFieldValues, TName>) {
   return (
@@ -75,8 +73,8 @@ function Field<
       control={control}
       name={name}
       render={({ field }) => (
-        <FormField size={size} layout={layout}>
-          <FormLabel isDisabled={isDisabled} isRequired={isRequired}>
+        <FormField size={size} status={status}>
+          <FormLabel status={status} isRequired={isRequired}>
             {label}
           </FormLabel>
           {children ? (
@@ -88,15 +86,16 @@ function Field<
           ) : (
             <FormControl>
               <Input
-                disabled={isDisabled}
-                shape={shape}
+                disabled={status === 'disabled'}
+                radius={radius}
                 size={size as InputProps<'input'>['size']}
+                status={status}
                 placeholder={placeholder}
                 {...field}
               />
             </FormControl>
           )}
-          <FormDescription size={size} isDisabled={isDisabled}>
+          <FormDescription size={size} status={status}>
             {hint}
           </FormDescription>
         </FormField>
