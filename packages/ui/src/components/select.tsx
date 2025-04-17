@@ -1,6 +1,12 @@
 'use client';
 
+import * as React from 'react';
+
 import * as SelectPrimitive from '@radix-ui/react-select';
+import type { VariantProps } from 'class-variance-authority';
+import { cva } from 'class-variance-authority';
+import { CheckIcon, ChevronDownIcon, ChevronUpIcon } from 'lucide-react';
+
 import { cn } from '@workspace/ui/lib/utils';
 import { boxBase } from '@workspace/ui/primitives/box';
 import {
@@ -10,18 +16,13 @@ import {
   inputSize,
   inputVariant,
 } from '@workspace/ui/primitives/input';
-import { cva } from 'class-variance-authority';
-import { CheckIcon, ChevronDownIcon, ChevronUpIcon } from 'lucide-react';
-import * as React from 'react';
-
-import type { VariantProps } from 'class-variance-authority';
 
 // Select Component
 
 function Select({
   ...props
 }: React.ComponentProps<typeof SelectPrimitive.Root>) {
-  return <SelectPrimitive.Root data-slot="select" {...props} />;
+  return <SelectPrimitive.Root data-slot='select' {...props} />;
 }
 
 // Select Group Component
@@ -29,7 +30,7 @@ function Select({
 function SelectGroup({
   ...props
 }: React.ComponentProps<typeof SelectPrimitive.Group>) {
-  return <SelectPrimitive.Group data-slot="select-group" {...props} />;
+  return <SelectPrimitive.Group data-slot='select-group' {...props} />;
 }
 
 // Select Value Component
@@ -37,7 +38,7 @@ function SelectGroup({
 function SelectValue({
   ...props
 }: React.ComponentProps<typeof SelectPrimitive.Value>) {
-  return <SelectPrimitive.Value data-slot="select-value" {...props} />;
+  return <SelectPrimitive.Value data-slot='select-value' {...props} />;
 }
 
 // Select Trigger Component
@@ -59,7 +60,7 @@ const selectTriggerVariants = cva(
       shadow: 'base',
       size: 'base',
     },
-  },
+  }
 );
 
 type SelectTriggerVariantProps = VariantProps<typeof selectTriggerVariants>;
@@ -77,14 +78,14 @@ function SelectTrigger({
 }: SelectTriggerProps) {
   return (
     <SelectPrimitive.Trigger
-      data-slot="select-trigger"
+      data-slot='select-trigger'
       data-size={size}
       className={cn(selectTriggerVariants({ radius, size, shadow, className }))}
       {...props}
     >
       {children}
       <SelectPrimitive.Icon asChild>
-        <ChevronDownIcon className="transition-transform duration-150" />
+        <ChevronDownIcon className='transition-transform duration-150' />
       </SelectPrimitive.Icon>
     </SelectPrimitive.Trigger>
   );
@@ -120,7 +121,7 @@ const selectContentVariants = cva(
       shadow: 'base',
       size: 'base',
     },
-  },
+  }
 );
 
 type SelectContentVariantProps = VariantProps<typeof selectContentVariants>;
@@ -140,9 +141,9 @@ function SelectContent({
   return (
     <SelectPrimitive.Portal>
       <SelectPrimitive.Content
-        data-slot="select-content"
+        data-slot='select-content'
         className={cn(
-          selectContentVariants({ position, radius, size, shadow, className }),
+          selectContentVariants({ position, radius, size, shadow, className })
         )}
         position={position}
         {...props}
@@ -152,7 +153,7 @@ function SelectContent({
           className={cn(
             'p-fs-0-5',
             position === 'popper' &&
-              'h-[var(--radix-select-trigger-height)] w-full min-w-[var(--radix-select-trigger-width)] scroll-my-fs-1',
+              'h-[var(--radix-select-trigger-height)] w-full min-w-[var(--radix-select-trigger-width)] scroll-my-fs-1'
           )}
         >
           {children}
@@ -175,10 +176,10 @@ function SelectLabel({
 }: React.ComponentProps<typeof SelectPrimitive.Label>) {
   return (
     <SelectPrimitive.Label
-      data-slot="select-label"
+      data-slot='select-label'
       className={cn(
         'text-neutral-foreground px-fs-2 py-fs-1 text-label',
-        className,
+        className
       )}
       {...props}
     />
@@ -213,7 +214,7 @@ const selectItemVariants = cva(
       radius: 'base',
       size: 'base',
     },
-  },
+  }
 );
 
 type SelectItemVariantProps = VariantProps<typeof selectItemVariants>;
@@ -231,13 +232,13 @@ function SelectItem({
 }: SelectItemProps) {
   return (
     <SelectPrimitive.Item
-      data-slot="select-item"
+      data-slot='select-item'
       className={cn(selectItemVariants({ radius, size, shadow, className }))}
       {...props}
     >
-      <span className="absolute right-fs-2 size-fs-3 flex items-center justify-center">
+      <span className='absolute right-fs-2 size-fs-3 flex items-center justify-center'>
         <SelectPrimitive.ItemIndicator>
-          <CheckIcon className="size-fs-4" />
+          <CheckIcon className='size-fs-4' />
         </SelectPrimitive.ItemIndicator>
       </span>
       <SelectPrimitive.ItemText>{children}</SelectPrimitive.ItemText>
@@ -253,10 +254,10 @@ function SelectSeparator({
 }: React.ComponentProps<typeof SelectPrimitive.Separator>) {
   return (
     <SelectPrimitive.Separator
-      data-slot="select-separator"
+      data-slot='select-separator'
       className={cn(
         'bg-border pointer-events-none -mx-fs-1 my-fs-1 h-fs-0-25',
-        className,
+        className
       )}
       {...props}
     />
@@ -275,14 +276,14 @@ function SelectScrollUpButton({
 }: React.ComponentProps<typeof SelectPrimitive.ScrollUpButton>) {
   return (
     <SelectPrimitive.ScrollUpButton
-      data-slot="select-scroll-up-button"
+      data-slot='select-scroll-up-button'
       className={cn(
         'flex cursor-default items-center justify-center py-fs-1',
-        className,
+        className
       )}
       {...props}
     >
-      <ChevronUpIcon className="size-fs-4" />
+      <ChevronUpIcon className='size-fs-4' />
     </SelectPrimitive.ScrollUpButton>
   );
 }
@@ -293,14 +294,14 @@ function SelectScrollDownButton({
 }: React.ComponentProps<typeof SelectPrimitive.ScrollDownButton>) {
   return (
     <SelectPrimitive.ScrollDownButton
-      data-slot="select-scroll-down-button"
+      data-slot='select-scroll-down-button'
       className={cn(
         'flex cursor-default items-center justify-center py-fs-1',
-        className,
+        className
       )}
       {...props}
     >
-      <ChevronDownIcon className="size-fs-4" />
+      <ChevronDownIcon className='size-fs-4' />
     </SelectPrimitive.ScrollDownButton>
   );
 }

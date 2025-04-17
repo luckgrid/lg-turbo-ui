@@ -1,6 +1,12 @@
 'use client';
 
+import * as React from 'react';
+
 import * as RadioGroupPrimitive from '@radix-ui/react-radio-group';
+import type { VariantProps } from 'class-variance-authority';
+import { cva } from 'class-variance-authority';
+import { CircleIcon } from 'lucide-react';
+
 import { cn } from '@workspace/ui/lib/utils';
 import {
   indicatorBase,
@@ -9,11 +15,6 @@ import {
   indicatorSize,
   indicatorVariant,
 } from '@workspace/ui/primitives/indicator';
-import { cva } from 'class-variance-authority';
-import { CircleIcon } from 'lucide-react';
-import * as React from 'react';
-
-import type { VariantProps } from 'class-variance-authority';
 
 // Radio Group Component
 
@@ -61,7 +62,7 @@ function RadioGroup({
 }: RadioGroupProps) {
   return (
     <RadioGroupPrimitive.Root
-      data-slot="radio-group"
+      data-slot='radio-group'
       className={cn(radioGroupVariants({ radius, size, shadow, className }))}
       {...props}
     />
@@ -131,17 +132,17 @@ function RadioGroupItem({
 }: RadioGroupItemProps) {
   return (
     <RadioGroupPrimitive.Item
-      data-slot="radio-group-item"
+      data-slot='radio-group-item'
       className={cn(
-        radioGroupItemVariants({ radius, size, shadow, className }),
+        radioGroupItemVariants({ radius, size, shadow, className })
       )}
       {...props}
     >
       <RadioGroupPrimitive.Indicator
-        data-slot="radio-group-indicator"
-        className="relative flex items-center justify-center"
+        data-slot='radio-group-indicator'
+        className='relative flex items-center justify-center'
       >
-        <CircleIcon className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
+        <CircleIcon className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2' />
       </RadioGroupPrimitive.Indicator>
     </RadioGroupPrimitive.Item>
   );

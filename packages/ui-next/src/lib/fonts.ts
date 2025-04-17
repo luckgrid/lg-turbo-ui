@@ -1,5 +1,6 @@
-import { cn } from '@workspace/ui/lib/utils';
 import { Roboto, Roboto_Mono, Roboto_Serif } from 'next/font/google';
+
+import { cn } from '@workspace/ui/lib/utils';
 
 // - Next Font API: https://nextjs.org/docs/app/building-your-application/optimizing/fonts
 // - Google Fonts: https://fonts.google.com/
@@ -49,13 +50,13 @@ const robotoSerif = Roboto_Serif({
 const fontClassNames = cn(
   roboto.className,
   robotoMono.className,
-  robotoSerif.className,
+  robotoSerif.className
 );
 
 const fontVariables = cn(
   roboto.variable,
   robotoMono.variable,
-  robotoSerif.variable,
+  robotoSerif.variable
 );
 
 export { fontClassNames, fontVariables };

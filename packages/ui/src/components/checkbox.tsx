@@ -1,6 +1,12 @@
 'use client';
 
+import * as React from 'react';
+
 import * as CheckboxPrimitive from '@radix-ui/react-checkbox';
+import type { VariantProps } from 'class-variance-authority';
+import { cva } from 'class-variance-authority';
+import { CheckIcon } from 'lucide-react';
+
 import { cn } from '@workspace/ui/lib/utils';
 import {
   indicatorBase,
@@ -8,11 +14,6 @@ import {
   indicatorSize,
   indicatorVariant,
 } from '@workspace/ui/primitives/indicator';
-import { cva } from 'class-variance-authority';
-import { CheckIcon } from 'lucide-react';
-import * as React from 'react';
-
-import type { VariantProps } from 'class-variance-authority';
 
 const checkboxVariants = cva([indicatorBase, indicatorVariant.checkbox], {
   variants: {
@@ -83,20 +84,20 @@ function Checkbox({
 }: CheckboxProps) {
   return (
     <CheckboxPrimitive.Root
-      data-slot="checkbox"
+      data-slot='checkbox'
       className={cn(
         checkboxVariants({
           radius,
           size,
           hasShadow,
           className,
-        }),
+        })
       )}
       {...props}
     >
       <CheckboxPrimitive.Indicator
-        data-slot="checkbox-indicator"
-        className="flex items-center justify-center"
+        data-slot='checkbox-indicator'
+        className='flex items-center justify-center'
       >
         <CheckIcon />
       </CheckboxPrimitive.Indicator>

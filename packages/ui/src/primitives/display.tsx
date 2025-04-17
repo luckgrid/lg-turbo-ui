@@ -1,3 +1,8 @@
+import * as React from 'react';
+
+import type { VariantProps } from 'class-variance-authority';
+import { cva } from 'class-variance-authority';
+
 import { cn } from '@workspace/ui/lib/utils';
 import {
   boxBase,
@@ -5,11 +10,8 @@ import {
   boxShadow,
   boxSize,
 } from '@workspace/ui/primitives/box';
-import { Element } from '@workspace/ui/primitives/element';
-import { cva } from 'class-variance-authority';
-import * as React from 'react';
 import type { ElementProps } from '@workspace/ui/primitives/element';
-import type { VariantProps } from 'class-variance-authority';
+import { Element } from '@workspace/ui/primitives/element';
 
 // Display Base Styles - to set base display styles
 const displayBase = [boxBase, 'flex-col'];
@@ -61,7 +63,7 @@ function Display<T extends React.ElementType = 'div'>({
 }: DisplayProps<T>) {
   return (
     <Element
-      data-slot="display"
+      data-slot='display'
       as={as}
       className={cn(displayVariants({ radius, shadow, size, className }))}
       {...props}

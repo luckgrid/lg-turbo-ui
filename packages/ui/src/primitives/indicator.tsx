@@ -1,14 +1,15 @@
+import type { VariantProps } from 'class-variance-authority';
+import { cva } from 'class-variance-authority';
+import { CheckIcon, CircleIcon } from 'lucide-react';
+
 import { cn } from '@workspace/ui/lib/utils';
+import type { ElementProps } from '@workspace/ui/primitives/element';
 import { Element } from '@workspace/ui/primitives/element';
 import {
   inputRadius,
   inputShadow,
   inputSize,
 } from '@workspace/ui/primitives/input';
-import { cva } from 'class-variance-authority';
-import { CheckIcon, CircleIcon } from 'lucide-react';
-import type { ElementProps } from '@workspace/ui/primitives/element';
-import type { VariantProps } from 'class-variance-authority';
 
 // TODO:
 // - Move this code to components/action/indicator
@@ -87,10 +88,10 @@ function Indicator<T extends React.ElementType = 'span'>({
 }: IndicatorProps<T>) {
   return (
     <Element
-      data-slot="indicator"
+      data-slot='indicator'
       as={as}
       className={cn(
-        indicatorVariants({ radius, shadow, size, variant, className }),
+        indicatorVariants({ radius, shadow, size, variant, className })
       )}
       {...props}
     >

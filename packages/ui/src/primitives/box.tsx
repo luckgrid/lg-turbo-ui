@@ -1,9 +1,11 @@
-import { cn } from '@workspace/ui/lib/utils';
-import { Element } from '@workspace/ui/primitives/element';
-import { cva } from 'class-variance-authority';
 import * as React from 'react';
-import type { ElementProps } from '@workspace/ui/primitives/element';
+
 import type { VariantProps } from 'class-variance-authority';
+import { cva } from 'class-variance-authority';
+
+import { cn } from '@workspace/ui/lib/utils';
+import type { ElementProps } from '@workspace/ui/primitives/element';
+import { Element } from '@workspace/ui/primitives/element';
 
 // Box Base Styles - to set base box styles
 const boxBase = 'box-border flex';
@@ -79,7 +81,7 @@ function Box<T extends React.ElementType = 'div'>({
 }: BoxProps<T>) {
   return (
     <Element
-      data-slot="box-primitive"
+      data-slot='box-primitive'
       as={as}
       className={cn(
         boxVariants({
@@ -87,7 +89,7 @@ function Box<T extends React.ElementType = 'div'>({
           shadow,
           size,
           className,
-        }),
+        })
       )}
       {...props}
     />

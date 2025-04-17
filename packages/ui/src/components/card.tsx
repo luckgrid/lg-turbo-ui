@@ -1,15 +1,17 @@
+import * as React from 'react';
+
+import type { VariantProps } from 'class-variance-authority';
+import { cva } from 'class-variance-authority';
+
 import { cn } from '@workspace/ui/lib/utils';
 import { actionOutline } from '@workspace/ui/primitives/action';
+import type { DisplayProps } from '@workspace/ui/primitives/display';
 import {
   Display,
   displayBase,
   displayRadius,
   displaySize,
 } from '@workspace/ui/primitives/display';
-import { cva } from 'class-variance-authority';
-import * as React from 'react';
-import type { DisplayProps } from '@workspace/ui/primitives/display';
-import type { VariantProps } from 'class-variance-authority';
 
 // TODO:
 // - setup color variants to modify card colors instead of using noColor modifier
@@ -74,7 +76,7 @@ function Card<T extends React.ElementType = 'div'>({
 }: CardProps<T>) {
   return (
     <Display
-      data-slot="card"
+      data-slot='card'
       as={as}
       className={cn(
         cardVariants({
@@ -82,7 +84,7 @@ function Card<T extends React.ElementType = 'div'>({
           size,
           isAction,
           className,
-        }),
+        })
       )}
       {...props}
     />
@@ -120,7 +122,7 @@ function CardHeader<T extends React.ElementType = 'header'>({
 }: CardHeaderProps<T>) {
   return (
     <Display
-      data-slot="card-header"
+      data-slot='card-header'
       as={as}
       className={cn(
         cardHeaderVariants({
@@ -128,7 +130,7 @@ function CardHeader<T extends React.ElementType = 'header'>({
           size,
           isAction,
           className,
-        }),
+        })
       )}
       {...props}
     />
@@ -162,14 +164,14 @@ function CardBody<T extends React.ElementType = 'div'>({
 }: CardBodyProps<T>) {
   return (
     <Display
-      data-slot="card-body"
+      data-slot='card-body'
       as={as}
       className={cn(
         cardBodyVariants({
           radius,
           size,
           className,
-        }),
+        })
       )}
       {...props}
     />
@@ -196,13 +198,13 @@ type CardFooterProps = React.ComponentProps<'footer'> & CardFooterVariantProps;
 function CardFooter({ radius, size, className, ...props }: CardFooterProps) {
   return (
     <footer
-      data-slot="card-footer"
+      data-slot='card-footer'
       className={cn(
         cardFooterVariants({
           radius,
           size,
           className,
-        }),
+        })
       )}
       {...props}
     />

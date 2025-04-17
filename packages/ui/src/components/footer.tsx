@@ -1,14 +1,16 @@
+import * as React from 'react';
+
+import type { VariantProps } from 'class-variance-authority';
+import { cva } from 'class-variance-authority';
+
 import { cn } from '@workspace/ui/lib/utils';
+import type { LayoutProps } from '@workspace/ui/primitives/layout';
 import {
   Layout,
   layoutRadius,
   layoutShadow,
   layoutSize,
 } from '@workspace/ui/primitives/layout';
-import { cva } from 'class-variance-authority';
-import * as React from 'react';
-import type { LayoutProps } from '@workspace/ui/primitives/layout';
-import type { VariantProps } from 'class-variance-authority';
 
 const footerVariants = cva('', {
   variants: {
@@ -37,7 +39,7 @@ function Footer({
   return (
     <Layout
       as={as}
-      data-slot="footer"
+      data-slot='footer'
       className={cn(footerVariants({ radius, size, shadow, className }))}
       {...props}
     />

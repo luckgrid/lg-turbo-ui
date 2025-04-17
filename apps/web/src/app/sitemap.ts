@@ -1,4 +1,5 @@
 import type { MetadataRoute } from 'next';
+
 import { BASE_URL } from '@/configs/app';
 
 // Next Sitemap API: https://nextjs.org/docs/app/api-reference/file-conventions/metadata/sitemap

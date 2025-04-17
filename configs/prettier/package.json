@@ -17,6 +17,9 @@
     "@workspace/typescript-config": "workspace:*",
     "typescript": "catalog:"
   },
+  "files": [
+    "*.js"
+  ],
   "exports": {
     ".": "./base.js"
   }

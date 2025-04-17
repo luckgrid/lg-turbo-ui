@@ -1,3 +1,8 @@
+import * as React from 'react';
+
+import type { VariantProps } from 'class-variance-authority';
+import { cva } from 'class-variance-authority';
+
 import { cn } from '@workspace/ui/lib/utils';
 import {
   boxBase,
@@ -5,13 +10,9 @@ import {
   boxShadow,
   boxSize,
 } from '@workspace/ui/primitives/box';
+import type { ElementProps } from '@workspace/ui/primitives/element';
 import { Element } from '@workspace/ui/primitives/element';
 import { formStatus } from '@workspace/ui/primitives/form';
-import { cva } from 'class-variance-authority';
-import * as React from 'react';
-
-import type { ElementProps } from '@workspace/ui/primitives/element';
-import type { VariantProps } from 'class-variance-authority';
 
 const inputBase = [
   boxBase,
@@ -109,7 +110,7 @@ function Input<T extends React.ElementType = 'input'>({
 }: InputProps<T>) {
   return (
     <Element
-      data-slot="input-primitive"
+      data-slot='input-primitive'
       as={as}
       className={cn(
         inputVariants({
@@ -119,7 +120,7 @@ function Input<T extends React.ElementType = 'input'>({
           status,
           variant,
           className,
-        }),
+        })
       )}
       {...props}
     />

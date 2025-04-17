@@ -1,10 +1,12 @@
 import { SiGithub } from '@icons-pack/react-simple-icons';
+
+import type { FooterProps } from '@workspace/ui/components/footer';
 import { Footer } from '@workspace/ui/components/footer';
 import { cn } from '@workspace/ui/lib/utils';
 import { LayoutBar, LayoutContainer } from '@workspace/ui/primitives/layout';
 import { Link } from '@workspace/ui-next/components/link';
 import { Image } from '@workspace/ui-next/components/media';
-import type { FooterProps } from '@workspace/ui/components/footer';
+
 import { config } from '@/configs/app';
 
 function LayoutFooter({ className, ...props }: FooterProps) {
@@ -15,28 +17,29 @@ function LayoutFooter({ className, ...props }: FooterProps) {
       className={cn('py-fs-3 bg-neutral text-neutral-foreground/50', className)}
       {...props}
     >
-      <LayoutContainer className="flex-row items-end justify-between gap-fs-3 px-fs-6">
-        <p className="text-caption text-balance">
+      <LayoutContainer className='flex-row items-end justify-between gap-fs-3 px-fs-6'>
+        <p className='text-caption text-balance'>
           &copy; {copyrightYear},{' '}
           <Link href={`mailto:${config.organization.email}`}>
             {config.organization.name}
           </Link>
           . This code is open source under the{' '}
-          <Link href="https://opensource.org/license/MIT">MIT License</Link>.
+          <Link href='https://opensource.org/license/MIT'>MIT License</Link>.
         </p>
-        <LayoutBar className="justify-end">
-          <Link href="https://github.com/luckgrid/lg-turbo-ui">
+        <LayoutBar className='justify-end'>
+          <Link href='https://github.com/luckgrid/lg-turbo-ui'>
             <SiGithub />
           </Link>
           {config.author?.name && config.author?.url && (
             <Link
               href={String(config.author.url)}
-              className="transition-[opacity] hover:opacity-90"
+              className='transition-[opacity] hover:opacity-90'
             >
               <Image
-                className="transition-[opacity] opacity-50 dark:invert"
+                className='transition-[opacity] opacity-50 dark:invert'
+                variant='icon'
                 alt={config.author.name}
-                src="/assets/logos/logo.png"
+                src='/assets/logos/logo.png'
                 width={24}
                 height={24}
               />

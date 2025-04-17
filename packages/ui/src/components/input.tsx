@@ -1,5 +1,5 @@
-import { Input as PrimitiveInput } from '@workspace/ui/primitives/input';
 import type { InputProps } from '@workspace/ui/primitives/input';
+import { Input as PrimitiveInput } from '@workspace/ui/primitives/input';
 
 // Text Input Component
 
@@ -7,7 +7,7 @@ function Input<T extends React.ElementType = 'input'>({
   as = 'input',
   ...props
 }: InputProps<T>) {
-  return <PrimitiveInput data-slot="input" as={as} {...props} />;
+  return <PrimitiveInput data-slot='input' as={as} {...props} />;
 }
 
 // File Input Component
@@ -18,11 +18,11 @@ function FileInput<T extends React.ElementType = 'input'>({
 }: InputProps<T>) {
   return (
     <PrimitiveInput
-      data-slot="file-input"
+      data-slot='file-input'
       as={as}
-      type="file"
+      type='file'
       {...props}
-      variant="file"
+      variant='file'
     />
   );
 }
@@ -37,10 +37,10 @@ function Textarea<T extends React.ElementType = 'textarea'>({
 }: TextareaProps<T>) {
   return (
     <PrimitiveInput
-      data-slot="textarea"
+      data-slot='textarea'
       as={as}
       {...props}
-      variant="textarea"
+      variant='textarea'
     />
   );
 }

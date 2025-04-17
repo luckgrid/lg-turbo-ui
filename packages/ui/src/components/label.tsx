@@ -1,11 +1,13 @@
 'use client';
 
+import * as React from 'react';
+
 import * as LabelPrimitive from '@radix-ui/react-label';
+import type { VariantProps } from 'class-variance-authority';
+import { cva } from 'class-variance-authority';
+
 import { cn } from '@workspace/ui/lib/utils';
 import { formTextSize, formTextStatus } from '@workspace/ui/primitives/form';
-import { cva } from 'class-variance-authority';
-import * as React from 'react';
-import type { VariantProps } from 'class-variance-authority';
 
 const labelBase = 'inline-flex select-none transition-[color]';
 
@@ -54,7 +56,7 @@ const labelVariants = cva(
         className: 'cursor-not-allowed',
       },
     ],
-  },
+  }
 );
 
 type LabelVariantProps = VariantProps<typeof labelVariants>;
@@ -72,7 +74,7 @@ function Label({
 }: LabelProps) {
   return (
     <LabelPrimitive.Root
-      data-slot="label"
+      data-slot='label'
       className={cn(
         labelVariants({
           size,
@@ -80,7 +82,7 @@ function Label({
           variant,
           isRequired,
           className,
-        }),
+        })
       )}
       {...props}
     />

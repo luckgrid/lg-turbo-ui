@@ -1,38 +1,35 @@
 {
-    "editor.codeActionsOnSave": [
-      "source.addMissingImports",
-      "source.organizeImports",
-      "source.fixAll.eslint"
-    ],
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.formatOnSave": true,
-    "eslint.rules.customizations": [{ "rule": "*", "severity": "warn" }],
-    "eslint.runtime": "node",
-    "eslint.validate": [
-      "javascript",
-      "javascriptreact",
-      "typescript",
-      "typescriptreact"
-    ],
-    "eslint.workingDirectories": [{ "mode": "auto" }],
-    "prettier.ignorePath": ".gitignore",
-    "search.exclude": {
-      "pnpm-lock.yaml": true
-    },
-    "tailwindCSS.experimental.classRegex": [
-      ["classNames\\s*=\\s*({[^}]*})", "(?:\"|\\'|`)([^\"'`]*)(?:\"|\\'|`)"],
-      ["cva\\(((?:[^()]|\\([^()]*\\))*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"],
-      ["cx\\(((?:[^()]|\\([^()]*\\))*)\\)", "(?:'|\"|`)([^']*)(?:'|\"|`)"]
-    ],
-    "[typescript,typescriptreact,css,postcss,json,markdown,yaml,svg,github-actions-workflow]": {
-      "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "typescript.enablePromptUseWorkspaceTsdk": true,
-    "typescript.preferences.autoImportFileExcludePatterns": [
-      "next/router.d.ts",
-      "next/dist/client/router.d.ts",
-      "lucide-react"
-    ],
-    "typescript.preferences.preferTypeOnlyAutoImports": true,
-    "typescript.tsdk": "node_modules/typescript/lib"
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"
+  },
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "eslint.rules.customizations": [{ "rule": "*", "severity": "warn" }],
+  "eslint.runtime": "node",
+  "eslint.workingDirectories": [
+    { "pattern": "apps/*/" },
+    { "pattern": "configs/*/" },
+    { "pattern": "packages/*/" }
+  ],
+  "prettier.ignorePath": ".gitignore",
+  "search.exclude": {
+    "pnpm-lock.yaml": true
+  },
+  "tailwindCSS.experimental.classRegex": [
+    ["classNames\\s*=\\s*({[^}]*})", "(?:\"|\\'|`)([^\"'`]*)(?:\"|\\'|`)"],
+    ["cva\\(((?:[^()]|\\([^()]*\\))*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"],
+    ["cx\\(((?:[^()]|\\([^()]*\\))*)\\)", "(?:'|\"|`)([^']*)(?:'|\"|`)"]
+  ],
+  "testing.automaticallyOpenTestResults": "neverOpen",
+  "[javascript,typescript,typescriptreact,css,postcss,json,markdown,yaml,github-actions-workflow]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "typescript.enablePromptUseWorkspaceTsdk": true,
+  "typescript.preferences.autoImportFileExcludePatterns": [
+    "next/router.d.ts",
+    "next/dist/client/router.d.ts",
+    "lucide-react"
+  ],
+  "typescript.preferences.preferTypeOnlyAutoImports": true,
+  "typescript.tsdk": "node_modules/typescript/lib"
 }

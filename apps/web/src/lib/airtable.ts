@@ -1,4 +1,5 @@
 import Airtable from 'airtable';
+
 import { env } from '@/lib/env';
 
 // TODO:
@@ -15,7 +16,7 @@ const airtable = new Airtable({
 const airtableBase = airtable.base(env.AIRTABLE_BASE_ID);
 
 const airtableNewsletterSubsTable = airtableBase(
-  env.AIRTABLE_NEWSLETTER_SUBS_TABLE_ID,
+  env.AIRTABLE_NEWSLETTER_SUBS_TABLE_ID
 );
 
 type AirtableError = Airtable.Error;

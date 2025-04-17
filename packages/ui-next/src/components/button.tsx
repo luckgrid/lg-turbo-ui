@@ -1,7 +1,8 @@
-import { ButtonLink as UiButtonLink } from '@workspace/ui/components/button';
-import Link from 'next/link';
-import type { ButtonLinkProps as UiButtonLinkProps } from '@workspace/ui/components/button';
 import type { LinkProps } from 'next/link';
+import Link from 'next/link';
+
+import type { ButtonLinkProps as UiButtonLinkProps } from '@workspace/ui/components/button';
+import { ButtonLink as UiButtonLink } from '@workspace/ui/components/button';
 
 // - Next Link API: https://nextjs.org/docs/app/api-reference/components/link
 
@@ -22,7 +23,7 @@ function ButtonLink({
   ...props
 }: ButtonLinkProps) {
   return (
-    <UiButtonLink asChild data-slot="next-button-link" {...props}>
+    <UiButtonLink asChild data-slot='next-button-link' {...props}>
       <Link
         href={href}
         as={as}

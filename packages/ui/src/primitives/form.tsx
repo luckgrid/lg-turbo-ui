@@ -1,10 +1,11 @@
+import type { VariantProps } from 'class-variance-authority';
+import { cva } from 'class-variance-authority';
+
 import { cn } from '@workspace/ui/lib/utils';
 import { boxRadius, boxShadow, boxSize } from '@workspace/ui/primitives/box';
 import { displayRadius, displayShadow } from '@workspace/ui/primitives/display';
-import { Element } from '@workspace/ui/primitives/element';
-import { cva } from 'class-variance-authority';
 import type { ElementProps } from '@workspace/ui/primitives/element';
-import type { VariantProps } from 'class-variance-authority';
+import { Element } from '@workspace/ui/primitives/element';
 
 // TODO:
 // - create separate text primitive so it can be used by any component or primitive with text
@@ -81,10 +82,10 @@ function Form<T extends React.ElementType = 'form'>({
 }: FormProps<T>) {
   return (
     <Element
-      data-slot="form"
+      data-slot='form'
       as={as}
       className={cn(
-        formVariants({ radius, shadow, size, status, variant, className }),
+        formVariants({ radius, shadow, size, status, variant, className })
       )}
       {...props}
     />
@@ -141,7 +142,7 @@ function FormField({
 }: FormFieldProps) {
   return (
     <div
-      data-slot="form-field"
+      data-slot='form-field'
       className={cn(
         formFieldVariants({
           radius,
@@ -150,7 +151,7 @@ function FormField({
           status,
           variant,
           className,
-        }),
+        })
       )}
       {...props}
     />
@@ -265,7 +266,7 @@ function FormText<T extends React.ElementType = 'p'>({
   return (
     <Element
       as={as}
-      data-slot="form-text"
+      data-slot='form-text'
       className={cn(formTextVariants({ size, status, variant, className }))}
       {...props}
     />

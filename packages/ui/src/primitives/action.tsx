@@ -1,10 +1,12 @@
+import * as React from 'react';
+
+import type { VariantProps } from 'class-variance-authority';
+import { cva } from 'class-variance-authority';
+
 import { cn } from '@workspace/ui/lib/utils';
 import { boxRadius, boxShadow, boxSize } from '@workspace/ui/primitives/box';
-import { Element } from '@workspace/ui/primitives/element';
-import { cva } from 'class-variance-authority';
-import * as React from 'react';
 import type { ElementProps } from '@workspace/ui/primitives/element';
-import type { VariantProps } from 'class-variance-authority';
+import { Element } from '@workspace/ui/primitives/element';
 
 // Action Styles - to set style patterns for actions
 
@@ -127,10 +129,10 @@ function Action<T extends React.ElementType = 'div'>({
 }: ActionProps<T>) {
   return (
     <Element
-      data-slot="action"
+      data-slot='action'
       as={as}
       className={cn(
-        actionVariants({ radius, shadow, size, variant, className }),
+        actionVariants({ radius, shadow, size, variant, className })
       )}
       {...props}
     />

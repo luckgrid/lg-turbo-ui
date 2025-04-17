@@ -1,8 +1,9 @@
-import { cn } from '@workspace/ui/lib/utils';
-import { Link as PrimitiveLink } from '@workspace/ui/primitives/navigation';
-import { cva } from 'class-variance-authority';
-import type { LinkProps as PrimitiveLinkProps } from '@workspace/ui/primitives/navigation';
 import type { VariantProps } from 'class-variance-authority';
+import { cva } from 'class-variance-authority';
+
+import { cn } from '@workspace/ui/lib/utils';
+import type { LinkProps as PrimitiveLinkProps } from '@workspace/ui/primitives/navigation';
+import { Link as PrimitiveLink } from '@workspace/ui/primitives/navigation';
 
 const linkBase = 'flex-inline cursor-pointer transition-colors';
 
@@ -37,7 +38,7 @@ const linkVariants = cva(
     defaultVariants: {
       underline: 'always',
     },
-  },
+  }
 );
 
 type LinkVariantProps = VariantProps<typeof linkVariants>;
@@ -47,7 +48,7 @@ type LinkProps = PrimitiveLinkProps & LinkVariantProps;
 function Link({ className, color, underline, ...props }: LinkProps) {
   return (
     <PrimitiveLink
-      data-slot="link"
+      data-slot='link'
       className={cn(linkVariants({ color, underline, className }))}
       {...props}
     />

@@ -12,7 +12,7 @@ export function useIsMobile({
   breakpoint = MOBILE_BREAKPOINT,
 }: UseMobileProps = {}) {
   const [isMobile, setIsMobile] = React.useState<boolean | undefined>(
-    undefined,
+    undefined
   );
 
   React.useEffect(() => {

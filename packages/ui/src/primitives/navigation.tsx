@@ -1,9 +1,10 @@
-import { Slot, Slottable } from '@radix-ui/react-slot';
-import { cn } from '@workspace/ui/lib/utils';
-import { ExternalLink } from 'lucide-react';
 import * as React from 'react';
 
 import type { SlotProps } from '@radix-ui/react-slot';
+import { Slot, Slottable } from '@radix-ui/react-slot';
+import { ExternalLink } from 'lucide-react';
+
+import { cn } from '@workspace/ui/lib/utils';
 
 type LinkClassNames = {
   link?: string;
@@ -33,7 +34,7 @@ function Link({
 
   return (
     <Primitive
-      data-slot="link"
+      data-slot='link'
       rel={rel || isExternal ? 'noopener noreferrer' : undefined}
       target={target || isExternal ? '_blank' : '_self'}
       className={cn(classNames?.link, className)}

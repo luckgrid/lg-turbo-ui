@@ -12,7 +12,7 @@ import tseslint from 'typescript-eslint';
 export const restrictEnvAccess = tseslint.config(
   { ignores: ['**/env.ts', 'dist/**'] },
   {
-    files: ['**/*.js', '**/*.jsx', '**/*.ts', '**/*.tsx'],
+    files: ['**/*.js', '**/*.ts', '**/*.tsx'],
     rules: {
       'no-restricted-properties': [
         'error',
@@ -33,7 +33,7 @@ export const restrictEnvAccess = tseslint.config(
         },
       ],
     },
-  },
+  }
 );
 
 export default tseslint.config([
@@ -67,16 +67,80 @@ export default tseslint.config([
           groups: [
             'builtin',
             'external',
-            'type',
             'internal',
-            'parent',
-            'sibling',
-            'index',
+            ['parent', 'sibling', 'index'],
             'object',
           ],
+          pathGroups: [
+            {
+              pattern: '*.{css,sass,scss,less}',
+              group: 'object',
+              position: 'before',
+            },
+            {
+              pattern: 'react',
+              group: 'external',
+              position: 'before',
+            },
+            {
+              pattern: 'react-dom',
+              group: 'external',
+              position: 'before',
+            },
+            {
+              pattern: '@hookform/**',
+              group: 'external',
+              position: 'before',
+            },
+            {
+              pattern: 'react-hook-form',
+              group: 'external',
+              position: 'before',
+            },
+            {
+              pattern: 'next',
+              group: 'external',
+              position: 'after',
+            },
+            {
+              pattern: 'next-safe-action',
+              group: 'external',
+              position: 'after',
+            },
+            {
+              pattern: 'next-themes',
+              group: 'external',
+              position: 'after',
+            },
+            {
+              pattern: '@workspace/**',
+              group: 'internal',
+              position: 'before',
+            },
+            {
+              pattern: '@/**',
+              group: 'internal',
+              position: 'after',
+            },
+            {
+              pattern: '../**',
+              group: 'parent',
+              position: 'before',
+            },
+            {
+              pattern: './**',
+              group: 'sibling',
+              position: 'before',
+            },
+          ],
+          pathGroupsExcludedImportTypes: ['builtin'],
           alphabetize: {
             order: 'asc',
+            caseInsensitive: true,
+            orderImportKind: 'asc',
           },
+          'newlines-between': 'always',
+          distinctGroup: true,
         },
       ],
     },

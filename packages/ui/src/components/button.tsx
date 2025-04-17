@@ -1,3 +1,8 @@
+import * as React from 'react';
+
+import type { VariantProps } from 'class-variance-authority';
+import { cva } from 'class-variance-authority';
+
 import { cn } from '@workspace/ui/lib/utils';
 import {
   actionBase,
@@ -8,13 +13,10 @@ import {
   actionVariant,
 } from '@workspace/ui/primitives/action';
 import { boxBorder } from '@workspace/ui/primitives/box';
-import { Element } from '@workspace/ui/primitives/element';
-import { Link } from '@workspace/ui/primitives/navigation';
-import { cva } from 'class-variance-authority';
-import * as React from 'react';
 import type { ElementProps } from '@workspace/ui/primitives/element';
+import { Element } from '@workspace/ui/primitives/element';
 import type { LinkProps } from '@workspace/ui/primitives/navigation';
-import type { VariantProps } from 'class-variance-authority';
+import { Link } from '@workspace/ui/primitives/navigation';
 
 // TODO:
 // - update fluid scale vars for icon size, borders and outline modifiers
@@ -520,7 +522,7 @@ function Button<T extends React.ElementType = 'button'>({
 }: ButtonProps<T>) {
   return (
     <Element
-      data-slot="button"
+      data-slot='button'
       as={as}
       type={type}
       className={cn(
@@ -533,7 +535,7 @@ function Button<T extends React.ElementType = 'button'>({
           isIcon,
           isGhost,
           className,
-        }),
+        })
       )}
       {...props}
     />
@@ -555,7 +557,7 @@ function ButtonLink({
 }: ButtonLinkProps) {
   return (
     <Link
-      data-slot="button-link"
+      data-slot='button-link'
       className={cn(
         buttonVariants({
           color,
@@ -566,7 +568,7 @@ function ButtonLink({
           isIcon,
           isGhost,
           className,
-        }),
+        })
       )}
       {...props}
     />

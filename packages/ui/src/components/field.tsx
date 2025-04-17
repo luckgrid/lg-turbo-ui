@@ -1,5 +1,12 @@
 'use client';
 
+import type {
+  ControllerRenderProps,
+  FieldPath,
+  FieldValues,
+  UseFormReturn,
+} from 'react-hook-form';
+
 import {
   FormControl,
   FormDescription,
@@ -7,19 +14,13 @@ import {
   FormFieldController,
   FormLabel,
 } from '@workspace/ui/components/form';
-import { Input } from '@workspace/ui/components/input';
 import type { InputProps } from '@workspace/ui/components/input';
+import { Input } from '@workspace/ui/components/input';
 import type {
   FormFieldVariantProps,
   FormTextVariantProps,
 } from '@workspace/ui/primitives/form';
 import type { InputVariantProps } from '@workspace/ui/primitives/input';
-import type {
-  ControllerRenderProps,
-  FieldPath,
-  FieldValues,
-  UseFormReturn,
-} from 'react-hook-form';
 
 // TODO:
 // - Update render method to handle additional field compositions (i.e. checkbox, radio-group, etc...)

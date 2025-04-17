@@ -1,21 +1,23 @@
 'use client';
 
+import * as React from 'react';
+
+import type { ControllerProps, FieldPath, FieldValues } from 'react-hook-form';
+import { Controller, useFormContext, useFormState } from 'react-hook-form';
+
 import { Slot } from '@radix-ui/react-slot';
+
+import type { LabelProps } from '@workspace/ui/components/label';
 import { Label } from '@workspace/ui/components/label';
+import type {
+  FormFieldProps,
+  FormTextProps,
+} from '@workspace/ui/primitives/form';
 import {
   Form,
   FormText,
   FormField as PrimitiveFormField,
 } from '@workspace/ui/primitives/form';
-import * as React from 'react';
-import { Controller, useFormContext, useFormState } from 'react-hook-form';
-
-import type { LabelProps } from '@workspace/ui/components/label';
-import type {
-  FormFieldProps,
-  FormTextProps,
-} from '@workspace/ui/primitives/form';
-import type { ControllerProps, FieldPath, FieldValues } from 'react-hook-form';
 
 // TODO:
 // - Add FormProvider wrapper around Form primitive with proper typing using UseFormReturn
@@ -32,7 +34,7 @@ type FormFieldControllerContextValue<
 
 const FormFieldControllerContext =
   React.createContext<FormFieldControllerContextValue>(
-    {} as FormFieldControllerContextValue,
+    {} as FormFieldControllerContextValue
   );
 
 const FormFieldController = <
@@ -78,7 +80,7 @@ type FormFieldContextValue = {
 };
 
 const FormFieldContext = React.createContext<FormFieldContextValue>(
-  {} as FormFieldContextValue,
+  {} as FormFieldContextValue
 );
 
 function FormField({ ...props }: FormFieldProps) {
@@ -102,7 +104,7 @@ function FormLabel({ children, ...props }: LabelProps) {
 
   return (
     <Label
-      data-slot="form-label"
+      data-slot='form-label'
       data-error={!!error || invalid}
       htmlFor={fieldId}
       {...props}
@@ -120,7 +122,7 @@ function FormControl({ ...props }: React.ComponentProps<typeof Slot>) {
 
   return (
     <Slot
-      data-slot="form-control"
+      data-slot='form-control'
       id={fieldId}
       aria-describedby={
         !!error || invalid
@@ -143,10 +145,10 @@ function FormDescription({ children, ...props }: FormTextProps) {
   if (errorMessage) {
     return (
       <FormText
-        data-slot="form-error"
+        data-slot='form-error'
         id={descriptionErrorId}
-        status="error"
-        variant="message"
+        status='error'
+        variant='message'
         {...props}
       >
         {errorMessage}
@@ -157,10 +159,10 @@ function FormDescription({ children, ...props }: FormTextProps) {
   if (children) {
     return (
       <FormText
-        data-slot="form-hint"
+        data-slot='form-hint'
         id={descriptionHintId}
         status={error || invalid ? 'error' : 'base'}
-        variant="message"
+        variant='message'
         {...props}
       >
         {children}

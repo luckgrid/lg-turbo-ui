@@ -1,9 +1,11 @@
+import type { Metadata } from 'next';
+
 import {
   metadataOrganization,
   metadata as sharedMetadata,
 } from '@workspace/ui-next/lib/metadata';
 import { getBaseUrl } from '@workspace/ui-next/lib/utils';
-import type { Metadata } from 'next';
+
 import { env } from '@/lib/env';
 
 const APP_PORT = env.PORT.toString();

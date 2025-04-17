@@ -1,6 +1,7 @@
 'use client';
 
 import * as React from 'react';
+
 import { Observer } from 'tailwindcss-intersect';
 
 // Scroll Animations with Tailwind CSS Motion and Intersect Plugins
