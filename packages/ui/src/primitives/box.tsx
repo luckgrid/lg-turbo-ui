@@ -8,10 +8,20 @@ import type { VariantProps } from 'class-variance-authority';
 // Box Base Styles - to set base box styles
 const boxBase = 'box-border flex';
 
+// Box Border Styles - to modify the border of a box
+const boxBorder = {
+  sm: 'border-1',
+  base: 'border-(length:--fs-0-25)',
+  md: 'border-(length:--fs-0-375)',
+  lg: 'border-(length:--fs-0-5)',
+  full: 'border-(length:--fs-0-75)',
+  unset: '',
+};
+
 // Box Radius Properties - to modify the border radius of a box
 const boxRadius = {
-  base: 'rounded-fs-md',
   sm: 'rounded-fs-sm',
+  base: 'rounded-fs-md',
   md: 'rounded-fs-lg',
   lg: 'rounded-fs-xl',
   full: 'rounded-full',
@@ -21,8 +31,8 @@ const boxRadius = {
 
 // Box Shadow Properties - to modify the shadow of a box
 const boxShadow = {
-  base: 'shadow-md',
   sm: 'shadow-sm',
+  base: 'shadow-md',
   md: 'shadow-lg',
   lg: 'shadow-xl',
   full: 'shadow-2xl',
@@ -32,19 +42,13 @@ const boxShadow = {
 
 // Box Size Properties - to modify the size of a box
 const boxSize = {
-  base: '',
   sm: '',
+  base: '',
   md: '',
   lg: '',
   full: '',
   none: '',
   unset: '',
-};
-
-// Box Variant Properties - to modify the style variants of a box
-const boxVariant = {
-  base: '',
-  content: 'box-content',
 };
 
 // Box Variants - style variants for the box primitive
@@ -53,11 +57,9 @@ const boxVariants = cva(boxBase, {
     radius: boxRadius,
     shadow: boxShadow,
     size: boxSize,
-    variant: boxVariant,
   },
   defaultVariants: {
     size: 'base',
-    variant: 'base',
   },
 });
 
@@ -73,7 +75,6 @@ function Box<T extends React.ElementType = 'div'>({
   radius,
   shadow,
   size,
-  variant,
   ...props
 }: BoxProps<T>) {
   return (
@@ -85,7 +86,6 @@ function Box<T extends React.ElementType = 'div'>({
           radius,
           shadow,
           size,
-          variant,
           className,
         }),
       )}
@@ -95,5 +95,5 @@ function Box<T extends React.ElementType = 'div'>({
 }
 
 // Box Primitive Exports
-export { Box, boxBase, boxRadius, boxShadow, boxSize, boxVariant, boxVariants };
+export { Box, boxBase, boxBorder, boxRadius, boxShadow, boxSize, boxVariants };
 export type { BoxProps };

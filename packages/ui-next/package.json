@@ -25,7 +25,8 @@
     "prettier": "catalog:",
     "next": "catalog:",
     "next-themes": "catalog:",
-    "typescript": "catalog:"
+    "typescript": "catalog:",
+    "zod": "catalog:"
   },
   "peerDependencies": {
     "next": "catalog:",
@@ -44,10 +45,6 @@
     "./lib/*": {
       "default": "./src/lib/*.ts",
       "types": "./dist/src/lib/*.d.ts"
-    },
-    "./providers/*": {
-      "default": "./src/providers/*.tsx",
-      "types": "./dist/src/providers/*.d.ts"
     }
   }
 }

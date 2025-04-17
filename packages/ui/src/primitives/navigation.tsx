@@ -33,7 +33,7 @@ function Link({
 
   return (
     <Primitive
-      data-slot="link-primitive"
+      data-slot="link"
       rel={rel || isExternal ? 'noopener noreferrer' : undefined}
       target={target || isExternal ? '_blank' : '_self'}
       className={cn(classNames?.link, className)}

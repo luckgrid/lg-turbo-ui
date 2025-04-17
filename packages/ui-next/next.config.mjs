@@ -7,7 +7,7 @@ export const baseConfig = {
 
 // TODO:
 // - handle vercel project domain redirects - https://vercel.com/docs/environment-variables/system-environment-variables
-// - use valibot to validate environment variables and jiti to load them into the config
+// - use jiti to load parsed env schema into redirects function inside config - https://nextjs.org/docs/app/api-reference/config/next-config-js/redirects
 
 /** @type {import('next').NextConfig} */
 const config = {

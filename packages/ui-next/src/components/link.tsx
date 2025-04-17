@@ -1,4 +1,5 @@
 import { Link as UiLink } from '@workspace/ui/components/link';
+import { isExternalUrl } from '@workspace/ui/lib/utils';
 import NextLink from 'next/link';
 import type { LinkProps as UiLinkProps } from '@workspace/ui/components/link';
 import type { LinkProps as NextLinkProps } from 'next/link';
@@ -19,10 +20,18 @@ function Link({
   onMouseEnter,
   onTouchStart,
   onClick,
+  isExternal,
   ...props
 }: LinkProps) {
+  const isLinkExternal = isExternal ?? isExternalUrl(href);
+
   return (
-    <UiLink asChild data-slot="next-link" {...props}>
+    <UiLink
+      data-slot="next-link"
+      asChild
+      isExternal={isLinkExternal}
+      {...props}
+    >
       <NextLink
         href={href}
         as={as}

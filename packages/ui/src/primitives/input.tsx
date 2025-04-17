@@ -14,7 +14,7 @@ import type { ElementProps } from '@workspace/ui/primitives/element';
 import type { VariantProps } from 'class-variance-authority';
 
 const inputBase = [
-  ...boxBase,
+  boxBase,
   'w-full transition-[background-color,border-color,color,box-shadow,opacity,fill,stroke]',
   'outline-offset-1 outline-ring/75 border-border bg-input',
   'text-left text-pretty',

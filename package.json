@@ -19,7 +19,7 @@
     "env:encrypt": "turbo run env:encrypt",
     "ui:add": "turbo run ui:add -F @workspace/ui --"
   },
-  "packageManager": "pnpm@10.8.0",
+  "packageManager": "pnpm@10.8.1",
   "engines": {
     "node": ">=22.14.0"
   },

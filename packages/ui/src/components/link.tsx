@@ -21,7 +21,7 @@ const linkUnderline = {
 
 const linkVariants = cva(
   [
-    ...linkBase,
+    linkBase,
     'items-center gap-fs-0-75',
     'text-current hover:text-current/90 underline-offset-1',
     'disabled:pointer-events-none disabled:opacity-50',
@@ -31,7 +31,6 @@ const linkVariants = cva(
   ],
   {
     variants: {
-      // Style Variants
       color: linkColor,
       underline: linkUnderline,
     },

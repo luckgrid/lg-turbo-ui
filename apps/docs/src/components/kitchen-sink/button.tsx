@@ -7,120 +7,81 @@ export function ButtonKitchenSink() {
       <div className="container flex flex-wrap gap-fs-10 py-fs-10 px-fs-6 justify-center">
         <div className="flex flex-col gap-fs-6">
           <h3 className="text-subheading text-center text-balance">
-            Solid Variant Button Colors
+            Base Variant Button Colors
           </h3>
           <div className="flex flex-wrap items-center justify-center gap-fs-6">
             <div className="flex flex-col items-center justify-center gap-fs-2">
-              <Button variant="solid">Neutral</Button>
-              <Button color="accent" variant="solid">
-                Accent
-              </Button>
-              <Button color="primary" variant="solid">
-                Primary
-              </Button>
-              <Button color="secondary" variant="solid">
-                Secondary
-              </Button>
-              <Button color="danger" variant="solid">
-                Danger
-              </Button>
+              <Button>Neutral</Button>
+              <Button color="accent">Accent</Button>
+              <Button color="primary">Primary</Button>
+              <Button color="secondary">Secondary</Button>
+              <Button color="danger">Danger</Button>
             </div>
             <div className="flex flex-col items-center justify-center gap-fs-2">
-              <Button variant="solid" isIcon aria-label="Solid Neutral Icon">
+              <Button isIcon aria-label="Base Neutral Icon">
                 <Star />
               </Button>
-              <Button
-                color="accent"
-                variant="solid"
-                isIcon
-                aria-label="Solid Accent Icon"
-              >
+              <Button color="accent" isIcon aria-label="Base Accent Icon">
                 <Star />
               </Button>
-              <Button
-                color="primary"
-                variant="solid"
-                isIcon
-                aria-label="Solid Primary Icon"
-              >
+              <Button color="primary" isIcon aria-label="Base Primary Icon">
                 <Star />
               </Button>
-              <Button
-                color="secondary"
-                variant="solid"
-                isIcon
-                aria-label="Solid Secondary Icon"
-              >
+              <Button color="secondary" isIcon aria-label="Base Secondary Icon">
                 <Star />
               </Button>
-              <Button
-                color="danger"
-                variant="solid"
-                isIcon
-                aria-label="Solid Danger Icon"
-              >
+              <Button color="danger" isIcon aria-label="Base Danger Icon">
                 <Star />
               </Button>
             </div>
             <div className="flex flex-col items-center justify-center gap-fs-2">
-              <Button isGhost variant="solid">
-                Neutral Ghost
-              </Button>
-              <Button color="accent" isGhost variant="solid">
+              <Button isGhost>Neutral Ghost</Button>
+              <Button color="accent" isGhost>
                 Accent Ghost
               </Button>
-              <Button color="primary" isGhost variant="solid">
+              <Button color="primary" isGhost>
                 Primary Ghost
               </Button>
-              <Button color="secondary" isGhost variant="solid">
+              <Button color="secondary" isGhost>
                 Secondary Ghost
               </Button>
-              <Button color="danger" isGhost variant="solid">
+              <Button color="danger" isGhost>
                 Danger Ghost
               </Button>
             </div>
             <div className="flex flex-col items-center justify-center gap-fs-2">
-              <Button
-                variant="solid"
-                isGhost
-                isIcon
-                aria-label="Solid Neutral Ghost Icon"
-              >
+              <Button isGhost isIcon aria-label="Base Neutral Ghost Icon">
                 <Star />
               </Button>
               <Button
                 color="accent"
-                variant="solid"
                 isGhost
                 isIcon
-                aria-label="Solid Accent Ghost Icon"
+                aria-label="Base Accent Ghost Icon"
               >
                 <Star />
               </Button>
               <Button
                 color="primary"
-                variant="solid"
                 isGhost
                 isIcon
-                aria-label="Solid Primary Ghost Icon"
+                aria-label="Base Primary Ghost Icon"
               >
                 <Star />
               </Button>
               <Button
                 color="secondary"
-                variant="solid"
                 isGhost
                 isIcon
-                aria-label="Solid Secondary Ghost Icon"
+                aria-label="Base Secondary Ghost Icon"
               >
                 <Star />
               </Button>
               <Button
                 color="danger"
-                variant="solid"
                 isGhost
                 isIcon
-                aria-label="Solid Danger Ghost Icon"
+                aria-label="Base Danger Ghost Icon"
               >
                 <Star />
               </Button>

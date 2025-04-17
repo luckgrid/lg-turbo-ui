@@ -5,7 +5,7 @@ import type { ThemeProviderProps } from 'next-themes';
 
 // Next Themes API: https://github.com/pacocoursey/next-themes?tab=readme-ov-file#api
 
-export function ThemeProvider({
+function ThemeProvider({
   children,
   enableSystem = true,
   disableTransitionOnChange = true,
@@ -23,3 +23,6 @@ export function ThemeProvider({
     </NextThemesProvider>
   );
 }
+
+export { ThemeProvider };
+export type { ThemeProviderProps };

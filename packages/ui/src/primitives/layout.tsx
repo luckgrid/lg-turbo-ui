@@ -11,6 +11,10 @@ import * as React from 'react';
 import type { ElementProps } from '@workspace/ui/primitives/element';
 import type { VariantProps } from 'class-variance-authority';
 
+// TODO:
+// - create containerVariants to modify container spacing styles using variant props
+// - create additional layout primitives extending from layoutVariants (i.e. bar, content, etc...)
+
 // Layout Base Styles - to set base layout styles
 const layoutBase = [boxBase, 'flex-col'];
 
@@ -33,25 +37,15 @@ const layoutSize = {
   ...boxSize,
 };
 
-// Layout Variant Properties - to modify the style variants of a layout primitive
-const layoutVariant = {
-  base: '',
-  content: '',
-  container: '',
-  wrapper: '',
-};
-
 // Layout Variants - style variants for the layout primitive
 const layoutVariants = cva(layoutBase, {
   variants: {
     radius: layoutRadius,
     shadow: layoutShadow,
     size: layoutSize,
-    variant: layoutVariant,
   },
   defaultVariants: {
     size: 'base',
-    variant: 'base',
   },
 });
 
@@ -67,15 +61,41 @@ function Layout<T extends React.ElementType = 'div'>({
   radius,
   shadow,
   size,
-  variant,
   ...props
 }: LayoutProps<T>) {
   return (
     <Element
       data-slot="layout"
       as={as}
+      className={cn(layoutVariants({ radius, size, shadow, className }))}
+      {...props}
+    />
+  );
+}
+
+// Layout Container
+
+function LayoutContainer<T extends React.ElementType = 'div'>({
+  as = 'div',
+  className,
+  ...props
+}: LayoutProps<T>) {
+  return <Layout as={as} className={cn('container', className)} {...props} />;
+}
+
+// Layout Bar
+
+function LayoutBar<T extends React.ElementType = 'div'>({
+  as = 'div',
+  className,
+  ...props
+}: LayoutProps<T>) {
+  return (
+    <Layout
+      as={as}
       className={cn(
-        layoutVariants({ radius, size, shadow, variant, className }),
+        'items-center gap-fs-4 2xs:flex-row 2xs:flex-wrap 2xs:gap-fs-3 md:gap-fs-2',
+        className,
       )}
       {...props}
     />
@@ -85,10 +105,12 @@ function Layout<T extends React.ElementType = 'div'>({
 // Layout Primitive Exports
 export {
   Layout,
+  LayoutBar,
+  LayoutContainer,
   layoutRadius,
   layoutShadow,
   layoutSize,
-  layoutVariant,
   layoutVariants,
 };
+
 export type { LayoutProps };

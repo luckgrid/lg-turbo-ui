@@ -1,4 +1,5 @@
 import { cn } from '@workspace/ui/lib/utils';
+import { actionOutline } from '@workspace/ui/primitives/action';
 import {
   Display,
   displayBase,
@@ -27,13 +28,13 @@ import type { VariantProps } from 'class-variance-authority';
 
 // Card Component
 
-const cardBase = [...displayBase];
+const cardBase = [displayBase];
 
 const cardAction = [
-  'no-underline cursor-pointer transition-[color,box-shadow]',
+  actionOutline,
+  'cursor-pointer no-underline',
+  'transition-[background-color,border-color,color,box-shadow,opacity]',
   'disabled:pointer-events-none disabled:opacity-75',
-  'outline-offset-1 outline-card/50',
-  'focus-visible:ring-4 focus-visible:outline-1 aria-invalid:focus-visible:ring-0',
 ];
 
 const cardRadius = {

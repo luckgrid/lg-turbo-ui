@@ -33,7 +33,7 @@ const metadataAuthors: MetadataAuthors = {
 
 const metadataOrganization: MetadataOrganization = {
   email: 'admin@luckgrid.net',
-  name: 'Luckgrid',
+  name: 'Luckgrid Inc',
   url: 'https://www.luckgrid.net',
 };
 

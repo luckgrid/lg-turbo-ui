@@ -31,7 +31,6 @@
     "react-hook-form": "catalog:",
     "sonner": "^2.0.1",
     "tailwind-merge": "^3.0.2",
-    "valibot": "catalog:",
     "zod": "catalog:"
   },
   "devDependencies": {
@@ -75,10 +74,6 @@
     "./primitives/*": {
       "default": "./src/primitives/*.tsx",
       "types": "./dist/src/primitives/*.d.ts"
-    },
-    "./providers/*": {
-      "default": "./src/providers/*.tsx",
-      "types": "./dist/src/providers/*.d.ts"
     },
     "./styles/*": "./src/styles/*.css"
   }
