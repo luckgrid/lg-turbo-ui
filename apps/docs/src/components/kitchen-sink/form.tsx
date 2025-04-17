@@ -8,6 +8,8 @@ import { FormProvider, useForm } from 'react-hook-form';
 
 import { z } from 'zod';
 
+import { Link } from '@workspace/next-ui/components/link';
+import { toast } from '@workspace/next-ui/components/toaster';
 import { Button } from '@workspace/ui/components/button';
 import { Card } from '@workspace/ui/components/card';
 import { Checkbox } from '@workspace/ui/components/checkbox';
@@ -33,8 +35,6 @@ import {
   SelectValue,
 } from '@workspace/ui/components/select';
 import { Layout } from '@workspace/ui/primitives/layout';
-import { Link } from '@workspace/next-ui/components/link';
-import { toast } from '@workspace/next-ui/components/toaster';
 
 // TODO:
 // - disable newsletterCategory fields when newsletterSubscription is false
@@ -96,7 +96,10 @@ export function FormKitchenSink() {
 
   return (
     <Layout className='container px-fs-6'>
-      <Card className='intersect-once intersect:motion-preset-rebound-right max-w-2xl p-fs-6 bg-background-1'>
+      <Card
+        className='intersect-once intersect:motion-preset-rebound-right max-w-2xl bg-background-1'
+        space='frame'
+      >
         <h3 className='text-subheading text-balance'>
           Form Inside a Card Component
         </h3>

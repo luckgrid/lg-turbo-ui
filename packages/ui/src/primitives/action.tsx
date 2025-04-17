@@ -57,24 +57,23 @@ const actionTransition =
 
 // Base Action Styles
 const actionBase = [
-  'cursor-pointer',
   actionDisabled,
   actionIcon,
   actionTransition,
   ...actionOutline.base,
   ...actionOutlineColor.base,
   ...invalidActionOutline,
+  'cursor-pointer',
 ];
 
 // Action Size Properties - to modify the size of an action primitive
 const actionSize = {
   ...boxSize,
-  base: [...actionOutline.base, 'gap-fs-0-75'],
-  sm: [...actionOutline.sm, 'gap-fs-0-5'],
-  md: [...actionOutline.md, 'gap-fs-1'],
-  lg: [...actionOutline.lg, 'gap-fs-2'],
-  full: [...actionOutline.full, 'gap-fs-3'],
-  unset: '',
+  sm: [...actionOutline.sm, 'gap-fs-0-375'],
+  base: [...actionOutline.base, 'gap-fs-0-5'],
+  md: [...actionOutline.md, 'gap-fs-0-625'],
+  lg: [...actionOutline.lg, 'gap-fs-0-75'],
+  full: [...actionOutline.full, 'gap-fs-1'],
 };
 
 // Action Radius Properties - to modify the border radius of an action primitive

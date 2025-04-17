@@ -35,15 +35,27 @@ const displaySize = {
   ...boxSize,
 };
 
+// Display Space Properties - to modify the space of a display primitive
+const displaySpace = {
+  base: 'gap-fs-6',
+  container: 'gap-fs-6 px-fs-6',
+  wrapper: 'gap-fs-6 py-fs-6',
+  frame: 'gap-fs-6 p-fs-6',
+  none: 'gap-0 p-0',
+  unset: '',
+};
+
 // Display Variants - style variants for the display primitive
 const displayVariants = cva(displayBase, {
   variants: {
     radius: displayRadius,
     shadow: displayShadow,
     size: displaySize,
+    space: displaySpace,
   },
   defaultVariants: {
     size: 'base',
+    space: 'base',
   },
 });
 
@@ -59,13 +71,16 @@ function Display<T extends React.ElementType = 'div'>({
   radius,
   shadow,
   size,
+  space,
   ...props
 }: DisplayProps<T>) {
   return (
     <Element
       data-slot='display'
       as={as}
-      className={cn(displayVariants({ radius, shadow, size, className }))}
+      className={cn(
+        displayVariants({ radius, shadow, size, space, className })
+      )}
       {...props}
     />
   );
@@ -78,6 +93,7 @@ export {
   displayRadius,
   displayShadow,
   displaySize,
+  displaySpace,
   displayVariants,
 };
 

@@ -51,7 +51,7 @@ export default function Page() {
         </header>
         <ButtonKitchenSink />
       </section>
-      <Section className='gap-fs-12'>
+      <Section className='gap-fs-12 py-fs-24'>
         <header className='flex flex-col flex-1 py-fs-10 bg-background-1'>
           <div className='container flex flex-col gap-fs-3 px-fs-6'>
             <h2 className='text-heading'>Form Component</h2>

@@ -1,11 +1,11 @@
 import { SiGithub } from '@icons-pack/react-simple-icons';
 
+import { Link } from '@workspace/next-ui/components/link';
+import { Image } from '@workspace/next-ui/components/media';
 import type { FooterProps } from '@workspace/ui/components/footer';
 import { Footer } from '@workspace/ui/components/footer';
 import { cn } from '@workspace/ui/lib/utils';
 import { LayoutBar, LayoutContainer } from '@workspace/ui/primitives/layout';
-import { Link } from '@workspace/next-ui/components/link';
-import { Image } from '@workspace/next-ui/components/media';
 
 import { config } from '@/configs/app';
 
@@ -26,14 +26,14 @@ function LayoutFooter({ className, ...props }: FooterProps) {
           . This code is open source under the{' '}
           <Link href='https://opensource.org/license/MIT'>MIT License</Link>.
         </p>
-        <LayoutBar className='justify-end'>
+        <LayoutBar className='justify-end [&_a]:hover:text-neutral-foreground [&_a]:hover:[&_img]:opacity-100'>
           <Link href='https://github.com/luckgrid/lg-turbo-ui'>
             <SiGithub />
           </Link>
           {config.author?.name && config.author?.url && (
             <Link
               href={String(config.author.url)}
-              className='transition-[opacity] hover:opacity-90'
+              className='transition-[opacity]'
             >
               <Image
                 className='transition-[opacity] opacity-50 dark:invert'

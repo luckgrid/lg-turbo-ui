@@ -71,32 +71,32 @@ const buttonSize = {
   sm: [
     actionSize.sm,
     boxBorder.sm,
-    'px-fs-2 py-fs-1',
-    'text-caption font-normal tracking-wide leading-[1.5] md:leading-none',
+    'px-fs-3 py-fs-0-75',
+    'text-caption font-medium tracking-wide leading-[1.5] md:leading-none',
   ],
   base: [
     actionSize.base,
     boxBorder.base,
-    'px-fs-4 py-fs-2',
+    'px-fs-4 py-fs-1',
     'text-label font-medium tracking-wide leading-[1.375] md:leading-none',
   ],
   md: [
     actionSize.md,
     boxBorder.md,
-    'px-fs-6 py-fs-3',
-    'text-label font-medium tracking-wide leading-[1.125] md:leading-none',
+    'px-fs-5 py-fs-2',
+    'text-label font-semibold tracking-wide leading-[1.125] md:leading-none',
   ],
   lg: [
     actionSize.lg,
     boxBorder.lg,
-    'px-fs-8 py-fs-4',
+    'px-fs-6 py-fs-3',
     'text-body font-semibold tracking-wide leading-none',
   ],
   full: [
     actionSize.full,
     boxBorder.full,
-    'px-fs-10 py-fs-5',
-    'text-subheading font-semibold tracking-wide leading-none',
+    'px-fs-7 py-fs-4',
+    'text-subheading font-bold tracking-wide leading-none',
   ],
 };
 
@@ -124,10 +124,7 @@ const buttonVariant = {
 };
 
 // Icon Button Modifier
-const iconButton = [
-  'size-fs-10 p-0',
-  "[&_svg:not([class*='size-'])]:size-fs-5",
-];
+const iconButton = ['size-fs-8 p-0', "[&_svg:not([class*='size-'])]:size-fs-4"];
 
 // Ghost Button Modifier
 const ghostButton = [
@@ -368,53 +365,53 @@ const buttonVariants = cva(buttonBase, {
     {
       size: 'sm',
       isGhost: true,
-      className: 'px-fs-1 py-fs-0-5',
+      className: 'px-fs-0-75 py-fs-0-5',
     },
     {
       size: 'base',
       isGhost: true,
-      className: 'px-fs-2 py-fs-1',
+      className: 'px-fs-1 py-fs-0-75',
     },
     {
       size: 'md',
       isGhost: true,
-      className: 'px-fs-3 py-fs-1',
+      className: 'px-fs-2 py-fs-1',
     },
     {
       size: 'lg',
       isGhost: true,
-      className: 'px-fs-4 py-fs-2',
+      className: 'px-fs-3 py-fs-2',
     },
     {
       size: 'full',
       isGhost: true,
-      className: 'px-fs-5 py-fs-2',
+      className: 'px-fs-4 py-fs-3',
     },
     // Icon Size Modifiers
     {
       size: 'sm',
       isIcon: true,
-      className: "size-fs-8 [&_svg:not([class*='size-'])]:size-fs-4",
+      className: "size-fs-6 [&_svg:not([class*='size-'])]:size-fs-3",
     },
     {
       size: 'base',
       isIcon: true,
-      className: "size-fs-10 [&_svg:not([class*='size-'])]:size-fs-5",
+      className: "size-fs-8 [&_svg:not([class*='size-'])]:size-fs-4",
     },
     {
       size: 'md',
       isIcon: true,
-      className: "size-fs-12 [&_svg:not([class*='size-'])]:size-fs-6",
+      className: "size-fs-10 [&_svg:not([class*='size-'])]:size-fs-5",
     },
     {
       size: 'lg',
       isIcon: true,
-      className: "size-fs-14 [&_svg:not([class*='size-'])]:size-fs-7",
+      className: "size-fs-12 [&_svg:not([class*='size-'])]:size-fs-6",
     },
     {
       size: 'full',
       isIcon: true,
-      className: "size-fs-16 [&_svg:not([class*='size-'])]:size-fs-8",
+      className: "size-fs-14 [&_svg:not([class*='size-'])]:size-fs-7",
     },
     // Text Size Modifiers
     {

@@ -381,12 +381,15 @@ export function ButtonKitchenSink() {
                 <Button radius='full' size='sm'>
                   Small
                 </Button>
-                <Button radius='full'>Default</Button>
+                <Button radius='full'>Base</Button>
                 <Button radius='full' size='md'>
                   Medium
                 </Button>
                 <Button radius='full' size='lg'>
                   Large
+                </Button>
+                <Button radius='full' size='full'>
+                  Full
                 </Button>
               </div>
               <div className='flex flex-col items-center justify-center gap-fs-2'>
@@ -394,18 +397,18 @@ export function ButtonKitchenSink() {
                   radius='full'
                   size='sm'
                   isIcon
-                  aria-label='Pill Accent Icon'
+                  aria-label='Small Pill Icon'
                 >
                   <Star />
                 </Button>
-                <Button radius='full' isIcon aria-label='Pill Neutral Icon'>
+                <Button radius='full' isIcon aria-label='Base Pill Icon'>
                   <Star />
                 </Button>
                 <Button
                   radius='full'
                   size='md'
                   isIcon
-                  aria-label='Pill Primary Icon'
+                  aria-label='Medium Pill Icon'
                 >
                   <Star />
                 </Button>
@@ -413,7 +416,15 @@ export function ButtonKitchenSink() {
                   radius='full'
                   size='lg'
                   isIcon
-                  aria-label='Pill Secondary Icon'
+                  aria-label='Large Pill Icon'
+                >
+                  <Star />
+                </Button>
+                <Button
+                  radius='full'
+                  size='full'
+                  isIcon
+                  aria-label='Full Pill Icon'
                 >
                   <Star />
                 </Button>
@@ -430,13 +441,21 @@ export function ButtonKitchenSink() {
                   Small
                 </Button>
                 <Button radius='base' variant='outline' color='primary'>
-                  Default
+                  Base
                 </Button>
                 <Button radius='md' size='md' variant='outline' color='primary'>
                   Medium
                 </Button>
                 <Button radius='lg' size='lg' variant='outline' color='primary'>
                   Large
+                </Button>
+                <Button
+                  radius='lg'
+                  size='full'
+                  variant='outline'
+                  color='primary'
+                >
+                  Full
                 </Button>
               </div>
               <div className='flex flex-col gap-fs-2'>
@@ -446,7 +465,7 @@ export function ButtonKitchenSink() {
                   variant='outline'
                   color='primary'
                   isIcon
-                  aria-label='Rounded Accent Icon'
+                  aria-label='Small Radius Primary Icon'
                 >
                   <Star />
                 </Button>
@@ -455,7 +474,7 @@ export function ButtonKitchenSink() {
                   variant='outline'
                   color='primary'
                   isIcon
-                  aria-label='Rounded Neutral Icon'
+                  aria-label='Base Radius Primary Icon'
                 >
                   <Star />
                 </Button>
@@ -465,7 +484,7 @@ export function ButtonKitchenSink() {
                   variant='outline'
                   color='primary'
                   isIcon
-                  aria-label='Rounded Primary Icon'
+                  aria-label='Medium Radius Primary Icon'
                 >
                   <Star />
                 </Button>
@@ -475,7 +494,17 @@ export function ButtonKitchenSink() {
                   variant='outline'
                   color='primary'
                   isIcon
-                  aria-label='Rounded Secondary Icon'
+                  aria-label='Large Radius Primary Icon'
+                >
+                  <Star />
+                </Button>
+                <Button
+                  radius='lg'
+                  size='full'
+                  variant='outline'
+                  color='primary'
+                  isIcon
+                  aria-label='Large Radius Primary Icon'
                 >
                   <Star />
                 </Button>
@@ -526,6 +555,16 @@ export function ButtonKitchenSink() {
                 >
                   <Star />
                   Large
+                </Button>
+                <Button
+                  radius='none'
+                  size='full'
+                  color='secondary'
+                  variant='outline'
+                  isGhost
+                >
+                  <Star />
+                  Full
                 </Button>
               </div>
             </div>

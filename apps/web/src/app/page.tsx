@@ -57,17 +57,29 @@ export default function Page() {
             {config.description}
           </p>
         </LayoutContainer>
-        <LayoutContainer className='flex-row'>
-          <Card className='intersect-once intersect:motion-preset-focus'>
+        <LayoutContainer className='flex-row flex-wrap'>
+          <Card
+            className='intersect-once intersect:motion-preset-focus'
+            space='frame'
+          >
             <h3 className='text-body'>React + Tailwind CSS</h3>
           </Card>
-          <Card className='intersect-once intersect:motion-preset-focus motion-delay-100'>
+          <Card
+            className='intersect-once intersect:motion-preset-focus motion-delay-100'
+            space='frame'
+          >
             <h3 className='text-body'>NextJS Ready</h3>
           </Card>
-          <Card className='intersect-once intersect:motion-preset-focus motion-delay-200'>
+          <Card
+            className='intersect-once intersect:motion-preset-focus motion-delay-200'
+            space='frame'
+          >
             <h3 className='text-body'>Open Source</h3>
           </Card>
-          <Card className='intersect-once intersect:motion-preset-focus motion-delay-300'>
+          <Card
+            className='intersect-once intersect:motion-preset-focus motion-delay-300'
+            space='frame'
+          >
             <h3 className='text-body'>CVA Design System</h3>
           </Card>
         </LayoutContainer>

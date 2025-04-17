@@ -4,36 +4,30 @@ import type { VariantProps } from 'class-variance-authority';
 import { cva } from 'class-variance-authority';
 
 import { cn } from '@workspace/ui/lib/utils';
-import { actionOutline } from '@workspace/ui/primitives/action';
+import {
+  actionOutline,
+  actionOutlineColor,
+  invalidActionOutline,
+} from '@workspace/ui/primitives/action';
+import { boxBorder } from '@workspace/ui/primitives/box';
 import type { DisplayProps } from '@workspace/ui/primitives/display';
 import {
   Display,
   displayBase,
   displayRadius,
+  displayShadow,
   displaySize,
+  displaySpace,
 } from '@workspace/ui/primitives/display';
-
-// TODO:
-// - setup color variants to modify card colors instead of using noColor modifier
-// -- remove noColor modifier and set default color to neutral
-// -- add level variant to scale card colors
-// -- use layer variant to also modify card colors based on color and level variant
-// - compose card component variants with baseCardVariants using cx: https://cva.style/docs/getting-started/composing-components
-// -- create cardBaseVariants, cardWrapperVariants, cardContainerVariants, etc...
-// -- create card primitives that share variant props with new variants
-// - split up card components into separate primitives inside card component module
-// -- define a scalable and simple component module architecture using card component
-// --- option 1: card/base.tsx, card/header.tsx, card/body.tsx, card/footer.tsx, etc...
-// --- option 2: card/variants.tsx, card/components.tsx, card/patterns.tsx
-// -- update exports to include new component module architecture
-// - set isAction styles using displayAction import from display primitive
 
 // Card Component
 
 const cardBase = [displayBase];
 
 const cardAction = [
-  actionOutline,
+  ...actionOutline.base,
+  ...actionOutlineColor.base,
+  ...invalidActionOutline,
   'cursor-pointer no-underline',
   'transition-[background-color,border-color,color,box-shadow,opacity]',
   'disabled:pointer-events-none disabled:opacity-75',
@@ -43,21 +37,99 @@ const cardRadius = {
   ...displayRadius,
 };
 
+const cardShadow = {
+  ...displayShadow,
+};
+
 const cardSize = {
   ...displaySize,
+};
+
+const cardSpace = {
+  ...displaySpace,
+};
+
+const cardVariant = {
+  base: [boxBorder.base, 'border-card/40 bg-card text-card-foreground'],
 };
 
 const cardVariants = cva(cardBase, {
   variants: {
     radius: cardRadius,
+    shadow: cardShadow,
     size: cardSize,
+    space: cardSpace,
+    variant: cardVariant,
     isAction: {
       true: cardAction,
     },
   },
+  compoundVariants: [
+    // Base Variant Sizes
+    {
+      size: 'sm',
+      variant: 'base',
+      className: [boxBorder.sm],
+    },
+    {
+      size: 'base',
+      variant: 'base',
+      className: [boxBorder.base],
+    },
+    {
+      size: 'md',
+      variant: 'base',
+      className: [boxBorder.md],
+    },
+    {
+      size: 'lg',
+      variant: 'base',
+      className: [boxBorder.lg],
+    },
+    {
+      size: 'full',
+      variant: 'base',
+      className: [boxBorder.full],
+    },
+    // Action Modifier Sizes
+    {
+      size: 'sm',
+      isAction: true,
+      className: [...actionOutline.sm],
+    },
+    {
+      size: 'base',
+      isAction: true,
+      className: [...actionOutline.base],
+    },
+    {
+      size: 'md',
+      isAction: true,
+      className: [...actionOutline.md],
+    },
+    {
+      size: 'lg',
+      isAction: true,
+      className: [...actionOutline.lg],
+    },
+    {
+      size: 'full',
+      isAction: true,
+      className: [...actionOutline.full],
+    },
+    // Action Modifier Base Variant
+    {
+      variant: 'base',
+      isAction: true,
+      className: ['hover:border-card/60 bg-card/80'],
+    },
+  ],
   defaultVariants: {
     radius: 'base',
+    shadow: 'base',
     size: 'base',
+    space: 'base',
+    variant: 'base',
   },
 });
 
@@ -69,7 +141,10 @@ type CardProps<T extends React.ElementType = 'div'> = DisplayProps<T> &
 function Card<T extends React.ElementType = 'div'>({
   as = 'div',
   radius,
+  shadow,
   size,
+  space,
+  variant,
   isAction,
   className,
   ...props
@@ -81,7 +156,10 @@ function Card<T extends React.ElementType = 'div'>({
       className={cn(
         cardVariants({
           radius,
+          shadow,
           size,
+          space,
+          variant,
           isAction,
           className,
         })
