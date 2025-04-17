@@ -24,10 +24,10 @@ catalog:
   airtable: ^0.12.2
 
   # css
+  class-variance-authority: ^0.7.1
+  # tailwindcss
   '@tailwindcss/postcss': ^4.1.4
   tailwindcss: ^4.1.4
-  class-variance-authority: ^0.7.1
-  clsx: ^2.1.1
 
   # forms
   '@maskito/core': ^3.7.1

@@ -33,7 +33,20 @@ export default function Page() {
               The Button component is a versatile and customizable component
               that can be used to create a variety of buttons.
             </p>
-            <Button className='self-start'>Default Button</Button>
+            <div className='flex flex-row gap-fs-3 items-center'>
+              <Button>Base Button</Button>
+              <Button variant='outline'>Base Outline Button</Button>
+              <Button variant='text'>Base Text Button</Button>
+            </div>
+            <div className='flex flex-row gap-fs-3 items-center'>
+              <Button isGhost>Base Ghost Button</Button>
+              <Button variant='outline' isGhost>
+                Base Outline Ghost Button
+              </Button>
+              <Button variant='text' isGhost>
+                Base Text Ghost Button
+              </Button>
+            </div>
           </div>
         </header>
         <ButtonKitchenSink />

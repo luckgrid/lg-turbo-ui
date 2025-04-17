@@ -108,6 +108,7 @@ const buttonVariant = {
     'text-foreground hover:text-foreground',
   ],
   outline: [
+    'shadow-none',
     'border-border hover:border-transparent',
     'bg-transparent hover:bg-border/90',
     'text-foreground hover:text-foreground',
@@ -267,6 +268,15 @@ const buttonVariants = cva(buttonBase, {
         'border-danger text-danger-1 hover:bg-danger/90 hover:text-danger-foreground',
     },
     // Outline Ghost Color Modifiers
+    {
+      variant: 'outline',
+      isGhost: true,
+      className: [
+        'border-current/10 hover:border-transparent',
+        'bg-transparent hover:bg-border/90',
+        'text-current hover:text-foreground',
+      ],
+    },
     {
       color: 'base',
       variant: 'outline',

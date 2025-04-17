@@ -3,8 +3,8 @@ import type { Metadata } from 'next';
 import {
   metadataOrganization,
   metadata as sharedMetadata,
-} from '@workspace/ui-next/lib/metadata';
-import { getBaseUrl } from '@workspace/ui-next/lib/utils';
+} from '@workspace/next-ui/lib/metadata';
+import { getBaseUrl } from '@workspace/next-ui/lib/utils';
 
 import { env } from '@/lib/env';
 

@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 
-import { Observer } from 'tailwindcss-intersect';
+import { Observer } from '@workspace/tailwind-config/lib/intersect';
 
 // Scroll Animations with Tailwind CSS Motion and Intersect Plugins
 // - Docs: https://docs.rombo.co/tailwind/scroll-animations

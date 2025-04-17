@@ -1,9 +1,5 @@
 /* Base Light Theme */
 
-/* TODO:
- * - Update semantic names use common color scales
- */
-
 :root,
 .light,
 [data-theme='light'] {

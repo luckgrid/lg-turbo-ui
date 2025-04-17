@@ -13,10 +13,6 @@ import {
 import type { ElementProps } from '@workspace/ui/primitives/element';
 import { Element } from '@workspace/ui/primitives/element';
 
-// TODO:
-// - create containerVariants to modify container spacing styles using variant props
-// - create additional layout primitives extending from layoutVariants (i.e. bar, content, etc...)
-
 // Layout Base Styles - to set base layout styles
 const layoutBase = [boxBase, 'flex-col'];
 
@@ -75,18 +71,73 @@ function Layout<T extends React.ElementType = 'div'>({
   );
 }
 
-// Layout Container
+// Layout Container Space Properties - to modify the spacing styles of a layout container
+const layoutContainerSpace = {
+  base: 'gap-fs-3 px-fs-6',
+  wrapper: 'gap-fs-3 py-fs-6',
+  frame: 'gap-fs-3 p-fs-6',
+  none: 'gap-0 p-0',
+  unset: '',
+};
 
+// Layout Container Variant Properties - to modify the variant styles of a layout container
+const layoutContainerVariant = {
+  base: 'container',
+  wrapper: '',
+};
+
+// Layout Container Variants - style variants for the layout container primitive
+const layoutContainerVariants = cva(layoutBase, {
+  variants: {
+    radius: layoutRadius,
+    shadow: layoutShadow,
+    size: layoutSize,
+    space: layoutContainerSpace,
+    variant: layoutContainerVariant,
+  },
+  defaultVariants: {
+    size: 'base',
+    space: 'base',
+    variant: 'base',
+  },
+});
+
+// Layout Container Primitive Types
+type LayoutContainerVariantProps = VariantProps<typeof layoutContainerVariants>;
+type LayoutContainerProps<T extends React.ElementType = 'div'> =
+  LayoutProps<T> & LayoutContainerVariantProps;
+
+// Layout Container Primitive Component
 function LayoutContainer<T extends React.ElementType = 'div'>({
   as = 'div',
   className,
+  radius,
+  shadow,
+  size,
+  space,
+  variant,
   ...props
-}: LayoutProps<T>) {
-  return <Layout as={as} className={cn('container', className)} {...props} />;
+}: LayoutContainerProps<T>) {
+  return (
+    <Element
+      data-slot='layout'
+      as={as}
+      className={cn(
+        layoutContainerVariants({
+          radius,
+          size,
+          shadow,
+          space,
+          variant,
+          className,
+        })
+      )}
+      {...props}
+    />
+  );
 }
 
-// Layout Bar
-
+// Layout Bar Primitive Component
 function LayoutBar<T extends React.ElementType = 'div'>({
   as = 'div',
   className,
@@ -112,7 +163,10 @@ export {
   layoutRadius,
   layoutShadow,
   layoutSize,
+  layoutContainerSpace,
+  layoutContainerVariant,
+  layoutContainerVariants,
   layoutVariants,
 };
 
-export type { LayoutProps };
+export type { LayoutProps, LayoutContainerProps };

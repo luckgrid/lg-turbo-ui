@@ -1,8 +1,8 @@
-import '@workspace/ui/main.css';
+import '@workspace/tailwind-config/styles/main.css';
 
 import { cn } from '@workspace/ui/lib/utils';
-import { fontVariables } from '@workspace/ui-next/lib/fonts';
-import { viewport as viewportConfig } from '@workspace/ui-next/lib/viewport';
+import { fontVariables } from '@workspace/next-ui/lib/fonts';
+import { viewport as viewportConfig } from '@workspace/next-ui/lib/viewport';
 
 import { LayoutFooter } from '@/components/footer';
 import { Providers } from '@/components/providers';

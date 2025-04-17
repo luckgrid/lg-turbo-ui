@@ -4,8 +4,9 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"],
+      "@workspace/tailwind-config/*": ["../../configs/tailwind/src/*"],
       "@workspace/ui/*": ["../../packages/ui/src/*"],
-      "@workspace/ui-next/*": ["../../packages/ui-next/src/*"]
+      "@workspace/next-ui/*": ["../../packages/ui-next/src/*"]
     }
   },
   "include": [

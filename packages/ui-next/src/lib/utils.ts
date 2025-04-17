@@ -1,4 +1,4 @@
-import { env } from '@workspace/ui-next/lib/env';
+import { env } from '@workspace/next-ui/lib/env';
 
 // Get a next app's base URL based on environment and port settings
 export function getBaseUrl(port: string = env.PORT.toString()) {

@@ -4,8 +4,8 @@ import type { FooterProps } from '@workspace/ui/components/footer';
 import { Footer } from '@workspace/ui/components/footer';
 import { cn } from '@workspace/ui/lib/utils';
 import { LayoutBar, LayoutContainer } from '@workspace/ui/primitives/layout';
-import { Link } from '@workspace/ui-next/components/link';
-import { Image } from '@workspace/ui-next/components/media';
+import { Link } from '@workspace/next-ui/components/link';
+import { Image } from '@workspace/next-ui/components/media';
 
 import { config } from '@/configs/app';
 
@@ -17,7 +17,7 @@ function LayoutFooter({ className, ...props }: FooterProps) {
       className={cn('py-fs-3 bg-neutral text-neutral-foreground/50', className)}
       {...props}
     >
-      <LayoutContainer className='flex-row items-end justify-between gap-fs-3 px-fs-6'>
+      <LayoutContainer className='flex-row items-end justify-between'>
         <p className='text-caption text-balance'>
           &copy; {copyrightYear},{' '}
           <Link href={`mailto:${config.organization.email}`}>

@@ -2,7 +2,11 @@
 
 // Base Config
 export const baseConfig = {
-  transpilePackages: ['@workspace/ui', '@workspace/ui-next'],
+  transpilePackages: [
+    '@workspace/tailwind-config',
+    '@workspace/ui',
+    '@workspace/next-ui',
+  ],
 };
 
 // TODO:

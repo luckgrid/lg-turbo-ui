@@ -49,7 +49,7 @@ export default function Page() {
         as='footer'
         className='gap-fs-12 py-fs-24 bg-neutral text-neutral-foreground'
       >
-        <LayoutContainer as='header' className='gap-fs-3 px-fs-6'>
+        <LayoutContainer as='header'>
           <h2 className='text-heading text-balance'>
             Organize your brands, products and services
           </h2>
@@ -57,7 +57,7 @@ export default function Page() {
             {config.description}
           </p>
         </LayoutContainer>
-        <LayoutContainer className='flex-row gap-fs-3 px-fs-6'>
+        <LayoutContainer className='flex-row'>
           <Card className='intersect-once intersect:motion-preset-focus'>
             <h3 className='text-body'>React + Tailwind CSS</h3>
           </Card>

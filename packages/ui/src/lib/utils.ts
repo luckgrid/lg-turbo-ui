@@ -1,11 +1,10 @@
-import type { ClassValue } from 'clsx';
-import { clsx } from 'clsx';
+import { cx } from 'class-variance-authority';
 
-import { twMerge } from '@workspace/ui/lib/tw-merge';
+import { twMerge } from '@workspace/tailwind-config/lib/merge';
 
-// Merges class names using clsx and tailwind-merge extended with custom tailwind merge config
-export function cn(...inputs: ClassValue[]) {
-  return twMerge(clsx(inputs));
+// Merges class names using cx and twMerge extended with custom tailwind merge config
+export function cn(...inputs: Parameters<typeof cx>) {
+  return twMerge(cx(inputs));
 }
 
 // Formats a number as a currency string

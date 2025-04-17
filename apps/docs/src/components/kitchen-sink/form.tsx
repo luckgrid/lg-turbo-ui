@@ -33,8 +33,8 @@ import {
   SelectValue,
 } from '@workspace/ui/components/select';
 import { Layout } from '@workspace/ui/primitives/layout';
-import { Link } from '@workspace/ui-next/components/link';
-import { toast } from '@workspace/ui-next/components/toaster';
+import { Link } from '@workspace/next-ui/components/link';
+import { toast } from '@workspace/next-ui/components/toaster';
 
 // TODO:
 // - disable newsletterCategory fields when newsletterSubscription is false

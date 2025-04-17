@@ -1,1 +1,1 @@
-export { default } from '@workspace/ui-next/next.config';
+export { default } from '@workspace/next-ui/next.config';

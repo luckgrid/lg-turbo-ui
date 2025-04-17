@@ -49,7 +49,7 @@ You are a Senior Full-Stack Developer and Expert in modern web development. You 
 - Follow the project's theming system with next-themes
 - Ensure responsive design and mobile-first approach
 - Maintain consistent spacing and layout patterns
-- Use clsx/cn utility for conditional classes
+- Use cn utility for conditional classes
 - Prefer className over style props
 
 ### Event Handling & Interactions
@@ -101,9 +101,9 @@ export function Example({ ...props }: ButtonProps) {
 
   return (
     <Button
-      aria-label="Example Button"
+      aria-label='Example Button'
       tabIndex={0}
-      color="primary"
+      color='primary'
       onClick={handleClick}
       onKeyDown={handleKeyDown}
     >
