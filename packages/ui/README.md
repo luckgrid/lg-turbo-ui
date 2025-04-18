@@ -69,7 +69,7 @@ components/
 
 #### Component Modules
 
-- component files should be contained inside a dir using component's namespace - so that unit tests, stories and relative files can also be contained there.
+- Component files should be contained inside a dir using component's namespace - so that unit tests, stories and relative files can also be contained there.
 - Breaking up component styles into a separate file will make it easier to migrate them to a design-system package later.
 - More suitable for complex components that may need context state, actions, etc (i.e. form, sidebar, etc)
 

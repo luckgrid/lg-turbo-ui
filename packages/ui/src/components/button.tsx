@@ -26,10 +26,15 @@ import { Link } from '@workspace/ui/primitives/navigation';
 // -- button component can be broken up into separate files based on variant (most apps won't need a button with every variant and modifier)
 
 const buttonTypography =
-  'whitespace-nowrap text-label font-medium tracking-wide leading-none';
+  'text-label font-medium tracking-wide leading-[1.5] md:leading-none';
 
 // Base Button Styles
-const buttonBase = [actionBase, actionVariant.base, buttonTypography];
+const buttonBase = [
+  actionBase,
+  actionVariant.base,
+  buttonTypography,
+  'whitespace-nowrap',
+];
 
 // Button Color Variant
 const buttonColor = {
@@ -71,32 +76,27 @@ const buttonSize = {
   sm: [
     actionSize.sm,
     boxBorder.sm,
-    'px-fs-3 py-fs-0-75',
-    'text-caption font-medium tracking-wide leading-[1.5] md:leading-none',
+    'px-fs-2 py-fs-0-5',
+    'text-caption font-medium tracking-wide leading-[1.75] md:leading-[1.25]',
   ],
-  base: [
-    actionSize.base,
-    boxBorder.base,
-    'px-fs-4 py-fs-1',
-    'text-label font-medium tracking-wide leading-[1.375] md:leading-none',
-  ],
+  base: [actionSize.base, boxBorder.base, buttonTypography, 'px-fs-3 py-fs-1'],
   md: [
     actionSize.md,
     boxBorder.md,
-    'px-fs-5 py-fs-2',
-    'text-label font-semibold tracking-wide leading-[1.125] md:leading-none',
+    'px-fs-6 py-fs-2',
+    'text-body font-semibold tracking-wide leading-none',
   ],
   lg: [
     actionSize.lg,
     boxBorder.lg,
-    'px-fs-6 py-fs-3',
-    'text-body font-semibold tracking-wide leading-none',
+    'px-fs-9 py-fs-3',
+    'text-subheading font-semibold tracking-wide leading-none',
   ],
   full: [
     actionSize.full,
     boxBorder.full,
-    'px-fs-7 py-fs-4',
-    'text-subheading font-bold tracking-wide leading-none',
+    'px-fs-12 py-fs-4',
+    'text-subtitle font-bold tracking-wide leading-none',
   ],
 };
 
@@ -238,13 +238,13 @@ const buttonVariants = cva(buttonBase, {
       color: 'base',
       variant: 'outline',
       className:
-        'border-neutral text-neutral-1 hover:bg-neutral/90 hover:text-neutral-foreground',
+        'border-neutral text-neutral hover:bg-neutral/90 hover:text-neutral-foreground',
     },
     {
       color: 'accent',
       variant: 'outline',
       className:
-        'border-accent text-accent-1 hover:bg-accent/90 hover:text-accent-foreground',
+        'border-accent text-accent hover:bg-accent/90 hover:text-accent-foreground',
     },
     {
       color: 'primary',
@@ -262,7 +262,7 @@ const buttonVariants = cva(buttonBase, {
       color: 'danger',
       variant: 'outline',
       className:
-        'border-danger text-danger-1 hover:bg-danger/90 hover:text-danger-foreground',
+        'border-danger text-danger hover:bg-danger/90 hover:text-danger-foreground',
     },
     // Outline Ghost Color Modifiers
     {
@@ -308,17 +308,17 @@ const buttonVariants = cva(buttonBase, {
     {
       color: 'base',
       variant: 'text',
-      className: 'text-neutral-1 hover:text-neutral-1/80',
+      className: 'text-neutral hover:text-neutral/80',
     },
     {
       color: 'accent',
       variant: 'text',
-      className: 'text-accent-1 hover:text-accent-1/80',
+      className: 'text-accent hover:text-accent/80',
     },
     {
       color: 'primary',
       variant: 'text',
-      className: 'text-primary hover:text-primary-1/80',
+      className: 'text-primary hover:text-primary/80',
     },
     {
       color: 'secondary',
@@ -328,20 +328,20 @@ const buttonVariants = cva(buttonBase, {
     {
       color: 'danger',
       variant: 'text',
-      className: 'text-danger-1 hover:text-danger-1/80',
+      className: 'text-danger hover:text-danger/80',
     },
     // Text Ghost Color Modifiers
     {
       color: 'base',
       variant: 'text',
       isGhost: true,
-      className: 'text-current hover:bg-transparent hover:text-neutral-3/80',
+      className: 'text-current hover:bg-transparent hover:text-neutral/80',
     },
     {
       color: 'accent',
       variant: 'text',
       isGhost: true,
-      className: 'text-current hover:bg-transparent hover:text-accent-1/80',
+      className: 'text-current hover:bg-transparent hover:text-accent/80',
     },
     {
       color: 'primary',
@@ -359,7 +359,7 @@ const buttonVariants = cva(buttonBase, {
       color: 'danger',
       variant: 'text',
       isGhost: true,
-      className: 'text-current hover:bg-transparent hover:text-danger-1/80',
+      className: 'text-current hover:bg-transparent hover:text-danger/80',
     },
     // Ghost Size Modifiers
     {

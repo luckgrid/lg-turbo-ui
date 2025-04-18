@@ -19,7 +19,7 @@ const inputBase = [
   'w-full transition-[background-color,border-color,color,box-shadow,opacity,fill,stroke]',
   'outline-offset-1 outline-ring/75 border-border bg-input',
   'text-left text-pretty',
-  'placeholder:text-neutral-foreground/50 placeholder:text-neutral-foreground/75',
+  'placeholder:text-muted-foreground/50 placeholder:text-muted-foreground/75',
   'selection:bg-primary selection:text-primary-foreground',
   'disabled:cursor-not-allowed disabled:opacity-50',
   'focus-visible:border-ring focus-visible:outline-1',
@@ -53,7 +53,7 @@ const inputVariant = {
   file: 'file:inline-flex file:text-foreground file:border-0 file:bg-transparent file:font-medium',
   select: [
     'items-center justify-between gap-fs-2',
-    "hover:bg-input/80 data-[placeholder]:text-neutral-foreground/50 [&_svg:not([class*='text-'])]:text-neutral-foreground/50",
+    "hover:bg-input/80 data-[placeholder]:text-muted-foreground/50 [&_svg:not([class*='text-'])]:text-muted-foreground/50",
     "[&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg]:opacity-50 [&_svg:not([class*='size-'])]:size-fs-4 [&[data-state=open]>svg]:rotate-180",
   ],
   textarea: 'field-sizing-content min-h-25',

@@ -178,7 +178,7 @@ function SelectLabel({
     <SelectPrimitive.Label
       data-slot='select-label'
       className={cn(
-        'text-neutral-foreground px-fs-2 py-fs-1 text-label',
+        'text-muted-foreground px-fs-2 py-fs-1 text-label',
         className
       )}
       {...props}
@@ -201,7 +201,7 @@ const selectItemVariants = cva(
     'data-[disabled]:pointer-events-none data-[disabled]:opacity-50',
     '*:[span]:last:flex *:[span]:last:items-center *:[span]:last:gap-fs-2',
     "[&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-fs-4",
-    "[&_svg:not([class*='text-'])]:text-neutral-foreground focus:[&_svg:not([class*='text-'])]:text-primary-foreground",
+    "[&_svg:not([class*='text-'])]:text-muted-foreground focus:[&_svg:not([class*='text-'])]:text-primary-foreground",
   ],
   {
     variants: {

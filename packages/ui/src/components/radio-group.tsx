@@ -83,13 +83,13 @@ const radioGroupItemShadow = {
 
 const radioGroupItemSize = {
   ...indicatorSize,
-  base: [
-    indicatorSize.base,
-    "size-fs-3 [&_svg:not([class*='size-'])]:size-fs-1 border-(length:--fs-0-25)",
-  ],
   sm: [
     indicatorSize.sm,
     "size-fs-3 [&_svg:not([class*='size-'])]:size-fs-0-5 border-1",
+  ],
+  base: [
+    indicatorSize.base,
+    "size-fs-4 [&_svg:not([class*='size-'])]:size-fs-1 border-(length:--fs-0-25)",
   ],
   md: [
     indicatorSize.md,
@@ -101,7 +101,7 @@ const radioGroupItemSize = {
   ],
   full: [
     indicatorSize.full,
-    "size-fs-6 [&_svg:not([class*='size-'])]:size-fs-4 border-(length:--fs-0-625)",
+    "size-fs-7 [&_svg:not([class*='size-'])]:size-fs-4 border-(length:--fs-0-625)",
   ],
 };
 

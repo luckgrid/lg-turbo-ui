@@ -97,7 +97,7 @@ export function FormKitchenSink() {
   return (
     <Layout className='container px-fs-6'>
       <Card
-        className='intersect-once intersect:motion-preset-rebound-right max-w-2xl bg-background-1'
+        className='intersect-once intersect:motion-preset-rebound-right max-w-2xl p-fs-8 border-shell-3 bg-shell text-shell-foreground'
         space='frame'
       >
         <h3 className='text-subheading text-balance'>

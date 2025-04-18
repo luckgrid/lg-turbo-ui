@@ -14,7 +14,7 @@ function LayoutFooter({ className, ...props }: FooterProps) {
 
   return (
     <Footer
-      className={cn('py-fs-3 bg-neutral text-neutral-foreground/50', className)}
+      className={cn('py-fs-3 bg-shell text-shell-foreground/75', className)}
       {...props}
     >
       <LayoutContainer className='flex-row items-end justify-between'>
@@ -26,7 +26,7 @@ function LayoutFooter({ className, ...props }: FooterProps) {
           . This code is open source under the{' '}
           <Link href='https://opensource.org/license/MIT'>MIT License</Link>.
         </p>
-        <LayoutBar className='justify-end [&_a]:hover:text-neutral-foreground [&_a]:hover:[&_img]:opacity-100'>
+        <LayoutBar className='justify-end [&_a]:hover:text-shell-foreground [&_a]:hover:[&_img]:opacity-100'>
           <Link href='https://github.com/luckgrid/lg-turbo-ui'>
             <SiGithub />
           </Link>
@@ -36,7 +36,7 @@ function LayoutFooter({ className, ...props }: FooterProps) {
               className='transition-[opacity]'
             >
               <Image
-                className='transition-[opacity] opacity-50 dark:invert'
+                className='transition-[opacity] opacity-75 dark:invert'
                 variant='icon'
                 alt={config.author.name}
                 src='/assets/logos/logo.png'

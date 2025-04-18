@@ -10,7 +10,7 @@ import { FormKitchenSink } from '@/components/kitchen-sink/form';
 export default function Page() {
   return (
     <Layout as='main' className='min-h-svh'>
-      <header className='flex flex-col flex-1 py-fs-12 bg-background-2'>
+      <header className='flex flex-col flex-1 py-fs-12 bg-base text-base-foreground'>
         <div className='container flex flex-row flex-wrap justify-center md:justify-start items-center gap-fs-3 px-fs-6'>
           <Image
             alt='Logo'
@@ -26,10 +26,10 @@ export default function Page() {
         </div>
       </header>
       <section className='flex flex-col flex-1 gap-fs-8'>
-        <header className='flex flex-col flex-1 py-fs-10 bg-background-1'>
+        <header className='flex flex-col flex-1 py-fs-10 bg-base-1 text-base-foreground'>
           <div className='container flex flex-col gap-fs-3 px-fs-6'>
             <h2 className='text-heading'>Button Component</h2>
-            <p className='text-balance text-neutral-foreground'>
+            <p className='text-balance text-muted-foreground'>
               The Button component is a versatile and customizable component
               that can be used to create a variety of buttons.
             </p>
@@ -52,10 +52,10 @@ export default function Page() {
         <ButtonKitchenSink />
       </section>
       <Section className='gap-fs-12 py-fs-24'>
-        <header className='flex flex-col flex-1 py-fs-10 bg-background-1'>
+        <header className='flex flex-col flex-1 py-fs-10 bg-base-1 text-base-foreground'>
           <div className='container flex flex-col gap-fs-3 px-fs-6'>
             <h2 className='text-heading'>Form Component</h2>
-            <p className='text-balance text-neutral-foreground'>
+            <p className='text-balance text-muted-foreground'>
               The form component uses react-hook-form, zod and various ui
               components for composing flexible forms with built-in state and
               validation handlers.

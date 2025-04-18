@@ -8,10 +8,10 @@ import { Link as PrimitiveLink } from '@workspace/ui/primitives/navigation';
 const linkBase = 'flex-inline cursor-pointer transition-colors';
 
 const linkColor = {
-  accent: 'outline-accent/50 hover:text-accent-1',
+  accent: 'outline-accent/50 hover:text-accent',
   primary: 'outline-primary/50 hover:text-primary',
   secondary: 'outline-secondary/50 hover:text-secondary',
-  danger: 'outline-danger/50 hover:text-danger-1',
+  danger: 'outline-danger/50 hover:text-danger',
 };
 
 const linkUnderline = {

@@ -1,0 +1,63 @@
+/* Typography Scale */
+
+/* - Fluid Type Scale Calculator: https://www.fluid-type-scale.com/calculate?minFontSize=16&minWidth=448&minRatio=1.25&maxFontSize=20&maxWidth=1440&maxRatio=1.333&steps=xs%2Csm%2Cbase%2Cmd%2Clg%2Cxl%2C2xl%2C3xl%2C4xl&baseStep=base&prefix=ts&useContainerWidth=false&includeFallbacks=true&useRems=true&remValue=16&decimals=2&previewFont=Inter&previewText=Almost+before+we+knew+it%2C+we+had+left+the+ground&previewWidth=944 */
+/* - Fluid Type Scale Generator: https://typescale.com/ */
+/* - Modular Type Scale Generator: https://precise-type.com/modular-scale.html */
+
+/* For browsers that support clamp */
+@supports (font-size: clamp(1rem, 1vi, 1rem)) {
+  :root {
+    --ts-xs: clamp(0.64rem, 0.1vi + 0.61rem, 0.7rem);
+    --ts-sm: clamp(0.8rem, 0.22vi + 0.74rem, 0.94rem);
+    --ts-base: clamp(1rem, 0.4vi + 0.89rem, 1.25rem);
+    --ts-md: clamp(1.25rem, 0.67vi + 1.06rem, 1.67rem);
+    --ts-lg: clamp(1.56rem, 1.06vi + 1.27rem, 2.22rem);
+    --ts-xl: clamp(1.95rem, 1.63vi + 1.5rem, 2.96rem);
+    --ts-2xl: clamp(2.44rem, 2.43vi + 1.76rem, 3.95rem);
+    --ts-3xl: clamp(3.05rem, 3.56vi + 2.05rem, 5.26rem);
+    --ts-4xl: clamp(3.81rem, 5.16vi + 2.37rem, 7.01rem);
+  }
+}
+
+/* For browsers that don't support clamp */
+@supports not (font-size: clamp(1rem, 1vi, 1rem)) {
+  :root {
+    --ts-xs: 0.64rem;
+    --ts-sm: 0.8rem;
+    --ts-base: 1rem;
+    --ts-md: 1.25rem;
+    --ts-lg: 1.56rem;
+    --ts-xl: 1.95rem;
+    --ts-2xl: 2.44rem;
+    --ts-3xl: 3.05rem;
+    --ts-4xl: 3.81rem;
+  }
+
+  @media screen and (min-width: var(--breakpoint-md, 48rem)) {
+    :root {
+      --ts-xs: 0.67rem;
+      --ts-sm: 0.87rem;
+      --ts-base: 1.13rem;
+      --ts-md: 1.46rem;
+      --ts-lg: 1.89rem;
+      --ts-xl: 2.46rem;
+      --ts-2xl: 3.19rem;
+      --ts-3xl: 4.16rem;
+      --ts-4xl: 5.41rem;
+    }
+  }
+
+  @media screen and (min-width: var(--breakpoint-xl, 80rem)) {
+    :root {
+      --ts-xs: 0.7rem;
+      --ts-sm: 0.94rem;
+      --ts-base: 1.25rem;
+      --ts-md: 1.67rem;
+      --ts-lg: 2.22rem;
+      --ts-xl: 2.96rem;
+      --ts-2xl: 3.95rem;
+      --ts-3xl: 5.26rem;
+      --ts-4xl: 7.01rem;
+    }
+  }
+}

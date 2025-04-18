@@ -144,12 +144,13 @@ If you're unsure about any aspect, ask for clarification rather than making assu
   configs/
     ├─ eslint/       # Eslint 9 + Typescript Eslint to lint code in monorepo
     ├─ prettier/     # Prettier 3 to format code in monorepo
+    ├─ tailwind/     # Tailwind CSS 4 styles, libs, configs, and utils
     └─ typescript/   # Typescript 5 configs for monorepo
   packages/
     ├─ api/          # tRPC procedures Zod schemas
     ├─ intl/         # i18n + i18next
-    ├─ ui/           # Shadcn/UI + Radix UI + Tailwind CSS + CVA
-    └─ ui-next/      # Next wrappers for ui components and lib of reusable configs and utils
+    ├─ ui/           # Shadcn/UI + Radix UI + CVA
+    └─ ui-next/      # UI wrappers, libs, configs, and utils for Next apps
   ```
 - Use kebab-case for directory names (e.g., `auth-wizard`)
 - Place components in appropriate packages based on responsibility

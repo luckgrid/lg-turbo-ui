@@ -5,50 +5,82 @@
 [data-theme='light'] {
   color-scheme: light;
 
-  --background: var(--cs-base-23);
-  --background-1: var(--cs-base-22);
-  --background-2: var(--cs-base-21);
-  --background-3: var(--cs-base-20);
-  --foreground: var(--cs-base-2);
+  /* Surface Colors */
 
-  --input: var(--cs-base-23);
-  --border: var(--cs-base-14);
-  --ring: var(--cs-base-6);
+  --base: var(--cs-light);
+  --base-1: var(--cs-fog-10);
+  --base-2: var(--cs-fog-9);
+  --base-3: var(--cs-fog-8);
+  --base-foreground: var(--cs-smog-1);
 
-  --card: var(--cs-base-19);
-  --card-1: var(--cs-base-18);
-  --card-2: var(--cs-base-17);
-  --card-3: var(--cs-base-16);
-  --card-foreground: var(--cs-base-1);
+  --display: var(--cs-fog-7);
+  --display-1: var(--cs-fog-6);
+  --display-2: var(--cs-fog-5);
+  --display-3: var(--cs-fog-4);
+  --display-foreground: var(--cs-smog-0);
 
-  --popover: var(--cs-base-18);
-  --popover-1: var(--cs-base-17);
-  --popover-2: var(--cs-base-16);
-  --popover-3: var(--cs-base-15);
-  --popover-foreground: var(--cs-base-0);
+  --panel: var(--cs-fog-3);
+  --panel-1: var(--cs-fog-2);
+  --panel-2: var(--cs-fog-1);
+  --panel-3: var(--cs-fog-0);
+  --panel-foreground: var(--cs-dark);
 
-  --neutral: var(--cs-base-16);
-  --neutral-1: var(--cs-base-14);
-  --neutral-2: var(--cs-base-12);
-  --neutral-3: var(--cs-base-10);
-  --neutral-foreground: var(--cs-base-0);
-  --neutral-foreground-1: var(--cs-base-23);
+  /* Overlay Colors */
 
-  --accent: var(--cs-accent-8);
-  --accent-1: var(--cs-accent-4);
-  --accent-foreground: var(--cs-base-0);
-  --accent-foreground-1: var(--cs-base-23);
+  --edge: var(--cs-dark);
+  --edge-1: var(--cs-smog-0);
+  --edge-2: var(--cs-smog-1);
+  --edge-3: var(--cs-smog-2);
+  --edge-foreground: var(--cs-fog-1);
 
-  --primary: var(--cs-base-0);
-  --primary-foreground: var(--cs-base-23);
+  --shell: var(--cs-smog-3);
+  --shell-1: var(--cs-smog-4);
+  --shell-2: var(--cs-smog-5);
+  --shell-3: var(--cs-smog-6);
+  --shell-foreground: var(--cs-fog-0);
 
-  --secondary: var(--cs-base-8);
-  --secondary-foreground: var(--cs-base-22);
+  --cover: var(--cs-smog-7);
+  --cover-1: var(--cs-smog-8);
+  --cover-2: var(--cs-smog-9);
+  --cover-3: var(--cs-smog-10);
+  --cover-foreground: var(--cs-light);
 
-  --danger: var(--cs-danger-6);
-  --danger-1: var(--cs-danger-3);
-  --danger-foreground: var(--cs-base-2);
-  --danger-foreground-1: var(--cs-base-21);
+  /* UI Colors */
+
+  --background: var(--cs-fog-9);
+  --foreground: var(--cs-smog-2);
+
+  --input: var(--cs-fog-10);
+  --border: var(--cs-fog-5);
+  --ring: var(--cs-fog-0);
+
+  --card: var(--cs-fog-8);
+  --card-foreground: var(--cs-smog-3);
+
+  --popover: var(--cs-fog-7);
+  --popover-foreground: var(--cs-smog-4);
+
+  --muted: var(--cs-fog-6);
+  --muted-foreground: var(--cs-smog-5);
+
+  /* Semantic Colors */
+
+  --neutral: var(--cs-dark);
+  --neutral-foreground: var(--cs-light);
+
+  --primary: var(--cs-primary-2);
+  --primary-foreground: var(--cs-light);
+
+  --secondary: var(--cs-secondary-3);
+  --secondary-foreground: var(--cs-light);
+
+  /* State & Status Colors */
+
+  --accent: var(--cs-accent);
+  --accent-foreground: var(--cs-light);
+
+  --danger: var(--cs-danger);
+  --danger-foreground: var(--cs-light);
 }
 
 /* Base Dark Theme */
@@ -57,48 +89,80 @@
 [data-theme='dark'] {
   color-scheme: dark;
 
-  --background: var(--cs-base-0);
-  --background-1: var(--cs-base-1);
-  --background-2: var(--cs-base-2);
-  --background-3: var(--cs-base-3);
-  --foreground: var(--cs-base-21);
+  /* Surface Colors */
 
-  --input: var(--cs-base-0);
-  --border: var(--cs-base-9);
-  --ring: var(--cs-base-17);
+  --base: var(--cs-dark);
+  --base-1: var(--cs-smog-0);
+  --base-2: var(--cs-smog-1);
+  --base-3: var(--cs-smog-2);
+  --base-foreground: var(--cs-fog-9);
 
-  --card: var(--cs-base-4);
-  --card-1: var(--cs-base-5);
-  --card-2: var(--cs-base-6);
-  --card-3: var(--cs-base-7);
-  --card-foreground: var(--cs-base-22);
+  --display: var(--cs-smog-3);
+  --display-1: var(--cs-smog-4);
+  --display-2: var(--cs-smog-5);
+  --display-3: var(--cs-smog-6);
+  --display-foreground: var(--cs-fog-10);
 
-  --popover: var(--cs-base-5);
-  --popover-1: var(--cs-base-6);
-  --popover-2: var(--cs-base-7);
-  --popover-3: var(--cs-base-8);
-  --popover-foreground: var(--cs-base-23);
+  --panel: var(--cs-smog-7);
+  --panel-1: var(--cs-smog-8);
+  --panel-2: var(--cs-smog-9);
+  --panel-3: var(--cs-smog-10);
+  --panel-foreground: var(--cs-light);
 
-  --neutral: var(--cs-base-7);
-  --neutral-1: var(--cs-base-9);
-  --neutral-2: var(--cs-base-11);
-  --neutral-3: var(--cs-base-13);
-  --neutral-foreground: var(--cs-base-23);
-  --neutral-foreground-1: var(--cs-base-0);
+  /* Layout Colors */
 
-  --accent: var(--cs-accent-4);
-  --accent-1: var(--cs-accent-8);
-  --accent-foreground: var(--cs-base-23);
-  --accent-foreground-1: var(--cs-base-0);
+  --edge: var(--cs-primary-0);
+  --edge-1: var(--cs-primary-1);
+  --edge-2: var(--cs-primary-2);
+  --edge-3: var(--cs-primary-3);
+  --edge-foreground: var(--cs-light);
 
-  --primary: var(--cs-base-23);
-  --primary-foreground: var(--cs-base-0);
+  --shell: var(--cs-secondary-0);
+  --shell-1: var(--cs-secondary-1);
+  --shell-2: var(--cs-secondary-2);
+  --shell-3: var(--cs-secondary-3);
+  --shell-foreground: var(--cs-light);
 
-  --secondary: var(--cs-base-15);
-  --secondary-foreground: var(--cs-base-1);
+  --cover: var(--cs-fog-0);
+  --cover-1: var(--cs-fog-1);
+  --cover-2: var(--cs-fog-2);
+  --cover-3: var(--cs-fog-3);
+  --cover-foreground: var(--cs-dark);
 
-  --danger: var(--cs-danger-3);
-  --danger-1: var(--cs-danger-6);
-  --danger-foreground: var(--cs-base-21);
-  --danger-foreground-1: var(--cs-base-2);
+  /* UI Colors */
+
+  --background: var(--cs-smog-2);
+  --foreground: var(--cs-fog-8);
+
+  --input: var(--cs-fog-10);
+  --border: var(--cs-smog-10);
+  --ring: var(--cs-fog-0);
+
+  --card: var(--cs-smog-3);
+  --card-foreground: var(--cs-fog-8);
+
+  --popover: var(--cs-smog-4);
+  --popover-foreground: var(--cs-fog-7);
+
+  --muted: var(--cs-smog-5);
+  --muted-foreground: var(--cs-fog-6);
+
+  /* Semantic Colors */
+
+  --neutral: var(--cs-light);
+  --neutral-foreground: var(--cs-dark);
+
+  --primary: var(--cs-primary-9);
+  --primary-foreground: var(--cs-dark);
+
+  --secondary: var(--cs-secondary-10);
+  --secondary-foreground: var(--cs-dark);
+
+  /* State & Status Colors */
+
+  --accent: var(--cs-accent);
+  --accent-foreground: var(--cs-light);
+
+  --danger: var(--cs-danger);
+  --danger-foreground: var(--cs-light);
 }

@@ -1,6 +1,8 @@
 @import 'tailwindcss';
 
-@import './variables.css';
+@import './colors.css';
+@import './typography.css';
+@import './spacing.css';
 @import './themes.css';
 
 /* TODO: set source paths for each app seperately, based on which components are used */
@@ -14,40 +16,73 @@
 @variant light (&:is(.light, [data-theme="light"] *));
 
 @theme inline {
-  /* Semantic Colors */
+  /* Theme Colors */
+
+  --color-dark: var(--cs-dark);
+  --color-light: var(--cs-light);
+
+  /* Surface Colors */
+
+  --color-base: var(--base);
+  --color-base-1: var(--base-1);
+  --color-base-2: var(--base-2);
+  --color-base-3: var(--base-3);
+  --color-base-foreground: var(--base-foreground);
+
+  --color-display: var(--display);
+  --color-display-1: var(--display-1);
+  --color-display-2: var(--display-2);
+  --color-display-3: var(--display-3);
+  --color-display-foreground: var(--display-foreground);
+
+  --color-panel: var(--panel);
+  --color-panel-1: var(--panel-1);
+  --color-panel-2: var(--panel-2);
+  --color-panel-3: var(--panel-3);
+  --color-panel-foreground: var(--panel-foreground);
+
+  /* Overlay Colors */
+
+  --color-edge: var(--edge);
+  --color-edge-1: var(--edge-1);
+  --color-edge-2: var(--edge-2);
+  --color-edge-3: var(--edge-3);
+  --color-edge-foreground: var(--edge-foreground);
+
+  --color-shell: var(--shell);
+  --color-shell-1: var(--shell-1);
+  --color-shell-2: var(--shell-2);
+  --color-shell-3: var(--shell-3);
+  --color-shell-foreground: var(--shell-foreground);
+
+  --color-cover: var(--cover);
+  --color-cover-1: var(--cover-1);
+  --color-cover-2: var(--cover-2);
+  --color-cover-3: var(--cover-3);
+  --color-cover-foreground: var(--cover-foreground);
+
+  /* UI Colors */
+
   --color-background: var(--background);
-  --color-background-1: var(--background-1);
-  --color-background-2: var(--background-2);
-  --color-background-3: var(--background-3);
   --color-foreground: var(--foreground);
 
-  --color-border: var(--border);
   --color-input: var(--input);
+  --color-border: var(--border);
   --color-ring: var(--ring);
 
   --color-card: var(--card);
-  --color-card-1: var(--card-1);
-  --color-card-2: var(--card-2);
-  --color-card-3: var(--card-3);
   --color-card-foreground: var(--card-foreground);
 
   --color-popover: var(--popover);
-  --color-popover-1: var(--popover-1);
-  --color-popover-2: var(--popover-2);
-  --color-popover-3: var(--popover-3);
   --color-popover-foreground: var(--popover-foreground);
 
-  --color-neutral: var(--neutral);
-  --color-neutral-1: var(--neutral-1);
-  --color-neutral-2: var(--neutral-2);
-  --color-neutral-3: var(--neutral-3);
-  --color-neutral-foreground: var(--neutral-foreground);
-  --color-neutral-foreground-1: var(--neutral-foreground-1);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
 
-  --color-accent: var(--accent);
-  --color-accent-1: var(--accent-1);
-  --color-accent-foreground: var(--accent-foreground);
-  --color-accent-foreground-1: var(--accent-foreground-1);
+  /* Semantic Colors */
+
+  --color-neutral: var(--neutral);
+  --color-neutral-foreground: var(--neutral-foreground);
 
   --color-primary: var(--primary);
   --color-primary-foreground: var(--primary-foreground);
@@ -55,12 +90,16 @@
   --color-secondary: var(--secondary);
   --color-secondary-foreground: var(--secondary-foreground);
 
+  /* State & Status Colors */
+
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+
   --color-danger: var(--danger);
-  --color-danger-1: var(--danger-1);
   --color-danger-foreground: var(--danger-foreground);
-  --color-danger-foreground-1: var(--danger-foreground-1);
 
   /* Fluid Typography */
+
   --text-caption: var(--ts-xs); /* For small captions, footnotes, or metadata */
   --text-label: var(--ts-sm); /* For form labels and small UI elements */
   --text-body: var(--ts-base); /* For main body text or paragraphs */
@@ -80,6 +119,7 @@
   ); /* For huge banner or hero text that makes a strong visual impact */
 
   /* Fluid Spacing */
+
   --spacing-fs-0-25: var(--fs-0-25);
   --spacing-fs-0-375: var(--fs-0-375);
   --spacing-fs-0-5: var(--fs-0-5);
@@ -133,6 +173,7 @@
   --spacing-fs-46: var(--fs-46);
 
   /* Border Radius */
+
   --radius-xs: calc(--spacing(1) - 0.5px);
   --radius-sm: calc(--spacing(1) + 1px);
   --radius-md: calc(--spacing(1) + 2px);
@@ -143,6 +184,7 @@
   --radius-4xl: calc(--spacing(1) + 12px);
 
   /* Fluid Border Radius */
+
   --radius-fs-xs: var(--fs-0-25);
   --radius-fs-sm: var(--fs-0-375);
   --radius-fs-md: var(--fs-0-5);
@@ -153,6 +195,7 @@
   --radius-fs-4xl: var(--fs-3);
 
   /* Breakpoints */
+
   --breakpoint-2xs: 20rem; /* 320px */
   --breakpoint-xs: 30rem; /* 480px */
   --breakpoint-sm: 40rem; /* 640px */
