@@ -31,19 +31,19 @@
   --edge-1: var(--cs-smog-0);
   --edge-2: var(--cs-smog-1);
   --edge-3: var(--cs-smog-2);
-  --edge-foreground: var(--cs-fog-1);
+  --edge-foreground: var(--cs-fog-4);
 
   --shell: var(--cs-smog-3);
   --shell-1: var(--cs-smog-4);
   --shell-2: var(--cs-smog-5);
   --shell-3: var(--cs-smog-6);
-  --shell-foreground: var(--cs-fog-0);
+  --shell-foreground: var(--cs-fog-3);
 
   --cover: var(--cs-smog-7);
   --cover-1: var(--cs-smog-8);
   --cover-2: var(--cs-smog-9);
   --cover-3: var(--cs-smog-10);
-  --cover-foreground: var(--cs-light);
+  --cover-foreground: var(--cs-fog-2);
 
   /* UI Colors */
 

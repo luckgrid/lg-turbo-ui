@@ -35,15 +35,12 @@ const layoutSize = {
   ...boxSize,
 };
 
-// Layout Variants - style variants for the layout primitive
+// Layout Variants
 const layoutVariants = cva(layoutBase, {
   variants: {
     radius: layoutRadius,
     shadow: layoutShadow,
     size: layoutSize,
-  },
-  defaultVariants: {
-    size: 'base',
   },
 });
 
@@ -86,7 +83,7 @@ const layoutContainerVariant = {
   wrapper: '',
 };
 
-// Layout Container Variants - style variants for the layout container primitive
+// Layout Container Variant
 const layoutContainerVariants = cva(layoutBase, {
   variants: {
     radius: layoutRadius,
@@ -120,7 +117,7 @@ function LayoutContainer<T extends React.ElementType = 'div'>({
 }: LayoutContainerProps<T>) {
   return (
     <Element
-      data-slot='layout'
+      data-slot='layout-container'
       as={as}
       className={cn(
         layoutContainerVariants({
@@ -137,18 +134,57 @@ function LayoutContainer<T extends React.ElementType = 'div'>({
   );
 }
 
+// Layout Bar Base Styles - to set base layout bar styles
+const layoutBarBase = [...layoutBase, '2xs:flex-row 2xs:flex-wrap'];
+
+// Layout Bar Space Properties - to modify the spacing styles of a layout bar primitive
+const layoutBarSpace = {
+  base: 'gap-fs-4 2xs:gap-fs-3 md:gap-fs-2',
+  container: 'gap-x-fs-6 gap-y-fs-3 px-fs-6',
+  wrapper: 'py-fs-3',
+};
+
+// Layout Bar Variants
+const layoutBarVariants = cva(layoutBarBase, {
+  variants: {
+    radius: layoutRadius,
+    shadow: layoutShadow,
+    size: layoutSize,
+    space: layoutBarSpace,
+  },
+  defaultVariants: {
+    size: 'base',
+    space: 'base',
+  },
+});
+
+// Layout Bar Primitive Types
+type LayoutBarVariantProps = VariantProps<typeof layoutBarVariants>;
+type LayoutBarProps<T extends React.ElementType = 'div'> = LayoutProps<T> &
+  LayoutBarVariantProps;
+
 // Layout Bar Primitive Component
 function LayoutBar<T extends React.ElementType = 'div'>({
   as = 'div',
   className,
+  radius,
+  shadow,
+  size,
+  space,
   ...props
-}: LayoutProps<T>) {
+}: LayoutBarProps<T>) {
   return (
-    <Layout
+    <Element
+      data-slot='layout-bar'
       as={as}
       className={cn(
-        'items-center gap-fs-4 2xs:flex-row 2xs:flex-wrap 2xs:gap-fs-3 md:gap-fs-2',
-        className
+        layoutBarVariants({
+          radius,
+          shadow,
+          size,
+          space,
+          className,
+        })
       )}
       {...props}
     />
@@ -166,7 +202,10 @@ export {
   layoutContainerSpace,
   layoutContainerVariant,
   layoutContainerVariants,
+  layoutBarBase,
+  layoutBarSpace,
+  layoutBarVariants,
   layoutVariants,
 };
 
-export type { LayoutProps, LayoutContainerProps };
+export type { LayoutBarProps, LayoutContainerProps, LayoutProps };
