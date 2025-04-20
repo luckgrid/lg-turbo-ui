@@ -25,8 +25,7 @@ import { Link } from '@workspace/ui/primitives/navigation';
 // - break up button styles by variant and modifier to reduce amount of tailwind utility sources imported with base button component
 // -- button component can be broken up into separate files based on variant (most apps won't need a button with every variant and modifier)
 
-const buttonTypography =
-  'text-label font-medium tracking-wide leading-[1.5] md:leading-none';
+const buttonTypography = 'text-label font-medium tracking-wide leading-none';
 
 // Base Button Styles
 const buttonBase = [
@@ -76,8 +75,8 @@ const buttonSize = {
   sm: [
     actionSize.sm,
     boxBorder.sm,
-    'px-fs-2 py-fs-0-5',
-    'text-caption font-medium tracking-wide leading-[1.75] md:leading-[1.25]',
+    'px-fs-2 py-fs-0-75',
+    'text-caption font-medium tracking-wide leading-none',
   ],
   base: [actionSize.base, boxBorder.base, buttonTypography, 'px-fs-3 py-fs-1'],
   md: [
@@ -110,7 +109,7 @@ const buttonVariant = {
   outline: [
     'shadow-none',
     'border-border hover:border-transparent',
-    'bg-transparent hover:bg-border/90',
+    'bg-transparent hover:bg-border/90 focus-visible:bg-border',
     'text-foreground hover:text-foreground',
   ],
   text: [
@@ -118,8 +117,8 @@ const buttonVariant = {
     'size-fit p-0',
     'underline underline-offset-(--fs-0-5) decoration-(--fs-0-25)',
     'shadow-none border-none',
-    'bg-transparent hover:bg-transparent',
-    'text-foreground hover:text-foreground/80',
+    'bg-transparent hover:bg-transparent focus-visible:bg-transparent',
+    'text-foreground hover:text-foreground/80 focus-visible:text-foreground',
   ],
 };
 
@@ -128,8 +127,9 @@ const iconButton = ['size-fs-8 p-0', "[&_svg:not([class*='size-'])]:size-fs-4"];
 
 // Ghost Button Modifier
 const ghostButton = [
-  'shadow-none border-transparent bg-transparent',
-  'text-current hover:text-current/90',
+  'shadow-none border-transparent',
+  'bg-transparent focus-visible:bg-border',
+  'text-current hover:text-current/90 focus-visible:text-current',
 ];
 
 // Animated Button Modifier
@@ -198,7 +198,8 @@ const buttonVariants = cva(buttonBase, {
       isGhost: true,
       className: [
         ghostButton,
-        'hover:bg-neutral/90 hover:text-neutral-foreground',
+        'hover:bg-neutral/90 focus-visible:bg-neutral/90',
+        'hover:text-neutral-foreground focus-visible:text-neutral-foreground',
       ],
     },
     {
@@ -206,7 +207,8 @@ const buttonVariants = cva(buttonBase, {
       isGhost: true,
       className: [
         ghostButton,
-        'hover:bg-accent/90 hover:text-accent-foreground',
+        'hover:bg-accent/90 focus-visible:bg-accent/90',
+        'hover:text-accent-foreground focus-visible:text-accent-foreground',
       ],
     },
     {
@@ -214,7 +216,8 @@ const buttonVariants = cva(buttonBase, {
       isGhost: true,
       className: [
         ghostButton,
-        'hover:bg-primary/90 hover:text-primary-foreground',
+        'hover:bg-primary/90 focus-visible:bg-primary/90',
+        'hover:text-primary-foreground focus-visible:text-primary-foreground',
       ],
     },
     {
@@ -222,7 +225,8 @@ const buttonVariants = cva(buttonBase, {
       isGhost: true,
       className: [
         ghostButton,
-        'hover:bg-secondary/90 hover:text-secondary-foreground',
+        'hover:bg-secondary/90 focus-visible:bg-secondary/90',
+        'hover:text-secondary-foreground focus-visible:text-secondary-foreground',
       ],
     },
     {
@@ -230,39 +234,55 @@ const buttonVariants = cva(buttonBase, {
       isGhost: true,
       className: [
         ghostButton,
-        'hover:bg-danger/90 hover:text-danger-foreground',
+        'hover:bg-danger/90 focus-visible:bg-danger/90',
+        'hover:text-danger-foreground focus-visible:text-danger-foreground',
       ],
     },
     // Outline Color Variants
     {
       color: 'base',
       variant: 'outline',
-      className:
-        'border-neutral text-neutral hover:bg-neutral/90 hover:text-neutral-foreground',
+      className: [
+        'border-neutral',
+        'hover:bg-neutral/90 focus-visible:bg-neutral/90',
+        'text-neutral hover:text-neutral-foreground focus-visible:text-neutral-foreground',
+      ],
     },
     {
       color: 'accent',
       variant: 'outline',
-      className:
-        'border-accent text-accent hover:bg-accent/90 hover:text-accent-foreground',
+      className: [
+        'border-accent',
+        'hover:bg-accent/90 focus-visible:bg-accent/90',
+        'text-accent hover:text-accent-foreground focus-visible:text-accent-foreground',
+      ],
     },
     {
       color: 'primary',
       variant: 'outline',
-      className:
-        'border-primary text-primary hover:bg-primary/90 hover:text-primary-foreground',
+      className: [
+        'border-primary',
+        'hover:bg-primary/90 focus-visible:bg-primary/90',
+        'text-primary hover:text-primary-foreground focus-visible:text-primary-foreground',
+      ],
     },
     {
       color: 'secondary',
       variant: 'outline',
-      className:
-        'border-secondary text-secondary hover:bg-secondary/90 hover:text-secondary-foreground',
+      className: [
+        'border-secondary',
+        'hover:bg-secondary/90 focus-visible:bg-secondary/90',
+        'text-secondary hover:text-secondary-foreground focus-visible:text-secondary-foreground',
+      ],
     },
     {
       color: 'danger',
       variant: 'outline',
-      className:
-        'border-danger text-danger hover:bg-danger/90 hover:text-danger-foreground',
+      className: [
+        'border-danger',
+        'hover:bg-danger/90 focus-visible:bg-danger/90',
+        'text-danger hover:text-danger-foreground focus-visible:text-danger-foreground',
+      ],
     },
     // Outline Ghost Color Modifiers
     {
@@ -308,58 +328,75 @@ const buttonVariants = cva(buttonBase, {
     {
       color: 'base',
       variant: 'text',
-      className: 'text-neutral hover:text-neutral/80',
+      className: 'text-neutral hover:text-neutral/80 focus-visible:text-neut',
     },
     {
       color: 'accent',
       variant: 'text',
-      className: 'text-accent hover:text-accent/80',
+      className: 'text-accent hover:text-accent/80 focus-visible:text-accent',
     },
     {
       color: 'primary',
       variant: 'text',
-      className: 'text-primary hover:text-primary/80',
+      className:
+        'text-primary hover:text-primary/80 focus-visible:text-primary',
     },
     {
       color: 'secondary',
       variant: 'text',
-      className: 'text-secondary hover:text-secondary/80',
+      className:
+        'text-secondary hover:text-secondary/80 focus-visible:text-secondary',
     },
     {
       color: 'danger',
       variant: 'text',
-      className: 'text-danger hover:text-danger/80',
+      className: 'text-danger hover:text-danger/80 focus-visible:text-danger',
     },
     // Text Ghost Color Modifiers
     {
       color: 'base',
       variant: 'text',
       isGhost: true,
-      className: 'text-current hover:bg-transparent hover:text-neutral/80',
+      className: [
+        'hover:bg-transparent focus-visible:bg-transparent',
+        'text-current hover:text-neutral/80 focus-visible:text-neutral/80',
+      ],
     },
     {
       color: 'accent',
       variant: 'text',
       isGhost: true,
-      className: 'text-current hover:bg-transparent hover:text-accent/80',
+      className: [
+        'hover:bg-transparent focus-visible:bg-transparent',
+        'text-current',
+      ],
     },
     {
       color: 'primary',
       variant: 'text',
       isGhost: true,
-      className: 'text-current hover:bg-transparent hover:text-primary/80',
+      className: [
+        'hover:bg-transparent focus-visible:bg-transparent',
+        'text-current',
+      ],
     },
     {
       color: 'secondary',
       variant: 'text',
       isGhost: true,
-      className: 'text-current hover:bg-transparent hover:text-secondary/80',
+      className: [
+        'hover:bg-transparent focus-visible:bg-transparent',
+        'text-current',
+      ],
     },
     {
       color: 'danger',
       variant: 'text',
       isGhost: true,
-      className: 'text-current hover:bg-transparent hover:text-danger/80',
+      className: [
+        'hover:bg-transparent focus-visible:bg-transparent',
+        'text-current',
+      ],
     },
     // Ghost Size Modifiers
     {

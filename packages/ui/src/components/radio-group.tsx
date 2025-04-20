@@ -140,7 +140,7 @@ function RadioGroupItem({
     >
       <RadioGroupPrimitive.Indicator
         data-slot='radio-group-indicator'
-        className='relative flex items-center justify-center'
+        className='relative size-full flex items-center justify-center'
       >
         <CircleIcon className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2' />
       </RadioGroupPrimitive.Indicator>

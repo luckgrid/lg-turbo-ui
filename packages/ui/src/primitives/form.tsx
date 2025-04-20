@@ -171,8 +171,9 @@ const formTextSize = {
 
 const formTextStatus = {
   ...formStatus,
-  base: 'text-border/75',
-  error: 'text-danger-1/75',
+  base: 'text-foreground/75',
+  active: 'text-accent/75',
+  error: 'text-danger/75',
 };
 
 const formTextVariant = {

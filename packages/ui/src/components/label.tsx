@@ -23,7 +23,7 @@ const labelSize = {
 const labelStatus = {
   ...formTextStatus,
   base: 'text-border',
-  error: 'text-danger-1',
+  error: 'text-danger',
 };
 
 const labelVariant = {
@@ -33,9 +33,9 @@ const labelVariant = {
 
 const labelVariants = cva(
   [
-    ...labelBase,
+    labelBase,
     'items-center gap-fs-0-25',
-    'data-[error=true]:text-danger-1',
+    'data-[error=true]:text-danger',
     'group-data-[disabled=true]:pointer-events-none group-data-[disabled=true]:opacity-50',
     'peer-disabled:opacity-50',
   ],
@@ -46,7 +46,7 @@ const labelVariants = cva(
       status: labelStatus,
       variant: labelVariant,
       isRequired: {
-        true: "after:content-['*'] after:text-danger-1",
+        true: "after:content-['*'] after:text-danger",
       },
     },
     compoundVariants: [

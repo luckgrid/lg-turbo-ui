@@ -4,6 +4,7 @@ import { Layout, LayoutContainer } from '@workspace/ui/primitives/layout';
 
 import { ButtonKitchenSink } from '@/components/kitchen-sink/button';
 import { FormKitchenSink } from '@/components/kitchen-sink/form';
+import { PrimitivesKitchenSink } from '@/components/kitchen-sink/primitives';
 
 export default function Page() {
   return (
@@ -21,6 +22,20 @@ export default function Page() {
           <h1 className='text-title text-balance text-center md:text-left'>
             LG Turbo UI Kitchen Sink
           </h1>
+        </LayoutContainer>
+      </Section>
+      <Section>
+        <Layout as='header' className='py-fs-24 bg-base-1 text-base-foreground'>
+          <LayoutContainer>
+            <h2 className='text-heading'>Primitive Utilities</h2>
+            <p className='text-balance text-muted-foreground'>
+              Custom Tailwind CSS Utility classes used for quickly composing
+              components that use similar style patterns.
+            </p>
+          </LayoutContainer>
+        </Layout>
+        <LayoutContainer className='gap-fs-12 py-fs-24'>
+          <PrimitivesKitchenSink />
         </LayoutContainer>
       </Section>
       <Section>

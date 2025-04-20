@@ -147,9 +147,9 @@ function FormDescription({ children, ...props }: FormTextProps) {
       <FormText
         data-slot='form-error'
         id={descriptionErrorId}
+        {...props}
         status='error'
         variant='message'
-        {...props}
       >
         {errorMessage}
       </FormText>
@@ -161,9 +161,9 @@ function FormDescription({ children, ...props }: FormTextProps) {
       <FormText
         data-slot='form-hint'
         id={descriptionHintId}
+        {...props}
         status={error || invalid ? 'error' : 'base'}
         variant='message'
-        {...props}
       >
         {children}
       </FormText>

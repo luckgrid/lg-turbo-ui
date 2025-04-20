@@ -128,6 +128,7 @@ export function FormKitchenSink() {
           >
             {(field) => (
               <Select
+                defaultOpen
                 defaultValue={field.value}
                 key={field.value}
                 onValueChange={field.onChange}

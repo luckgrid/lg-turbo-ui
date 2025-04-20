@@ -17,17 +17,19 @@ const footerCards = [
   {
     title: 'NextJS Ready',
     description:
-      'A React component library that uses Tailwind CSS for styling.',
-  },
-  {
-    title: 'Open Source',
-    description:
-      'A React component library that uses Tailwind CSS for styling.',
+      'Build NextJS Apps using UI component wrappers and config presets.',
+    className: 'motion-delay-100',
   },
   {
     title: 'CVA Design System',
     description:
-      'A React component library that uses Tailwind CSS for styling.',
+      'Modify UI component styles quickly using CVA and Tailwind CSS.',
+    className: 'motion-delay-200',
+  },
+  {
+    title: 'Open Source',
+    description: 'Fully open source and developer driven features and updates.',
+    className: 'motion-delay-300',
   },
 ];
 
@@ -45,7 +47,7 @@ export default function Page() {
             width={200}
             height={200}
             priority
-            className='motion-preset-spin motion-loop-once motion-opacity-in-0 motion-scale-in-25 motion-duration-200 pointer-events-none dark:invert'
+            className='size-fs-46 motion-preset-spin motion-loop-once motion-opacity-in-0 motion-scale-in-25 motion-duration-200 pointer-events-none dark:invert'
           />
           <div className='motion-opacity-in-0 motion-translate-y-in-50 max-w-4xl mx-auto flex flex-col gap-fs-1 text-center'>
             <h1 className='text-balance'>{config.name}</h1>
@@ -84,16 +86,15 @@ export default function Page() {
           </p>
         </LayoutContainer>
         <LayoutContainer className='flex-row flex-wrap'>
-          {footerCards.map((card, index) => (
+          {footerCards.map((card) => (
             <Card
               key={card.title}
               className={cn(
-                'border-shell-3 bg-shell-1 text-shell-foreground',
-                'hover:bg-shell-2 transition-[background-color]',
+                'px-fs-3 py-fs-1 transition-[background-color,filter,opacity]',
+                'border-shell-3 bg-shell-1 text-shell-foreground hover:bg-shell-2',
                 'intersect-once intersect:motion-preset-focus',
-                `motion-delay-${index * 100}`
+                card.className
               )}
-              space='frame'
             >
               <h3 className='text-body'>{card.title}</h3>
             </Card>

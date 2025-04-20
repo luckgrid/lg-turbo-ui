@@ -17,6 +17,7 @@
     "lint:fix": "pnpm lint --fix",
     "typecheck": "turbo run typecheck",
     "env:encrypt": "turbo run env:encrypt",
+    "fix:all": "pnpm format:fix && pnpm lint:fix",
     "ui:add": "turbo run ui:add -F @workspace/ui --"
   },
   "packageManager": "pnpm@10.8.1",

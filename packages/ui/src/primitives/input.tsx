@@ -17,13 +17,13 @@ import { formStatus } from '@workspace/ui/primitives/form';
 const inputBase = [
   boxBase,
   'w-full transition-[background-color,border-color,color,box-shadow,opacity,fill,stroke]',
-  'outline-offset-1 outline-ring/75 border-border bg-input',
+  'outline-offset-1 outline-ring/80 border-border bg-input text-input-foreground',
   'text-left text-pretty',
-  'placeholder:text-muted-foreground/50 placeholder:text-muted-foreground/75',
+  'placeholder:text-input-foreground/50 hover:placeholder:text-input-foreground/60 focus-within:placeholder:text-input-foreground/70',
   'selection:bg-primary selection:text-primary-foreground',
   'disabled:cursor-not-allowed disabled:opacity-50',
   'focus-visible:border-ring focus-visible:outline-1',
-  'aria-invalid:border-danger-1 focus-visible:aria-invalid:outline-danger-1/75',
+  'aria-invalid:border-danger focus-visible:aria-invalid:outline-danger/80',
 ];
 
 const inputRadius = {

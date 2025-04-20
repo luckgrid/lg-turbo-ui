@@ -357,48 +357,6 @@ export function ButtonKitchenSink() {
               <Star />
             </Button>
           </Layout>
-
-          <Layout className='flex-row flex-wrap items-center gap-fs-3'>
-            <Button
-              size='sm'
-              color='accent'
-              variant='text'
-              isIcon
-              aria-label='Small Text Icon'
-            >
-              <Star />
-            </Button>
-            <Button variant='text' isIcon aria-label='Default Text Icon'>
-              <Star />
-            </Button>
-            <Button
-              size='md'
-              color='primary'
-              variant='text'
-              isIcon
-              aria-label='Medium Text Icon'
-            >
-              <Star />
-            </Button>
-            <Button
-              size='lg'
-              color='secondary'
-              variant='text'
-              isIcon
-              aria-label='Large Text Icon'
-            >
-              <Star />
-            </Button>
-            <Button
-              size='full'
-              color='secondary'
-              variant='text'
-              isIcon
-              aria-label='Full Text Icon'
-            >
-              <Star />
-            </Button>
-          </Layout>
         </Layout>
       </Layout>
 
@@ -605,6 +563,53 @@ export function ButtonKitchenSink() {
               >
                 <Star />
                 Full
+              </Button>
+            </Layout>
+
+            <Layout className='flex-row flex-wrap items-center gap-fs-3'>
+              <Button
+                size='sm'
+                color='secondary'
+                variant='text'
+                isIcon
+                aria-label='Small Text Icon'
+              >
+                <Star />
+              </Button>
+              <Button
+                color='secondary'
+                variant='text'
+                isIcon
+                aria-label='Default Text Icon'
+              >
+                <Star />
+              </Button>
+              <Button
+                size='md'
+                color='secondary'
+                variant='text'
+                isIcon
+                aria-label='Medium Text Icon'
+              >
+                <Star />
+              </Button>
+              <Button
+                size='lg'
+                color='secondary'
+                variant='text'
+                isIcon
+                aria-label='Large Text Icon'
+              >
+                <Star />
+              </Button>
+              <Button
+                size='full'
+                color='secondary'
+                variant='text'
+                isIcon
+                aria-label='Full Text Icon'
+              >
+                <Star />
               </Button>
             </Layout>
           </Layout>

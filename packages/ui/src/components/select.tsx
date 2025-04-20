@@ -8,7 +8,7 @@ import { cva } from 'class-variance-authority';
 import { CheckIcon, ChevronDownIcon, ChevronUpIcon } from 'lucide-react';
 
 import { cn } from '@workspace/ui/lib/utils';
-import { boxBase } from '@workspace/ui/primitives/box';
+import { boxBase, boxSize } from '@workspace/ui/primitives/box';
 import {
   inputBase,
   inputRadius,
@@ -113,7 +113,7 @@ const selectContentVariants = cva(
       },
       radius: inputRadius,
       shadow: inputShadow,
-      size: inputSize,
+      size: boxSize,
     },
     defaultVariants: {
       position: 'popper',
@@ -177,10 +177,7 @@ function SelectLabel({
   return (
     <SelectPrimitive.Label
       data-slot='select-label'
-      className={cn(
-        'text-muted-foreground px-fs-2 py-fs-1 text-label',
-        className
-      )}
+      className={cn('text-foreground px-fs-2 py-fs-1 text-label', className)}
       {...props}
     />
   );
@@ -208,7 +205,7 @@ const selectItemVariants = cva(
       // Style Variants
       radius: inputRadius,
       shadow: inputShadow,
-      size: inputSize,
+      size: boxSize,
     },
     defaultVariants: {
       radius: 'base',
