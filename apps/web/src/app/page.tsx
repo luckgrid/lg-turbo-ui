@@ -50,7 +50,7 @@ export default function Page() {
             className='size-fs-46 motion-preset-spin motion-loop-once motion-opacity-in-0 motion-scale-in-25 motion-duration-200 pointer-events-none dark:invert'
           />
           <div className='motion-opacity-in-0 motion-translate-y-in-50 max-w-4xl mx-auto flex flex-col gap-fs-1 text-center'>
-            <h1 className='text-balance'>{config.name}</h1>
+            <h1 className='text-balance text-hero'>{config.name}</h1>
             <p className='text-balance text-muted-foreground'>{config.title}</p>
           </div>
           <div className='motion-preset-fade-lg motion-delay-400 flex flex-col gap-fs-2 items-center justify-center'>

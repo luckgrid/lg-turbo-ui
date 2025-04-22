@@ -166,6 +166,16 @@
       --fs-44: 5.75rem;
       --fs-45: 5.875rem;
       --fs-46: 6rem;
+
+      /* Minimum line values */
+      --fs-line-xs: 0.031rem; /* 0.5px */
+      --fs-line-sm: 0.047rem; /* 0.75px */
+      --fs-line-md: 0.063rem; /* 1px */
+      --fs-line-lg: 0.094rem; /* 1.5px */
+      --fs-line-xl: 0.125rem; /* 2px */
+      --fs-line-2xl: 0.156rem; /* 2.5px */
+      --fs-line-3xl: 0.188rem; /* 3px */
+      --fs-line-4xl: 0.25rem; /* 4px */
     }
 
     @media screen and (min-width: var(--breakpoint-md, 48rem)) {
@@ -338,13 +348,33 @@
   --spacing-fs-45: var(--fs-45);
   --spacing-fs-46: var(--fs-46);
 
+  /* Border Width */
+  --border-width-xs: var(--fs-line-xs, 0.5px);
+  --border-width-sm: var(--fs-line-sm, 0.75px);
+  --border-width-md: var(--fs-line-md, 1px);
+  --border-width-lg: var(--fs-line-lg, 1.5px);
+  --border-width-xl: var(--fs-line-xl, 2px);
+  --border-width-2xl: var(--fs-line-2xl, 2.5px);
+  --border-width-3xl: var(--fs-line-3xl, 3px);
+  --border-width-4xl: var(--fs-line-4xl, 4px);
+
+  /* Border Radius */
+  --radius-xs: calc(--spacing(1) - 0.5px);
+  --radius-sm: calc(--spacing(1) + 1px);
+  --radius-md: calc(--spacing(1) + 2px);
+  --radius-lg: calc(--spacing(1) + 4px);
+  --radius-xl: calc(--spacing(1) + 6px);
+  --radius-2xl: calc(--spacing(1) + 8px);
+  --radius-3xl: calc(--spacing(1) + 10px);
+  --radius-4xl: calc(--spacing(1) + 12px);
+
   /* Fluid Border Radius */
-  --radius-fs-xs: var(--fs-0-25);
-  --radius-fs-sm: var(--fs-0-375);
-  --radius-fs-md: var(--fs-0-5);
-  --radius-fs-lg: var(--fs-0-625);
-  --radius-fs-xl: var(--fs-0-75);
-  --radius-fs-2xl: var(--fs-1);
-  --radius-fs-3xl: var(--fs-2);
-  --radius-fs-4xl: var(--fs-3);
+  --radius-fs-xs: var(--fs-0-5);
+  --radius-fs-sm: var(--fs-0-625);
+  --radius-fs-md: var(--fs-0-75);
+  --radius-fs-lg: var(--fs-1);
+  --radius-fs-xl: var(--fs-2);
+  --radius-fs-2xl: var(--fs-3);
+  --radius-fs-3xl: var(--fs-4);
+  --radius-fs-4xl: var(--fs-5);
 }

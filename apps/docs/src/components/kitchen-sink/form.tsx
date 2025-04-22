@@ -34,7 +34,6 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@workspace/ui/components/select';
-import { Layout } from '@workspace/ui/primitives/layout';
 
 // TODO:
 // - disable newsletterCategory fields when newsletterSubscription is false
@@ -128,7 +127,6 @@ export function FormKitchenSink() {
           >
             {(field) => (
               <Select
-                defaultOpen
                 defaultValue={field.value}
                 key={field.value}
                 onValueChange={field.onChange}

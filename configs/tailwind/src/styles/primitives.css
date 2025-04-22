@@ -1,0 +1,146 @@
+/* Theme Primitives */
+
+@theme inline {
+  /* Box Spacing */
+  --spacing-box-2xs: var(--fs-0-25, 0.25rem);
+  --spacing-box-xs: var(--fs-0-5, 0.5rem);
+  --spacing-box-sm: var(--fs-0-75, 0.75rem);
+  --spacing-box-md: var(--fs-1, 1rem);
+  --spacing-box-lg: var(--fs-2, 2rem);
+  --spacing-box-xl: var(--fs-3, 3rem);
+  --spacing-box-2xl: var(--fs-4, 4rem);
+  --spacing-box-3xl: var(--fs-5, 5rem);
+  --spacing-box-4xl: var(--fs-6, 6rem);
+  --spacing-box-5xl: var(--fs-7, 7rem);
+}
+
+/* Box Primitive */
+
+@utility box {
+  box-sizing: border-box;
+  display: flex;
+}
+
+@utility box-centered {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@utility box-* {
+  --spacing: calc(--modifier(number) * var(--spacing));
+  --spacing: calc(--modifier(integer) * 1%);
+  box-sizing: border-box;
+  display: --value('flex', 'grid', 'inline-flex', 'inline-grid');
+  display: flex;
+  gap: --value(--spacing-box-*, --spacing-*, [*]);
+  gap: --spacing(--value(number, integer));
+  padding: --value(--spacing-box-*, --spacing-*, [*]);
+  padding: --spacing(--value(number, integer));
+}
+
+@utility box-c-* {
+  --alpha: calc(--modifier(integer) * 1%);
+  background-color: --alpha(--value(--color-*, [color]) / var(--alpha, 100%));
+  color: --value(--color-*-foreground);
+}
+
+@utility box-b-* {
+  --alpha: calc(--modifier(integer) * 1%);
+  --spacing: calc(--modifier(number) * var(--spacing));
+  --spacing: calc(--modifier(integer) * 1%);
+  border-width: --value(--border-width-*, --spacing-*, [*]);
+  border-width: calc(--spacing(--value(number, integer)) / 4);
+  border-color: --alpha(--value(--color-*, [color]) / var(--alpha, 40%));
+}
+
+/* Action Primitive */
+
+@utility action {
+  transition-property: background-color, border-color, box-shadow, color, text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to;
+  transition-timing-function: var(--default-transition-timing-function);
+  transition-duration: var(--default-transition-duration);
+
+  &:disabled {
+    pointer-events: none;
+    opacity: 0.5;
+  }
+
+  & svg {
+    pointer-events: none;
+    flex-shrink: 0;
+    width: 1em;
+    height: 1em;
+  }
+}
+
+@utility action-* {
+  --alpha: calc(--modifier(integer) * 1%);
+  --spacing: calc(--modifier(number) * var(--spacing));
+  --spacing: calc(--modifier(integer) * 1%);
+  gap: calc(--value(--spacing-box-*, --spacing-*, [*]) / 2);
+  gap: calc(--spacing(--value(number, integer)) / 2);
+  padding-block: --value(--spacing-box-*, --spacing-*, [*]);
+  padding-block: --spacing(--value(number, integer));
+  padding-inline: calc(--value(--spacing-box-*, --spacing-*, [*]) * 2);
+  padding-inline: calc(--spacing(--value(number, integer)) * 2);
+  outline-offset: calc(--value(--border-width-*, --spacing-*, [*]) / 4);
+  outline-offset: calc(--spacing(--value(number, integer)) / 4);
+  outline-color: --alpha(--value(--color-*, [color]) / 75%);
+  border-color: --alpha(--value(--color-*, [color]) / 50%);
+  background-color: --alpha(--value(--color-*, [color]) / var(--alpha, 100%));
+  color: --value(--color-*-foreground);
+
+  &:hover {
+    border-color: transparent;
+    background-color: --alpha(--value(--color-*, [color]) / 90%);
+  }
+
+  &:active {
+    border-color: --alpha(--value(--color-*, [color]) / 100%);
+    background-color: --alpha(--value(--color-*, [color]) / var(--alpha, 100%));
+  }
+
+  &:focus-visible {
+    outline-width: calc(--value(--border-width-*, --spacing-*, [*]) / 4);
+    outline-width: calc(--spacing(--value(number, integer)) / 4);
+  }
+
+  &[aria-invalid="true"] {
+    &:focus-visible {
+      outline-width: 0;
+    }
+  }
+}
+
+@utility action-b-* {
+  --alpha: calc(--modifier(integer) * 1%);
+  --spacing: calc(--modifier(number) * var(--spacing));
+  --spacing: calc(--modifier(integer) * 1%);
+  border-width: --value(--border-width-*, --spacing-*, [*]);
+  border-width: calc(--spacing(--value(number, integer)) / 4);
+  border-color: --alpha(--value(--color-*, [color]) / var(--alpha, 100%));
+  border-color: var(--color-border, inherit);
+}
+
+@utility action-outline-* {
+  --alpha: calc(--modifier(integer) * 1%);
+  --spacing: calc(--modifier(number) * var(--spacing));
+  --spacing: calc(--modifier(integer) * 1%);
+  outline-offset: --value(--border-width-*, --spacing-*, [*]);
+  outline-offset: --spacing(--value(number, integer));
+  outline-color: --alpha(--value(--color-*, [color]) / var(--alpha, 100%));
+  outline-color: var(--color-ring, inherit);
+
+  &:focus-visible {
+    outline-width: --value(--border-width-*, --spacing-*, [*]);
+    outline-width: --spacing(--value(number, integer));
+  }
+
+  &[aria-invalid="true"] {
+    &:focus-visible {
+      outline-width: 0;
+    }
+  }
+}

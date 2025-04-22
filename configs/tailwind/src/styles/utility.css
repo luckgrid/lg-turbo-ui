@@ -4,90 +4,49 @@
 
 @utility container {
   margin-inline: auto;
-  max-width: var(--breakpoint-2xl);
+  max-width: var(--breakpoint-7xl);
 }
 
-/* Box Primitive */
-
-@utility box-* {
-  box-sizing: border-box;
-  display: --value('flex', 'grid', 'inline-flex', 'inline-grid');
-  gap: --spacing(--value(integer));
-  gap: --value(--spacing-box-*, --spacing-*, [*]);
-  padding: --spacing(--value(integer));
-  padding: --value(--spacing-box-*, --spacing-*, [*]);
+@utility auto-fill-* {
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(min(--value([*]), 100%), 1fr)
+  );
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(min(--value(--spacing-*, --text-*), 100%), 1fr)
+  );
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(min(var(--spacing) * --value(integer), 100%), 1fr)
+  );
 }
 
-@utility box-c-* {
-  border-color: --alpha(--value(--color-*) / 40%);
-  background-color: --value(--color-*);
-  color: --value(--color-*-foreground);
+@utility auto-fit-* {
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(min(--value([*]), 100%), 1fr)
+  );
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(min(--value(--spacing-*, --text-*), 100%), 1fr)
+  );
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(min(var(--spacing) * --value(integer), 100%), 1fr)
+  );
 }
 
-@utility box-b-* {
-  border-width: --value(--spacing-*, integer, [integer]);
-  border-color: --value(--color-*);
-}
+@utility no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 
-/* Action Primitive */
-
-@utility action {
-  transition-property: background-color, border-color, box-shadow, color, text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to;
-  transition-timing-function: var(--default-transition-timing-function);
-  transition-duration: var(--default-transition-duration);
-
-  &:disabled {
-    pointer-events: none;
-    opacity: 0.5;
-  }
-
-  & svg {
-    pointer-events: none;
-    flex-shrink: 0;
-    width: 1em;
-    height: 1em;
+  &::-webkit-scrollbar {
+    display: none;
   }
 }
 
-@utility action-* {
-  gap: calc(--value(--spacing-action-*, --spacing-*, [*]) / 2);
-  padding-block: --value(--spacing-action-*, --spacing-*, [*]);
-  padding-inline: calc(--value(--spacing-action-*, --spacing-*, [*]) * 2);
-  outline-offset: calc(--value(--spacing-action-*, --spacing-*, [*]) / 4);
-  border-color: --value(--color-*);
-  background-color: --value(--color-*);
-  color: --value(--color-*-foreground);
-
-  &:hover {
-    border-color: transparent;
-    background-color: --alpha(--value(--color-*) / 90%);
-  }
-
-  &:active {
-    border-color: --value(--color-*);
-    background-color: --value(--color-*);
-  }
-
-  &:focus-visible {
-    outline-width: calc(--value(--spacing-action-*, --spacing-*, [*]) / 4);
-    outline-color: --value(--color-*);
-  }
-
-  &:disabled {
-    opacity: --modifier(--value(--disabled-opacity-*, [*]));
-  }
-}
-
-@utility action-b-* {
-  border-width: --value(--spacing-*, integer, [integer]);
-  border-color: --value(--color-*);
-}
-
-@utility action-outline-* {
-  outline-offset: calc(--value(--spacing-*, integer, [integer]) * 2);
-  outline-color: --value(--color-*);
-
-  &:focus-visible {
-    outline-width: --value(--spacing-*, integer, [integer]);
-  }
+@utility scrollbar-* {
+  --alpha: calc(--modifier(integer) * 1%);
+  scrollbar-color: --alpha(--value(--color-*, [color]) / var(--alpha, 50%));
 }

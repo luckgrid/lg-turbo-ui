@@ -8,57 +8,166 @@
   /* For browsers that support clamp */
   @supports (font-size: clamp(1rem, 1vi, 1rem)) {
     :root {
-      --ts-xs: clamp(0.64rem, 0.1vi + 0.61rem, 0.7rem);
-      --ts-sm: clamp(0.8rem, 0.22vi + 0.74rem, 0.94rem);
-      --ts-base: clamp(1rem, 0.4vi + 0.89rem, 1.25rem);
-      --ts-md: clamp(1.25rem, 0.67vi + 1.06rem, 1.67rem);
-      --ts-lg: clamp(1.56rem, 1.06vi + 1.27rem, 2.22rem);
-      --ts-xl: clamp(1.95rem, 1.63vi + 1.5rem, 2.96rem);
-      --ts-2xl: clamp(2.44rem, 2.43vi + 1.76rem, 3.95rem);
-      --ts-3xl: clamp(3.05rem, 3.56vi + 2.05rem, 5.26rem);
-      --ts-4xl: clamp(3.81rem, 5.16vi + 2.37rem, 7.01rem);
+      --ts-5xs: clamp(0.51rem, 0.05vi + 0.5rem, 0.58rem); /* 8.16px | 8.8px | 9.28px */
+      --ts-4xs: clamp(0.57rem, 0.07vi + 0.55rem, 0.67rem); /* 9.12px | 10.08px | 10.72px */
+      --ts-3xs: clamp(0.64rem, 0.1vi + 0.61rem, 0.77rem); /* 10.24px | 11.36px | 12.32px */
+      --ts-2xs: clamp(0.71rem, 0.18vi + 0.69rem, 0.92rem); /* 11.36px | 12.32px | 14.72px */
+      --ts-xs: clamp(0.8rem, 0.18vi + 0.75rem, 1.03rem); /* 12.8px | 14.72px | 16.48px */
+      --ts-sm: clamp(0.9rem, 0.235vi + 0.83rem, 1.205rem); /* 14.4px | 16.88px | 19.28px */
+      --ts-base: clamp(1rem, 0.29vi + 0.91rem, 1.38rem); /* 16px | 19.04px | 22.08px */
+      --ts-md: clamp(1.125rem, 0.37vi + 1.015rem, 1.605rem); /* 18px | 23.44px | 25.68px */
+      --ts-lg: clamp(1.25rem, 0.45vi + 1.12rem, 1.83rem); /* 20px | 27.84px | 29.28px */
+      --ts-xl: clamp(1.56rem, 0.68vi + 1.36rem, 2.44rem); /* 24.96px | 36.96px | 39.04px */
+      --ts-2xl: clamp(1.95rem, 1vi + 1.65rem, 3.26rem); /* 31.2px | 48.8px | 52.16px */
+      --ts-3xl: clamp(2.44rem, 1.46vi + 2rem, 4.34rem); /* 39.04px | 54.24px | 69.44px */  
+      --ts-4xl: clamp(3.05rem, 2.1vi + 2.42rem, 5.79rem); /* 48.8px | 70.64px | 92.64px */ 
+      --ts-5xl: clamp(3.81rem, 3vi + 2.91rem, 7.71rem); /* 60.96px | 104.16px | 123.36px */
+      --ts-6xl: clamp(4.77rem, 4.24vi + 3.5rem, 10.28rem); /* 76.32px | 137.44px | 164.48px */
+      --ts-7xl: clamp(5.96rem, 5.96vi + 4.17rem, 13.71rem); /* 95.36px | 157.28px | 219.36px */
     }
   }
 
   /* For browsers that don't support clamp */
   @supports not (font-size: clamp(1rem, 1vi, 1rem)) {
     :root {
-      --ts-xs: 0.64rem;
-      --ts-sm: 0.8rem;
-      --ts-base: 1rem;
-      --ts-md: 1.25rem;
-      --ts-lg: 1.56rem;
-      --ts-xl: 1.95rem;
-      --ts-2xl: 2.44rem;
-      --ts-3xl: 3.05rem;
-      --ts-4xl: 3.81rem;
+      --ts-5xs: 0.51rem; /* 8.16px */
+      --ts-4xs: 0.57rem; /* 9.12px */
+      --ts-3xs: 0.64rem; /* 10.24px */
+      --ts-2xs: 0.71rem; /* 11.36px */
+      --ts-xs: 0.8rem; /* 12.8px */
+      --ts-sm: 0.9rem; /* 14.4px */
+      --ts-base: 1rem; /* 16px */
+      --ts-md: 1.125rem; /* 18px */
+      --ts-lg: 1.25rem; /* 20px */
+      --ts-xl: 1.56rem; /* 24.96px */
+      --ts-2xl: 1.95rem; /* 31.2px */
+      --ts-3xl: 2.44rem; /* 39.04px */
+      --ts-4xl: 3.05rem; /* 48.8px */
+      --ts-5xl: 3.81rem; /* 60.96px */
+      --ts-6xl: 4.77rem; /* 76.32px */
+      --ts-7xl: 5.96rem; /* 95.36px */
     }
 
     @media screen and (min-width: var(--breakpoint-md, 48rem)) {
       :root {
-        --ts-xs: 0.67rem;
-        --ts-sm: 0.87rem;
-        --ts-base: 1.13rem;
-        --ts-md: 1.46rem;
-        --ts-lg: 1.89rem;
-        --ts-xl: 2.46rem;
-        --ts-2xl: 3.19rem;
-        --ts-3xl: 4.16rem;
-        --ts-4xl: 5.41rem;
+        --ts-5xs: 0.52rem; /* 8.32px */
+        --ts-4xs: 0.59rem; /* 9.44px */
+        --ts-3xs: 0.66rem; /* 10.56px */
+        --ts-2xs: 0.74rem; /* 11.84px */
+        --ts-xs: 0.83rem; /* 13.28px */
+        --ts-sm: 0.93rem; /* 14.88px */
+        --ts-base: 1.05rem; /* 16.8px */
+        --ts-md: 1.33rem; /* 21.28px */
+        --ts-lg: 1.68rem; /* 26.88px */
+        --ts-xl: 2.13rem; /* 34.08px */
+        --ts-2xl: 2.7rem; /* 43.2px */
+        --ts-3xl: 3.43rem; /* 54.88px */
+        --ts-4xl: 4.35rem; /* 69.6px */
+        --ts-5xl: 5.53rem; /* 88.48px */
+        --ts-6xl: 6.97rem; /* 111.52px */
+        --ts-7xl: 8.8rem; /* 140.8px */
       }
     }
 
     @media screen and (min-width: var(--breakpoint-xl, 80rem)) {
       :root {
-        --ts-xs: 0.7rem;
-        --ts-sm: 0.94rem;
-        --ts-base: 1.25rem;
-        --ts-md: 1.67rem;
-        --ts-lg: 2.22rem;
-        --ts-xl: 2.96rem;
-        --ts-2xl: 3.95rem;
-        --ts-3xl: 5.26rem;
-        --ts-4xl: 7.01rem;
+        --ts-5xs: 0.54rem; /* 8.64px */
+        --ts-4xs: 0.61rem; /* 9.76px */
+        --ts-3xs: 0.69rem; /* 11.04px */
+        --ts-2xs: 0.78rem; /* 12.48px */
+        --ts-xs: 0.89rem; /* 14.24px */
+        --ts-sm: 1.05rem; /* 16.8px */
+        --ts-base: 1.14rem; /* 18.24px */
+        --ts-md: 1.47rem; /* 23.52px */
+        --ts-lg: 1.9rem; /* 30.4px */
+        --ts-xl: 2.45rem; /* 39.2px */
+        --ts-2xl: 3.17rem; /* 50.72px */
+        --ts-3xl: 4.1rem; /* 65.6px */
+        --ts-4xl: 5.31rem; /* 84.96px */
+        --ts-5xl: 6.89rem; /* 110.24px */
+        --ts-6xl: 8.8rem; /* 140.8px */
+        --ts-7xl: 11.2rem; /* 179.2px */
+      }
+    }
+
+    @media screen and (min-width: var(--breakpoint-3xl, 95rem)) {
+      :root {
+        --ts-5xs: 0.55rem; /* 8.8px */
+        --ts-4xs: 0.63rem; /* 10.08px */
+        --ts-3xs: 0.71rem; /* 11.36px */
+        --ts-2xs: 0.81rem; /* 12.96px */
+        --ts-xs: 0.92rem; /* 14.72px */
+        --ts-sm: 1.1rem; /* 17.6px */
+        --ts-base: 1.25rem; /* 20px */
+        --ts-md: 1.54rem; /* 24.64px */
+        --ts-lg: 2rem; /* 32px */
+        --ts-xl: 2.6rem; /* 41.6px */
+        --ts-2xl: 3.39rem; /* 54.24px */
+        --ts-3xl: 4.42rem; /* 70.64px */
+        --ts-4xl: 5.76rem; /* 92.16px */
+        --ts-5xl: 7.53rem; /* 120.48px */
+        --ts-6xl: 9.83rem; /* 157.28px */
+        --ts-7xl: 12.8rem; /* 204.8px */
+      } 
+    }
+
+    @media screen and (min-width: var(--breakpoint-5xl, 120rem)) {
+      :root {
+        --ts-5xs: 0.56rem; /* 9.04px */
+        --ts-4xs: 0.65rem; /* 10.4px */
+        --ts-3xs: 0.73rem; /* 11.68px */
+        --ts-2xs: 0.83rem; /* 13.28px */
+        --ts-xs: 0.96rem; /* 15.36px */
+        --ts-sm: 1.15rem; /* 18.4px */
+        --ts-base: 1.25rem; /* 20px */
+        --ts-md: 1.65rem; /* 26.4px */
+        --ts-lg: 2.17rem; /* 34.72px */
+        --ts-xl: 2.86rem; /* 45.76px */
+        --ts-2xl: 3.76rem; /* 59.92px */
+        --ts-3xl: 4.95rem; /* 79.2px */
+        --ts-4xl: 6.51rem; /* 104.16px */
+        --ts-5xl: 8.59rem; /* 137.44px */
+        --ts-6xl: 11.2rem; /* 179.2px */
+        --ts-7xl: 14.8rem; /* 236.8px */
+      }
+    }
+
+    @media screen and (min-width: var(--breakpoint-6xl, 140rem)) {
+      :root {
+        --ts-5xs: 0.57rem; /* 9.12px */
+        --ts-3xs: 0.75rem; /* 12px */
+        --ts-xs: 1rem; /* 16px */
+        --ts-base: 1.32rem; /* 21.12px */
+        --ts-md: 1.74rem; /* 27.84px */
+        --ts-lg: 2.31rem; /* 36.96px */
+        --ts-xl: 3.06rem; /* 48.96px */
+        --ts-2xl: 4.05rem; /* 64.8px */
+        --ts-3xl: 5.37rem; /* 85.92px */
+        --ts-4xl: 7.11rem; /* 113.76px */
+        --ts-5xl: 9.43rem; /* 150.88px */
+        --ts-6xl: 12.4rem; /* 198.4px */
+        --ts-7xl: 16.4rem; /* 262.4px */
+      }
+    }
+
+    @media screen and (min-width: var(--breakpoint-7xl, 160rem)) {
+      :root {
+        --ts-5xs: 0.58rem; /* 9.28px */
+        --ts-4xs: 0.67rem; /* 10.72px */
+        --ts-3xs: 0.77rem; /* 12.32px */
+        --ts-2xs: 0.89rem; /* 14.24px */
+        --ts-xs: 1.03rem; /* 16.48px */
+        --ts-sm: 1.25rem; /* 20px */
+        --ts-base: 1.38rem; /* 22.08px */
+        --ts-md: 1.83rem; /* 29.28px */
+        --ts-lg: 2.44rem; /* 39.04px */
+        --ts-xl: 3.26rem; /* 52.16px */
+        --ts-2xl: 4.34rem; /* 69.44px */
+        --ts-3xl: 5.79rem; /* 92.64px */
+        --ts-4xl: 7.71rem; /* 123.36px */
+        --ts-5xl: 10.28rem; /* 164.48px */
+        --ts-6xl: 13.71rem; /* 219.36px */
+        --ts-7xl: 18.2rem; /* 291.2px */
       }
     }
   }
@@ -67,22 +176,29 @@
 @theme inline {
   /* Fluid Typography */
   --text-caption: var(--ts-xs); /* For small captions, footnotes, or metadata */
+  --text-caption--leading: 1.25;
   --text-label: var(--ts-sm); /* For form labels and small UI elements */
+  --text-label--leading: 1;
   --text-body: var(--ts-base); /* For main body text or paragraphs */
-  --text-subheading: var(
-    --ts-md
-  ); /* For secondary headings within content sections */
-  --text-subtitle: var(
-    --ts-lg
-  ); /* For contextual subtitles or supporting titles */
+  --text-body--leading: 1.5;
+  --text-subheading: var(--ts-md); /* For secondary headings within content sections */
+  --text-subheading--leading: 1.25;
+  --text-subtitle: var(--ts-lg); /* For contextual subtitles or supporting titles */
+  --text-subtitle--leading: 1.15;
   --text-heading: var(--ts-xl); /* For primary section headings */
+  --text-heading--leading: 1.1;
   --text-title: var(--ts-2xl); /* For page or article titles */
-  --text-headline: var(
-    --ts-3xl
-  ); /* For large, prominent headlines that draw attention */
-  --text-epic: var(
-    --ts-4xl
-  ); /* For huge banner or hero text that makes a strong visual impact */
+  --text-title--leading: 1.05;
+  --text-headline: var(--ts-3xl); /* For large, prominent headlines that draw attention */
+  --text-headline--leading: 1;
+  --text-sign: var(--ts-4xl); /* For large sign or title text that makes a strong visual impact */
+  --text-sign--leading: 1;
+  --text-hero: var(--ts-5xl); /* For large hero or banner text that makes a strong visual impact */
+  --text-hero--leading: 1;
+  --text-jumbo: var(--ts-6xl); /* For huge jumbo text that makes a strong visual impact */
+  --text-jumbo--leading: 1;
+  --text-epic: var(--ts-7xl); /* For huge epic text that makes a strong visual impact */
+  --text-epic--leading: 1;
 }
 
 @layer base {
@@ -92,32 +208,32 @@
   }
 
   h1 {
-    font-size: var(--text-headline);
+    font-size: var(--text-sign);
     font-weight: var(--font-weight-bold);
   }
 
   h2 {
-    font-size: var(--text-title);
+    font-size: var(--text-headline);
     font-weight: var(--font-weight-bold);
   }
 
   h3 {
-    font-size: var(--text-heading);
+    font-size: var(--text-title);
     font-weight: var(--font-weight-semibold);
   }
 
   h4 {
-    font-size: var(--text-subtitle);
+    font-size: var(--text-heading);
     font-weight: var(--font-weight-semibold);
   }
 
   h5 {
-    font-size: var(--text-subheading);
+    font-size: var(--text-subtitle);
     font-weight: var(--font-weight-medium);
   }
 
   h6 {
-    font-size: var(--text-body);
+    font-size: var(--text-subheading);
     font-weight: var(--font-weight-medium);
   }
 

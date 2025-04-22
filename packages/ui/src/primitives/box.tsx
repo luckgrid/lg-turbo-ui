@@ -7,16 +7,14 @@ import { cn } from '@workspace/ui/lib/utils';
 import type { ElementProps } from '@workspace/ui/primitives/element';
 import { Element } from '@workspace/ui/primitives/element';
 
-// Box Base Styles - to set base box styles
-const boxBase = 'box-border flex';
-
 // Box Border Styles - to modify the border of a box
 const boxBorder = {
-  sm: 'border-1',
-  base: 'border-(length:--fs-0-25)',
-  md: 'border-(length:--fs-0-375)',
-  lg: 'border-(length:--fs-0-5)',
-  full: 'border-(length:--fs-0-75)',
+  sm: 'box-b-fs-line-sm',
+  base: 'box-b-fs-line-md',
+  md: 'box-b-fs-line-lg',
+  lg: 'box-b-fs-line-xl',
+  full: 'box-b-fs-line-3xl',
+  none: 'border-none',
   unset: '',
 };
 
@@ -54,7 +52,7 @@ const boxSize = {
 };
 
 // Box Variants - style variants for the box primitive
-const boxVariants = cva(boxBase, {
+const boxVariants = cva('box', {
   variants: {
     radius: boxRadius,
     shadow: boxShadow,
@@ -97,5 +95,5 @@ function Box<T extends React.ElementType = 'div'>({
 }
 
 // Box Primitive Exports
-export { Box, boxBase, boxBorder, boxRadius, boxShadow, boxSize, boxVariants };
+export { Box, boxBorder, boxRadius, boxShadow, boxSize, boxVariants };
 export type { BoxProps };

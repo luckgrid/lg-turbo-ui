@@ -49,12 +49,16 @@ const indicatorSize = {
 
 const indicatorVariant = {
   base: "[&_svg:not([class*='size-'])]:size-[1em]",
-  checkbox: [indicatorInput, "peer [&_svg:not([class*='size-'])]:size-fs-2"],
+  checkbox: [
+    indicatorInput,
+    "peer items-center justify-center [&_svg:not([class*='size-'])]:size-fs-2",
+  ],
   radio: [
     indicatorInput,
+    'items-center justify-center',
     'text-primary aspect-square',
     'data-[state=checked]:bg-primary-foreground',
-    "size-fs-4 [&_svg:not([class*='size-'])]:size-fs-1 [&_svg]:fill-primary",
+    "size-fs-4 [&_svg:not([class*='size-'])]:size-fs-2 [&_svg]:fill-primary",
   ],
 };
 

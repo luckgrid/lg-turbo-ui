@@ -8,13 +8,6 @@ import { boxRadius, boxShadow, boxSize } from '@workspace/ui/primitives/box';
 import type { ElementProps } from '@workspace/ui/primitives/element';
 import { Element } from '@workspace/ui/primitives/element';
 
-// Action Styles - to set style patterns for actions
-
-const actionDisabled = 'disabled:pointer-events-none disabled:opacity-50';
-
-const actionIcon =
-  "[&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-[1em]";
-
 // Action Outline Styles
 
 const actionOutlineColor = {
@@ -57,13 +50,11 @@ const actionTransition =
 
 // Base Action Styles
 const actionBase = [
-  actionDisabled,
-  actionIcon,
   actionTransition,
   ...actionOutline.base,
   ...actionOutlineColor.base,
   ...invalidActionOutline,
-  'cursor-pointer',
+  'cursor-pointer action',
 ];
 
 // Action Size Properties - to modify the size of an action primitive
@@ -88,7 +79,7 @@ const actionShadow = {
 
 // Action Variant Properties - to modify the style variants of an action primitive
 const actionVariant = {
-  base: 'inline-flex items-center justify-center',
+  base: 'box-centered inline-flex',
   content: [
     'tracking-[unset] leading-[inherit]',
     'outline-offset-(--fs-0-5) focus-visible:outline-(length:--fs-0-25) focus-visible:ring-0',
@@ -142,8 +133,6 @@ function Action<T extends React.ElementType = 'div'>({
 export {
   Action,
   actionBase,
-  actionDisabled,
-  actionIcon,
   actionOutline,
   actionOutlineColor,
   actionRadius,

@@ -4,11 +4,7 @@ import type { VariantProps } from 'class-variance-authority';
 import { cva } from 'class-variance-authority';
 
 import { cn } from '@workspace/ui/lib/utils';
-import {
-  actionOutline,
-  actionOutlineColor,
-  invalidActionOutline,
-} from '@workspace/ui/primitives/action';
+import { actionOutline } from '@workspace/ui/primitives/action';
 import { boxBorder } from '@workspace/ui/primitives/box';
 import type { DisplayProps } from '@workspace/ui/primitives/display';
 import {
@@ -25,12 +21,9 @@ import {
 const cardBase = [displayBase];
 
 const cardAction = [
-  ...actionOutline.base,
-  ...actionOutlineColor.base,
-  ...invalidActionOutline,
+  'action action-outline-card',
   'cursor-pointer no-underline',
-  'transition-[background-color,border-color,color,box-shadow,opacity]',
-  'disabled:pointer-events-none disabled:opacity-75',
+  'disabled:opacity-75',
 ];
 
 const cardRadius = {

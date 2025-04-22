@@ -4,17 +4,12 @@ import type { VariantProps } from 'class-variance-authority';
 import { cva } from 'class-variance-authority';
 
 import { cn } from '@workspace/ui/lib/utils';
-import {
-  boxBase,
-  boxRadius,
-  boxShadow,
-  boxSize,
-} from '@workspace/ui/primitives/box';
+import { boxRadius, boxShadow, boxSize } from '@workspace/ui/primitives/box';
 import type { ElementProps } from '@workspace/ui/primitives/element';
 import { Element } from '@workspace/ui/primitives/element';
 
 // Display Base Styles - to set base display styles
-const displayBase = [boxBase, 'flex-col'];
+const displayBase = 'box flex-col';
 
 // Display Radius Properties - to modify the border radius of a display primitive
 const displayRadius = {

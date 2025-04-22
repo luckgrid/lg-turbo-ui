@@ -8,7 +8,7 @@ import { cva } from 'class-variance-authority';
 import { CheckIcon, ChevronDownIcon, ChevronUpIcon } from 'lucide-react';
 
 import { cn } from '@workspace/ui/lib/utils';
-import { boxBase, boxSize } from '@workspace/ui/primitives/box';
+import { boxSize } from '@workspace/ui/primitives/box';
 import {
   inputBase,
   inputRadius,
@@ -95,8 +95,7 @@ function SelectTrigger({
 
 const selectContentVariants = cva(
   [
-    boxBase,
-    'z-50 overflow-x-hidden overflow-y-auto',
+    'box z-50 overflow-x-hidden overflow-y-auto',
     'max-h-(--radix-select-content-available-height) min-w-[8rem] origin-(--radix-select-content-transform-origin)',
     'border bg-popover text-popover-foreground',
     'data-[state=open]:animate-in data-[state=open]:fade-in-0 data-[state=open]:zoom-in-95',
@@ -191,9 +190,8 @@ function SelectLabel({
 
 const selectItemVariants = cva(
   [
-    boxBase,
     'w-full cursor-default outline-hidden select-none',
-    'flex items-center gap-fs-2 py-fs-1 pr-fs-8 pl-fs-2 text-label',
+    'box items-center gap-fs-2 py-fs-1 pr-fs-8 pl-fs-2 text-label',
     'focus:bg-primary focus:text-primary-foreground',
     'data-[disabled]:pointer-events-none data-[disabled]:opacity-50',
     '*:[span]:last:flex *:[span]:last:items-center *:[span]:last:gap-fs-2',

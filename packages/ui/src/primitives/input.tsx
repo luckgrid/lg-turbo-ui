@@ -4,19 +4,13 @@ import type { VariantProps } from 'class-variance-authority';
 import { cva } from 'class-variance-authority';
 
 import { cn } from '@workspace/ui/lib/utils';
-import {
-  boxBase,
-  boxRadius,
-  boxShadow,
-  boxSize,
-} from '@workspace/ui/primitives/box';
+import { boxRadius, boxShadow, boxSize } from '@workspace/ui/primitives/box';
 import type { ElementProps } from '@workspace/ui/primitives/element';
 import { Element } from '@workspace/ui/primitives/element';
 import { formStatus } from '@workspace/ui/primitives/form';
 
 const inputBase = [
-  boxBase,
-  'w-full transition-[background-color,border-color,color,box-shadow,opacity,fill,stroke]',
+  'box w-full transition-[background-color,border-color,color,box-shadow,opacity,fill,stroke]',
   'outline-offset-1 outline-ring/80 border-border bg-input text-input-foreground',
   'text-left text-pretty',
   'placeholder:text-input-foreground/50 hover:placeholder:text-input-foreground/60 focus-within:placeholder:text-input-foreground/70',
@@ -32,6 +26,11 @@ const inputRadius = {
 
 const inputShadow = {
   ...boxShadow,
+  sm: 'shadow-2xs',
+  base: 'shadow-xs',
+  md: 'shadow-sm',
+  lg: 'shadow-md',
+  full: 'shadow-lg',
 };
 
 const inputSize = {

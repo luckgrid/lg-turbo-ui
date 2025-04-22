@@ -4,17 +4,12 @@ import type { VariantProps } from 'class-variance-authority';
 import { cva } from 'class-variance-authority';
 
 import { cn } from '@workspace/ui/lib/utils';
-import {
-  boxBase,
-  boxRadius,
-  boxShadow,
-  boxSize,
-} from '@workspace/ui/primitives/box';
+import { boxRadius, boxShadow, boxSize } from '@workspace/ui/primitives/box';
 import type { ElementProps } from '@workspace/ui/primitives/element';
 import { Element } from '@workspace/ui/primitives/element';
 
 // Layout Base Styles - to set base layout styles
-const layoutBase = [boxBase, 'flex-col'];
+const layoutBase = ['box', 'flex-col'];
 
 // Layout Radius Properties - to modify the border radius of a layout primitive
 const layoutRadius = {
