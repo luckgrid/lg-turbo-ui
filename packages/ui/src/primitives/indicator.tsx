@@ -22,7 +22,7 @@ const indicatorBase = 'box-border inline-flex shrink-0';
 
 const indicatorInput = [
   'transition-[background-color,border-color,color,box-shadow,opacity,fill,stroke]',
-  'border-(length:--spacing-line-sm) border-border outline-offset-1 outline-ring/50 ring-ring/25 bg-input',
+  'border-(length:--line-sm) border-border outline-offset-1 outline-ring/50 ring-ring/25 bg-input',
   'data-[state=checked]:border-primary data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground',
   'active:not-disabled:motion-scale-in-90 active:not-disabled:motion-duration-300 active:not-disabled:motion-ease-spring-bouncy',
   'disabled:cursor-not-allowed disabled:opacity-50',

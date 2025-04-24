@@ -111,11 +111,11 @@ const formFieldShadow = {
 
 const formFieldSize = {
   ...formSize,
-  sm: 'gap-y---spacing-line-sm gap-x-fs-075',
-  base: 'gap-y---spacing-line-lg gap-x-fs-1',
-  md: 'gap-y-line-2xl gap-x-fs-1',
-  lg: 'gap-y-fs-1 gap-x-fs-2',
-  full: 'gap-y-fs-2 gap-x-fs-4',
+  sm: 'gap-y-fs-sm-1 gap-x-fs-sm-2',
+  base: 'gap-y-fs-sm-2 gap-x-fs-sm-3',
+  md: 'gap-y-fs-sm-3 gap-x-fs-sm-4',
+  lg: 'gap-y-fs-sm-4 gap-x-fs-sm-5',
+  full: 'gap-y-fs-sm-3 gap-x-fs-sm-6',
 };
 
 const formFieldVariants = cva('box-border grid items-start', {

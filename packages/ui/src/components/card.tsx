@@ -102,27 +102,27 @@ const cardVariants = cva(cardBase, {
     {
       size: 'sm',
       isAction: true,
-      className: "action-outline-xs",
+      className: 'action-outline-xs',
     },
     {
       size: 'base',
       isAction: true,
-      className: "action-outline-sm",
+      className: 'action-outline-sm',
     },
     {
       size: 'md',
       isAction: true,
-      className: "action-outline-md",
+      className: 'action-outline-md',
     },
     {
       size: 'lg',
       isAction: true,
-      className: "action-outline-lg",
+      className: 'action-outline-lg',
     },
     {
       size: 'full',
       isAction: true,
-      className: "action-outline-xl",
+      className: 'action-outline-xl',
     },
     // Action Modifier Base Variant
     {

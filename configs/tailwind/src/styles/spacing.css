@@ -9,6 +9,7 @@
  * -- should have the following variables: --fs-min-w, --fs-max-w, --fs-min-fs, --fs-max-fs, --fs-min-ts, --fs-max-ts
  * -- should calculate a middle value using above variables (i.e. 0.5rem + 3vw)
  * -- should set the min and max values using min-fs and max-fs variables
+ * -- condense fluid spacing variables into structured groups
 **/
 
 @layer properties {
@@ -846,4 +847,49 @@
   --spacing-ts-3xl: var(--fs-ts-3xl, 13.19rem); /* 211.04px */
   --spacing-ts-4xl: var(--fs-ts-4xl, 20.75rem); /* 332.00px */
   --spacing-ts-5xl: var(--fs-ts-5xl, 32.77rem); /* 524.32px */
+
+  /* Box Spacing */
+  --spacing-box-xs: var(--spacing-fs-6);
+  --spacing-box-sm: var(--spacing-fs-7);
+  --spacing-box-base: var(--spacing-fs-8);
+  --spacing-box-md: var(--spacing-fs-9);
+  --spacing-box-lg: var(--spacing-fs-10);
+  --spacing-box-xl: var(--spacing-fs-11);
+  --spacing-box-full: var(--spacing-fs-12);
+
+  /* Action Spacing */
+  --spacing-action-xs: var(--spacing-fs-sm-1);
+  --spacing-action-sm: var(--spacing-fs-sm-2);
+  --spacing-action-base: var(--spacing-fs-sm-3);
+  --spacing-action-md: var(--spacing-fs-sm-4);
+  --spacing-action-lg: var(--spacing-fs-sm-5);
+  --spacing-action-xl: var(--spacing-fs-sm-6);
+  --spacing-action-full: var(--spacing-fs-sm-7);
+
+  /* Layout Spacing */
+  --spacing-layout-xs: var(--spacing-ts-sm);
+  --spacing-layout-sm: var(--spacing-ts-base);
+  --spacing-layout-base: var(--spacing-ts-md);
+  --spacing-layout-md: var(--spacing-ts-lg);
+  --spacing-layout-lg: var(--spacing-ts-xl);
+  --spacing-layout-xl: var(--spacing-ts-2xl);
+  --spacing-layout-full: var(--spacing-ts-3xl);
+
+  /* Display Spacing */
+  --spacing-display-xs: var(--spacing-fs-md-6);
+  --spacing-display-sm: var(--spacing-fs-md-7);
+  --spacing-display-base: var(--spacing-fs-md-8);
+  --spacing-display-md: var(--spacing-fs-md-9);
+  --spacing-display-lg: var(--spacing-fs-md-10);
+  --spacing-display-xl: var(--spacing-fs-md-11);
+  --spacing-display-full: var(--spacing-fs-md-12);
+  
+  /* Text Spacing */
+  --spacing-text-xs: var(--spacing-fs-md-2);
+  --spacing-text-sm: var(--spacing-fs-4);
+  --spacing-text-base: var(--spacing-fs-6);
+  --spacing-text-md: var(--spacing-fs-7);
+  --spacing-text-lg: var(--spacing-fs-8);
+  --spacing-text-xl: var(--spacing-fs-9);
+  --spacing-text-full: var(--spacing-fs-10);
 }
