@@ -50,3 +50,10 @@
   --alpha: calc(--modifier(integer) * 1%);
   scrollbar-color: --alpha(--value(--color-*, [color]) / var(--alpha, 50%));
 }
+
+@utility fluid-media {
+  &:is(img, svg):not([class*='size-']) {
+    width: 1em;
+    height: 1em;
+  }
+}

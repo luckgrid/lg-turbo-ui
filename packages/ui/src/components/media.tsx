@@ -4,19 +4,38 @@ import type { VariantProps } from 'class-variance-authority';
 import { cva } from 'class-variance-authority';
 
 import { cn } from '@workspace/ui/lib/utils';
-import type { DisplayProps } from '@workspace/ui/primitives/display';
-import {
-  Display,
-  displayRadius,
-  displayShadow,
-  displaySize,
-} from '@workspace/ui/primitives/display';
+import type { ElementProps } from '@workspace/ui/primitives/element';
+import { Element } from '@workspace/ui/primitives/element';
 
 const imageVariants = cva('', {
   variants: {
-    radius: displayRadius,
-    shadow: displayShadow,
-    size: displaySize,
+    radius: {
+      sm: 'rounded-fs-md',
+      base: 'rounded-fs-lg',
+      md: 'rounded-fs-xl',
+      lg: 'rounded-fs-2xl',
+      full: 'rounded-full',
+      none: 'rounded-none',
+      unset: '',
+    },
+    shadow: {
+      sm: 'shadow-sm',
+      base: 'shadow-md',
+      md: 'shadow-lg',
+      lg: 'shadow-xl',
+      full: 'shadow-2xl',
+      none: 'shadow-none',
+      unset: '',
+    },
+    size: {
+      sm: '',
+      base: '',
+      md: '',
+      lg: '',
+      full: '',
+      none: '',
+      unset: '',
+    },
     variant: {
       base: '',
       icon: "[&:not([class*='size-'])]:size-[1em]",
@@ -31,7 +50,7 @@ const imageVariants = cva('', {
 
 type ImageVariantProps = VariantProps<typeof imageVariants>;
 
-type ImageProps<T extends React.ElementType = 'div'> = DisplayProps<T> &
+type ImageProps<T extends React.ElementType = 'div'> = ElementProps<T> &
   ImageVariantProps;
 
 function Image<T extends React.ElementType = 'img'>({
@@ -44,7 +63,7 @@ function Image<T extends React.ElementType = 'img'>({
   ...props
 }: ImageProps<T>) {
   return (
-    <Display
+    <Element
       data-slot='image'
       as={as}
       className={cn(

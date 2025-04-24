@@ -8,7 +8,6 @@ import { cva } from 'class-variance-authority';
 import { CheckIcon, ChevronDownIcon, ChevronUpIcon } from 'lucide-react';
 
 import { cn } from '@workspace/ui/lib/utils';
-import { boxSize } from '@workspace/ui/primitives/box';
 import {
   inputBase,
   inputRadius,
@@ -112,7 +111,15 @@ const selectContentVariants = cva(
       },
       radius: inputRadius,
       shadow: inputShadow,
-      size: boxSize,
+      size: {
+        sm: '',
+        base: '',
+        md: '',
+        lg: '',
+        full: '',
+        none: '',
+        unset: '',
+      },
     },
     defaultVariants: {
       position: 'popper',
@@ -150,7 +157,7 @@ function SelectContent({
         <SelectScrollUpButton />
         <SelectPrimitive.Viewport
           className={cn(
-            'p-fs-0-5',
+            'p---spacing-line-lg',
             position === 'popper' &&
               'h-[var(--radix-select-trigger-height)] w-full min-w-[var(--radix-select-trigger-width)] scroll-my-fs-1'
           )}
@@ -203,7 +210,15 @@ const selectItemVariants = cva(
       // Style Variants
       radius: inputRadius,
       shadow: inputShadow,
-      size: boxSize,
+      size: {
+        sm: '',
+        base: '',
+        md: '',
+        lg: '',
+        full: '',
+        none: '',
+        unset: '',
+      },
     },
     defaultVariants: {
       radius: 'base',
@@ -251,7 +266,7 @@ function SelectSeparator({
     <SelectPrimitive.Separator
       data-slot='select-separator'
       className={cn(
-        'bg-border pointer-events-none -mx-fs-1 my-fs-1 h-fs-0-25',
+        'bg-border pointer-events-none -mx-fs-1 my-fs-1 h---spacing-line-sm',
         className
       )}
       {...props}

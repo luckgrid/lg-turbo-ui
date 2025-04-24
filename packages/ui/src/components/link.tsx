@@ -23,7 +23,7 @@ const linkUnderline = {
 const linkVariants = cva(
   [
     linkBase,
-    'items-center gap-fs-0-75',
+    'items-center gap-line-2xl',
     'text-current hover:text-current/90 underline-offset-1',
     'disabled:pointer-events-none disabled:opacity-50',
     'outline-offset-2 outline-ring/50',

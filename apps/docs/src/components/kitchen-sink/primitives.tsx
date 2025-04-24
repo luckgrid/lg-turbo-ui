@@ -38,21 +38,21 @@ export function PrimitivesKitchenSink() {
         <Layout className='flex-row flex-wrap items-center gap-fs-6'>
           <button
             type='button'
-            className='cursor inline-flex items-center rounded-fs-md action action-fs-1 action-neutral'
+            className='cursor inline-flex items-center rounded-fs-sm action action-fs-3 action-neutral'
           >
             Neutral Action
             <Star />
           </button>
           <button
             type='button'
-            className='cursor inline-flex items-center rounded-fs-lg action action-fs-2 action-primary'
+            className='cursor inline-flex items-center rounded-fs-md action action-fs-5 action-primary'
           >
             Primary Action
             <Star />
           </button>
           <button
             type='button'
-            className='cursor-not-allowed inline-flex items-center rounded-fs-lg action action-fs-3 action-secondary'
+            className='cursor-not-allowed inline-flex items-center rounded-fs-lg action action-fs-7 action-secondary'
             disabled
           >
             Disabled Secondary Action
@@ -63,21 +63,21 @@ export function PrimitivesKitchenSink() {
         <Layout className='flex-row flex-wrap items-center gap-fs-6'>
           <button
             type='button'
-            className='cursor box-centered inline-flex rounded-fs-sm action action-sm action-base'
+            className='cursor box-centered inline-flex rounded-fs-xs action action-sm action-base text-label'
           >
             Base Small Action
           </button>
           <button
             type='button'
-            className='cursor box-centered inline-flex rounded-fs-md action action-md action-primary'
+            className='cursor box-centered inline-flex rounded-fs-sm action action-base action-display text-label'
           >
-            Accent Medium Action
+            Display Base Action
           </button>
           <button
             type='button'
-            className='cursor box-centered inline-flex rounded-fs-lg action action-lg action-b-lg action-danger bg-transparent'
+            className='cursor box-centered inline-flex rounded-fs-md action action-md action-b-md action-panel text-panel-foreground bg-transparent hover:bg-panel'
           >
-            Outline Danger Large Action
+            Outline Panel Medium Action
           </button>
         </Layout>
       </Layout>

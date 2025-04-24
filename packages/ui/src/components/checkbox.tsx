@@ -22,7 +22,7 @@ const checkboxVariants = cva([indicatorBase, indicatorVariant.checkbox], {
       ...indicatorSize,
       base: [
         indicatorSize.base,
-        "[&_svg:not([class*='size-'])]:size-fs-2 border-(length:--fs-0-25)",
+        "[&_svg:not([class*='size-'])]:size-fs-2 border-(length:--spacing-line-sm)",
       ],
       sm: [
         indicatorSize.sm,
@@ -30,15 +30,15 @@ const checkboxVariants = cva([indicatorBase, indicatorVariant.checkbox], {
       ],
       md: [
         indicatorSize.md,
-        "[&_svg:not([class*='size-'])]:size-fs-3 border-(length:--fs-0-375)",
+        "[&_svg:not([class*='size-'])]:size-fs-3 border-(length:--spacing-line-md)",
       ],
       lg: [
         indicatorSize.lg,
-        "[&_svg:not([class*='size-'])]:size-fs-4 border-(length:--fs-0-5)",
+        "[&_svg:not([class*='size-'])]:size-fs-4 border-(length:--spacing-line-lg)",
       ],
       full: [
         indicatorSize.full,
-        "[&_svg:not([class*='size-'])]:size-fs-5 border-(length:--fs-0-625)",
+        "[&_svg:not([class*='size-'])]:size-fs-5 border-(length:--spacing-line-xl)",
       ],
     },
     // Style Modifiers

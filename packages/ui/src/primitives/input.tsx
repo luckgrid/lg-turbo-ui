@@ -4,10 +4,9 @@ import type { VariantProps } from 'class-variance-authority';
 import { cva } from 'class-variance-authority';
 
 import { cn } from '@workspace/ui/lib/utils';
-import { boxRadius, boxShadow, boxSize } from '@workspace/ui/primitives/box';
 import type { ElementProps } from '@workspace/ui/primitives/element';
 import { Element } from '@workspace/ui/primitives/element';
-import { formStatus } from '@workspace/ui/primitives/form';
+import { formStatus, formRadius, formShadow } from '@workspace/ui/primitives/form';
 
 const inputBase = [
   'box w-full transition-[background-color,border-color,color,box-shadow,opacity,fill,stroke]',
@@ -21,11 +20,11 @@ const inputBase = [
 ];
 
 const inputRadius = {
-  ...boxRadius,
+  ...formRadius,
 };
 
 const inputShadow = {
-  ...boxShadow,
+  ...formShadow,
   sm: 'shadow-2xs',
   base: 'shadow-xs',
   md: 'shadow-sm',
@@ -34,12 +33,13 @@ const inputShadow = {
 };
 
 const inputSize = {
-  ...boxSize,
-  base: 'gap-fs-0-75 px-fs-3 py-fs-1 border-(length:--fs-0-25) text-body',
-  sm: 'gap-fs-0-5 px-fs-2 py-fs-1 border-1 text-label',
-  md: 'gap-fs-0-75 px-fs-4 py-fs-2 border-(length:--fs-0-25) text-body',
-  lg: 'gap-fs-1 px-fs-5 py-fs-3 border-(length:--fs-0-375) focus-visible:outline-(length:--fs-0-025) text-subheading',
-  full: 'gap-fs-2 px-fs-6 py-fs-4 border-(length:--fs-0-5) text-subheading',
+  sm: 'gap-line-lg px-fs-2 py-fs-1 border-1 text-label',
+  base: 'gap-line-2xl px-fs-3 py-fs-1 border-(length:--spacing-line-sm) text-body',
+  md: 'gap-line-2xl px-fs-4 py-fs-2 border-(length:--spacing-line-sm) text-body',
+  lg: 'gap-fs-1 px-fs-5 py-fs-3 border-(length:--spacing-line-md) focus-visible:outline-(length:--line-sm25) text-subheading',
+  full: 'gap-fs-2 px-fs-6 py-fs-4 border-(length:--spacing-line-lg) text-subheading',
+  none: 'gap-0 px-0 py-0 border-0',
+  unset: '',
 };
 
 const inputStatus = {

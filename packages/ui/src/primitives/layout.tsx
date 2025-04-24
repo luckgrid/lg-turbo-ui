@@ -4,30 +4,43 @@ import type { VariantProps } from 'class-variance-authority';
 import { cva } from 'class-variance-authority';
 
 import { cn } from '@workspace/ui/lib/utils';
-import { boxRadius, boxShadow, boxSize } from '@workspace/ui/primitives/box';
 import type { ElementProps } from '@workspace/ui/primitives/element';
 import { Element } from '@workspace/ui/primitives/element';
 
 // Layout Base Styles - to set base layout styles
-const layoutBase = ['box', 'flex-col'];
+const layoutBase = 'box flex-col';
 
 // Layout Radius Properties - to modify the border radius of a layout primitive
 const layoutRadius = {
-  ...boxRadius,
-  base: 'rounded-fs-2xl',
   sm: 'rounded-fs-xl',
+  base: 'rounded-fs-2xl',
   md: 'rounded-fs-3xl',
   lg: 'rounded-fs-4xl',
+  full: 'rounded-full',
+  none: 'rounded-none',
+  unset: '',
 };
 
 // Layout Shadow Properties - to modify the shadow of a layout primitive
 const layoutShadow = {
-  ...boxShadow,
+  sm: 'shadow-sm',
+  base: 'shadow-md',
+  md: 'shadow-lg',
+  lg: 'shadow-xl',
+  full: 'shadow-2xl',
+  none: 'shadow-none',
+  unset: '',
 };
 
 // Layout Size Properties - to modify the size of a layout primitive
 const layoutSize = {
-  ...boxSize,
+  sm: '',
+  base: '',
+  md: '',
+  lg: '',
+  full: '',
+  none: '',
+  unset: '',
 };
 
 // Layout Variants
@@ -65,9 +78,9 @@ function Layout<T extends React.ElementType = 'div'>({
 
 // Layout Container Space Properties - to modify the spacing styles of a layout container
 const layoutContainerSpace = {
-  base: 'gap-fs-3 px-fs-6',
-  wrapper: 'gap-fs-3 py-fs-6',
-  frame: 'gap-fs-3 p-fs-6',
+  base: 'gap-fs-layout-xs px-layout-base',
+  wrapper: 'gap-fs-layout-xs py-layout-base',
+  frame: 'gap-fs-layout-xs p-layout-base',
   none: 'gap-0 p-0',
   unset: '',
 };
@@ -130,7 +143,7 @@ function LayoutContainer<T extends React.ElementType = 'div'>({
 }
 
 // Layout Bar Base Styles - to set base layout bar styles
-const layoutBarBase = [...layoutBase, '2xs:flex-row 2xs:flex-wrap'];
+const layoutBarBase = [layoutBase, '2xs:flex-row 2xs:flex-wrap'];
 
 // Layout Bar Space Properties - to modify the spacing styles of a layout bar primitive
 const layoutBarSpace = {

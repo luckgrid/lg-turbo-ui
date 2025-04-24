@@ -164,7 +164,7 @@ export function FormKitchenSink() {
                     onCheckedChange={field.onChange}
                   />
                 </FormControl>
-                <div className='flex flex-col gap-fs-0-75 leading-none'>
+                <div className='flex flex-col gap-line-2xl leading-none'>
                   <FormLabel size='md' variant='indicator'>
                     I agree to the terms and conditions
                   </FormLabel>
@@ -188,7 +188,7 @@ export function FormKitchenSink() {
                     onCheckedChange={field.onChange}
                   />
                 </FormControl>
-                <div className='flex flex-col gap-fs-0-75 leading-none'>
+                <div className='flex flex-col gap-line-2xl leading-none'>
                   <FormLabel size='md' variant='indicator'>
                     I want to subscribe to the newsletter
                   </FormLabel>

@@ -27,7 +27,7 @@ const radioGroupRadius = {
 const radioGroupSize = {
   ...indicatorSize,
   base: 'gap-fs-1',
-  sm: 'gap-fs-0-5',
+  sm: 'gap-line-lg',
   md: 'gap-fs-2',
   lg: 'gap-fs-3',
   full: 'gap-fs-4',
@@ -89,19 +89,19 @@ const radioGroupItemSize = {
   ],
   base: [
     indicatorSize.base,
-    "size-fs-4 [&_svg:not([class*='size-'])]:size-fs-2 border-(length:--fs-0-25)",
+    "size-fs-4 [&_svg:not([class*='size-'])]:size-fs-2 border-(length:--spacing-line-sm)",
   ],
   md: [
     indicatorSize.md,
-    "size-fs-5 [&_svg:not([class*='size-'])]:size-fs-3 border-(length:--fs-0-375)",
+    "size-fs-5 [&_svg:not([class*='size-'])]:size-fs-3 border-(length:--spacing-line-md)",
   ],
   lg: [
     indicatorSize.lg,
-    "size-fs-6 [&_svg:not([class*='size-'])]:size-fs-4 border-(length:--fs-0-5)",
+    "size-fs-6 [&_svg:not([class*='size-'])]:size-fs-4 border-(length:--spacing-line-lg)",
   ],
   full: [
     indicatorSize.full,
-    "size-fs-7 [&_svg:not([class*='size-'])]:size-fs-5 border-(length:--fs-0-625)",
+    "size-fs-7 [&_svg:not([class*='size-'])]:size-fs-5 border-(length:--spacing-line-xl)",
   ],
 };
 

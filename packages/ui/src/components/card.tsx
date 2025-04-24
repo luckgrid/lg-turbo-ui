@@ -4,21 +4,12 @@ import type { VariantProps } from 'class-variance-authority';
 import { cva } from 'class-variance-authority';
 
 import { cn } from '@workspace/ui/lib/utils';
-import { actionOutline } from '@workspace/ui/primitives/action';
-import { boxBorder } from '@workspace/ui/primitives/box';
-import type { DisplayProps } from '@workspace/ui/primitives/display';
-import {
-  Display,
-  displayBase,
-  displayRadius,
-  displayShadow,
-  displaySize,
-  displaySpace,
-} from '@workspace/ui/primitives/display';
+import type { ElementProps } from '@workspace/ui/primitives/element';
+import { Element } from '@workspace/ui/primitives/element';
 
 // Card Component
 
-const cardBase = [displayBase];
+const cardBase = 'box flex-col';
 
 const cardAction = [
   'action action-outline-card',
@@ -27,23 +18,46 @@ const cardAction = [
 ];
 
 const cardRadius = {
-  ...displayRadius,
+  sm: 'rounded-fs-sm',
+  base: 'rounded-fs-md',
+  md: 'rounded-fs-lg',
+  lg: 'rounded-fs-xl',
+  full: 'rounded-full',
+  none: 'rounded-none',
+  unset: '',
 };
 
 const cardShadow = {
-  ...displayShadow,
+  sm: 'shadow-sm',
+  base: 'shadow-md',
+  md: 'shadow-lg',
+  lg: 'shadow-xl',
+  full: 'shadow-2xl',
+  none: 'shadow-none',
+  unset: '',
 };
 
 const cardSize = {
-  ...displaySize,
+  sm: '',
+  base: '',
+  md: '',
+  lg: '',
+  full: '',
+  none: '',
+  unset: '',
 };
 
 const cardSpace = {
-  ...displaySpace,
+  base: 'gap-display-base',
+  container: 'gap-display-base px-display-base',
+  wrapper: 'gap-display-base py-display-base',
+  frame: 'gap-display-base p-display-base',
+  none: 'gap-0 p-0',
+  unset: '',
 };
 
 const cardVariant = {
-  base: [boxBorder.base, 'border-card/40 bg-card text-card-foreground'],
+  base: 'box-b-base border-card-foreground/20 bg-card text-card-foreground',
 };
 
 const cardVariants = cva(cardBase, {
@@ -62,53 +76,53 @@ const cardVariants = cva(cardBase, {
     {
       size: 'sm',
       variant: 'base',
-      className: [boxBorder.sm],
+      className: 'box-b-sm',
     },
     {
       size: 'base',
       variant: 'base',
-      className: [boxBorder.base],
+      className: 'box-b-base',
     },
     {
       size: 'md',
       variant: 'base',
-      className: [boxBorder.md],
+      className: 'box-b-md',
     },
     {
       size: 'lg',
       variant: 'base',
-      className: [boxBorder.lg],
+      className: 'box-b-lg',
     },
     {
       size: 'full',
       variant: 'base',
-      className: [boxBorder.full],
+      className: 'box-b-xl',
     },
     // Action Modifier Sizes
     {
       size: 'sm',
       isAction: true,
-      className: [...actionOutline.sm],
+      className: "action-outline-xs",
     },
     {
       size: 'base',
       isAction: true,
-      className: [...actionOutline.base],
+      className: "action-outline-sm",
     },
     {
       size: 'md',
       isAction: true,
-      className: [...actionOutline.md],
+      className: "action-outline-md",
     },
     {
       size: 'lg',
       isAction: true,
-      className: [...actionOutline.lg],
+      className: "action-outline-lg",
     },
     {
       size: 'full',
       isAction: true,
-      className: [...actionOutline.full],
+      className: "action-outline-xl",
     },
     // Action Modifier Base Variant
     {
@@ -128,7 +142,7 @@ const cardVariants = cva(cardBase, {
 
 type CardVariantProps = VariantProps<typeof cardVariants>;
 
-type CardProps<T extends React.ElementType = 'div'> = DisplayProps<T> &
+type CardProps<T extends React.ElementType = 'div'> = ElementProps<T> &
   CardVariantProps;
 
 function Card<T extends React.ElementType = 'div'>({
@@ -143,7 +157,7 @@ function Card<T extends React.ElementType = 'div'>({
   ...props
 }: CardProps<T>) {
   return (
-    <Display
+    <Element
       data-slot='card'
       as={as}
       className={cn(
@@ -180,7 +194,7 @@ const cardHeaderVariants = cva(cardBase, {
 
 type CardHeaderVariantProps = VariantProps<typeof cardHeaderVariants>;
 
-type CardHeaderProps<T extends React.ElementType = 'header'> = DisplayProps<T> &
+type CardHeaderProps<T extends React.ElementType = 'header'> = ElementProps<T> &
   CardHeaderVariantProps;
 
 function CardHeader<T extends React.ElementType = 'header'>({
@@ -192,7 +206,7 @@ function CardHeader<T extends React.ElementType = 'header'>({
   ...props
 }: CardHeaderProps<T>) {
   return (
-    <Display
+    <Element
       data-slot='card-header'
       as={as}
       className={cn(
@@ -223,7 +237,7 @@ const cardBodyVariants = cva(cardBase, {
 
 type CardBodyVariantProps = VariantProps<typeof cardBodyVariants>;
 
-type CardBodyProps<T extends React.ElementType = 'div'> = DisplayProps<T> &
+type CardBodyProps<T extends React.ElementType = 'div'> = ElementProps<T> &
   CardBodyVariantProps;
 
 function CardBody<T extends React.ElementType = 'div'>({
@@ -234,7 +248,7 @@ function CardBody<T extends React.ElementType = 'div'>({
   ...props
 }: CardBodyProps<T>) {
   return (
-    <Display
+    <Element
       data-slot='card-body'
       as={as}
       className={cn(
@@ -264,12 +278,20 @@ const cardFooterVariants = cva(cardBase, {
 
 type CardFooterVariantProps = VariantProps<typeof cardFooterVariants>;
 
-type CardFooterProps = React.ComponentProps<'footer'> & CardFooterVariantProps;
+type CardFooterProps<T extends React.ElementType = 'footer'> = ElementProps<T> &
+  CardFooterVariantProps;
 
-function CardFooter({ radius, size, className, ...props }: CardFooterProps) {
+function CardFooter<T extends React.ElementType = 'footer'>({
+  as = 'footer',
+  radius,
+  size,
+  className,
+  ...props
+}: CardFooterProps<T>) {
   return (
-    <footer
+    <Element
       data-slot='card-footer'
+      as={as}
       className={cn(
         cardFooterVariants({
           radius,

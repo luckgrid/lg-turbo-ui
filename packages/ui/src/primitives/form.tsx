@@ -2,8 +2,6 @@ import type { VariantProps } from 'class-variance-authority';
 import { cva } from 'class-variance-authority';
 
 import { cn } from '@workspace/ui/lib/utils';
-import { boxRadius, boxShadow, boxSize } from '@workspace/ui/primitives/box';
-import { displayRadius, displayShadow } from '@workspace/ui/primitives/display';
 import type { ElementProps } from '@workspace/ui/primitives/element';
 import { Element } from '@workspace/ui/primitives/element';
 
@@ -16,24 +14,33 @@ import { Element } from '@workspace/ui/primitives/element';
 const formBase = 'box-border grid items-start';
 
 const formRadius = {
-  ...boxRadius,
-  base: 'rounded-fs-xl',
   sm: 'rounded-fs-lg',
+  base: 'rounded-fs-xl',
   md: 'rounded-fs-2xl',
   lg: 'rounded-fs-3xl',
+  full: 'rounded-full',
+  none: 'rounded-none',
+  unset: '',
 };
 
 const formShadow = {
-  ...displayShadow,
+  sm: 'shadow-sm',
+  base: 'shadow-md',
+  md: 'shadow-lg',
+  lg: 'shadow-xl',
+  full: 'shadow-2xl',
+  none: 'shadow-none',
+  unset: '',
 };
 
 const formSize = {
-  ...boxSize,
-  base: 'gap-fs-4',
   sm: 'gap-fs-2',
+  base: 'gap-fs-4',
   md: 'gap-fs-6',
   lg: 'gap-fs-8',
   full: 'gap-fs-12',
+  none: 'gap-0',
+  unset: '',
 };
 
 const formStatus = {
@@ -95,18 +102,18 @@ function Form<T extends React.ElementType = 'form'>({
 // Primitive Form Field Component
 
 const formFieldRadius = {
-  ...displayRadius,
+  ...formRadius,
 };
 
 const formFieldShadow = {
-  ...boxShadow,
+  ...formShadow,
 };
 
 const formFieldSize = {
-  ...boxSize,
-  base: 'gap-y-fs-0-5 gap-x-fs-1',
-  sm: 'gap-y-fs-0-25 gap-x-fs-075',
-  md: 'gap-y-fs-0-075 gap-x-fs-1',
+  ...formSize,
+  sm: 'gap-y---spacing-line-sm gap-x-fs-075',
+  base: 'gap-y---spacing-line-lg gap-x-fs-1',
+  md: 'gap-y-line-2xl gap-x-fs-1',
   lg: 'gap-y-fs-1 gap-x-fs-2',
   full: 'gap-y-fs-2 gap-x-fs-4',
 };
@@ -161,12 +168,13 @@ function FormField({
 // Primitive Form Text Component
 
 const formTextSize = {
-  ...boxSize,
-  base: 'text-label',
   sm: 'text-caption',
+  base: 'text-label',
   md: 'text-body',
-  lg: 'text-subheading',
-  full: 'text-subtitle',
+  lg: 'text-lead',
+  full: 'text-subheading',
+  none: '',
+  unset: '',
 };
 
 const formTextStatus = {

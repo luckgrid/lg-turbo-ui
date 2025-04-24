@@ -1,3 +1,4 @@
+import { Link } from '@workspace/next-ui/components/link';
 import { Image } from '@workspace/next-ui/components/media';
 import { Section } from '@workspace/ui/components/section';
 import { Layout, LayoutContainer } from '@workspace/ui/primitives/layout';
@@ -11,15 +12,17 @@ export default function Page() {
     <Layout as='main' className='min-h-svh'>
       <Section as='header' className='py-fs-24 bg-base text-base-foreground'>
         <LayoutContainer className='flex-row flex-wrap justify-center md:justify-start items-center gap-fs-6'>
-          <Image
-            alt='Logo'
-            src='/assets/logos/logo.png'
-            width={75}
-            height={75}
-            priority
-            className='dark:invert'
-          />
-          <h1 className='text-title text-balance text-center md:text-left'>
+          <h1 className='fluid-media display-text text-title text-balance text-left'>
+            <Link href='/'>
+              <Image
+                alt='Logo'
+                src='/assets/logos/logo.png'
+                width={75}
+                height={75}
+                priority
+                className='dark:invert'
+              />
+            </Link>
             LG Turbo UI Kitchen Sink
           </h1>
         </LayoutContainer>

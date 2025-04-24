@@ -14,6 +14,26 @@
   --breakpoint-5xl: 120rem; /* 1920px */
   --breakpoint-6xl: 140rem; /* 2240px */
   --breakpoint-7xl: 160rem; /* 2560px */
+
+  /* Border Radius */
+  --radius-xs: calc(--spacing(1) - 0.5px);
+  --radius-sm: calc(--spacing(1) + 1px);
+  --radius-md: calc(--spacing(1) + 2px);
+  --radius-lg: calc(--spacing(1) + 4px);
+  --radius-xl: calc(--spacing(1) + 6px);
+  --radius-2xl: calc(--spacing(1) + 8px);
+  --radius-3xl: calc(--spacing(1) + 10px);
+  --radius-4xl: calc(--spacing(1) + 12px);
+
+  /* Fluid Border Radius */
+  --radius-fs-xs: var(--spacing-fs-1, --radius-xs);
+  --radius-fs-sm: var(--spacing-fs-2, --radius-sm);
+  --radius-fs-md: var(--spacing-fs-sm-1, --radius-md);
+  --radius-fs-lg: var(--spacing-fs-sm-2, --radius-lg);
+  --radius-fs-xl: var(--spacing-fs-sm-3, --radius-xl);
+  --radius-fs-2xl: var(--spacing-fs-sm-4, --radius-2xl);
+  --radius-fs-3xl: var(--spacing-fs-sm-5, --radius-3xl);
+  --radius-fs-4xl: var(--spacing-fs-sm-6, --radius-4xl);
 }
 
 @layer base {

@@ -13,11 +13,11 @@ const labelBase = 'inline-flex select-none transition-[color]';
 
 const labelSize = {
   ...formTextSize,
-  base: 'gap-fs-0-25 font-medium text-label',
-  sm: 'gap-fs-0-25 font-normal text-caption',
-  md: 'gap-fs-0-375 font-medium text-body',
-  lg: 'gap-fs-0-5 font-semibold text-subheading',
-  full: 'gap-fs-0-75 font-semibold text-subtitle',
+  base: 'gap-line-sm font-medium text-label',
+  sm: 'gap-line-sm font-normal text-caption',
+  md: 'gap-line-md font-medium text-body',
+  lg: 'gap-line-lg font-semibold text-subheading',
+  full: 'gap-line-2xl font-semibold text-subtitle',
 };
 
 const labelStatus = {
@@ -34,7 +34,7 @@ const labelVariant = {
 const labelVariants = cva(
   [
     labelBase,
-    'items-center gap-fs-0-25',
+    'items-center gap-line-sm',
     'data-[error=true]:text-danger',
     'group-data-[disabled=true]:pointer-events-none group-data-[disabled=true]:opacity-50',
     'peer-disabled:opacity-50',

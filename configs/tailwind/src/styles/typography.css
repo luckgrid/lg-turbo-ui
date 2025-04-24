@@ -1,8 +1,17 @@
 /* Typography Scale */
 
-/* - Fluid Type Scale Calculator: https://www.fluid-type-scale.com/calculate?minFontSize=16&minWidth=448&minRatio=1.25&maxFontSize=20&maxWidth=1440&maxRatio=1.333&steps=xs%2Csm%2Cbase%2Cmd%2Clg%2Cxl%2C2xl%2C3xl%2C4xl&baseStep=base&prefix=ts&useContainerWidth=false&includeFallbacks=true&useRems=true&remValue=16&decimals=2&previewFont=Inter&previewText=Almost+before+we+knew+it%2C+we+had+left+the+ground&previewWidth=944 */
+/* - Fluid Type Scale Calculator: https://www.fluid-type-scale.com/calculate?minFontSize=16&minWidth=480&minRatio=1.25&maxFontSize=22&maxWidth=2560&maxRatio=1.333&steps=2xs%2Cxs%2Csm%2Cbase%2Cmd%2Clg%2Cxl%2C2xl%2C3xl%2C4xl%2C5xl%2C6xl&baseStep=base&prefix=ts&useContainerWidth=false&includeFallbacks=true&useRems=true&remValue=16&decimals=2&previewFont=Inter&previewText=Almost+before+we+knew+it%2C+we+had+left+the+ground&previewWidth=2560 */
 /* - Fluid Type Scale Generator: https://typescale.com/ */
 /* - Modular Type Scale Generator: https://precise-type.com/modular-scale.html */
+
+/* TODO:
+ * - add line-height and letter-spacing fluid scales with fallback values - https://medium.com/@joaopegb/a-complete-guide-to-build-a-fluid-typography-system-in-elementor-c8254c8d76dc
+ * - create reusable typography utility or variant classes (i.e. text-fs-*, fs:text-*)
+ * - create functions to generate semantic typography values
+ * - setup AI agent with functions to transform user typography inputs into fluid typography scales using clamp with fallback values
+ * - define a typography schemas that designers will typically use that agent can read and transform into a fluid typography scale css variables
+ * - integrate fluid scale functions with an agentic ai cli to generate typography stylesheets on command
+**/
 
 @layer properties {
   /* For browsers that support clamp */
@@ -15,7 +24,7 @@
       --ts-xs: clamp(0.8rem, 0.18vi + 0.75rem, 1.03rem); /* 12.8px | 14.72px | 16.48px */
       --ts-sm: clamp(0.9rem, 0.235vi + 0.83rem, 1.205rem); /* 14.4px | 16.88px | 19.28px */
       --ts-base: clamp(1rem, 0.29vi + 0.91rem, 1.38rem); /* 16px | 19.04px | 22.08px */
-      --ts-md: clamp(1.125rem, 0.37vi + 1.015rem, 1.605rem); /* 18px | 23.44px | 25.68px */
+      --ts-md: clamp(1.125rem, 0.42vi + 0.985rem, 1.605rem); /* 18px | 21.84px | 25.68px */
       --ts-lg: clamp(1.25rem, 0.45vi + 1.12rem, 1.83rem); /* 20px | 27.84px | 29.28px */
       --ts-xl: clamp(1.56rem, 0.68vi + 1.36rem, 2.44rem); /* 24.96px | 36.96px | 39.04px */
       --ts-2xl: clamp(1.95rem, 1vi + 1.65rem, 3.26rem); /* 31.2px | 48.8px | 52.16px */
@@ -57,15 +66,15 @@
         --ts-xs: 0.83rem; /* 13.28px */
         --ts-sm: 0.93rem; /* 14.88px */
         --ts-base: 1.05rem; /* 16.8px */
-        --ts-md: 1.33rem; /* 21.28px */
-        --ts-lg: 1.68rem; /* 26.88px */
-        --ts-xl: 2.13rem; /* 34.08px */
-        --ts-2xl: 2.7rem; /* 43.2px */
-        --ts-3xl: 3.43rem; /* 54.88px */
-        --ts-4xl: 4.35rem; /* 69.6px */
-        --ts-5xl: 5.53rem; /* 88.48px */
-        --ts-6xl: 6.97rem; /* 111.52px */
-        --ts-7xl: 8.8rem; /* 140.8px */
+        --ts-md: 1.175rem; /* 18.8px */
+        --ts-lg: 1.33rem; /* 21.28px */
+        --ts-xl: 1.68rem; /* 26.88px */
+        --ts-2xl: 2.13rem; /* 34.08px */
+        --ts-3xl: 2.7rem; /* 43.2px */
+        --ts-4xl: 3.43rem; /* 54.88px */
+        --ts-5xl: 4.35rem; /* 69.6px */
+        --ts-6xl: 5.53rem; /* 88.48px */
+        --ts-7xl: 7.03rem; /* 112.48px */
       }
     }
 
@@ -78,15 +87,15 @@
         --ts-xs: 0.89rem; /* 14.24px */
         --ts-sm: 1.05rem; /* 16.8px */
         --ts-base: 1.14rem; /* 18.24px */
-        --ts-md: 1.47rem; /* 23.52px */
-        --ts-lg: 1.9rem; /* 30.4px */
-        --ts-xl: 2.45rem; /* 39.2px */
-        --ts-2xl: 3.17rem; /* 50.72px */
-        --ts-3xl: 4.1rem; /* 65.6px */
-        --ts-4xl: 5.31rem; /* 84.96px */
-        --ts-5xl: 6.89rem; /* 110.24px */
-        --ts-6xl: 8.8rem; /* 140.8px */
-        --ts-7xl: 11.2rem; /* 179.2px */
+        --ts-md: 1.3rem; /* 20.8px */
+        --ts-lg: 1.47rem; /* 23.52px */
+        --ts-xl: 1.9rem; /* 30.4px */
+        --ts-2xl: 2.45rem; /* 39.2px */
+        --ts-3xl: 3.17rem; /* 50.72px */
+        --ts-4xl: 4.1rem; /* 65.6px */
+        --ts-5xl: 5.31rem; /* 84.96px */
+        --ts-6xl: 6.89rem; /* 110.24px */
+        --ts-7xl: 8.94rem; /* 143.04px */
       }
     }
 
@@ -98,16 +107,16 @@
         --ts-2xs: 0.81rem; /* 12.96px */
         --ts-xs: 0.92rem; /* 14.72px */
         --ts-sm: 1.1rem; /* 17.6px */
-        --ts-base: 1.25rem; /* 20px */
-        --ts-md: 1.54rem; /* 24.64px */
-        --ts-lg: 2rem; /* 32px */
-        --ts-xl: 2.6rem; /* 41.6px */
-        --ts-2xl: 3.39rem; /* 54.24px */
-        --ts-3xl: 4.42rem; /* 70.64px */
-        --ts-4xl: 5.76rem; /* 92.16px */
-        --ts-5xl: 7.53rem; /* 120.48px */
-        --ts-6xl: 9.83rem; /* 157.28px */
-        --ts-7xl: 12.8rem; /* 204.8px */
+        --ts-base: 1.19rem; /* 19.04px */
+        --ts-md: 1.37rem; /* 21.84px */
+        --ts-lg: 1.54rem; /* 24.64px */
+        --ts-xl: 2rem; /* 32px */
+        --ts-2xl: 2.6rem; /* 41.6px */
+        --ts-3xl: 3.39rem; /* 54.24px */
+        --ts-4xl: 4.42rem; /* 70.64px */
+        --ts-5xl: 5.76rem; /* 92.16px */
+        --ts-6xl: 7.53rem; /* 120.48px */
+        --ts-7xl: 9.83rem; /* 157.28px */
       } 
     }
 
@@ -119,34 +128,37 @@
         --ts-2xs: 0.83rem; /* 13.28px */
         --ts-xs: 0.96rem; /* 15.36px */
         --ts-sm: 1.15rem; /* 18.4px */
-        --ts-base: 1.25rem; /* 20px */
-        --ts-md: 1.65rem; /* 26.4px */
-        --ts-lg: 2.17rem; /* 34.72px */
-        --ts-xl: 2.86rem; /* 45.76px */
-        --ts-2xl: 3.76rem; /* 59.92px */
-        --ts-3xl: 4.95rem; /* 79.2px */
-        --ts-4xl: 6.51rem; /* 104.16px */
-        --ts-5xl: 8.59rem; /* 137.44px */
-        --ts-6xl: 11.2rem; /* 179.2px */
-        --ts-7xl: 14.8rem; /* 236.8px */
+        --ts-base: 1.26rem; /* 20.16px */
+        --ts-md: 1.4rem; /* 22.4px */
+        --ts-lg: 1.65rem; /* 26.4px */
+        --ts-xl: 2.17rem; /* 34.72px */
+        --ts-2xl: 2.86rem; /* 45.76px */
+        --ts-3xl: 3.76rem; /* 59.92px */
+        --ts-4xl: 4.95rem; /* 79.2px */
+        --ts-5xl: 6.51rem; /* 104.16px */
+        --ts-6xl: 8.59rem; /* 137.44px */
+        --ts-7xl: 11.2rem; /* 179.2px */
       }
     }
 
     @media screen and (min-width: var(--breakpoint-6xl, 140rem)) {
       :root {
         --ts-5xs: 0.57rem; /* 9.12px */
+        --ts-4xs: 0.67rem; /* 10.72px */
         --ts-3xs: 0.75rem; /* 12px */
+        --ts-2xs: 0.89rem; /* 14.24px */
         --ts-xs: 1rem; /* 16px */
+        --ts-sm: 1.25rem; /* 20px */
         --ts-base: 1.32rem; /* 21.12px */
-        --ts-md: 1.74rem; /* 27.84px */
-        --ts-lg: 2.31rem; /* 36.96px */
-        --ts-xl: 3.06rem; /* 48.96px */
-        --ts-2xl: 4.05rem; /* 64.8px */
-        --ts-3xl: 5.37rem; /* 85.92px */
-        --ts-4xl: 7.11rem; /* 113.76px */
-        --ts-5xl: 9.43rem; /* 150.88px */
-        --ts-6xl: 12.4rem; /* 198.4px */
-        --ts-7xl: 16.4rem; /* 262.4px */
+        --ts-md: 1.5rem; /* 24px */
+        --ts-lg: 1.74rem; /* 27.84px */
+        --ts-xl: 2.31rem; /* 36.96px */
+        --ts-2xl: 3.06rem; /* 48.96px */
+        --ts-3xl: 4.05rem; /* 64.8px */
+        --ts-4xl: 5.37rem; /* 85.92px */
+        --ts-5xl: 7.11rem; /* 113.76px */
+        --ts-6xl: 9.43rem; /* 150.88px */
+        --ts-7xl: 12.52rem; /* 200.32px */
       }
     }
 
@@ -159,46 +171,153 @@
         --ts-xs: 1.03rem; /* 16.48px */
         --ts-sm: 1.25rem; /* 20px */
         --ts-base: 1.38rem; /* 22.08px */
-        --ts-md: 1.83rem; /* 29.28px */
-        --ts-lg: 2.44rem; /* 39.04px */
-        --ts-xl: 3.26rem; /* 52.16px */
-        --ts-2xl: 4.34rem; /* 69.44px */
-        --ts-3xl: 5.79rem; /* 92.64px */
-        --ts-4xl: 7.71rem; /* 123.36px */
-        --ts-5xl: 10.28rem; /* 164.48px */
-        --ts-6xl: 13.71rem; /* 219.36px */
-        --ts-7xl: 18.2rem; /* 291.2px */
+        --ts-md: 1.605rem; /* 25.68px */
+        --ts-lg: 1.83rem; /* 29.28px */
+        --ts-xl: 2.44rem; /* 39.04px */
+        --ts-2xl: 3.26rem; /* 52.16px */
+        --ts-3xl: 4.34rem; /* 69.44px */
+        --ts-4xl: 5.79rem; /* 92.64px */
+        --ts-5xl: 7.71rem; /* 123.36px */
+        --ts-6xl: 10.28rem; /* 164.48px */
+        --ts-7xl: 13.71rem; /* 219.36px */
       }
     }
   }
 }
 
 @theme inline {
-  /* Fluid Typography */
-  --text-caption: var(--ts-xs); /* For small captions, footnotes, or metadata */
-  --text-caption--leading: 1.25;
-  --text-label: var(--ts-sm); /* For form labels and small UI elements */
-  --text-label--leading: 1;
-  --text-body: var(--ts-base); /* For main body text or paragraphs */
-  --text-body--leading: 1.5;
-  --text-subheading: var(--ts-md); /* For secondary headings within content sections */
-  --text-subheading--leading: 1.25;
-  --text-subtitle: var(--ts-lg); /* For contextual subtitles or supporting titles */
-  --text-subtitle--leading: 1.15;
-  --text-heading: var(--ts-xl); /* For primary section headings */
-  --text-heading--leading: 1.1;
-  --text-title: var(--ts-2xl); /* For page or article titles */
-  --text-title--leading: 1.05;
-  --text-headline: var(--ts-3xl); /* For large, prominent headlines that draw attention */
-  --text-headline--leading: 1;
-  --text-sign: var(--ts-4xl); /* For large sign or title text that makes a strong visual impact */
-  --text-sign--leading: 1;
-  --text-hero: var(--ts-5xl); /* For large hero or banner text that makes a strong visual impact */
-  --text-hero--leading: 1;
-  --text-jumbo: var(--ts-6xl); /* For huge jumbo text that makes a strong visual impact */
-  --text-jumbo--leading: 1;
-  --text-epic: var(--ts-7xl); /* For huge epic text that makes a strong visual impact */
-  --text-epic--leading: 1;
+  /* Fluid Text Scale */
+
+  --text-fs-5xs: var(--ts-5xs);
+  --text-fs-5xs--line-height: 1.125;
+  --text-fs-5xs--letter-spacing: initial;
+
+  --text-fs-4xs: var(--ts-4xs);
+  --text-fs-4xs--line-height: 1.25;
+  --text-fs-4xs--letter-spacing: initial;
+
+  --text-fs-3xs: var(--ts-3xs);
+  --text-fs-3xs--line-height: 1.375;
+  --text-fs-3xs--letter-spacing: initial;
+
+  --text-fs-2xs: var(--ts-2xs);
+  --text-fs-2xs--line-height: 1.5;
+  --text-fs-2xs--letter-spacing: initial;
+
+  --text-fs-xs: var(--ts-xs);
+  --text-fs-xs--line-height: 1;
+  --text-fs-xs--letter-spacing: initial;
+
+  --text-fs-sm: var(--ts-sm);
+  --text-fs-sm--line-height: 1;
+  --text-fs-sm--letter-spacing: initial;
+
+  --text-fs-base: var(--ts-base);
+  --text-fs-base--line-height: 1.5;
+  --text-fs-base--letter-spacing: initial;
+
+  --text-fs-md: var(--ts-md);
+  --text-fs-md--line-height: 1.375;
+  --text-fs-md--letter-spacing: initial;
+
+  --text-fs-lg: var(--ts-lg);
+  --text-fs-lg--line-height: 1.375;
+  --text-fs-lg--letter-spacing: initial;
+
+  --text-fs-xl: var(--ts-xl);
+  --text-fs-xl--line-height: 1.25;
+  --text-fs-xl--letter-spacing: initial;
+
+  --text-fs-2xl: var(--ts-2xl);
+  --text-fs-2xl--line-height: 1.25;
+  --text-fs-2xl--letter-spacing: initial;
+
+  --text-fs-3xl: var(--ts-3xl);
+  --text-fs-3xl--line-height: 1.125;
+  --text-fs-3xl--letter-spacing: initial;
+
+  --text-fs-4xl: var(--ts-4xl);
+  --text-fs-4xl--line-height: 1.125;
+  --text-fs-4xl--letter-spacing: initial;
+
+  --text-fs-5xl: var(--ts-5xl);
+  --text-fs-5xl--line-height: 1;
+  --text-fs-5xl--letter-spacing: initial;
+
+  --text-fs-6xl: var(--ts-6xl);
+  --text-fs-6xl--line-height: 1;
+  --text-fs-6xl--letter-spacing: initial;
+
+  --text-fs-7xl: var(--ts-7xl);
+  --text-fs-7xl--line-height: 1;
+  --text-fs-7xl--letter-spacing: initial;
+
+  /* Semantic Text Scale */
+
+  --text-legal: var(--text-fs-2xs);
+  --text-legal--line-height: var(--text-fs-2xs--line-height);
+  --text-legal--letter-spacing: var(--text-fs-2xs--letter-spacing);
+  --text-legal--font-weight: var(--font-weight-light);
+
+  --text-caption: var(--text-fs-xs);
+  --text-caption--line-height: var(--text-fs-xs--line-height);
+  --text-caption--letter-spacing: var(--text-fs-xs--letter-spacing);
+  --text-caption--font-weight: var(--font-weight-normal);
+
+  --text-label: var(--text-fs-sm);
+  --text-label--line-height: var(--text-fs-sm--line-height);
+  --text-label--letter-spacing: var(--text-fs-sm--letter-spacing);
+  --text-label--font-weight: var(--font-weight-medium);
+
+  --text-body: var(--text-fs-base);
+  --text-body--line-height: var(--text-fs-base--line-height);
+  --text-body--letter-spacing: var(--text-fs-base--letter-spacing);
+  --text-body--font-weight: var(--font-weight-normal);
+
+  --text-lead: var(--text-fs-md);
+  --text-lead--line-height: var(--text-fs-md--line-height);
+  --text-lead--letter-spacing: var(--text-fs-md--letter-spacing);
+  --text-lead--font-weight: var(--font-weight-medium);
+
+  --text-subheading: var(--text-fs-lg);
+  --text-subheading--line-height: var(--text-fs-lg--line-height);
+  --text-subheading--letter-spacing: var(--text-fs-lg--letter-spacing);
+  --text-subheading--font-weight: var(--font-weight-semibold);
+
+  --text-subtitle: var(--text-fs-xl);
+  --text-subtitle--line-height: var(--text-fs-xl--line-height);
+  --text-subtitle--letter-spacing: var(--text-fs-xl--letter-spacing);
+  --text-subtitle--font-weight: var(--font-weight-semibold);
+
+  --text-headline: var(--text-fs-2xl);
+  --text-headline--line-height: var(--text-fs-2xl--line-height);
+  --text-headline--letter-spacing: var(--text-fs-2xl--letter-spacing);
+  --text-headline--font-weight: var(--font-weight-bold);
+
+  --text-heading: var(--text-fs-3xl);
+  --text-heading--line-height: var(--text-fs-3xl--line-height);
+  --text-heading--letter-spacing: var(--text-fs-3xl--letter-spacing);
+  --text-heading--font-weight: var(--font-weight-bold);
+
+  --text-title: var(--text-fs-4xl);
+  --text-title--line-height: var(--text-fs-4xl--line-height);
+  --text-title--letter-spacing: var(--text-fs-4xl--letter-spacing);
+  --text-title--font-weight: var(--font-weight-bold);
+
+  --text-display: var(--text-fs-5xl);
+  --text-display--line-height: var(--text-fs-5xl--line-height);
+  --text-display--letter-spacing: var(--text-fs-5xl--letter-spacing);
+  --text-display--font-weight: var(--font-weight-extrabold);
+
+  --text-hero: var(--text-fs-6xl);
+  --text-hero--line-height: var(--text-fs-6xl--line-height);
+  --text-hero--letter-spacing: var(--text-fs-6xl--letter-spacing);
+  --text-hero--font-weight: var(--font-weight-extrabold);
+
+  --text-epic: var(--text-fs-7xl);
+  --text-epic--line-height: var(--text-fs-7xl--line-height);
+  --text-epic--letter-spacing: var(--text-fs-7xl--letter-spacing);
+  --text-epic--font-weight: var(--font-weight-black);
 }
 
 @layer base {
@@ -208,33 +327,33 @@
   }
 
   h1 {
-    font-size: var(--text-sign);
-    font-weight: var(--font-weight-bold);
+    font-size: var(--text-title);
+    font-weight: var(--text-title--font-weight);
   }
 
   h2 {
-    font-size: var(--text-headline);
-    font-weight: var(--font-weight-bold);
+    font-size: var(--text-heading);
+    font-weight: var(--text-heading--font-weight);
   }
 
   h3 {
-    font-size: var(--text-title);
-    font-weight: var(--font-weight-semibold);
+    font-size: var(--text-headline);
+    font-weight: var(--text-headline--font-weight);
   }
 
   h4 {
-    font-size: var(--text-heading);
-    font-weight: var(--font-weight-semibold);
+    font-size: var(--text-subtitle);
+    font-weight: var(--text-subtitle--font-weight);
   }
 
   h5 {
-    font-size: var(--text-subtitle);
-    font-weight: var(--font-weight-medium);
+    font-size: var(--text-subheading);
+    font-weight: var(--text-subheading--font-weight);
   }
 
   h6 {
-    font-size: var(--text-subheading);
-    font-weight: var(--font-weight-medium);
+    font-size: var(--text-lead);
+    font-weight: var(--text-lead--font-weight);
   }
 
   p,
@@ -245,6 +364,6 @@
   label,
   th {
     font-size: var(--text-label);
-    font-weight: var(--font-weight-medium);
+    font-weight: var(--text-label--font-weight);
   }
 }
