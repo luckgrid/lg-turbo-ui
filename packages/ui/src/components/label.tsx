@@ -13,16 +13,16 @@ const labelBase = 'inline-flex select-none transition-[color]';
 
 const labelSize = {
   ...formTextSize,
-  base: 'gap-line-sm font-medium text-label',
-  sm: 'gap-line-sm font-normal text-caption',
-  md: 'gap-line-md font-medium text-body',
-  lg: 'gap-line-lg font-semibold text-subheading',
-  full: 'gap-line-2xl font-semibold text-subtitle',
+  sm: 'gap-fs-xs-2 font-normal text-caption',
+  base: 'gap-fs-xs-3 font-medium text-label',
+  md: 'gap-fs-xs-4 font-medium text-body',
+  lg: 'gap-fs-xs-5 font-semibold text-lead',
+  full: 'gap-fs-xs-6 font-semibold text-subheading',
 };
 
 const labelStatus = {
   ...formTextStatus,
-  base: 'text-border',
+  base: 'text-foreground/80',
   error: 'text-danger',
 };
 
@@ -34,7 +34,7 @@ const labelVariant = {
 const labelVariants = cva(
   [
     labelBase,
-    'items-center gap-line-sm',
+    'items-center gap-fs-xs-3',
     'data-[error=true]:text-danger',
     'group-data-[disabled=true]:pointer-events-none group-data-[disabled=true]:opacity-50',
     'peer-disabled:opacity-50',
@@ -56,6 +56,11 @@ const labelVariants = cva(
         className: 'cursor-not-allowed',
       },
     ],
+    defaultVariants: {
+      size: 'base',
+      status: 'base',
+      variant: 'base',
+    },
   }
 );
 

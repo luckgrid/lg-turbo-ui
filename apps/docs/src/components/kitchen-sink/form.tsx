@@ -95,7 +95,7 @@ export function FormKitchenSink() {
 
   return (
     <Card
-      className='intersect-once intersect:motion-preset-rebound-right max-w-2xl p-fs-8'
+      className='intersect-once intersect:motion-preset-rebound-right max-w-2xl'
       space='frame'
     >
       <h3 className='text-subheading text-balance'>
@@ -164,7 +164,7 @@ export function FormKitchenSink() {
                     onCheckedChange={field.onChange}
                   />
                 </FormControl>
-                <div className='flex flex-col gap-line-2xl leading-none'>
+                <div className='flex flex-col gap-fs-sm-1'>
                   <FormLabel size='md' variant='indicator'>
                     I agree to the terms and conditions
                   </FormLabel>
@@ -188,7 +188,7 @@ export function FormKitchenSink() {
                     onCheckedChange={field.onChange}
                   />
                 </FormControl>
-                <div className='flex flex-col gap-line-2xl leading-none'>
+                <div className='flex flex-col gap-fs-sm-1'>
                   <FormLabel size='md' variant='indicator'>
                     I want to subscribe to the newsletter
                   </FormLabel>
@@ -204,7 +204,7 @@ export function FormKitchenSink() {
             control={form.control}
             name='newsletterCategory'
             render={({ field }) => (
-              <FormField className='gap-y-fs-2'>
+              <FormField className='gap-y-fs-sm-1'>
                 <FormLabel>Send me info about:</FormLabel>
                 <FormControl>
                   <RadioGroup

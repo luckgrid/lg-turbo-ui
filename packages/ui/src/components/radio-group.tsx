@@ -8,40 +8,28 @@ import { cva } from 'class-variance-authority';
 import { CircleIcon } from 'lucide-react';
 
 import { cn } from '@workspace/ui/lib/utils';
+import type { InputIndicatorVariantProps } from '@workspace/ui/primitives/form';
 import {
-  indicatorBase,
-  indicatorRadius,
-  indicatorShadow,
-  indicatorSize,
-  indicatorVariant,
-} from '@workspace/ui/primitives/indicator';
+  inputRadius,
+  inputShadow,
+  inputIndicatorVariants,
+} from '@workspace/ui/primitives/form';
 
 // Radio Group Component
 
-const radioGroupBase = 'box-border grid';
-
-const radioGroupRadius = {
-  ...indicatorRadius,
-};
-
-const radioGroupSize = {
-  ...indicatorSize,
-  base: 'gap-fs-1',
-  sm: 'gap-line-lg',
-  md: 'gap-fs-2',
-  lg: 'gap-fs-3',
-  full: 'gap-fs-4',
-};
-
-const radioGroupShadow = {
-  ...indicatorShadow,
-};
-
-const radioGroupVariants = cva(radioGroupBase, {
+const radioGroupVariants = cva('box-border grid', {
   variants: {
-    radius: radioGroupRadius,
-    size: radioGroupSize,
-    shadow: radioGroupShadow,
+    radius: inputRadius,
+    shadow: inputShadow,
+    size: {
+      sm: 'gap-fs-1',
+      base: 'gap-fs-2',
+      md: 'gap-fs-3',
+      lg: 'gap-fs-4',
+      full: 'gap-fs-5',
+      none: 'gap-0',
+      unset: '',
+    },
   },
   defaultVariants: {
     size: 'base',
@@ -56,14 +44,14 @@ type RadioGroupProps = RadioGroupVariantProps &
 function RadioGroup({
   className,
   radius,
-  size,
   shadow,
+  size,
   ...props
 }: RadioGroupProps) {
   return (
     <RadioGroupPrimitive.Root
       data-slot='radio-group'
-      className={cn(radioGroupVariants({ radius, size, shadow, className }))}
+      className={cn(radioGroupVariants({ radius, shadow, size, className }))}
       {...props}
     />
   );
@@ -71,76 +59,33 @@ function RadioGroup({
 
 // Radio Group Item Component
 
-const radioGroupItemBase = [indicatorBase, indicatorVariant.radio];
-
-const radioGroupItemRadius = {
-  ...indicatorRadius,
-};
-
-const radioGroupItemShadow = {
-  ...indicatorShadow,
-};
-
-const radioGroupItemSize = {
-  ...indicatorSize,
-  sm: [
-    indicatorSize.sm,
-    "size-fs-3 [&_svg:not([class*='size-'])]:size-fs-1 border-1",
-  ],
-  base: [
-    indicatorSize.base,
-    "size-fs-4 [&_svg:not([class*='size-'])]:size-fs-2 border-(length:--spacing-line-sm)",
-  ],
-  md: [
-    indicatorSize.md,
-    "size-fs-5 [&_svg:not([class*='size-'])]:size-fs-3 border-(length:--spacing-line-md)",
-  ],
-  lg: [
-    indicatorSize.lg,
-    "size-fs-6 [&_svg:not([class*='size-'])]:size-fs-4 border-(length:--spacing-line-lg)",
-  ],
-  full: [
-    indicatorSize.full,
-    "size-fs-7 [&_svg:not([class*='size-'])]:size-fs-5 border-(length:--spacing-line-xl)",
-  ],
-};
-
-const radioGroupItemVariants = cva(radioGroupItemBase, {
-  variants: {
-    radius: radioGroupItemRadius,
-    shadow: radioGroupItemShadow,
-    size: radioGroupItemSize,
-  },
-  defaultVariants: {
-    radius: 'full',
-    size: 'base',
-    shadow: 'base',
-  },
-});
-
-type RadioGroupItemVariantProps = VariantProps<typeof radioGroupItemVariants>;
-
-type RadioGroupItemProps = RadioGroupItemVariantProps &
+type RadioGroupItemProps = Omit<InputIndicatorVariantProps, 'variant'> &
   React.ComponentProps<typeof RadioGroupPrimitive.Item>;
 
 function RadioGroupItem({
   className,
-  radius,
-  size,
+  radius = 'full',
   shadow,
+  size,
   ...props
 }: RadioGroupItemProps) {
   return (
     <RadioGroupPrimitive.Item
       data-slot='radio-group-item'
       className={cn(
-        radioGroupItemVariants({ radius, size, shadow, className })
+        inputIndicatorVariants({
+          radius,
+          shadow,
+          size,
+          variant: 'radio',
+          className,
+        })
       )}
       {...props}
     >
       <RadioGroupPrimitive.Indicator
         data-slot='radio-group-indicator'
-        className='relative size-full flex items-center justify-center'
+        className='relative size-full centered-box'
       >
         <CircleIcon className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2' />
       </RadioGroupPrimitive.Indicator>

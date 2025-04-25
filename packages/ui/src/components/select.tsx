@@ -14,7 +14,7 @@ import {
   inputShadow,
   inputSize,
   inputVariant,
-} from '@workspace/ui/primitives/input';
+} from '@workspace/ui/primitives/form';
 
 // Select Component
 
@@ -157,7 +157,7 @@ function SelectContent({
         <SelectScrollUpButton />
         <SelectPrimitive.Viewport
           className={cn(
-            'p---spacing-line-lg',
+            'p-line-lg',
             position === 'popper' &&
               'h-[var(--radix-select-trigger-height)] w-full min-w-[var(--radix-select-trigger-width)] scroll-my-fs-1'
           )}
@@ -266,7 +266,7 @@ function SelectSeparator({
     <SelectPrimitive.Separator
       data-slot='select-separator'
       className={cn(
-        'bg-border pointer-events-none -mx-fs-1 my-fs-1 h---spacing-line-sm',
+        'bg-border pointer-events-none -mx-fs-1 my-fs-1 h-line-sm',
         className
       )}
       {...props}

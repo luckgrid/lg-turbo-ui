@@ -1,3 +1,109 @@
+/* Primitive Theme Variables */
+@theme inline {
+  /* Base Spacing */
+  --spacing-xs: var(--spacing-fs-2);
+  --spacing-sm: var(--spacing-fs-4);
+  --spacing-md: var(--spacing-fs-6);
+  --spacing-lg: var(--spacing-fs-8);
+  --spacing-xl: var(--spacing-fs-10);
+
+  /* Line Spacing */
+  --spacing-line-xs: var(--spacing-fs-line-2);
+  --spacing-line-sm: var(--spacing-fs-line-3);
+  --spacing-line-md: var(--spacing-fs-line-4);
+  --spacing-line-lg: var(--spacing-fs-line-5);
+  --spacing-line-xl: var(--spacing-fs-line-6);
+
+  /* Box Spacing */
+  --spacing-box-xs: var(--spacing-fs-4);
+  --spacing-box-sm: var(--spacing-fs-6);
+  --spacing-box-md: var(--spacing-fs-8);
+  --spacing-box-lg: var(--spacing-fs-10);
+  --spacing-box-xl: var(--spacing-fs-12);
+  /* Box Radius */
+  --radius-box-xs: var(--radius-fs-4);
+  --radius-box-sm: var(--radius-fs-5);
+  --radius-box-md: var(--radius-fs-6);
+  --radius-box-lg: var(--radius-fs-7);
+  --radius-box-xl: var(--radius-fs-8);
+
+  /* Form Spacing */
+  --spacing-form-xs: var(--spacing-fs-8);
+  --spacing-form-sm: var(--spacing-fs-10);
+  --spacing-form-md: var(--spacing-fs-12);
+  --spacing-form-lg: var(--spacing-fs-14);
+  --spacing-form-xl: var(--spacing-fs-16);
+  /* Form Spacing Line */
+  --spacing-form-line-xs: var(--spacing-fs-line-1);
+  --spacing-form-line-sm: var(--spacing-fs-line-2);
+  --spacing-form-line-md: var(--spacing-fs-line-3);
+  --spacing-form-line-lg: var(--spacing-fs-line-4);
+  --spacing-form-line-xl: var(--spacing-fs-line-5);
+  /* Form Radius */
+  --radius-form-xs: var(--radius-fs-1);
+  --radius-form-sm: var(--radius-fs-2);
+  --radius-form-md: var(--radius-fs-3);
+  --radius-form-lg: var(--radius-fs-4);
+  --radius-form-xl: var(--radius-fs-5);
+
+  /* Action Spacing */
+  --spacing-action-xs: var(--spacing-fs-sm-2);
+  --spacing-action-sm: var(--spacing-fs-sm-3);
+  --spacing-action-md: var(--spacing-fs-sm-4);
+  --spacing-action-lg: var(--spacing-fs-sm-5);
+  --spacing-action-xl: var(--spacing-fs-sm-6);
+  /* Action Spacing Line */
+  --spacing-action-line-xs: var(--spacing-fs-line-3);
+  --spacing-action-line-sm: var(--spacing-fs-line-4);
+  --spacing-action-line-md: var(--spacing-fs-line-5);
+  --spacing-action-line-lg: var(--spacing-fs-line-6);
+  --spacing-action-line-xl: var(--spacing-fs-line-7);
+  /* Action Radius */
+  --radius-action-xs: var(--radius-fs-2);
+  --radius-action-sm: var(--radius-fs-3);
+  --radius-action-md: var(--radius-fs-4);
+  --radius-action-lg: var(--radius-fs-5);
+  --radius-action-xl: var(--radius-fs-6);
+
+  /* Display Spacing */
+  --spacing-display-xs: var(--spacing-fs-lg-3);
+  --spacing-display-sm: var(--spacing-fs-lg-4);
+  --spacing-display-md: var(--spacing-fs-lg-5);
+  --spacing-display-lg: var(--spacing-fs-lg-6);
+  --spacing-display-xl: var(--spacing-fs-lg-7);
+  /* Display Spacing Line */
+  --spacing-display-line-xs: var(--spacing-fs-line-4);
+  --spacing-display-line-sm: var(--spacing-fs-line-5);
+  --spacing-display-line-md: var(--spacing-fs-line-6);
+  --spacing-display-line-lg: var(--spacing-fs-line-7);
+  --spacing-display-line-xl: var(--spacing-fs-line-8);
+  /* Display Radius */
+  --radius-display-xs: var(--radius-fs-6);
+  --radius-display-sm: var(--radius-fs-7);
+  --radius-display-md: var(--radius-fs-8);
+  --radius-display-lg: var(--radius-fs-9);
+  --radius-display-xl: var(--radius-fs-10);
+
+  /* Layout Spacing */
+  --spacing-layout-xs: var(--spacing-fs-xl-3);
+  --spacing-layout-sm: var(--spacing-fs-xl-4);
+  --spacing-layout-md: var(--spacing-fs-xl-5);
+  --spacing-layout-lg: var(--spacing-fs-xl-6);
+  --spacing-layout-xl: var(--spacing-fs-xl-7);
+  /* Layout Spacing Line */
+  --spacing-layout-line-xs: var(--spacing-fs-line-6);
+  --spacing-layout-line-sm: var(--spacing-fs-line-7);
+  --spacing-layout-line-md: var(--spacing-fs-line-8);
+  --spacing-layout-line-lg: var(--spacing-fs-line-9);
+  --spacing-layout-line-xl: var(--spacing-fs-line-10);
+  /* Layout Radius */
+  --radius-layout-xs: var(--radius-fs-9);
+  --radius-layout-sm: var(--radius-fs-10);
+  --radius-layout-md: var(--radius-fs-11);
+  --radius-layout-lg: var(--radius-fs-12);
+  --radius-layout-xl: var(--radius-fs-13);
+}
+
 /* Box Primitive */
 
 @utility box {
@@ -5,7 +111,7 @@
   display: flex;
 }
 
-@utility box-centered {
+@utility centered-box {
   box-sizing: border-box;
   display: flex;
   align-items: center;
@@ -13,30 +119,31 @@
 }
 
 @utility box-* {
-  --spacing: calc(--modifier(number) * var(--spacing-box-base, --spacing));
-  --spacing: calc(--modifier(integer) * 1%);
+  --box: calc(--modifier(number) * var(--spacing-box-sm, --spacing-sm, --spacing));
+  --box: calc(--modifier(integer) * 1%);
   box-sizing: border-box;
   display: --value('flex', 'grid', 'inline-flex', 'inline-grid');
   display: flex;
   gap: --value(--spacing-box-*, --spacing-*, [*]);
-  gap: --spacing(--value(number, integer));
+  gap: --box(--value(number, integer));
   padding: --value(--spacing-box-*, --spacing-*, [*]);
-  padding: --spacing(--value(number, integer));
+  padding: --box(--value(number, integer));
 }
 
-@utility box-c-* {
+@utility box-color-* {
   --alpha: calc(--modifier(integer) * 1%);
   background-color: --alpha(--value(--color-*, [color]) / var(--alpha, 100%));
   color: --value(--color-*-foreground);
 }
 
-@utility box-b-* {
+@utility line-* {
   --alpha: calc(--modifier(integer) * 1%);
-  --spacing: calc(--modifier(number) * var(--spacing-box-base, --spacing));
-  --spacing: calc(--modifier(integer) * 1%);
+  --line: calc(--modifier(number) * var(--spacing-line-sm, --spacing-sm, --spacing));
+  --line: calc(--modifier(integer) * 1%);
   border-width: --value(--spacing-line-*, --spacing-*, [*]);
-  border-width: calc(--spacing(--value(number, integer)) / 4);
-  border-color: --alpha(--value(--color-*, [color]) / var(--alpha, 40%));
+  border-width: calc(--line(--value(number, integer)) / 4);
+  border-color: var(--color-border, inherit);
+  border-color: --alpha(--value(--color-*, [color]) / var(--alpha, 100%));
 }
 
 /* Action Primitive */
@@ -59,19 +166,23 @@
   }
 }
 
+/* TODO:
+ * - remove spacing modifiers to keep action primitive styles simple
+ * - set spacing modifiers on higher level primitives or components (i.e. display, layout, button, hero, etc.)
+**/
 @utility action-* {
   --alpha: calc(--modifier(integer) * 1%);
-  --spacing: calc(--modifier(number) * var(--spacing-action-base, --spacing));
-  --spacing: calc(--modifier(integer) * 1%);
+  --action: calc(--modifier(number) * var(--spacing-action-sm, --spacing-sm, --spacing));
+  --action: calc(--modifier(integer) * 1%);
   gap: calc(--value(--spacing-action-*, --spacing-*, [*]) / 2);
-  gap: calc(--spacing(--value(number, integer)) / 2);
+  gap: calc(--action(--value(number, integer)) / 2);
   padding-block: --value(--spacing-action-*, --spacing-*, [*]);
-  padding-block: --spacing(--value(number, integer));
+  padding-block: --action(--value(number, integer));
   padding-inline: calc(--value(--spacing-action-*, --spacing-*, [*]) * 2);
-  padding-inline: calc(--spacing(--value(number, integer)) * 2);
-  outline-offset: --value(--spacing-line-*, [*]);
-  outline-offset: calc(--value(--spacing-action-*, --spacing-*) / 4);
-  outline-offset: calc(--spacing(--value(number, integer)) / 4);
+  padding-inline: calc(--action(--value(number, integer)) * 2);
+  outline-offset: --value(--spacing-action-line-*, --spacing-line-*, [*]);
+  outline-offset: calc(--value(--spacing-action-*, --spacing-*) / 3);
+  outline-offset: calc(--action(--value(number, integer)) / 3);
   outline-color: --alpha(--value(--color-*, [color]) / 75%);
   border-color: --alpha(--value(--color-*, [color]) / 50%);
   background-color: --alpha(--value(--color-*, [color]) / var(--alpha, 100%));
@@ -88,9 +199,10 @@
   }
 
   &:focus-visible {
-    outline-width: --value(--spacing-line-*, [*]);
+    outline-width: var(--spacing-action-line-sm, --spacing-line-sm, 1.5px);
     outline-width: calc(--value(--spacing-action-*, --spacing-*) / 4);
-    outline-width: calc(--spacing(--value(number, integer)) / 4);
+    outline-width: --value(--spacing-action-line-*, --spacing-line-*, [*]);
+    outline-width: calc(--action(--value(number, integer)) / 4);
   }
 
   &[aria-invalid="true"] {
@@ -100,28 +212,20 @@
   }
 }
 
-@utility action-b-* {
-  --alpha: calc(--modifier(integer) * 1%);
-  --spacing: calc(--modifier(number) * var(--spacing-action-base, --spacing));
-  --spacing: calc(--modifier(integer) * 1%);
-  border-width: --value(--spacing-line-*, --spacing-*, [*]);
-  border-width: calc(--spacing(--value(number, integer)) / 4);
-  border-color: --alpha(--value(--color-*, [color]) / var(--alpha, 100%));
-  border-color: var(--color-border, inherit);
-}
-
 @utility action-outline-* {
   --alpha: calc(--modifier(integer) * 1%);
-  --spacing: calc(--modifier(number) * var(--spacing-action-base, --spacing));
-  --spacing: calc(--modifier(integer) * 1%);
-  outline-offset: --value(--spacing-line-*, --spacing-*, [*]);
-  outline-offset: --spacing(--value(number, integer));
-  outline-color: --alpha(--value(--color-*, [color]) / var(--alpha, 100%));
+  --outline: calc(--modifier(number) * var(--spacing-action-line-sm, --spacing-line-sm, --spacing));
+  --outline: calc(--modifier(integer) * 1%);
+  outline-offset: calc(var(--spacing-action-line-sm, --spacing-line-sm, 1.5px) * 3);
+  outline-offset: calc(--value(--spacing-action-line-*, --spacing-line-*, [*]) * 3);
+  outline-offset: calc(--outline(--value(number, integer)) * 3);
   outline-color: var(--color-ring, inherit);
+  outline-color: --alpha(--value(--color-*, [color]) / var(--alpha, 100%));
 
   &:focus-visible {
+    outline-width: var(--spacing-action-line-sm, --spacing-line-sm, 1.5px);
     outline-width: --value(--spacing-line-*, --spacing-*, [*]);
-    outline-width: --spacing(--value(number, integer));
+    outline-width: --outline(--value(number, integer));
   }
 
   &[aria-invalid="true"] {
@@ -134,26 +238,27 @@
 /* Display Primitive */
 
 @utility display-* {
-  --spacing: calc(--modifier(number) * var(--spacing-display-base, --spacing));
-  --spacing: calc(--modifier(integer) * 1%);
+  --display: calc(--modifier(number) * var(--spacing-display-sm, --spacing-sm, --spacing));
+  --display: calc(--modifier(integer) * 1%);
   gap: --value(--spacing-display-*, --spacing-*, [*]);
-  gap: --spacing(--value(number, integer));
+  gap: --display(--value(number, integer));
   padding: --value(--spacing-display-*, --spacing-*, [*]);
-  padding: --spacing(--value(number, integer));
+  padding: --display(--value(number, integer));
 }
 
 @utility display-text {
   display: inline-flex;
-  gap: var(--spacing-text-base);
+  gap: var(--spacing-display-sm, --spacing-sm, --spacing);
+  gap: var(--spacing-display-text-sm, --spacing-text-sm);
   flex-wrap: wrap;
   align-items: center;
   text-wrap: pretty;
 }
 
 @utility display-text-* {
-  --spacing: calc(--modifier(number) * var(--spacing-text-base, --spacing));
-  --spacing: calc(--modifier(integer) * 1%);
-  gap: --value(--spacing-display-*, --spacing-*, [*]);
-  gap: --value(--spacing-text-*);
-  gap: --spacing(--value(number, integer));
+  --display: calc(--modifier(number) * var(--spacing-display-sm, --spacing-sm, --spacing));
+  --display: calc(--modifier(integer) * 1%);
+  gap: --value(--spacing-display-text-*, --spacing-display-*, [*]);
+  gap: --value(--spacing-text-*, --spacing-*);
+  gap: --display(--value(number, integer));
 }

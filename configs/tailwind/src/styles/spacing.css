@@ -1,6 +1,6 @@
 /* Spacing Scale */
 
-/* - Fluid Spacing Calculator: https://utopia.fyi/space/calculator/?c=480,22,1.2,2560,44,1.25,5,2,&s=0.875|0.75|0.625|0.5|0.375|0.25|0.125,1.125|1.25|1.375|1.5|1.625|1.75|1.875|2|2.125|2.25|2.375|2.5|2.625|2.75|2.875|3|3.125|3.25|3.375|3.5|3.625|3.75|3.875|4|4.125|4.25|4.375|4.5|4.625|4.75|4.875|5|5.125|5.25|5.375|5.5|5.625|5.75|5.875|6|6.125|6.25|6.375|6.5|6.625|6.75|6.875|7,5xs-6xs|4xs-5xs|3xs-4xs|2xs-3xs|xs-2xs|s-xs|m-s|l-m|xl-l|2xl-xl|3xl-2xl|4xl-3xl|5xl-4xl|6xl-5xl|7xl-6xl|8xl-7xl|9xl-8xl|10xl-9xl|6xs-3xs|3xs-s|s-xl|xl-4xl|4xl-7xl|7xl-10xl|10xl-13xl|13xl-16xl|16xl-19xl|19xl-22xl|22xl-25xl|25xl-28xl|28xl-31xl|31xl-34xl|34xl-37xl|37xl-40xl&g=s,l,xl,12 */
+/* - Fluid Spacing Calculator: https://utopia.fyi/space/calculator/?c=480,22,1.2,2560,44,1.25,5,2,&s=0.875|0.75|0.625|0.5|0.375|0.25|0.125,1.125|1.25|1.375|1.5|1.625|1.75|1.875|2|2.125|2.25|2.375|2.5|2.625|2.75|2.875|3|3.125|3.25|3.375|3.5|3.625|3.75|3.875|4|4.125|4.25|4.375|4.5|4.625|4.75|4.875|5|5.125|5.25|5.375|5.5|5.625|5.75|5.875|6|6.125|6.25|6.375|6.5|6.625|6.75|6.875|7|7.125|7.25|7.375|7.5|7.675|7.625|7.75|7.875|8,5xs-6xs|4xs-5xs|3xs-4xs|2xs-3xs|xs-2xs|s-xs|m-s|l-m|xl-l|2xl-xl|3xl-2xl|4xl-3xl|5xl-4xl|6xl-5xl|7xl-6xl|8xl-7xl|9xl-8xl|10xl-9xl|6xs-3xs|3xs-s|s-xl|xl-4xl|4xl-7xl|7xl-10xl|10xl-13xl|13xl-16xl|16xl-19xl|19xl-22xl|22xl-25xl|25xl-28xl|28xl-31xl|31xl-34xl|34xl-37xl|37xl-40xl|2xs-4xl|m-9xl|xl-14xl|4xl-20xl|8xl-26xl|16xl-46xl|22xl-55xl&g=s,l,xl,12 */
 /* - Fluid Spacing Line Calculator: https://utopia.fyi/clamp/calculator/?a=480,2560,0.25%E2%80%941|0.5%E2%80%941.5|0.75%E2%80%942|1%E2%80%942.5|1.5%E2%80%943|2%E2%80%943.5|2.5%E2%80%944|3%E2%80%944.5|3.5%E2%80%945|4%E2%80%945.5|4.5%E2%80%946&p=fs-line */
 /* - Fluid Type Scale Spacing Calculator: https://www.fluid-type-scale.com/calculate?minFontSize=16&minWidth=480&minRatio=1.333&maxFontSize=32&maxWidth=2560&maxRatio=1.618&steps=2xs%2Cxs%2Csm%2Cbase%2Cmd%2Clg%2Cxl%2C2xl%2C3xl%2C4xl%2C5xl&baseStep=base&prefix=fs-text&useContainerWidth=false&includeFallbacks=true&useRems=true&remValue=16&decimals=2&previewFont=Inter&previewText=LUCKGRID&previewWidth=1520 */
 
@@ -9,7 +9,7 @@
  * -- should have the following variables: --fs-min-w, --fs-max-w, --fs-min-fs, --fs-max-fs, --fs-min-ts, --fs-max-ts
  * -- should calculate a middle value using above variables (i.e. 0.5rem + 3vw)
  * -- should set the min and max values using min-fs and max-fs variables
- * -- condense fluid spacing variables into structured groups
+ * -- use new function to generate fluid spacing vars based on set scale vars/params
 **/
 
 @layer properties {
@@ -128,6 +128,39 @@
       --fs-55: clamp(9.4375rem, 7.2452rem + 7.3077vw, 18.9375rem);
       /* Fluid Spacing 56: 154px → 308px */
       --fs-56: clamp(9.625rem, 7.4038rem + 7.4038vw, 19.25rem);
+      /* Fluid Spacing 57: 157px → 314px */
+      --fs-57: clamp(9.8125rem, 7.5481rem + 7.5481vw, 19.625rem);
+      /* Fluid Spacing 58: 160px → 319px */
+      --fs-58: clamp(10rem, 7.7067rem + 7.6442vw, 19.9375rem);
+      /* Fluid Spacing 59: 162px → 325px */
+      --fs-59: clamp(10.125rem, 7.774rem + 7.8365vw, 20.3125rem);
+      /* Fluid Spacing 60: 165px → 330px */
+      --fs-60: clamp(10.3125rem, 7.9327rem + 7.9327vw, 20.625rem);
+
+      /* Fluid Spacing Extra Small 1: 1px → 3px */
+      --fs-xs-1: clamp(0.0625rem, 0.0337rem + 0.0962vw, 0.1875rem);
+      /* Fluid Spacing Extra Small 2: 2px → 4px */
+      --fs-xs-2: clamp(0.125rem, 0.0962rem + 0.0962vw, 0.25rem);
+      /* Fluid Spacing Extra Small 3: 3px → 5px */
+      --fs-xs-3: clamp(0.1875rem, 0.1587rem + 0.0962vw, 0.3125rem);
+      /* Fluid Spacing Extra Small 4: 4px → 6px */
+      --fs-xs-4: clamp(0.25rem, 0.2212rem + 0.0962vw, 0.375rem);
+      /* Fluid Spacing Extra Small 5: 5px → 7px */
+      --fs-xs-5: clamp(0.3125rem, 0.2837rem + 0.0962vw, 0.4375rem);
+      /* Fluid Spacing Extra Small 6: 6px → 8px */
+      --fs-xs-6: clamp(0.375rem, 0.3462rem + 0.0962vw, 0.5rem);
+      /* Fluid Spacing Extra Small 7: 7px → 9px */
+      --fs-xs-7: clamp(0.4375rem, 0.4087rem + 0.0962vw, 0.5625rem);
+      /* Fluid Spacing Extra Small 8: 8px → 10px */
+      --fs-xs-8: clamp(0.5rem, 0.4712rem + 0.0962vw, 0.625rem);
+      /* Fluid Spacing Extra Small 9: 9px → 11px */
+      --fs-xs-9: clamp(0.5625rem, 0.5337rem + 0.0962vw, 0.6875rem);
+      /* Fluid Spacing Extra Small 10: 10px → 12px */
+      --fs-xs-10: clamp(0.625rem, 0.5962rem + 0.0962vw, 0.75rem);
+      /* Fluid Spacing Extra Small 11: 11px → 13px */
+      --fs-xs-11: clamp(0.6875rem, 0.6587rem + 0.0962vw, 0.8125rem);
+      /* Fluid Spacing Extra Small 12: 12px → 14px */
+      --fs-xs-12: clamp(0.75rem, 0.7212rem + 0.0962vw, 0.875rem);
 
       /* Fluid Spacing Small 1: 8px → 11px */
       --fs-sm-1: clamp(0.5rem, 0.4567rem + 0.1442vw, 0.6875rem);
@@ -310,51 +343,51 @@
       /* Fluid Spacing Large 16: 129px → 275px */
       --fs-lg-16: clamp(8.0625rem, 5.9567rem + 7.0192vw, 17.1875rem);
 
-      /* Fluid Spacing Line 2xs: 0.25px → 1px */
-      --fs-line-2xs: clamp(0.0156rem, 0.0048rem + 0.0361vw, 0.0625rem);
-      /* Fluid Spacing Line xs: 0.5px → 1.5px */
-      --fs-line-xs: clamp(0.0313rem, 0.0168rem + 0.0481vw, 0.0938rem);
-      /* Fluid Spacing Line sm: 0.75px → 2px */
-      --fs-line-sm: clamp(0.0469rem, 0.0288rem + 0.0601vw, 0.125rem);
-      /* Fluid Spacing Line md: 1px → 2.5px */
-      --fs-line-md: clamp(0.0625rem, 0.0409rem + 0.0721vw, 0.1563rem);
-      /* Fluid Spacing Line lg: 1.5px → 3px */
-      --fs-line-lg: clamp(0.0938rem, 0.0721rem + 0.0721vw, 0.1875rem);
-      /* Fluid Spacing Line xl: 2px → 3.5px */
-      --fs-line-xl: clamp(0.125rem, 0.1034rem + 0.0721vw, 0.2188rem);
-      /* Fluid Spacing Line 2xl: 2.5px → 4px */
-      --fs-line-2xl: clamp(0.1563rem, 0.1346rem + 0.0721vw, 0.25rem);
-      /* Fluid Spacing Line 3xl: 3px → 4.5px */
-      --fs-line-3xl: clamp(0.1875rem, 0.1659rem + 0.0721vw, 0.2813rem);
-      /* Fluid Spacing Line 4xl: 3.5px → 5px */
-      --fs-line-4xl: clamp(0.2188rem, 0.1971rem + 0.0721vw, 0.3125rem);
-      /* Fluid Spacing Line 5xl: 4px → 5.5px */
-      --fs-line-5xl: clamp(0.25rem, 0.2284rem + 0.0721vw, 0.3438rem);
-      /* Fluid Spacing Line 6xl: 4.5px → 6px */
-      --fs-line-6xl: clamp(0.2813rem, 0.2596rem + 0.0721vw, 0.375rem);
+      /* Fluid Spacing Extra Large 1: 6px → 50px */
+      --fs-xl-1: clamp(0.375rem, -0.2596rem + 2.1154vw, 3.125rem);
+      /* Fluid Spacing Extra Large 2: 11px → 61px */
+      --fs-xl-2: clamp(0.6875rem, -0.0337rem + 2.4038vw, 3.8125rem);
+      /* Fluid Spacing Extra Large 3: 17px → 77px */
+      --fs-xl-3: clamp(1.0625rem, 0.1971rem + 2.8846vw, 4.8125rem);
+      /* Fluid Spacing Extra Large 4: 25px → 105px */
+      --fs-xl-4: clamp(1.5625rem, 0.4087rem + 3.8462vw, 6.5625rem);
+      /* Fluid Spacing Extra Large 5: 30px → 132px */
+      --fs-xl-5: clamp(1.875rem, 0.4038rem + 4.9038vw, 8.25rem);
+      /* Fluid Spacing Extra Large 6: 39px → 165px */
+      --fs-xl-6: clamp(2.4375rem, 0.6202rem + 6.0577vw, 10.3125rem);
+      /* Fluid Spacing Extra Large 7: 50px → 198px */
+      --fs-xl-7: clamp(3.125rem, 0.9904rem + 7.1154vw, 12.375rem);
+      /* Fluid Spacing Extra Large 8: 72px → 308px */
+      --fs-xl-8: clamp(4.5rem, 1.0962rem + 11.3462vw, 19.25rem);
+      /* Fluid Spacing Extra Large 9: 88px → 352px */
+      --fs-xl-9: clamp(5.5rem, 1.6923rem + 12.6923vw, 22rem);
+      /* Fluid Spacing Extra Large 10: 105px → 402px */
+      --fs-xl-10: clamp(6.5625rem, 2.2788rem + 14.2788vw, 25.125rem);
+      /* Fluid Spacing Extra Large 11: 121px → 440px */
+      --fs-xl-11: clamp(7.5625rem, 2.9615rem + 15.3365vw, 27.5rem);
 
-      /* Fluid Spacing Type Scale 2xs: 6.72px → 7.52px */
-      --fs-ts-2xs: clamp(0.42rem, 0.04vi + 0.41rem, 0.47rem);
-      /* Fluid Spacing Type Scale xs: 8.96px → 12.16px */
-      --fs-ts-xs: clamp(0.56rem, 0.15vi + 0.52rem, 0.76rem);
-      /* Fluid Spacing Type Scale sm: 12px → 19.84px */
-      --fs-ts-sm: clamp(0.75rem, 0.37vi + 0.64rem, 1.24rem);
-      /* Fluid Spacing Type Scale base: 16px → 32px */
-      --fs-ts-base: clamp(1rem, 0.77vi + 0.77rem, 2rem);
-      /* Fluid Spacing Type Scale md: 21.28px → 51.84px */
-      --fs-ts-md: clamp(1.33rem, 1.46vi + 0.89rem, 3.24rem);
-      /* Fluid Spacing Type Scale lg: 28.48px → 83.84px */
-      --fs-ts-lg: clamp(1.78rem, 2.66vi + 0.98rem, 5.24rem);
-      /* Fluid Spacing Type Scale xl: 37.92px → 135.52px */
-      --fs-ts-xl: clamp(2.37rem, 4.69vi + 0.96rem, 8.47rem);
-      /* Fluid Spacing Text 2xl: 50.56px → 219.36px */
-      --fs-ts-2xl: clamp(3.16rem, 8.12vi + 0.72rem, 13.71rem);
-      /* Fluid Spacing Type Scale 3xl: 67.36px → 354.88px */
-      --fs-ts-3xl: clamp(4.21rem, 13.82vi + 0.06rem, 22.18rem);
-      /* Fluid Spacing Type Scale 4xl: 89.76px → 574.08px */
-      --fs-ts-4xl: clamp(5.61rem, 23.29vi + -1.38rem, 35.88rem);
-      /* Fluid Spacing Type Scale 5xl: 119.68px → 928.96px */
-      --fs-ts-5xl: clamp(7.48rem, 38.91vi + -4.19rem, 58.06rem);
+      /* Fluid Spacing Line 1: 0.25px → 1px */
+      --fs-line-1: clamp(0.0156rem, 0.0048rem + 0.0361vw, 0.0625rem);
+      /* Fluid Spacing Line 2: 0.5px → 1.5px */
+      --fs-line-2: clamp(0.0313rem, 0.0168rem + 0.0481vw, 0.0938rem);
+      /* Fluid Spacing Line 3: 0.75px → 2px */
+      --fs-line-3: clamp(0.0469rem, 0.0288rem + 0.0601vw, 0.125rem);
+      /* Fluid Spacing Line 4: 1px → 2.5px */
+      --fs-line-4: clamp(0.0625rem, 0.0409rem + 0.0721vw, 0.1563rem);
+      /* Fluid Spacing Line 5: 1.5px → 3px */
+      --fs-line-5: clamp(0.0938rem, 0.0721rem + 0.0721vw, 0.1875rem);
+      /* Fluid Spacing Line 6: 2px → 3.5px */
+      --fs-line-6: clamp(0.125rem, 0.1034rem + 0.0721vw, 0.2188rem);
+      /* Fluid Spacing Line 7: 2.5px → 4px */
+      --fs-line-7: clamp(0.1563rem, 0.1346rem + 0.0721vw, 0.25rem);
+      /* Fluid Spacing Line 8: 3px → 4.5px */
+      --fs-line-8: clamp(0.1875rem, 0.1659rem + 0.0721vw, 0.2813rem);
+      /* Fluid Spacing Line 9: 3.5px → 5px */
+      --fs-line-9: clamp(0.2188rem, 0.1971rem + 0.0721vw, 0.3125rem);
+      /* Fluid Spacing Line 10: 4px → 5.5px */
+      --fs-line-10: clamp(0.25rem, 0.2284rem + 0.0721vw, 0.3438rem);
+      /* Fluid Spacing Line 11: 4.5px → 6px */
+      --fs-line-11: clamp(0.2813rem, 0.2596rem + 0.0721vw, 0.375rem);
     }
   }
 
@@ -419,6 +452,10 @@
       --fs-54: 9.3125rem; /* 149px */
       --fs-55: 9.4375rem; /* 151px */
       --fs-56: 9.625rem; /* 154px */
+      --fs-57: 9.8125rem; /* 157px */
+      --fs-58: 10rem; /* 160px */
+      --fs-59: 10.1875rem; /* 163px */
+      --fs-60: 10.375rem; /* 166px */
 
       /* Fluid Spacing Small Fallbacks */
       --fs-sm-1: 0.5rem; /* 8px */
@@ -516,30 +553,17 @@
       --fs-lg-16: 4rem; /* 64px */
 
       /* Fluid Spacing Line Fallbacks */
-      --fs-line-2xs: 0.0156rem; /* 0.25px */
-      --fs-line-xs: 0.031rem; /* 0.5px */
-      --fs-line-sm: 0.047rem; /* 0.75px */
-      --fs-line-md: 0.063rem; /* 1px */
-      --fs-line-lg: 0.094rem; /* 1.5px */
-      --fs-line-xl: 0.125rem; /* 2px */
-      --fs-line-2xl: 0.156rem; /* 2.5px */
-      --fs-line-3xl: 0.188rem; /* 3px */
-      --fs-line-4xl: 0.219rem; /* 3.5px */
-      --fs-line-5xl: 0.25rem; /* 4px */
-      --fs-line-6xl: 0.281rem; /* 4.5px */
-
-      /* Fluid Spacing Type Scale Fallbacks */
-      --fs-ts-2xs: 0.42rem; /* 6.72px */
-      --fs-ts-xs: 0.56rem; /* 8.96px */
-      --fs-ts-sm: 0.75rem; /* 12px */
-      --fs-ts-base: 1rem; /* 16px */
-      --fs-ts-md: 1.33rem; /* 21.28px */
-      --fs-ts-lg: 1.78rem; /* 28.48px */
-      --fs-ts-xl: 2.37rem; /* 37.92px */
-      --fs-ts-2xl: 3.16rem; /* 50.56px */
-      --fs-ts-3xl: 4.21rem; /* 67.36px */
-      --fs-ts-4xl: 5.61rem; /* 89.76px */
-      --fs-ts-5xl: 7.48rem; /* 119.68px */
+      --fs-line-1: 0.0156rem; /* 0.25px */
+      --fs-line-2: 0.031rem; /* 0.5px */
+      --fs-line-3: 0.047rem; /* 0.75px */
+      --fs-line-4: 0.063rem; /* 1px */
+      --fs-line-5: 0.094rem; /* 1.5px */
+      --fs-line-6: 0.125rem; /* 2px */
+      --fs-line-7: 0.156rem; /* 2.5px */
+      --fs-line-8: 0.188rem; /* 3px */
+      --fs-line-9: 0.219rem; /* 3.5px */
+      --fs-line-10: 0.25rem; /* 4px */
+      --fs-line-11: 0.281rem; /* 4.5px */
     }
 
     /* Average Fallback Values ((min + max) / 2) */
@@ -566,30 +590,17 @@
         --fs-sm-18: 5rem; /* 80px */
 
         /* Fluid Spacing Line Fallbacks */
-        --fs-line-2xs: 0.031rem; /* 0.5px */
-        --fs-line-xs: 0.063rem; /* 1px */
-        --fs-line-sm: 0.094rem; /* 1.5px */
-        --fs-line-md: 0.125rem; /* 2px */
-        --fs-line-lg: 0.156rem; /* 2.5px */
-        --fs-line-xl: 0.188rem; /* 3px */
-        --fs-line-2xl: 0.219rem; /* 3.5px */
-        --fs-line-3xl: 0.25rem; /* 4px */
-        --fs-line-4xl: 0.281rem; /* 4.5px */
-        --fs-line-5xl: 0.313rem; /* 5px */
-        --fs-line-6xl: 0.344rem; /* 5.5px */
-
-        /* Fluid Spacing Type Scale Fallbacks */
-        --fs-ts-2xs: 0.45rem; /* 7.2px */
-        --fs-ts-xs: 0.66rem; /* 10.56px */
-        --fs-ts-sm: 0.99rem; /* 15.84px */
-        --fs-ts-base: 1.5rem; /* 24px */
-        --fs-ts-md: 2.28rem; /* 36.48px */
-        --fs-ts-lg: 3.51rem; /* 56.16px */
-        --fs-ts-xl: 5.42rem; /* 86.72px */
-        --fs-ts-2xl: 8.43rem; /* 134.88px */
-        --fs-ts-3xl: 13.19rem; /* 211.04px */
-        --fs-ts-4xl: 20.75rem; /* 332.00px */
-        --fs-ts-5xl: 32.77rem; /* 524.32px */
+        --fs-line-1: 0.031rem; /* 0.5px */
+        --fs-line-2: 0.063rem; /* 1px */
+        --fs-line-3: 0.094rem; /* 1.5px */
+        --fs-line-4: 0.125rem; /* 2px */
+        --fs-line-5: 0.156rem; /* 2.5px */
+        --fs-line-6: 0.188rem; /* 3px */
+        --fs-line-7: 0.219rem; /* 3.5px */
+        --fs-line-8: 0.25rem; /* 4px */
+        --fs-line-9: 0.281rem; /* 4.5px */
+        --fs-line-10: 0.313rem; /* 5px */
+        --fs-line-11: 0.344rem; /* 5.5px */
       }
     }
 
@@ -617,30 +628,17 @@
         --fs-sm-18: 6.563rem; /* 105px */
 
         /* Fluid Spacing Line Fallbacks */
-        --fs-line-2xs: 0.063rem; /* 1px */
-        --fs-line-xs: 0.094rem; /* 1.5px */
-        --fs-line-sm: 0.125rem; /* 2px */
-        --fs-line-md: 0.156rem; /* 2.5px */
-        --fs-line-lg: 0.188rem; /* 3px */
-        --fs-line-xl: 0.219rem; /* 3.5px */
-        --fs-line-2xl: 0.25rem; /* 4px */
-        --fs-line-3xl: 0.281rem; /* 4.5px */
-        --fs-line-4xl: 0.313rem; /* 5px */
-        --fs-line-5xl: 0.344rem; /* 5.5px */
-        --fs-line-6xl: 0.375rem; /* 6px */
-
-        /* Fluid Spacing Type Scale Fallbacks */
-        --fs-ts-2xs: 0.47rem; /* 7.52px */
-        --fs-ts-xs: 0.76rem; /* 12.16px */
-        --fs-ts-sm: 1.24rem; /* 19.84px */
-        --fs-ts-base: 2rem; /* 32px */
-        --fs-ts-md: 3.24rem; /* 51.84px */
-        --fs-ts-lg: 5.24rem; /* 83.84px */
-        --fs-ts-xl: 8.47rem; /* 135.52px */
-        --fs-ts-2xl: 13.71rem; /* 219.36px */
-        --fs-ts-3xl: 22.18rem; /* 354.88px */
-        --fs-ts-4xl: 35.88rem; /* 574.08px */
-        --fs-ts-5xl: 58.06rem; /* 928.96px */
+        --fs-line-1: 0.063rem; /* 1px */
+        --fs-line-2: 0.094rem; /* 1.5px */
+        --fs-line-3: 0.125rem; /* 2px */
+        --fs-line-4: 0.156rem; /* 2.5px */
+        --fs-line-5: 0.188rem; /* 3px */
+        --fs-line-6: 0.219rem; /* 3.5px */
+        --fs-line-7: 0.25rem; /* 4px */
+        --fs-line-8: 0.281rem; /* 4.5px */
+        --fs-line-9: 0.313rem; /* 5px */
+        --fs-line-10: 0.344rem; /* 5.5px */
+        --fs-line-11: 0.375rem; /* 6px */
       }
     }
   }
@@ -657,7 +655,22 @@
 }
 
 @theme inline {
+  /* Breakpoints */
+  --breakpoint-2xs: 20rem; /* 320px */
+  --breakpoint-xs: 30rem; /* 480px */
+  --breakpoint-sm: 40rem; /* 640px */
+  --breakpoint-md: 48rem; /* 768px */
+  --breakpoint-lg: 64rem; /* 1024px */
+  --breakpoint-xl: 80rem; /* 1280px */
+  --breakpoint-2xl: 90rem; /* 1440px */
+  --breakpoint-3xl: 95rem; /* 1520px */
+  --breakpoint-4xl: 105rem; /* 1680px */
+  --breakpoint-5xl: 120rem; /* 1920px */
+  --breakpoint-6xl: 140rem; /* 2240px */
+  --breakpoint-7xl: 160rem; /* 2560px */
+
    /* Fluid Spacing Base Function */
+   /* TODO: Create a tailwind utility and/or variant to generate fluid spacing styles instead of hardcoding */
    --spacing-fs: clamp(
     var(--fs-min-fs),
     calc(
@@ -726,6 +739,24 @@
   --spacing-fs-54: var(--fs-54);
   --spacing-fs-55: var(--fs-55);
   --spacing-fs-56: var(--fs-56);
+  --spacing-fs-57: var(--fs-57);
+  --spacing-fs-58: var(--fs-58);
+  --spacing-fs-59: var(--fs-59);
+  --spacing-fs-60: var(--fs-60);
+
+  /* Fluid Spacing Extra Small */
+  --spacing-fs-xs-1: var(--fs-xs-1);
+  --spacing-fs-xs-2: var(--fs-xs-2);
+  --spacing-fs-xs-3: var(--fs-xs-3);
+  --spacing-fs-xs-4: var(--fs-xs-4);
+  --spacing-fs-xs-5: var(--fs-xs-5);
+  --spacing-fs-xs-6: var(--fs-xs-6);
+  --spacing-fs-xs-7: var(--fs-xs-7);
+  --spacing-fs-xs-8: var(--fs-xs-8);
+  --spacing-fs-xs-9: var(--fs-xs-9);
+  --spacing-fs-xs-10: var(--fs-xs-10);
+  --spacing-fs-xs-11: var(--fs-xs-11);
+  --spacing-fs-xs-12: var(--fs-xs-12);
 
   /* Fluid Spacing Small */
   --spacing-fs-sm-1: var(--fs-sm-1, 0.59375rem); /* 9.5px */
@@ -821,75 +852,48 @@
   --spacing-fs-lg-14: var(--fs-lg-14);
   --spacing-fs-lg-15: var(--fs-lg-15);
   --spacing-fs-lg-16: var(--fs-lg-16);
-  
-  /* Line Spacing */
-  --spacing-line-2xs: var(--fs-line-2xs, 0.031rem); /* 0.5px */
-  --spacing-line-xs: var(--fs-line-xs, 0.063rem); /* 1px */
-  --spacing-line-sm: var(--fs-line-sm, 0.094rem); /* 1.5px */
-  --spacing-line-base: var(--fs-line-md, 0.125rem); /* 2px */
-  --spacing-line-md: var(--fs-line-lg, 0.156rem); /* 2.5px */
-  --spacing-line-lg: var(--fs-line-xl, 0.188rem); /* 3px */
-  --spacing-line-xl: var(--fs-line-2xl, 0.219rem); /* 3.5px */
-  --spacing-line-2xl: var(--fs-line-3xl, 0.25rem); /* 4px */
-  --spacing-line-3xl: var(--fs-line-4xl, 0.281rem); /* 4.5px */
-  --spacing-line-4xl: var(--fs-line-5xl, 0.313rem); /* 5px */
-  --spacing-line-full: var(--fs-line-6xl, 0.344rem); /* 5.5px */
 
-  /* Type Scale Spacing */
-  --spacing-ts-2xs: var(--fs-ts-2xs, 0.45rem); /* 7.2px */
-  --spacing-ts-xs: var(--fs-ts-xs, 0.66rem); /* 10.56px */
-  --spacing-ts-sm: var(--fs-ts-sm, 0.99rem); /* 15.84px */
-  --spacing-ts-base: var(--fs-ts-base, 1.5rem); /* 24px */
-  --spacing-ts-md: var(--fs-ts-md, 2.28rem); /* 36.48px */
-  --spacing-ts-lg: var(--fs-ts-lg, 3.51rem); /* 56.16px */
-  --spacing-ts-xl: var(--fs-ts-xl, 5.42rem); /* 86.72px */
-  --spacing-ts-2xl: var(--fs-ts-2xl, 8.43rem); /* 134.88px */
-  --spacing-ts-3xl: var(--fs-ts-3xl, 13.19rem); /* 211.04px */
-  --spacing-ts-4xl: var(--fs-ts-4xl, 20.75rem); /* 332.00px */
-  --spacing-ts-5xl: var(--fs-ts-5xl, 32.77rem); /* 524.32px */
+  /* Fluid Spacing Extra Large */
+  --spacing-fs-xl-1: var(--fs-xl-1);
+  --spacing-fs-xl-2: var(--fs-xl-2);
+  --spacing-fs-xl-3: var(--fs-xl-3);
+  --spacing-fs-xl-4: var(--fs-xl-4);
+  --spacing-fs-xl-5: var(--fs-xl-5);
+  --spacing-fs-xl-6: var(--fs-xl-6);
+  --spacing-fs-xl-7: var(--fs-xl-7);
+  --spacing-fs-xl-8: var(--fs-xl-8);
+  --spacing-fs-xl-9: var(--fs-xl-9);
+  --spacing-fs-xl-10: var(--fs-xl-10);
+  --spacing-fs-xl-11: var(--fs-xl-11);
 
-  /* Box Spacing */
-  --spacing-box-xs: var(--spacing-fs-6);
-  --spacing-box-sm: var(--spacing-fs-7);
-  --spacing-box-base: var(--spacing-fs-8);
-  --spacing-box-md: var(--spacing-fs-9);
-  --spacing-box-lg: var(--spacing-fs-10);
-  --spacing-box-xl: var(--spacing-fs-11);
-  --spacing-box-full: var(--spacing-fs-12);
+  /* Fluid Spacing Line */
+  --spacing-fs-line-1: var(--fs-line-1, 0.031rem); /* 0.5px */
+  --spacing-fs-line-2: var(--fs-line-2, 0.063rem); /* 1px */
+  --spacing-fs-line-3: var(--fs-line-3, 0.094rem); /* 1.5px */
+  --spacing-fs-line-4: var(--fs-line-4, 0.125rem); /* 2px */
+  --spacing-fs-line-5: var(--fs-line-5, 0.156rem); /* 2.5px */
+  --spacing-fs-line-6: var(--fs-line-6, 0.188rem); /* 3px */
+  --spacing-fs-line-7: var(--fs-line-7, 0.219rem); /* 3.5px */
+  --spacing-fs-line-8: var(--fs-line-8, 0.25rem); /* 4px */
+  --spacing-fs-line-9: var(--fs-line-9, 0.281rem); /* 4.5px */
+  --spacing-fs-line-10: var(--fs-line-10, 0.313rem); /* 5px */
+  --spacing-fs-line-11: var(--fs-line-11, 0.344rem); /* 5.5px */
 
-  /* Action Spacing */
-  --spacing-action-xs: var(--spacing-fs-sm-1);
-  --spacing-action-sm: var(--spacing-fs-sm-2);
-  --spacing-action-base: var(--spacing-fs-sm-3);
-  --spacing-action-md: var(--spacing-fs-sm-4);
-  --spacing-action-lg: var(--spacing-fs-sm-5);
-  --spacing-action-xl: var(--spacing-fs-sm-6);
-  --spacing-action-full: var(--spacing-fs-sm-7);
-
-  /* Layout Spacing */
-  --spacing-layout-xs: var(--spacing-ts-sm);
-  --spacing-layout-sm: var(--spacing-ts-base);
-  --spacing-layout-base: var(--spacing-ts-md);
-  --spacing-layout-md: var(--spacing-ts-lg);
-  --spacing-layout-lg: var(--spacing-ts-xl);
-  --spacing-layout-xl: var(--spacing-ts-2xl);
-  --spacing-layout-full: var(--spacing-ts-3xl);
-
-  /* Display Spacing */
-  --spacing-display-xs: var(--spacing-fs-md-6);
-  --spacing-display-sm: var(--spacing-fs-md-7);
-  --spacing-display-base: var(--spacing-fs-md-8);
-  --spacing-display-md: var(--spacing-fs-md-9);
-  --spacing-display-lg: var(--spacing-fs-md-10);
-  --spacing-display-xl: var(--spacing-fs-md-11);
-  --spacing-display-full: var(--spacing-fs-md-12);
-  
-  /* Text Spacing */
-  --spacing-text-xs: var(--spacing-fs-md-2);
-  --spacing-text-sm: var(--spacing-fs-4);
-  --spacing-text-base: var(--spacing-fs-6);
-  --spacing-text-md: var(--spacing-fs-7);
-  --spacing-text-lg: var(--spacing-fs-8);
-  --spacing-text-xl: var(--spacing-fs-9);
-  --spacing-text-full: var(--spacing-fs-10);
+  /* Fluid Border Radius */
+  --radius-fs-1: var(--spacing-fs-xs-2);
+  --radius-fs-2: var(--spacing-fs-xs-3);
+  --radius-fs-3: var(--spacing-fs-xs-4);
+  --radius-fs-4: var(--spacing-fs-xs-5);
+  --radius-fs-5: var(--spacing-fs-1);
+  --radius-fs-6: var(--spacing-fs-2);
+  --radius-fs-7: var(--spacing-fs-sm-1);
+  --radius-fs-8: var(--spacing-fs-sm-2);
+  --radius-fs-9: var(--spacing-fs-sm-3);
+  --radius-fs-10: var(--spacing-fs-sm-4);
+  --radius-fs-11: var(--spacing-fs-sm-5);
+  --radius-fs-12: var(--spacing-fs-sm-6);
+  --radius-fs-13: var(--spacing-fs-sm-7);
+  --radius-fs-14: var(--spacing-fs-sm-8);
+  --radius-fs-15: var(--spacing-fs-sm-9);
+  --radius-fs-16: var(--spacing-fs-sm-10);
 }

@@ -14,13 +14,13 @@ export function PrimitivesKitchenSink() {
         </Layout>
 
         <Layout className='flex-row flex-wrap items-center gap-fs-6'>
-          <div className='box-flex box-content box-4 box-c-base box-b-2 rounded-md'>
+          <div className='box-content box-4 box-color-base line-2 rounded-md'>
             Unscaled Box Primitive
           </div>
-          <div className='box-flex box-fs-4 box-c-base-1 box-b-lg rounded-fs-lg'>
+          <div className='box-fs-8 box-color-base-1 line-lg rounded-fs-3'>
             Bordered Box Primitive
           </div>
-          <div className='box-flex box-xl box-c-base-2 box-b-xl border-neutral/80 rounded-fs-xl'>
+          <div className='box-xl box-color-base-2 line-xl line-neutral/80 rounded-fs-4'>
             Neutral Border Box Primitive
           </div>
         </Layout>
@@ -38,21 +38,21 @@ export function PrimitivesKitchenSink() {
         <Layout className='flex-row flex-wrap items-center gap-fs-6'>
           <button
             type='button'
-            className='cursor inline-flex items-center rounded-fs-sm action action-fs-3 action-neutral'
+            className='cursor inline-flex items-center rounded-fs-2 action action-fs-3 action-neutral leading-none'
           >
             Neutral Action
             <Star />
           </button>
           <button
             type='button'
-            className='cursor inline-flex items-center rounded-fs-md action action-fs-5 action-primary'
+            className='cursor inline-flex items-center rounded-fs-3 action action-fs-5 action-primary leading-none'
           >
             Primary Action
             <Star />
           </button>
           <button
             type='button'
-            className='cursor-not-allowed inline-flex items-center rounded-fs-lg action action-fs-7 action-secondary'
+            className='cursor-not-allowed inline-flex items-center rounded-fs-4 action action-fs-7 action-secondary leading-none'
             disabled
           >
             Disabled Secondary Action
@@ -63,21 +63,21 @@ export function PrimitivesKitchenSink() {
         <Layout className='flex-row flex-wrap items-center gap-fs-6'>
           <button
             type='button'
-            className='cursor box-centered inline-flex rounded-fs-xs action action-sm action-base text-label'
+            className='cursor centered-box inline-flex rounded-action-sm action action-sm action-base text-label leading-none'
           >
             Base Small Action
           </button>
           <button
             type='button'
-            className='cursor box-centered inline-flex rounded-fs-sm action action-base action-display text-label'
+            className='cursor centered-box inline-flex rounded-action-md action action-md action-display text-label leading-none'
           >
-            Display Base Action
+            Display Medium Action
           </button>
           <button
             type='button'
-            className='cursor box-centered inline-flex rounded-fs-md action action-md action-b-md action-panel text-panel-foreground bg-transparent hover:bg-panel'
+            className='cursor centered-box inline-flex rounded-action-lg line-xl action action-lg action-panel text-panel-foreground bg-transparent hover:bg-panel leading-none'
           >
-            Outline Panel Medium Action
+            Outline Panel Large Action
           </button>
         </Layout>
       </Layout>

@@ -1,5 +1,5 @@
-import type { InputProps } from '@workspace/ui/primitives/input';
-import { Input as PrimitiveInput } from '@workspace/ui/primitives/input';
+import type { InputProps } from '@workspace/ui/primitives/form';
+import { Input as PrimitiveInput } from '@workspace/ui/primitives/form';
 
 // Text Input Component
 

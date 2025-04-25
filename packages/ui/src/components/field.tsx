@@ -20,7 +20,7 @@ import type {
   FormFieldVariantProps,
   FormTextVariantProps,
 } from '@workspace/ui/primitives/form';
-import type { InputVariantProps } from '@workspace/ui/primitives/input';
+import type { InputVariantProps } from '@workspace/ui/primitives/form';
 
 // TODO:
 // - Update render method to handle additional field compositions (i.e. checkbox, radio-group, etc...)

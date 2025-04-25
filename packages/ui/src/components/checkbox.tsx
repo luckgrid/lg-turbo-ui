@@ -3,93 +3,31 @@
 import * as React from 'react';
 
 import * as CheckboxPrimitive from '@radix-ui/react-checkbox';
-import type { VariantProps } from 'class-variance-authority';
-import { cva } from 'class-variance-authority';
 import { CheckIcon } from 'lucide-react';
 
 import { cn } from '@workspace/ui/lib/utils';
-import {
-  indicatorBase,
-  indicatorRadius,
-  indicatorSize,
-  indicatorVariant,
-} from '@workspace/ui/primitives/indicator';
+import type { InputIndicatorVariantProps } from '@workspace/ui/primitives/form';
+import { inputIndicatorVariants } from '@workspace/ui/primitives/form';
 
-const checkboxVariants = cva([indicatorBase, indicatorVariant.checkbox], {
-  variants: {
-    radius: indicatorRadius,
-    size: {
-      ...indicatorSize,
-      base: [
-        indicatorSize.base,
-        "[&_svg:not([class*='size-'])]:size-fs-2 border-(length:--spacing-line-sm)",
-      ],
-      sm: [
-        indicatorSize.sm,
-        "[&_svg:not([class*='size-'])]:size-fs-1 border-1",
-      ],
-      md: [
-        indicatorSize.md,
-        "[&_svg:not([class*='size-'])]:size-fs-3 border-(length:--spacing-line-md)",
-      ],
-      lg: [
-        indicatorSize.lg,
-        "[&_svg:not([class*='size-'])]:size-fs-4 border-(length:--spacing-line-lg)",
-      ],
-      full: [
-        indicatorSize.full,
-        "[&_svg:not([class*='size-'])]:size-fs-5 border-(length:--spacing-line-xl)",
-      ],
-    },
-    // Style Modifiers
-    hasShadow: {
-      true: 'shadow-sm',
-    },
-  },
-  compoundVariants: [
-    // Shadow Size Modifiers
-    {
-      size: ['unset', 'sm'],
-      hasShadow: true,
-      className: 'shadow-sm',
-    },
-    {
-      size: ['base', 'md'],
-      hasShadow: true,
-      className: 'shadow-md',
-    },
-    {
-      size: ['lg', 'full'],
-      hasShadow: true,
-      className: 'shadow-lg',
-    },
-  ],
-  defaultVariants: {
-    radius: 'base',
-    size: 'base',
-  },
-});
-
-type CheckboxVariantProps = VariantProps<typeof checkboxVariants>;
-
-type CheckboxProps = CheckboxVariantProps &
+type CheckboxProps = Omit<InputIndicatorVariantProps, 'variant'> &
   React.ComponentProps<typeof CheckboxPrimitive.Root>;
 
 function Checkbox({
   className,
   radius,
+  shadow,
   size,
-  hasShadow,
   ...props
 }: CheckboxProps) {
   return (
     <CheckboxPrimitive.Root
       data-slot='checkbox'
       className={cn(
-        checkboxVariants({
+        inputIndicatorVariants({
           radius,
+          shadow,
           size,
-          hasShadow,
+          variant: 'checkbox',
           className,
         })
       )}
@@ -97,7 +35,7 @@ function Checkbox({
     >
       <CheckboxPrimitive.Indicator
         data-slot='checkbox-indicator'
-        className='flex items-center justify-center'
+        className='centered-box'
       >
         <CheckIcon />
       </CheckboxPrimitive.Indicator>

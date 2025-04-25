@@ -10,10 +10,10 @@ import { Element } from '@workspace/ui/primitives/element';
 const imageVariants = cva('', {
   variants: {
     radius: {
-      sm: 'rounded-fs-md',
-      base: 'rounded-fs-lg',
-      md: 'rounded-fs-xl',
-      lg: 'rounded-fs-2xl',
+      sm: 'rounded-fs-3',
+      base: 'rounded-fs-4',
+      md: 'rounded-fs-5',
+      lg: 'rounded-fs-6',
       full: 'rounded-full',
       none: 'rounded-none',
       unset: '',

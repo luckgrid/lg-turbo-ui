@@ -25,7 +25,7 @@ const ghostButton = [
 
 const buttonVariants = cva(
   [
-    'box-centered inline-flex',
+    'centered-box inline-flex',
     'action cursor-pointer',
     'text-label font-medium tracking-wide leading-none whitespace-nowrap',
     'focus-visible:ring-4 aria-invalid:focus-visible:ring-0',
@@ -41,11 +41,10 @@ const buttonVariants = cva(
         danger: 'action-danger',
       },
       radius: {
-        sm: 'rounded-fs-xs',
-        base: 'rounded-fs-sm',
-        md: 'rounded-fs-md',
-        lg: 'rounded-fs-lg',
-        xl: 'rounded-fs-xl',
+        sm: 'rounded-action-xs',
+        base: 'rounded-action-sm',
+        md: 'rounded-action-md',
+        lg: 'rounded-action-lg',
         full: 'rounded-full',
         none: 'rounded-none',
         unset: '',
@@ -60,16 +59,16 @@ const buttonVariants = cva(
         unset: '',
       },
       size: {
-        sm: 'action-sm text-caption font-medium tracking-wide leading-none',
-        base: 'action-base text-label font-medium tracking-wide leading-none',
-        md: 'action-md text-body font-semibold tracking-wide leading-none',
-        lg: 'action-lg text-subheading font-semibold tracking-wide leading-none',
-        full: 'action-full text-subtitle font-bold tracking-wide leading-none',
+        sm: 'action-xs border-(length:--spacing-action-line-xs) text-caption font-medium tracking-wide leading-none',
+        base: 'action-sm border-(length:--spacing-action-line-sm) text-label font-medium tracking-wide leading-none',
+        md: 'action-md border-(length:--spacing-action-line-md) text-body font-semibold tracking-wide leading-none',
+        lg: 'action-lg border-(length:--spacing-action-line-lg) text-subheading font-semibold tracking-wide leading-none',
+        full: 'action-xl border-(length:--spacing-action-line-xl) text-subtitle font-bold tracking-wide leading-none',
         none: 'gap-0 p-0 border-0 text-[initial] leading-[initial]',
         unset: '',
       },
       variant: {
-        base: 'action-display',
+        base: 'action-base',
         outline: [
           'shadow-none',
           'border-border hover:border-transparent',
@@ -86,7 +85,7 @@ const buttonVariants = cva(
       },
       // Style Modifiers
       isIcon: {
-        true: ['size-fs-8 p-0', "[&_svg:not([class*='size-'])]:size-fs-4"],
+        true: "size-fs-10 p-0 [&_svg:not([class*='size-'])]:size-[1.25em]",
       },
       isGhost: {
         true: ghostButton,
@@ -333,61 +332,61 @@ const buttonVariants = cva(
       {
         size: 'sm',
         isGhost: true,
-        className: 'action-xs',
+        className: 'action-fs-sm-1',
       },
       {
         size: 'base',
         isGhost: true,
-        className: 'action-sm',
+        className: 'action-fs-sm-2',
       },
       {
         size: 'md',
         isGhost: true,
-        className: 'action-base',
+        className: 'action-fs-sm-3',
       },
       {
         size: 'lg',
         isGhost: true,
-        className: 'action-md',
+        className: 'action-fs-sm-4',
       },
       {
         size: 'full',
         isGhost: true,
-        className: 'action-lg',
+        className: 'action-fs-sm-5',
       },
       // Icon Size Modifiers
       {
         size: 'sm',
         isIcon: true,
-        className: "size-fs-6 [&_svg:not([class*='size-'])]:size-fs-3",
+        className: "size-fs-8 [&_svg:not([class*='size-'])]:size-[1.125em]",
       },
       {
         size: 'base',
         isIcon: true,
-        className: "size-fs-8 [&_svg:not([class*='size-'])]:size-fs-4",
+        className: "size-fs-10 [&_svg:not([class*='size-'])]:size-[1.25em]",
       },
       {
         size: 'md',
         isIcon: true,
-        className: "size-fs-10 [&_svg:not([class*='size-'])]:size-fs-5",
+        className: "size-fs-12 [&_svg:not([class*='size-'])]:size-[1.375em]",
       },
       {
         size: 'lg',
         isIcon: true,
-        className: "size-fs-12 [&_svg:not([class*='size-'])]:size-fs-6",
+        className: "size-fs-16 [&_svg:not([class*='size-'])]:size-[1.5em]",
       },
       {
         size: 'full',
         isIcon: true,
-        className: "size-fs-14 [&_svg:not([class*='size-'])]:size-fs-7",
+        className: "size-fs-24 [&_svg:not([class*='size-'])]:size-[1.75em]",
       },
       // Text Size Modifiers
       {
         size: 'sm',
         variant: 'text',
         className: [
-          'underline underline-offset-(--line-sm) decoration-1',
-          'outline-offset-(--line-md) focus-visible:outline-1',
+          'underline underline-offset-(--line-sm) decoration-(--line-xs)',
+          'outline-offset-(--line-md) focus-visible:outline-(length:--line-xs)',
         ],
       },
       {
