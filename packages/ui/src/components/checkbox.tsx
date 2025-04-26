@@ -35,7 +35,7 @@ function Checkbox({
     >
       <CheckboxPrimitive.Indicator
         data-slot='checkbox-indicator'
-        className='centered-box'
+        className='box-center'
       >
         <CheckIcon />
       </CheckboxPrimitive.Indicator>

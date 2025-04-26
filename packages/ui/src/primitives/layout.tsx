@@ -12,10 +12,10 @@ const layoutBase = 'box flex-col';
 
 // Layout Radius Properties - to modify the border radius of a layout primitive
 const layoutRadius = {
-  sm: 'rounded-layout-xs',
-  base: 'rounded-layout-sm',
-  md: 'rounded-layout-md',
-  lg: 'rounded-layout-lg',
+  sm: 'rounded-fs-13',
+  base: 'rounded-fs-14',
+  md: 'rounded-fs-15',
+  lg: 'rounded-fs-16',
   full: 'rounded-full',
   none: 'rounded-none',
   unset: '',
@@ -78,9 +78,9 @@ function Layout<T extends React.ElementType = 'div'>({
 
 // Layout Container Space Properties - to modify the spacing styles of a layout container
 const layoutContainerSpace = {
-  base: 'gap-fs-xl-2 px-layout-sm',
-  wrapper: 'gap-fs-xl-2 py-layout-sm',
-  frame: 'gap-fs-xl-2 p-layout-sm',
+  base: 'gap-fs-xl-2 px-fs-xl-4',
+  wrapper: 'gap-fs-xl-2 py-fs-xl-4',
+  frame: 'gap-fs-xl-2 p-fs-xl-4',
   none: 'gap-0 p-0',
   unset: '',
 };

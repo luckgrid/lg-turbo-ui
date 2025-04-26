@@ -13,14 +13,13 @@ import { Element } from '@workspace/ui/primitives/element';
 // -- add additional indicatorVariants (i.e. color, space, etc.)
 // - Replace size-fs-* with new size-fs-icon-* (need to update variables and stylesheets)
 
-const indicatorBase =
-  "box-border inline-flex shrink-0 [&_svg:not([class*='size-'])]:size-[1em]";
+const indicatorBase = 'box-border inline-flex shrink-0 fluid-media';
 
 const indicatorRadius = {
-  sm: 'rounded-action-xs',
-  base: 'rounded-action-sm',
-  md: 'rounded-action-md',
-  lg: 'rounded-action-lg',
+  sm: 'rounded-fs-2',
+  base: 'rounded-fs-3',
+  md: 'rounded-fs-4',
+  lg: 'rounded-fs-5',
   full: 'rounded-full',
   none: 'rounded-none',
   unset: '',
@@ -37,11 +36,11 @@ const indicatorShadow = {
 };
 
 const indicatorSize = {
-  sm: 'size-fs-4',
-  base: 'size-fs-5',
-  md: 'size-fs-6',
-  lg: 'size-fs-7',
-  full: 'size-fs-10',
+  sm: 'size-fs-sm-3',
+  base: 'size-fs-sm-4',
+  md: 'size-fs-sm-5',
+  lg: 'size-fs-sm-6',
+  full: 'size-full',
   none: 'size-auto',
   unset: '',
 };

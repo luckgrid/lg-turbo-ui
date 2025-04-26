@@ -204,7 +204,7 @@ export function FormKitchenSink() {
             control={form.control}
             name='newsletterCategory'
             render={({ field }) => (
-              <FormField className='gap-y-fs-sm-1'>
+              <FormField className='gap-y-fs-sm-2'>
                 <FormLabel>Send me info about:</FormLabel>
                 <FormControl>
                   <RadioGroup

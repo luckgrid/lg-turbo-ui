@@ -10,7 +10,6 @@ import type { LinkProps } from '@workspace/ui/primitives/navigation';
 import { Link } from '@workspace/ui/primitives/navigation';
 
 // TODO:
-// - update fluid scale vars for icon size, borders and outline modifiers
 // - add button link variant for underline settings
 // - extend buttonVariants with actionVariants using cx - https://cva.style/docs/getting-started/composing-components
 // - break up button styles by variant and modifier to reduce amount of tailwind utility sources imported with base button component
@@ -25,9 +24,10 @@ const ghostButton = [
 
 const buttonVariants = cva(
   [
-    'centered-box inline-flex',
+    'box-center inline-flex',
     'action cursor-pointer',
     'text-label font-medium tracking-wide leading-none whitespace-nowrap',
+    'disabled:pointer-events-none disabled:opacity-50',
     'focus-visible:ring-4 aria-invalid:focus-visible:ring-0',
   ],
   {
@@ -41,10 +41,10 @@ const buttonVariants = cva(
         danger: 'action-danger',
       },
       radius: {
-        sm: 'rounded-action-xs',
-        base: 'rounded-action-sm',
-        md: 'rounded-action-md',
-        lg: 'rounded-action-lg',
+        sm: 'rounded-fs-2',
+        base: 'rounded-fs-3',
+        md: 'rounded-fs-4',
+        lg: 'rounded-fs-5',
         full: 'rounded-full',
         none: 'rounded-none',
         unset: '',
@@ -59,28 +59,26 @@ const buttonVariants = cva(
         unset: '',
       },
       size: {
-        sm: 'action-xs border-(length:--spacing-action-line-xs) text-caption font-medium tracking-wide leading-none',
-        base: 'action-sm border-(length:--spacing-action-line-sm) text-label font-medium tracking-wide leading-none',
-        md: 'action-md border-(length:--spacing-action-line-md) text-body font-semibold tracking-wide leading-none',
-        lg: 'action-lg border-(length:--spacing-action-line-lg) text-subheading font-semibold tracking-wide leading-none',
-        full: 'action-xl border-(length:--spacing-action-line-xl) text-subtitle font-bold tracking-wide leading-none',
-        none: 'gap-0 p-0 border-0 text-[initial] leading-[initial]',
+        sm: 'action-xs border-fs-2 text-caption font-medium tracking-wide leading-none',
+        base: 'action-sm border-fs-3 text-label font-medium tracking-wide leading-none',
+        md: 'action-md border-fs-4 text-body font-semibold tracking-wide leading-none',
+        lg: 'action-lg border-fs-5 text-subheading font-semibold tracking-wide leading-none',
+        full: 'action-xl border-fs-6 text-subtitle font-bold tracking-wide leading-none',
+        none: 'gap-0 p-0 border-0',
         unset: '',
       },
       variant: {
         base: 'action-base',
         outline: [
-          'shadow-none',
-          'border-border hover:border-transparent',
+          'shadow-none border-border hover:border-transparent',
           'bg-transparent hover:bg-border/90 focus-visible:bg-border',
           'text-foreground hover:text-foreground',
         ],
         text: [
-          'box-content size-fit p-0',
-          'underline underline-offset-(--line-lg) decoration-(--line-sm)',
-          'shadow-none border-none',
+          'box-content size-fit p-0 shadow-none border-none',
           'bg-transparent hover:bg-transparent focus-visible:bg-transparent',
           'text-foreground hover:text-foreground/80 focus-visible:text-foreground',
+          'underline underline-offset-(--fs-line-4)',
         ],
       },
       // Style Modifiers

@@ -26,10 +26,10 @@ import { Element } from '@workspace/ui/primitives/element';
 const formBase = 'box-border grid items-start';
 
 const formRadius = {
-  sm: 'rounded-box-sm',
-  base: 'rounded-box-md',
-  md: 'rounded-box-lg',
-  lg: 'rounded-box-xl',
+  sm: 'rounded-fs-7',
+  base: 'rounded-fs-8',
+  md: 'rounded-fs-9',
+  lg: 'rounded-fs-10',
   full: 'rounded-full',
   none: 'rounded-none',
   unset: '',
@@ -46,11 +46,11 @@ const formShadow = {
 };
 
 const formSize = {
-  sm: 'gap-form-xs',
-  base: 'gap-form-sm',
-  md: 'gap-form-md',
-  lg: 'gap-form-lg',
-  full: 'gap-form-xl',
+  sm: 'gap-fs-4',
+  base: 'gap-fs-6',
+  md: 'gap-fs-8',
+  lg: 'gap-fs-10',
+  full: 'gap-fs-12',
   none: 'gap-0',
   unset: '',
 };
@@ -115,10 +115,10 @@ function Form<T extends React.ElementType = 'form'>({
 
 const formFieldRadius = {
   ...formRadius,
-  sm: 'rounded-box-xs',
-  base: 'rounded-box-sm',
-  md: 'rounded-box-md',
-  lg: 'rounded-box-lg',
+  sm: 'rounded-fs-5',
+  base: 'rounded-fs-6',
+  md: 'rounded-fs-7',
+  lg: 'rounded-fs-8',
   unset: '',
 };
 
@@ -128,11 +128,11 @@ const formFieldShadow = {
 
 const formFieldSize = {
   ...formSize,
-  sm: 'gap-y-fs-xs-1 gap-x-fs-xs-3',
-  base: 'gap-y-fs-xs-2 gap-x-fs-xs-4',
-  md: 'gap-y-fs-xs-3 gap-x-fs-xs-5',
-  lg: 'gap-y-fs-xs-4 gap-x-fs-xs-6',
-  full: 'gap-y-fs-xs-5 gap-x-fs-xs-7',
+  sm: 'gap-y-fs-xs-2 gap-x-fs-xs-4',
+  base: 'gap-y-fs-xs-3 gap-x-fs-xs-6',
+  md: 'gap-y-fs-xs-4 gap-x-fs-xs-8',
+  lg: 'gap-y-fs-xs-5 gap-x-fs-xs-10',
+  full: 'gap-y-fs-xs-6 gap-x-fs-xs-12',
 };
 
 const formFieldVariants = cva('box-border grid items-start', {
@@ -303,22 +303,22 @@ function FormText<T extends React.ElementType = 'p'>({
 // Primitive Form Input Component
 
 const inputBase = [
-  'box w-full transition-[background-color,border-color,color,box-shadow,opacity,fill,stroke]',
-  'outline-offset-1 outline-ring/80 border-border bg-input text-input-foreground',
-  'text-left text-pretty',
+  'box action w-full',
+  'outline-offset-fs-2 outline-ring/80 border-border',
+  'bg-input text-input-foreground text-left text-pretty',
   'placeholder:text-input-foreground/50 hover:placeholder:text-input-foreground/60 focus-within:placeholder:text-input-foreground/70',
-  'selection:bg-primary selection:text-primary-foreground',
+  'selection:bg-accent selection:text-accent-foreground',
   'disabled:cursor-not-allowed disabled:opacity-50',
-  'focus-visible:border-ring focus-visible:outline-1',
+  'focus-visible:border-ring focus-visible:outline-fs-2',
   'aria-invalid:border-danger focus-visible:aria-invalid:outline-danger/80',
 ];
 
 const inputRadius = {
   ...formRadius,
-  sm: 'rounded-form-sm',
-  base: 'rounded-form-md',
-  md: 'rounded-form-lg',
-  lg: 'rounded-form-xl',
+  sm: 'rounded-fs-2',
+  base: 'rounded-fs-3',
+  md: 'rounded-fs-4',
+  lg: 'rounded-fs-5',
 };
 
 const inputShadow = {
@@ -331,11 +331,11 @@ const inputShadow = {
 };
 
 const inputSize = {
-  sm: 'gap-fs-2 px-fs-4 py-fs-3 border-(length:--form-line-xs) text-caption',
-  base: 'gap-fs-3 px-fs-5 py-fs-4 border-(length:--form-line-sm) text-label',
-  md: 'gap-fs-4 px-fs-6 py-fs-5 border-(length:--form-line-md) text-body',
-  lg: 'gap-fs-5 px-fs-7 py-fs-6 border-(length:--form-line-lg) text-lead',
-  full: 'gap-fs-6 px-fs-8 py-fs-7 border-(length:--form-line-xl) text-subheading',
+  sm: 'gap-fs-2 px-fs-4 py-fs-3 border-fs-1 text-caption',
+  base: 'gap-fs-3 px-fs-5 py-fs-4 border-fs-2 text-label',
+  md: 'gap-fs-4 px-fs-6 py-fs-5 border-fs-3 text-body',
+  lg: 'gap-fs-5 px-fs-7 py-fs-6 border-fs-4 text-lead',
+  full: 'gap-fs-6 px-fs-8 py-fs-7 border-fs-5 text-subheading',
   none: 'gap-0 px-0 py-0 border-0',
   unset: '',
 };
@@ -428,7 +428,7 @@ function Input<T extends React.ElementType = 'input'>({
 
 const inputIndicatorBase = [
   indicatorBase,
-  'action line-sm action-outline-sm action-outline-ring/75 ring-ring/25 border-border bg-input text-input-foreground',
+  'action border-fs-2 action-outline-fs-2 action-outline-ring/75 ring-ring/25 border-border bg-input text-input-foreground',
   'data-[state=checked]:border-primary data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground',
   'disabled:cursor-not-allowed active:not-disabled:motion-scale-in-90 active:not-disabled:motion-duration-300 active:not-disabled:motion-ease-spring-bouncy',
   'focus-visible:aria-invalid:ring-danger/25',
@@ -444,11 +444,11 @@ const inputIndicatorShadow = {
 
 const inputIndicatorSize = {
   ...indicatorSize,
-  sm: "size-fs-4 [&_svg:not([class*='size-'])]:size-fs-3 border-(length:--form-line-xs)",
-  base: "size-fs-6 [&_svg:not([class*='size-'])]:size-fs-4 border-(length:--form-line-sm)",
-  md: "size-fs-8 [&_svg:not([class*='size-'])]:size-fs-6 border-(length:--form-line-md)",
-  lg: "size-fs-10 [&_svg:not([class*='size-'])]:size-fs-8 border-(length:--form-line-lg)",
-  full: "size-fs-12 [&_svg:not([class*='size-'])]:size-fs-10 border-(length:--form-line-xl)",
+  sm: "size-fs-4 [&_svg:not([class*='size-'])]:size-fs-3 border-fs-1",
+  base: "size-fs-6 [&_svg:not([class*='size-'])]:size-fs-4 border-fs-2",
+  md: "size-fs-8 [&_svg:not([class*='size-'])]:size-fs-6 border-fs-3",
+  lg: "size-fs-10 [&_svg:not([class*='size-'])]:size-fs-8 border-fs-4",
+  full: "size-fs-12 [&_svg:not([class*='size-'])]:size-fs-10 border-fs-5",
 };
 
 const inputIndicatorVariant = {

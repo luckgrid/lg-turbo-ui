@@ -14,7 +14,10 @@ export function PrimitivesKitchenSink() {
         </Layout>
 
         <Layout className='flex-row flex-wrap items-center gap-fs-6'>
-          <div className='box-content box-4 box-color-base line-2 rounded-md'>
+          <div className='box dev-base-2 dev-fs-6 border outline rounded'>
+            Dev Primitive
+          </div>
+          <div className='box box-content box-color-base framer-4 border-2 rounded-md'>
             Unscaled Box Primitive
           </div>
           <div className='box-fs-8 box-color-base-1 line-lg rounded-fs-3'>
@@ -38,21 +41,21 @@ export function PrimitivesKitchenSink() {
         <Layout className='flex-row flex-wrap items-center gap-fs-6'>
           <button
             type='button'
-            className='cursor inline-flex items-center rounded-fs-2 action action-fs-3 action-neutral leading-none'
+            className='cursor inline-flex items-center rounded-fs-2 frame-fs-2 action action-neutral leading-none'
           >
             Neutral Action
             <Star />
           </button>
           <button
             type='button'
-            className='cursor inline-flex items-center rounded-fs-3 action action-fs-5 action-primary leading-none'
+            className='cursor inline-flex items-center rounded-fs-3 frame-fs-4 action action-primary leading-none'
           >
             Primary Action
             <Star />
           </button>
           <button
             type='button'
-            className='cursor-not-allowed inline-flex items-center rounded-fs-4 action action-fs-7 action-secondary leading-none'
+            className='cursor-not-allowed inline-flex items-center rounded-fs-4 frame-fs-6 action action-secondary leading-none'
             disabled
           >
             Disabled Secondary Action
@@ -63,19 +66,19 @@ export function PrimitivesKitchenSink() {
         <Layout className='flex-row flex-wrap items-center gap-fs-6'>
           <button
             type='button'
-            className='cursor centered-box inline-flex rounded-action-sm action action-sm action-base text-label leading-none'
+            className='cursor box-center inline-flex rounded-fs-2 frame-fs-2 action action-base text-label leading-none'
           >
             Base Small Action
           </button>
           <button
             type='button'
-            className='cursor centered-box inline-flex rounded-action-md action action-md action-display text-label leading-none'
+            className='cursor box-center inline-flex rounded-fs-4 frame-fs-4 action action-display text-label leading-none'
           >
             Display Medium Action
           </button>
           <button
             type='button'
-            className='cursor centered-box inline-flex rounded-action-lg line-xl action action-lg action-panel text-panel-foreground bg-transparent hover:bg-panel leading-none'
+            className='cursor box-center inline-flex rounded-fs-6 border-fs-6 frame-fs-6 action action-panel text-panel-foreground bg-transparent hover:bg-panel leading-none'
           >
             Outline Panel Large Action
           </button>
