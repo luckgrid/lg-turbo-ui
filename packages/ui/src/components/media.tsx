@@ -38,7 +38,7 @@ const imageVariants = cva('', {
     },
     variant: {
       base: '',
-      icon: "[&:not([class*='size-'])]:size-[1em]",
+      icon: 'fluid-media',
     },
   },
   defaultVariants: {

@@ -12,15 +12,15 @@ import { Element } from '@workspace/ui/primitives/element';
 const cardBase = 'box flex-col';
 
 const cardAction = [
-  'action action-outline-sm action-outline-card',
+  'action action-card action-outline-4',
   'cursor-pointer no-underline disabled:opacity-75',
 ];
 
 const cardRadius = {
-  sm: 'rounded-display-xs',
-  base: 'rounded-display-sm',
-  md: 'rounded-display-md',
-  lg: 'rounded-display-lg',
+  sm: 'rounded-fs-6',
+  base: 'rounded-fs-7',
+  md: 'rounded-fs-8',
+  lg: 'rounded-fs-9',
   full: 'rounded-full',
   none: 'rounded-none',
   unset: '',
@@ -47,10 +47,10 @@ const cardSize = {
 };
 
 const cardSpace = {
-  base: 'gap-display-sm',
-  container: 'gap-display-sm px-display-sm',
-  wrapper: 'gap-display-sm py-display-sm',
-  frame: 'gap-display-sm p-display-sm',
+  base: 'gap-fs-lg-4',
+  container: 'gap-fs-lg-4 px-fs-lg-4',
+  wrapper: 'gap-fs-lg-4 py-fs-lg-4',
+  frame: 'gap-fs-lg-4 p-fs-lg-4',
   none: 'gap-0 p-0',
   unset: '',
 };
@@ -75,59 +75,59 @@ const cardVariants = cva(cardBase, {
     {
       size: 'sm',
       variant: 'base',
-      className: 'border-(length:--spacing-display-line-xs)',
+      className: 'border-fs-4',
     },
     {
       size: 'base',
       variant: 'base',
-      className: 'border-(length:--spacing-display-line-sm)',
+      className: 'border-fs-5',
     },
     {
       size: 'md',
       variant: 'base',
-      className: 'border-(length:--spacing-display-line-md)',
+      className: 'border-fs-6',
     },
     {
       size: 'lg',
       variant: 'base',
-      className: 'border-(length:--spacing-display-line-lg)',
+      className: 'border-fs-7',
     },
     {
       size: 'full',
       variant: 'base',
-      className: 'border-(length:--spacing-display-line-xl)',
+      className: 'border-fs-8',
     },
     // Action Modifier Sizes
     {
       size: 'sm',
       isAction: true,
-      className: 'outline-(length:--spacing-display-line-xs)',
+      className: 'outline-fs-line-4',
     },
     {
       size: 'base',
       isAction: true,
-      className: 'outline-(length:--spacing-display-line-sm)',
+      className: 'outline-fs-line-5',
     },
     {
       size: 'md',
       isAction: true,
-      className: 'outline-(length:--spacing-display-line-md)',
+      className: 'outline-fs-line-6',
     },
     {
       size: 'lg',
       isAction: true,
-      className: 'outline-(length:--spacing-display-line-lg)',
+      className: 'outline-fs-line-7',
     },
     {
       size: 'full',
       isAction: true,
-      className: 'outline-(length:--spacing-display-line-xl)',
+      className: 'outline-fs-line-8',
     },
     // Action Modifier Base Variant
     {
       variant: 'base',
       isAction: true,
-      className: 'hover:bg-card/80 hover:border-card/40',
+      className: 'hover:border-card/40 hover:bg-card/80',
     },
   ],
   defaultVariants: {

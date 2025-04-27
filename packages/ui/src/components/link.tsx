@@ -8,8 +8,9 @@ import { Link as PrimitiveLink } from '@workspace/ui/primitives/navigation';
 const linkVariants = cva(
   [
     'flex-inline cursor-pointer transition-colors',
-    'action action-outline-sm items-center gap-fs-xs-3',
-    'text-current hover:text-current/90 underline-offset-(length:--action-line-lg)',
+    'action action-outline-2 items-center gap-fs-xs-3',
+    'text-current hover:text-current/90 underline-offset-(length:--outline-width-4)',
+    'disabled:cursor-not-allowed disabled:opacity-50',
   ],
   {
     variants: {

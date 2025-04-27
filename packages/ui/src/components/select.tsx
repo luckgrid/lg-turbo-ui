@@ -46,7 +46,7 @@ const selectTriggerVariants = cva(
   [
     inputBase,
     inputVariant.select,
-    '*:data-[slot=select-value]:line-clamp-1 *:data-[slot=select-value]:flex *:data-[slot=select-value]:items-center *:data-[slot=select-value]:gap-fs-2',
+    '*:data-[slot=select-value]:line-clamp-1 *:data-[slot=select-value]:flex *:data-[slot=select-value]:items-center *:data-[slot=select-value]:gap-fs-4',
   ],
   {
     variants: {
@@ -157,7 +157,7 @@ function SelectContent({
         <SelectScrollUpButton />
         <SelectPrimitive.Viewport
           className={cn(
-            'p-line-lg',
+            'p-fs-xs-4',
             position === 'popper' &&
               'h-[var(--radix-select-trigger-height)] w-full min-w-[var(--radix-select-trigger-width)] scroll-my-fs-1'
           )}
@@ -183,7 +183,10 @@ function SelectLabel({
   return (
     <SelectPrimitive.Label
       data-slot='select-label'
-      className={cn('text-foreground px-fs-2 py-fs-1 text-label', className)}
+      className={cn(
+        'text-foreground px-fs-xs-2 py-fs-xs-1 text-label',
+        className
+      )}
       {...props}
     />
   );
@@ -198,11 +201,11 @@ function SelectLabel({
 const selectItemVariants = cva(
   [
     'w-full cursor-default outline-hidden select-none',
-    'box items-center gap-fs-2 py-fs-1 pr-fs-8 pl-fs-2 text-label',
+    'box items-center gap-fs-4 py-fs-xs-4 pr-fs-xs-8 pl-fs-xs-2 text-label',
     'focus:bg-primary focus:text-primary-foreground',
     'data-[disabled]:pointer-events-none data-[disabled]:opacity-50',
     '*:[span]:last:flex *:[span]:last:items-center *:[span]:last:gap-fs-2',
-    "[&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-fs-4",
+    "[&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-[1em]",
     "[&_svg:not([class*='text-'])]:text-muted-foreground focus:[&_svg:not([class*='text-'])]:text-primary-foreground",
   ],
   {
@@ -246,9 +249,9 @@ function SelectItem({
       className={cn(selectItemVariants({ radius, size, shadow, className }))}
       {...props}
     >
-      <span className='absolute right-fs-2 size-fs-3 flex items-center justify-center'>
+      <span className='absolute right-fs-xs-2 size-fs-xs-3 flex items-center justify-center'>
         <SelectPrimitive.ItemIndicator>
-          <CheckIcon className='size-fs-4' />
+          <CheckIcon className='size-[1em]' />
         </SelectPrimitive.ItemIndicator>
       </span>
       <SelectPrimitive.ItemText>{children}</SelectPrimitive.ItemText>
@@ -266,7 +269,7 @@ function SelectSeparator({
     <SelectPrimitive.Separator
       data-slot='select-separator'
       className={cn(
-        'bg-border pointer-events-none -mx-fs-1 my-fs-1 h-line-sm',
+        'bg-border pointer-events-none -mx-fs-xs-2 my-fs-xs-2 h-fs-line-4',
         className
       )}
       {...props}
@@ -288,12 +291,12 @@ function SelectScrollUpButton({
     <SelectPrimitive.ScrollUpButton
       data-slot='select-scroll-up-button'
       className={cn(
-        'flex cursor-default items-center justify-center py-fs-1',
+        'flex cursor-default items-center justify-center py-fs-xs-2',
         className
       )}
       {...props}
     >
-      <ChevronUpIcon className='size-fs-4' />
+      <ChevronUpIcon className='size-[1em]' />
     </SelectPrimitive.ScrollUpButton>
   );
 }
@@ -306,12 +309,12 @@ function SelectScrollDownButton({
     <SelectPrimitive.ScrollDownButton
       data-slot='select-scroll-down-button'
       className={cn(
-        'flex cursor-default items-center justify-center py-fs-1',
+        'flex cursor-default items-center justify-center py-fs-xs-2',
         className
       )}
       {...props}
     >
-      <ChevronDownIcon className='size-fs-4' />
+      <ChevronDownIcon className='size-[1em]' />
     </SelectPrimitive.ScrollDownButton>
   );
 }
