@@ -1,11 +1,11 @@
-import * as React from 'react';
+import * as React from "react";
 
-import type { VariantProps } from 'class-variance-authority';
-import { cva } from 'class-variance-authority';
+import type { VariantProps } from "class-variance-authority";
+import { cva } from "class-variance-authority";
 
-import { cn } from '@workspace/ui/lib/utils';
-import type { ElementProps } from '@workspace/ui/primitives/element';
-import { Element } from '@workspace/ui/primitives/element';
+import { cn } from "@workspace/ui/lib/utils";
+import type { ElementProps } from "@workspace/ui/primitives/element";
+import { Element } from "@workspace/ui/primitives/element";
 
 // TODO:
 // - Add indicator wrapper slot element (button or div)
@@ -13,36 +13,36 @@ import { Element } from '@workspace/ui/primitives/element';
 // -- add additional indicatorVariants (i.e. color, space, etc.)
 // - Replace size-fs-* with new size-fs-icon-* (need to update variables and stylesheets)
 
-const indicatorBase = 'box-border inline-flex shrink-0 fluid-media';
+const indicatorBase = "box-border inline-flex icon-wrapper";
 
 const indicatorRadius = {
-  sm: 'rounded-fs-2',
-  base: 'rounded-fs-3',
-  md: 'rounded-fs-4',
-  lg: 'rounded-fs-5',
-  full: 'rounded-full',
-  none: 'rounded-none',
-  unset: '',
+  sm: "rounded-fs-1",
+  base: "rounded-fs-2",
+  md: "rounded-fs-3",
+  lg: "rounded-fs-4",
+  full: "rounded-full",
+  none: "rounded-none",
+  unset: "",
 };
 
 const indicatorShadow = {
-  sm: 'shadow-2xs',
-  base: 'shadow-xs',
-  md: 'shadow-sm',
-  lg: 'shadow-md',
-  full: 'shadow-lg',
-  none: 'shadow-none',
-  unset: '',
+  sm: "shadow-2xs",
+  base: "shadow-xs",
+  md: "shadow-sm",
+  lg: "shadow-md",
+  full: "shadow-lg",
+  none: "shadow-none",
+  unset: "",
 };
 
 const indicatorSize = {
-  sm: 'size-fs-sm-3',
-  base: 'size-fs-sm-4',
-  md: 'size-fs-sm-5',
-  lg: 'size-fs-sm-6',
-  full: 'size-full',
-  none: 'size-auto',
-  unset: '',
+  sm: "size-fs-sm-3",
+  base: "size-fs-sm-4",
+  md: "size-fs-sm-5",
+  lg: "size-fs-sm-6",
+  full: "size-full",
+  none: "size-auto",
+  unset: "",
 };
 
 const indicatorVariants = cva(indicatorBase, {
@@ -52,18 +52,18 @@ const indicatorVariants = cva(indicatorBase, {
     size: indicatorSize,
   },
   defaultVariants: {
-    radius: 'base',
-    shadow: 'base',
-    size: 'base',
+    radius: "base",
+    shadow: "base",
+    size: "base",
   },
 });
 
 type IndicatorVariantProps = VariantProps<typeof indicatorVariants>;
-type IndicatorProps<T extends React.ElementType = 'span'> = ElementProps<T> &
+type IndicatorProps<T extends React.ElementType = "span"> = ElementProps<T> &
   IndicatorVariantProps;
 
-function Indicator<T extends React.ElementType = 'span'>({
-  as = 'span',
+function Indicator<T extends React.ElementType = "span">({
+  as = "span",
   className,
   radius,
   shadow,
@@ -72,7 +72,7 @@ function Indicator<T extends React.ElementType = 'span'>({
 }: IndicatorProps<T>) {
   return (
     <Element
-      data-slot='indicator'
+      data-slot="indicator"
       as={as}
       className={cn(indicatorVariants({ radius, shadow, size, className }))}
       {...props}

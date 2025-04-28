@@ -1,35 +1,35 @@
 /// <reference types="./types.d.ts" />
 
-import js from '@eslint/js';
-import eslintConfigPrettier from 'eslint-config-prettier';
-import turboConfig from 'eslint-config-turbo/flat';
-import eslintPluginImport from 'eslint-plugin-import';
-import onlyWarn from 'eslint-plugin-only-warn';
-import turboPlugin from 'eslint-plugin-turbo';
-import tseslint from 'typescript-eslint';
+import js from "@eslint/js";
+import eslintConfigPrettier from "eslint-config-prettier";
+import turboConfig from "eslint-config-turbo/flat";
+import eslintPluginImport from "eslint-plugin-import";
+import onlyWarn from "eslint-plugin-only-warn";
+import turboPlugin from "eslint-plugin-turbo";
+import tseslint from "typescript-eslint";
 
 // All packages and apps that use or access environment variables should add this rule to their eslint config
 export const restrictEnvAccess = tseslint.config(
-  { ignores: ['**/env.ts', 'dist/**'] },
+  { ignores: ["**/env.ts", "dist/**"] },
   {
-    files: ['**/*.js', '**/*.ts', '**/*.tsx'],
+    files: ["**/*.js", "**/*.ts", "**/*.tsx"],
     rules: {
-      'no-restricted-properties': [
-        'error',
+      "no-restricted-properties": [
+        "error",
         {
-          object: 'process',
-          property: 'env',
+          object: "process",
+          property: "env",
           message:
-            'Avoid using process.env directly - validate your types with Zod',
+            "Avoid using process.env directly - validate your types with Zod",
         },
       ],
-      'no-restricted-imports': [
-        'error',
+      "no-restricted-imports": [
+        "error",
         {
-          name: 'process',
-          importNames: ['env'],
+          name: "process",
+          importNames: ["env"],
           message:
-            'Avoid using process.env directly - validate your types with Zod',
+            "Avoid using process.env directly - validate your types with Zod",
         },
       ],
     },
@@ -37,7 +37,7 @@ export const restrictEnvAccess = tseslint.config(
 );
 
 export default tseslint.config([
-  { ignores: ['dist/**', 'node_modules/**'] },
+  { ignores: ["dist/**", "node_modules/**"] },
   ...turboConfig,
   js.configs.recommended,
   eslintConfigPrettier,
@@ -47,7 +47,7 @@ export default tseslint.config([
       turbo: turboPlugin,
     },
     rules: {
-      'turbo/no-undeclared-env-vars': 'warn',
+      "turbo/no-undeclared-env-vars": "warn",
     },
   },
   {
@@ -60,86 +60,86 @@ export default tseslint.config([
       import: eslintPluginImport,
     },
     rules: {
-      'import/no-cycle': 'warn',
-      'import/order': [
-        'warn',
+      "import/no-cycle": "warn",
+      "import/order": [
+        "warn",
         {
           groups: [
-            'builtin',
-            'external',
-            'internal',
-            ['parent', 'sibling', 'index'],
-            'object',
+            "builtin",
+            "external",
+            "internal",
+            ["parent", "sibling", "index"],
+            "object",
           ],
           pathGroups: [
             {
-              pattern: '*.{css,sass,scss,less}',
-              group: 'object',
-              position: 'before',
+              pattern: "*.{css,sass,scss,less}",
+              group: "object",
+              position: "before",
             },
             {
-              pattern: 'react',
-              group: 'external',
-              position: 'before',
+              pattern: "react",
+              group: "external",
+              position: "before",
             },
             {
-              pattern: 'react-dom',
-              group: 'external',
-              position: 'before',
+              pattern: "react-dom",
+              group: "external",
+              position: "before",
             },
             {
-              pattern: '@hookform/**',
-              group: 'external',
-              position: 'before',
+              pattern: "@hookform/**",
+              group: "external",
+              position: "before",
             },
             {
-              pattern: 'react-hook-form',
-              group: 'external',
-              position: 'before',
+              pattern: "react-hook-form",
+              group: "external",
+              position: "before",
             },
             {
-              pattern: 'next',
-              group: 'external',
-              position: 'after',
+              pattern: "next",
+              group: "external",
+              position: "after",
             },
             {
-              pattern: 'next-safe-action',
-              group: 'external',
-              position: 'after',
+              pattern: "next-safe-action",
+              group: "external",
+              position: "after",
             },
             {
-              pattern: 'next-themes',
-              group: 'external',
-              position: 'after',
+              pattern: "next-themes",
+              group: "external",
+              position: "after",
             },
             {
-              pattern: '@workspace/**',
-              group: 'internal',
-              position: 'before',
+              pattern: "@workspace/**",
+              group: "internal",
+              position: "before",
             },
             {
-              pattern: '@/**',
-              group: 'internal',
-              position: 'after',
+              pattern: "@/**",
+              group: "internal",
+              position: "after",
             },
             {
-              pattern: '../**',
-              group: 'parent',
-              position: 'before',
+              pattern: "../**",
+              group: "parent",
+              position: "before",
             },
             {
-              pattern: './**',
-              group: 'sibling',
-              position: 'before',
+              pattern: "./**",
+              group: "sibling",
+              position: "before",
             },
           ],
-          pathGroupsExcludedImportTypes: ['builtin'],
+          pathGroupsExcludedImportTypes: ["builtin"],
           alphabetize: {
-            order: 'asc',
+            order: "asc",
             caseInsensitive: true,
-            orderImportKind: 'asc',
+            orderImportKind: "asc",
           },
-          'newlines-between': 'always',
+          "newlines-between": "always",
           distinctGroup: true,
         },
       ],
@@ -147,7 +147,7 @@ export default tseslint.config([
   },
   {
     rules: {
-      semi: ['error', 'always'],
+      semi: ["error", "always"],
     },
   },
 ]);

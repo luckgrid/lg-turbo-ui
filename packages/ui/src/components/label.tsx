@@ -1,43 +1,43 @@
-'use client';
+"use client";
 
-import * as React from 'react';
+import * as React from "react";
 
-import * as LabelPrimitive from '@radix-ui/react-label';
-import type { VariantProps } from 'class-variance-authority';
-import { cva } from 'class-variance-authority';
+import * as LabelPrimitive from "@radix-ui/react-label";
+import type { VariantProps } from "class-variance-authority";
+import { cva } from "class-variance-authority";
 
-import { cn } from '@workspace/ui/lib/utils';
-import { formTextSize, formTextStatus } from '@workspace/ui/primitives/form';
+import { cn } from "@workspace/ui/lib/utils";
+import { formTextSize, formTextStatus } from "@workspace/ui/primitives/form";
 
-const labelBase = 'inline-flex select-none transition-[color]';
+const labelBase = "inline-flex select-none transition-[color]";
 
 const labelSize = {
   ...formTextSize,
-  sm: 'gap-fs-xs-2 font-normal text-caption',
-  base: 'gap-fs-xs-3 font-medium text-label',
-  md: 'gap-fs-xs-4 font-medium text-body',
-  lg: 'gap-fs-xs-5 font-semibold text-lead',
-  full: 'gap-fs-xs-6 font-semibold text-subheading',
+  sm: "gap-fs-1 font-normal text-caption",
+  base: "gap-fs-2 font-medium text-label",
+  md: "gap-fs-sm-1 font-medium text-body",
+  lg: "gap-fs-sm-2 font-semibold text-lead",
+  full: "gap-fs-sm-3 font-semibold text-subheading",
 };
 
 const labelStatus = {
   ...formTextStatus,
-  base: 'text-foreground/80',
-  error: 'text-danger',
+  base: "text-foreground/80",
+  error: "text-danger",
 };
 
 const labelVariant = {
-  base: '',
-  indicator: 'peer-disabled:cursor-not-allowed',
+  base: "",
+  indicator: "peer-disabled:cursor-not-allowed",
 };
 
 const labelVariants = cva(
   [
     labelBase,
-    'items-center gap-fs-xs-3',
-    'data-[error=true]:text-danger',
-    'group-data-[disabled=true]:pointer-events-none group-data-[disabled=true]:opacity-50',
-    'peer-disabled:opacity-50',
+    "items-center gap-fs-2",
+    "data-[error=true]:text-danger",
+    "group-data-[disabled=true]:pointer-events-none group-data-[disabled=true]:opacity-50",
+    "peer-disabled:opacity-50",
   ],
   {
     variants: {
@@ -51,15 +51,15 @@ const labelVariants = cva(
     },
     compoundVariants: [
       {
-        status: 'disabled',
-        variant: 'indicator',
-        className: 'cursor-not-allowed',
+        status: "disabled",
+        variant: "indicator",
+        className: "cursor-not-allowed",
       },
     ],
     defaultVariants: {
-      size: 'base',
-      status: 'base',
-      variant: 'base',
+      size: "base",
+      status: "base",
+      variant: "base",
     },
   }
 );
@@ -79,7 +79,7 @@ function Label({
 }: LabelProps) {
   return (
     <LabelPrimitive.Root
-      data-slot='label'
+      data-slot="label"
       className={cn(
         labelVariants({
           size,

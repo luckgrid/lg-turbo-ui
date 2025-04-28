@@ -1,0 +1,179 @@
+/* Utility Styles */
+
+/* - Tailwind CSS Docs: https://tailwindcss.com/docs/adding-custom-styles#adding-custom-utilities */
+
+/* Grid Utilities */
+
+@utility auto-fill-* {
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(min(--value([*]), 100%), 1fr)
+  );
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(min(--value(--spacing-*, --text-*), 100%), 1fr)
+  );
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(min(var(--spacing) * --value(integer), 100%), 1fr)
+  );
+}
+
+@utility auto-fit-* {
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(min(--value([*]), 100%), 1fr)
+  );
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(min(--value(--spacing-*, --text-*), 100%), 1fr)
+  );
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(min(var(--spacing) * --value(integer), 100%), 1fr)
+  );
+}
+
+/* Transition Utilities */
+
+@utility transition-box {
+  transition-property: outline-color, box-shadow, border-color, background-color, color, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to;
+  transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
+  transition-duration: var(--tw-duration, var(--default-transition-duration));
+}
+
+@utility transition-action {
+  transition-property: outline-color, box-shadow, border-color, background-color, color, text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to;
+  transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
+  transition-duration: var(--tw-duration, var(--default-transition-duration));
+}
+
+@utility transition-link {
+  transition-property: outline-color, color, text-decoration-color, fill, stroke;
+  transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
+  transition-duration: var(--tw-duration, var(--default-transition-duration));
+}
+
+/* Box Utilities */
+
+@utility box {
+  box-sizing: border-box;
+  display: flex;
+}
+
+/* TODO: use `--modifier` to handle more box placement styles */
+@utility box-* {
+  &:where(:not([class*='box'])) {
+    box-sizing: border-box;
+    display: flex;
+  }
+  align-items: --value('center', 'start', 'end', 'stretch');
+  justify-content: --value('center', 'start', 'end', 'stretch');
+}
+
+/* TODO: look into using ratio modifier to handle different border color styles */
+@utility box-color-* {
+  --alpha: calc(--modifier(integer, number) * 1%);
+  border-color: --alpha(--value(--color-*-foreground, [*]) / 20%);
+  background-color: --alpha(--value(--color-*, [*]) / var(--alpha, 100%));
+  color: --value(--color-*-foreground);
+}
+
+/* Action Utilities */
+
+@utility action-color-* {
+  --tw-ring-color: --alpha(--value(--color-*, [*]) / 25%);
+  --alpha: calc(--modifier(integer) * 1%);
+  outline-color: --alpha(--value(--color-*, [*]) / 50%);
+  border-color: --alpha(--value(--color-*, [*]) / var(--alpha, 100%));
+  background-color: --alpha(--value(--color-*, [*]) / var(--alpha, 100%));
+  color: --value(--color-*-foreground);
+
+  &:hover {
+    border-color: transparent;
+    background-color: --alpha(--value(--color-*, [*]) / 90%);
+  }
+
+  &:active {
+    border-color: --alpha(--value(--color-*, [*]) / 100%);
+    background-color: --alpha(--value(--color-*, [*]) / var(--alpha, 100%));
+  }
+
+  &:focus-visible {
+    outline-color: --alpha(--value(--color-*, [*]) / 100%);
+    border-color: transparent;
+  }
+}
+
+/* Framer Utilities */
+
+@utility framer-* {
+  --spacing: calc(--modifier(number, integer) * var(--spacing-fs-*, --spacing-*, [*]));
+  padding: calc(var(--spacing-fs, --spacing) * 4);
+  padding: --value(--spacing-fs-*, --spacing-*, [*]);
+  padding: --spacing(--value(number, integer));
+  &:where([class*='box']),
+  &:where([class*='flex']),
+  &:where([class*='grid']) {
+    gap: calc(var(--spacing-fs, --spacing) * 4);
+    gap: --value(--spacing-fs-*, --spacing-*, [*]);
+    gap: --spacing(--value(number, integer));
+  }
+}
+
+/* Wrapper Utilities */
+
+@utility icon-wrapper {
+  & :is(img, svg):not([class*='size-']) {
+    width: 1em;
+    height: 1em;
+  }
+
+  & :is(img, svg) {
+    pointer-events: none;
+  }
+
+  &:is(.flex, .inline-flex):has(> :is(img, svg)),
+  & :is(.flex, .inline-flex):has(> :is(img, svg)) {
+    flex-shrink: 0;
+  }
+}
+
+@utility text-wrapper {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  text-wrap: pretty;
+  gap: var(--spacing-fs-8, calc(var(--spacing-fs, --spacing) * 16));
+}
+
+@utility wrapper-* {
+  --spacing: calc(--modifier(number, integer) * var(--spacing-fs-*, --spacing-*, [*]));
+  padding-block: --value(--spacing-fs-*, --spacing-*, [*]);
+  padding-block: --spacing(--value(number, integer));
+  &:where([class*='box']),
+  &:where([class*='flex']),
+  &:where([class*='grid']) {
+    gap: --value(--spacing-fs-*, --spacing-*, [*]);
+    gap: --spacing(--value(number, integer));
+  }
+}
+
+/* Container Utilities */
+
+@utility container {
+  margin-inline: auto;
+  max-width: var(--breakpoint-7xl);
+}
+
+@utility container-* {
+  --spacing: calc(--modifier(number, integer) * var(--spacing-fs-*, --spacing-*, [*]));
+  padding-inline: --value(--spacing-fs-*, --spacing-*, [*]);
+  padding-inline: --spacing(--value(number, integer));
+  &:where([class*='box']),
+  &:where([class*='flex']),
+  &:where([class*='grid']) {
+    gap: --value(--spacing-fs-*, --spacing-*, [*]);
+    gap: --spacing(--value(number, integer));
+  }
+}

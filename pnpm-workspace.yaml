@@ -6,11 +6,11 @@ packages:
 
 catalog:
   # turbo
-  '@turbo/gen': ^2.5.0
-  turbo: ^2.5.0
+  '@turbo/gen': ^2.5.2
+  turbo: ^2.5.2
   # turbo configs
-  eslint-config-turbo: ^2.5.0
-  eslint-plugin-turbo: ^2.5.0
+  eslint-config-turbo: ^2.5.2
+  eslint-plugin-turbo: ^2.5.2
 
   # configs
   eslint: ^9.24.0

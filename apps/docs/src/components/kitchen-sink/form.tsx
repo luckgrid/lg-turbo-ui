@@ -1,19 +1,19 @@
-'use client';
+"use client";
 
-import * as React from 'react';
+import * as React from "react";
 
-import { zodResolver } from '@hookform/resolvers/zod';
+import { zodResolver } from "@hookform/resolvers/zod";
 
-import { FormProvider, useForm } from 'react-hook-form';
+import { FormProvider, useForm } from "react-hook-form";
 
-import { z } from 'zod';
+import { z } from "zod";
 
-import { Link } from '@workspace/next-ui/components/link';
-import { toast } from '@workspace/next-ui/components/toaster';
-import { Button } from '@workspace/ui/components/button';
-import { Card } from '@workspace/ui/components/card';
-import { Checkbox } from '@workspace/ui/components/checkbox';
-import { Field } from '@workspace/ui/components/field';
+import { Link } from "@workspace/next-ui/components/link";
+import { toast } from "@workspace/next-ui/components/toaster";
+import { Button } from "@workspace/ui/components/button";
+import { Card } from "@workspace/ui/components/card";
+import { Checkbox } from "@workspace/ui/components/checkbox";
+import { Field } from "@workspace/ui/components/field";
 import {
   Form,
   FormControl,
@@ -21,19 +21,19 @@ import {
   FormField,
   FormFieldController,
   FormLabel,
-} from '@workspace/ui/components/form';
-import { Textarea } from '@workspace/ui/components/input';
+} from "@workspace/ui/components/form";
+import { Textarea } from "@workspace/ui/components/input";
 import {
   RadioGroup,
   RadioGroupItem,
-} from '@workspace/ui/components/radio-group';
+} from "@workspace/ui/components/radio-group";
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '@workspace/ui/components/select';
+} from "@workspace/ui/components/select";
 
 // TODO:
 // - disable newsletterCategory fields when newsletterSubscription is false
@@ -41,9 +41,9 @@ import {
 // - add additional form field state related render conditions to handle various field component edge cases
 
 const formSchema = z.object({
-  email: z.string().email({ message: 'Please enter a valid email address' }),
+  email: z.string().email({ message: "Please enter a valid email address" }),
   username: z.string().min(2, {
-    message: 'Username must be at least 2 characters',
+    message: "Username must be at least 2 characters",
   }),
   name: z.string().optional(),
   experience: z.string().optional(),
@@ -53,11 +53,11 @@ const formSchema = z.object({
     .default(false)
     .refine(
       (value) => value === true,
-      'You must agree to our terms and conditions to continue'
+      "You must agree to our terms and conditions to continue"
     ),
   newsletterSubscription: z.boolean().default(false).optional(),
   newsletterCategory: z
-    .enum(['all', 'design', 'engineering', 'marketing'])
+    .enum(["all", "design", "engineering", "marketing"])
     .optional(),
 });
 
@@ -66,14 +66,14 @@ type FormValues = z.infer<typeof formSchema>;
 type FormOutput = z.output<typeof formSchema>;
 
 const formDefaultValues: FormValues = {
-  email: '',
-  username: '',
-  name: '',
-  experience: '',
-  bio: '',
+  email: "",
+  username: "",
+  name: "",
+  experience: "",
+  bio: "",
   legalAgreement: false,
   newsletterSubscription: true,
-  newsletterCategory: 'all',
+  newsletterCategory: "all",
 };
 
 export function FormKitchenSink() {
@@ -84,7 +84,7 @@ export function FormKitchenSink() {
 
   function onSubmit(values: FormValues) {
     console.log(values);
-    toast.success('The form has been submitted successfully');
+    toast.success("The form has been submitted successfully");
   }
 
   React.useEffect(() => {
@@ -95,35 +95,35 @@ export function FormKitchenSink() {
 
   return (
     <Card
-      className='intersect-once intersect:motion-preset-rebound-right max-w-2xl'
-      space='frame'
+      className="intersect-once intersect:motion-preset-rebound-right max-w-2xl"
+      space="frame"
     >
-      <h3 className='text-subheading text-balance'>
+      <h3 className="text-subheading text-balance">
         Form Inside a Card Component
       </h3>
       <FormProvider {...form}>
         <Form onSubmit={form.handleSubmit(onSubmit)}>
           <Field
             control={form.control}
-            hint='This will be your primary contact. You can add additional contacts later.'
-            label='Email'
-            name='email'
-            placeholder='dev@luckgrid.net'
+            hint="This will be your primary contact. You can add additional contacts later."
+            label="Email"
+            name="email"
+            placeholder="dev@luckgrid.net"
             isRequired
           />
           <Field
             control={form.control}
-            hint='This will be your username. You can change it later.'
-            label='Username'
-            name='username'
-            placeholder='1337-h4x0r'
+            hint="This will be your username. You can change it later."
+            label="Username"
+            name="username"
+            placeholder="1337-h4x0r"
             isRequired
           />
           <Field
             control={form.control}
-            hint='Choosing an experience level is completely optional.'
-            label='Experience'
-            name='experience'
+            hint="Choosing an experience level is completely optional."
+            label="Experience"
+            name="experience"
           >
             {(field) => (
               <Select
@@ -133,44 +133,44 @@ export function FormKitchenSink() {
               >
                 <FormControl>
                   <SelectTrigger>
-                    <SelectValue placeholder='Select your level' />
+                    <SelectValue placeholder="Select your level" />
                   </SelectTrigger>
                 </FormControl>
                 <SelectContent>
-                  <SelectItem value='beginner'>Beginner</SelectItem>
-                  <SelectItem value='intermediate'>Intermediate</SelectItem>
-                  <SelectItem value='advanced'>Advanced</SelectItem>
-                  <SelectItem value='expert'>Expert</SelectItem>
+                  <SelectItem value="beginner">Beginner</SelectItem>
+                  <SelectItem value="intermediate">Intermediate</SelectItem>
+                  <SelectItem value="advanced">Advanced</SelectItem>
+                  <SelectItem value="expert">Expert</SelectItem>
                 </SelectContent>
               </Select>
             )}
           </Field>
-          <Field control={form.control} label='Bio' name='bio'>
+          <Field control={form.control} label="Bio" name="bio">
             {(field) => (
               <Textarea
-                placeholder='Write a short description about yourself...'
+                placeholder="Write a short description about yourself..."
                 {...field}
               />
             )}
           </Field>
           <FormFieldController
             control={form.control}
-            name='legalAgreement'
+            name="legalAgreement"
             render={({ field }) => (
-              <FormField className='flex flex-row items-start'>
+              <FormField className="flex flex-row items-start">
                 <FormControl>
                   <Checkbox
                     checked={field.value}
                     onCheckedChange={field.onChange}
                   />
                 </FormControl>
-                <div className='flex flex-col gap-fs-sm-1'>
-                  <FormLabel size='md' variant='indicator'>
+                <div className="flex flex-col gap-fs-sm-1">
+                  <FormLabel size="md" variant="indicator">
                     I agree to the terms and conditions
                   </FormLabel>
                   <FormDescription>
-                    Make sure to read the{' '}
-                    <Link href='#'>terms and conditions</Link> before using our
+                    Make sure to read the{" "}
+                    <Link href="#">terms and conditions</Link> before using our
                     services.
                   </FormDescription>
                 </div>
@@ -179,17 +179,17 @@ export function FormKitchenSink() {
           />
           <FormFieldController
             control={form.control}
-            name='newsletterSubscription'
+            name="newsletterSubscription"
             render={({ field }) => (
-              <FormField className='flex flex-row items-start'>
+              <FormField className="flex flex-row items-start">
                 <FormControl>
                   <Checkbox
                     checked={field.value}
                     onCheckedChange={field.onChange}
                   />
                 </FormControl>
-                <div className='flex flex-col gap-fs-sm-1'>
-                  <FormLabel size='md' variant='indicator'>
+                <div className="flex flex-col gap-fs-sm-1">
+                  <FormLabel size="md" variant="indicator">
                     I want to subscribe to the newsletter
                   </FormLabel>
                   <FormDescription>
@@ -202,9 +202,9 @@ export function FormKitchenSink() {
           />
           <FormFieldController
             control={form.control}
-            name='newsletterCategory'
+            name="newsletterCategory"
             render={({ field }) => (
-              <FormField className='gap-y-fs-sm-2'>
+              <FormField className="gap-y-fs-sm-2">
                 <FormLabel>Send me info about:</FormLabel>
                 <FormControl>
                   <RadioGroup
@@ -212,35 +212,35 @@ export function FormKitchenSink() {
                     onValueChange={field.onChange}
                     key={field.value}
                   >
-                    <FormField className='flex flex-row items-center'>
+                    <FormField className="flex flex-row items-center">
                       <FormControl>
-                        <RadioGroupItem value='all' />
+                        <RadioGroupItem value="all" />
                       </FormControl>
-                      <FormLabel className='font-normal' variant='indicator'>
+                      <FormLabel className="font-normal" variant="indicator">
                         Everything
                       </FormLabel>
                     </FormField>
-                    <FormField className='flex flex-row items-center'>
+                    <FormField className="flex flex-row items-center">
                       <FormControl>
-                        <RadioGroupItem value='design' />
+                        <RadioGroupItem value="design" />
                       </FormControl>
-                      <FormLabel className='font-normal' variant='indicator'>
+                      <FormLabel className="font-normal" variant="indicator">
                         Design
                       </FormLabel>
                     </FormField>
-                    <FormField className='flex flex-row items-center'>
+                    <FormField className="flex flex-row items-center">
                       <FormControl>
-                        <RadioGroupItem value='engineering' />
+                        <RadioGroupItem value="engineering" />
                       </FormControl>
-                      <FormLabel className='font-normal' variant='indicator'>
+                      <FormLabel className="font-normal" variant="indicator">
                         Engineering
                       </FormLabel>
                     </FormField>
-                    <FormField className='flex flex-row items-center'>
+                    <FormField className="flex flex-row items-center">
                       <FormControl>
-                        <RadioGroupItem value='marketing' />
+                        <RadioGroupItem value="marketing" />
                       </FormControl>
-                      <FormLabel className='font-normal' variant='indicator'>
+                      <FormLabel className="font-normal" variant="indicator">
                         Marketing
                       </FormLabel>
                     </FormField>
@@ -251,10 +251,10 @@ export function FormKitchenSink() {
             )}
           />
           <Button
-            className='mt-fs-4 sm:justify-self-end'
-            color='primary'
-            size='md'
-            type='submit'
+            className="mt-fs-4 sm:justify-self-end"
+            color="accent"
+            size="md"
+            type="submit"
           >
             Submit
           </Button>

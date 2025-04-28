@@ -1,46 +1,46 @@
-import * as React from 'react';
+import * as React from "react";
 
-import type { VariantProps } from 'class-variance-authority';
-import { cva } from 'class-variance-authority';
+import type { VariantProps } from "class-variance-authority";
+import { cva } from "class-variance-authority";
 
-import { cn } from '@workspace/ui/lib/utils';
-import type { ElementProps } from '@workspace/ui/primitives/element';
-import { Element } from '@workspace/ui/primitives/element';
+import { cn } from "@workspace/ui/lib/utils";
+import type { ElementProps } from "@workspace/ui/primitives/element";
+import { Element } from "@workspace/ui/primitives/element";
 
 // Layout Base Styles - to set base layout styles
-const layoutBase = 'box flex-col';
+const layoutBase = "box flex-col";
 
 // Layout Radius Properties - to modify the border radius of a layout primitive
 const layoutRadius = {
-  sm: 'rounded-fs-13',
-  base: 'rounded-fs-14',
-  md: 'rounded-fs-15',
-  lg: 'rounded-fs-16',
-  full: 'rounded-full',
-  none: 'rounded-none',
-  unset: '',
+  sm: "rounded-fs-13",
+  base: "rounded-fs-14",
+  md: "rounded-fs-15",
+  lg: "rounded-fs-16",
+  full: "rounded-full",
+  none: "rounded-none",
+  unset: "",
 };
 
 // Layout Shadow Properties - to modify the shadow of a layout primitive
 const layoutShadow = {
-  sm: 'shadow-sm',
-  base: 'shadow-md',
-  md: 'shadow-lg',
-  lg: 'shadow-xl',
-  full: 'shadow-2xl',
-  none: 'shadow-none',
-  unset: '',
+  sm: "shadow-sm",
+  base: "shadow-md",
+  md: "shadow-lg",
+  lg: "shadow-xl",
+  full: "shadow-2xl",
+  none: "shadow-none",
+  unset: "",
 };
 
 // Layout Size Properties - to modify the size of a layout primitive
 const layoutSize = {
-  sm: '',
-  base: '',
-  md: '',
-  lg: '',
-  full: '',
-  none: '',
-  unset: '',
+  sm: "",
+  base: "",
+  md: "",
+  lg: "",
+  full: "",
+  none: "",
+  unset: "",
 };
 
 // Layout Variants
@@ -54,12 +54,12 @@ const layoutVariants = cva(layoutBase, {
 
 // Layout Primitives Types
 type LayoutVariantProps = VariantProps<typeof layoutVariants>;
-type LayoutProps<T extends React.ElementType = 'div'> = ElementProps<T> &
+type LayoutProps<T extends React.ElementType = "div"> = ElementProps<T> &
   LayoutVariantProps;
 
 // Layout Primitive Component
-function Layout<T extends React.ElementType = 'div'>({
-  as = 'div',
+function Layout<T extends React.ElementType = "div">({
+  as = "div",
   className,
   radius,
   shadow,
@@ -68,7 +68,7 @@ function Layout<T extends React.ElementType = 'div'>({
 }: LayoutProps<T>) {
   return (
     <Element
-      data-slot='layout'
+      data-slot="layout"
       as={as}
       className={cn(layoutVariants({ radius, size, shadow, className }))}
       {...props}
@@ -78,17 +78,17 @@ function Layout<T extends React.ElementType = 'div'>({
 
 // Layout Container Space Properties - to modify the spacing styles of a layout container
 const layoutContainerSpace = {
-  base: 'gap-fs-xl-2 px-fs-xl-4',
-  wrapper: 'gap-fs-xl-2 py-fs-xl-4',
-  frame: 'gap-fs-xl-2 p-fs-xl-4',
-  none: 'gap-0 p-0',
-  unset: '',
+  base: "gap-fs-xl-2 px-fs-xl-4",
+  wrapper: "gap-fs-xl-2 py-fs-xl-4",
+  frame: "gap-fs-xl-2 p-fs-xl-4",
+  none: "gap-0 p-0",
+  unset: "",
 };
 
 // Layout Container Variant Properties - to modify the variant styles of a layout container
 const layoutContainerVariant = {
-  base: 'container',
-  wrapper: '',
+  base: "container",
+  wrapper: "",
 };
 
 // Layout Container Variant
@@ -101,20 +101,20 @@ const layoutContainerVariants = cva(layoutBase, {
     variant: layoutContainerVariant,
   },
   defaultVariants: {
-    size: 'base',
-    space: 'base',
-    variant: 'base',
+    size: "base",
+    space: "base",
+    variant: "base",
   },
 });
 
 // Layout Container Primitive Types
 type LayoutContainerVariantProps = VariantProps<typeof layoutContainerVariants>;
-type LayoutContainerProps<T extends React.ElementType = 'div'> =
+type LayoutContainerProps<T extends React.ElementType = "div"> =
   LayoutProps<T> & LayoutContainerVariantProps;
 
 // Layout Container Primitive Component
-function LayoutContainer<T extends React.ElementType = 'div'>({
-  as = 'div',
+function LayoutContainer<T extends React.ElementType = "div">({
+  as = "div",
   className,
   radius,
   shadow,
@@ -125,7 +125,7 @@ function LayoutContainer<T extends React.ElementType = 'div'>({
 }: LayoutContainerProps<T>) {
   return (
     <Element
-      data-slot='layout-container'
+      data-slot="layout-container"
       as={as}
       className={cn(
         layoutContainerVariants({
@@ -143,13 +143,13 @@ function LayoutContainer<T extends React.ElementType = 'div'>({
 }
 
 // Layout Bar Base Styles - to set base layout bar styles
-const layoutBarBase = [layoutBase, '2xs:flex-row 2xs:flex-wrap'];
+const layoutBarBase = [layoutBase, "2xs:flex-row 2xs:flex-wrap"];
 
 // Layout Bar Space Properties - to modify the spacing styles of a layout bar primitive
 const layoutBarSpace = {
-  base: 'gap-fs-4 2xs:gap-fs-3 md:gap-fs-2',
-  container: 'gap-x-fs-6 gap-y-fs-3 px-fs-6',
-  wrapper: 'py-fs-3',
+  base: "gap-fs-4 2xs:gap-fs-3 md:gap-fs-2",
+  container: "gap-x-fs-6 gap-y-fs-3 px-fs-6",
+  wrapper: "py-fs-3",
 };
 
 // Layout Bar Variants
@@ -161,19 +161,19 @@ const layoutBarVariants = cva(layoutBarBase, {
     space: layoutBarSpace,
   },
   defaultVariants: {
-    size: 'base',
-    space: 'base',
+    size: "base",
+    space: "base",
   },
 });
 
 // Layout Bar Primitive Types
 type LayoutBarVariantProps = VariantProps<typeof layoutBarVariants>;
-type LayoutBarProps<T extends React.ElementType = 'div'> = LayoutProps<T> &
+type LayoutBarProps<T extends React.ElementType = "div"> = LayoutProps<T> &
   LayoutBarVariantProps;
 
 // Layout Bar Primitive Component
-function LayoutBar<T extends React.ElementType = 'div'>({
-  as = 'div',
+function LayoutBar<T extends React.ElementType = "div">({
+  as = "div",
   className,
   radius,
   shadow,
@@ -183,7 +183,7 @@ function LayoutBar<T extends React.ElementType = 'div'>({
 }: LayoutBarProps<T>) {
   return (
     <Element
-      data-slot='layout-bar'
+      data-slot="layout-bar"
       as={as}
       className={cn(
         layoutBarVariants({

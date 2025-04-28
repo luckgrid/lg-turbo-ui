@@ -1,12 +1,12 @@
-import Airtable from 'airtable';
+import Airtable from "airtable";
 
-import { env } from '@/lib/env';
+import { env } from "@/lib/env";
 
 // TODO:
 // - create airtable package to share airtable actions and types between apps
 
 if (!env.AIRTABLE_SECRET_API_TOKEN) {
-  throw new Error('Unset AIRTABLE_SECRET_API_TOKEN environment variable');
+  throw new Error("Unset AIRTABLE_SECRET_API_TOKEN environment variable");
 }
 
 const airtable = new Airtable({

@@ -1,62 +1,62 @@
-import * as React from 'react';
+import * as React from "react";
 
-import type { VariantProps } from 'class-variance-authority';
-import { cva } from 'class-variance-authority';
+import type { VariantProps } from "class-variance-authority";
+import { cva } from "class-variance-authority";
 
-import { cn } from '@workspace/ui/lib/utils';
-import type { ElementProps } from '@workspace/ui/primitives/element';
-import { Element } from '@workspace/ui/primitives/element';
+import { cn } from "@workspace/ui/lib/utils";
+import type { ElementProps } from "@workspace/ui/primitives/element";
+import { Element } from "@workspace/ui/primitives/element";
 
 // Card Component
 
-const cardBase = 'box flex-col';
+const cardBase = "box flex-col";
 
 const cardAction = [
-  'action action-card action-outline-4',
-  'cursor-pointer no-underline disabled:opacity-75',
+  "action-color-card transition-box outline-offset-fs-5",
+  "cursor-pointer no-underline disabled:opacity-75",
 ];
 
 const cardRadius = {
-  sm: 'rounded-fs-6',
-  base: 'rounded-fs-7',
-  md: 'rounded-fs-8',
-  lg: 'rounded-fs-9',
-  full: 'rounded-full',
-  none: 'rounded-none',
-  unset: '',
+  sm: "rounded-fs-6",
+  base: "rounded-fs-7",
+  md: "rounded-fs-8",
+  lg: "rounded-fs-9",
+  full: "rounded-full",
+  none: "rounded-none",
+  unset: "",
 };
 
 const cardShadow = {
-  sm: 'shadow-sm',
-  base: 'shadow-md',
-  md: 'shadow-lg',
-  lg: 'shadow-xl',
-  full: 'shadow-2xl',
-  none: 'shadow-none',
-  unset: '',
+  sm: "shadow-sm",
+  base: "shadow-md",
+  md: "shadow-lg",
+  lg: "shadow-xl",
+  full: "shadow-2xl",
+  none: "shadow-none",
+  unset: "",
 };
 
 const cardSize = {
-  sm: '',
-  base: '',
-  md: '',
-  lg: '',
-  full: '',
-  none: '',
-  unset: '',
+  sm: "",
+  base: "",
+  md: "",
+  lg: "",
+  full: "",
+  none: "",
+  unset: "",
 };
 
 const cardSpace = {
-  base: 'gap-fs-lg-4',
-  container: 'gap-fs-lg-4 px-fs-lg-4',
-  wrapper: 'gap-fs-lg-4 py-fs-lg-4',
-  frame: 'gap-fs-lg-4 p-fs-lg-4',
-  none: 'gap-0 p-0',
-  unset: '',
+  base: "gap-fs-md-6",
+  container: "gap-fs-md-6 px-fs-md-6",
+  wrapper: "gap-fs-md-6 py-fs-md-6",
+  frame: "gap-fs-md-6 p-fs-md-6",
+  none: "gap-0 p-0",
+  unset: "",
 };
 
 const cardVariant = {
-  base: 'border-card-foreground/20 bg-card text-card-foreground',
+  base: "box-color-card",
 };
 
 const cardVariants = cva(cardBase, {
@@ -73,79 +73,80 @@ const cardVariants = cva(cardBase, {
   compoundVariants: [
     // Base Variant Sizes
     {
-      size: 'sm',
-      variant: 'base',
-      className: 'border-fs-4',
+      size: "sm",
+      variant: "base",
+      className: "border-fs-4",
     },
     {
-      size: 'base',
-      variant: 'base',
-      className: 'border-fs-5',
+      size: "base",
+      variant: "base",
+      className: "border-fs-5",
     },
     {
-      size: 'md',
-      variant: 'base',
-      className: 'border-fs-6',
+      size: "md",
+      variant: "base",
+      className: "border-fs-6",
     },
     {
-      size: 'lg',
-      variant: 'base',
-      className: 'border-fs-7',
+      size: "lg",
+      variant: "base",
+      className: "border-fs-7",
     },
     {
-      size: 'full',
-      variant: 'base',
-      className: 'border-fs-8',
+      size: "full",
+      variant: "base",
+      className: "border-fs-8",
     },
     // Action Modifier Sizes
     {
-      size: 'sm',
+      size: "sm",
       isAction: true,
-      className: 'outline-fs-line-4',
+      className: "outline-offset-fs-4 focus-visible:outline-fs-4",
     },
     {
-      size: 'base',
+      size: "base",
       isAction: true,
-      className: 'outline-fs-line-5',
+      className: "outline-offset-fs-5 focus-visible:outline-fs-5",
     },
     {
-      size: 'md',
+      size: "md",
       isAction: true,
-      className: 'outline-fs-line-6',
+      className: "outline-offset-fs-6 focus-visible:outline-fs-6",
     },
     {
-      size: 'lg',
+      size: "lg",
       isAction: true,
-      className: 'outline-fs-line-7',
+      className: "outline-offset-fs-7 focus-visible:outline-fs-7",
     },
     {
-      size: 'full',
+      size: "full",
       isAction: true,
-      className: 'outline-fs-line-8',
+      className: "outline-offset-fs-8 focus-visible:outline-fs-8",
     },
     // Action Modifier Base Variant
     {
-      variant: 'base',
+      variant: "base",
       isAction: true,
-      className: 'hover:border-card/40 hover:bg-card/80',
+      className:
+        "hover:border-card/40 hover:bg-card/80 focus-visible:outline-fs-4",
     },
   ],
   defaultVariants: {
-    radius: 'base',
-    shadow: 'base',
-    size: 'base',
-    space: 'base',
-    variant: 'base',
+    radius: "base",
+    shadow: "base",
+    size: "base",
+    space: "base",
+    variant: "base",
   },
 });
 
 type CardVariantProps = VariantProps<typeof cardVariants>;
 
-type CardProps<T extends React.ElementType = 'div'> = ElementProps<T> &
+type CardProps<T extends React.ElementType = "div"> = ElementProps<T> &
   CardVariantProps;
 
-function Card<T extends React.ElementType = 'div'>({
-  as = 'div',
+function Card<T extends React.ElementType = "div">({
+  as = "div",
   radius,
   shadow,
   size,
@@ -157,7 +158,7 @@ function Card<T extends React.ElementType = 'div'>({
 }: CardProps<T>) {
   return (
     <Element
-      data-slot='card'
+      data-slot="card"
       as={as}
       className={cn(
         cardVariants({
@@ -186,18 +187,18 @@ const cardHeaderVariants = cva(cardBase, {
     },
   },
   defaultVariants: {
-    radius: 'base',
-    size: 'base',
+    radius: "base",
+    size: "base",
   },
 });
 
 type CardHeaderVariantProps = VariantProps<typeof cardHeaderVariants>;
 
-type CardHeaderProps<T extends React.ElementType = 'header'> = ElementProps<T> &
+type CardHeaderProps<T extends React.ElementType = "header"> = ElementProps<T> &
   CardHeaderVariantProps;
 
-function CardHeader<T extends React.ElementType = 'header'>({
-  as = 'header',
+function CardHeader<T extends React.ElementType = "header">({
+  as = "header",
   radius,
   size,
   isAction,
@@ -206,7 +207,7 @@ function CardHeader<T extends React.ElementType = 'header'>({
 }: CardHeaderProps<T>) {
   return (
     <Element
-      data-slot='card-header'
+      data-slot="card-header"
       as={as}
       className={cn(
         cardHeaderVariants({
@@ -229,18 +230,18 @@ const cardBodyVariants = cva(cardBase, {
     size: cardSize,
   },
   defaultVariants: {
-    radius: 'base',
-    size: 'base',
+    radius: "base",
+    size: "base",
   },
 });
 
 type CardBodyVariantProps = VariantProps<typeof cardBodyVariants>;
 
-type CardBodyProps<T extends React.ElementType = 'div'> = ElementProps<T> &
+type CardBodyProps<T extends React.ElementType = "div"> = ElementProps<T> &
   CardBodyVariantProps;
 
-function CardBody<T extends React.ElementType = 'div'>({
-  as = 'div',
+function CardBody<T extends React.ElementType = "div">({
+  as = "div",
   radius,
   size,
   className,
@@ -248,7 +249,7 @@ function CardBody<T extends React.ElementType = 'div'>({
 }: CardBodyProps<T>) {
   return (
     <Element
-      data-slot='card-body'
+      data-slot="card-body"
       as={as}
       className={cn(
         cardBodyVariants({
@@ -270,18 +271,18 @@ const cardFooterVariants = cva(cardBase, {
     size: cardSize,
   },
   defaultVariants: {
-    radius: 'base',
-    size: 'base',
+    radius: "base",
+    size: "base",
   },
 });
 
 type CardFooterVariantProps = VariantProps<typeof cardFooterVariants>;
 
-type CardFooterProps<T extends React.ElementType = 'footer'> = ElementProps<T> &
+type CardFooterProps<T extends React.ElementType = "footer"> = ElementProps<T> &
   CardFooterVariantProps;
 
-function CardFooter<T extends React.ElementType = 'footer'>({
-  as = 'footer',
+function CardFooter<T extends React.ElementType = "footer">({
+  as = "footer",
   radius,
   size,
   className,
@@ -289,7 +290,7 @@ function CardFooter<T extends React.ElementType = 'footer'>({
 }: CardFooterProps<T>) {
   return (
     <Element
-      data-slot='card-footer'
+      data-slot="card-footer"
       as={as}
       className={cn(
         cardFooterVariants({

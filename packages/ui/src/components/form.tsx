@@ -1,23 +1,23 @@
-'use client';
+"use client";
 
-import * as React from 'react';
+import * as React from "react";
 
-import type { ControllerProps, FieldPath, FieldValues } from 'react-hook-form';
-import { Controller, useFormContext, useFormState } from 'react-hook-form';
+import type { ControllerProps, FieldPath, FieldValues } from "react-hook-form";
+import { Controller, useFormContext, useFormState } from "react-hook-form";
 
-import { Slot } from '@radix-ui/react-slot';
+import { Slot } from "@radix-ui/react-slot";
 
-import type { LabelProps } from '@workspace/ui/components/label';
-import { Label } from '@workspace/ui/components/label';
+import type { LabelProps } from "@workspace/ui/components/label";
+import { Label } from "@workspace/ui/components/label";
 import type {
   FormFieldProps,
   FormTextProps,
-} from '@workspace/ui/primitives/form';
+} from "@workspace/ui/primitives/form";
 import {
   Form,
   FormText,
   FormField as PrimitiveFormField,
-} from '@workspace/ui/primitives/form';
+} from "@workspace/ui/primitives/form";
 
 // TODO:
 // - Add FormProvider wrapper around Form primitive with proper typing using UseFormReturn
@@ -60,7 +60,7 @@ const useFormField = () => {
   const fieldState = getFieldState(controllerContext.name, formState);
 
   if (!controllerContext) {
-    throw new Error('useFormField should be used within <FormFieldController>');
+    throw new Error("useFormField should be used within <FormFieldController>");
   }
 
   const { id } = fieldContext;
@@ -104,7 +104,7 @@ function FormLabel({ children, ...props }: LabelProps) {
 
   return (
     <Label
-      data-slot='form-label'
+      data-slot="form-label"
       data-error={!!error || invalid}
       htmlFor={fieldId}
       {...props}
@@ -122,7 +122,7 @@ function FormControl({ ...props }: React.ComponentProps<typeof Slot>) {
 
   return (
     <Slot
-      data-slot='form-control'
+      data-slot="form-control"
       id={fieldId}
       aria-describedby={
         !!error || invalid
@@ -145,11 +145,11 @@ function FormDescription({ children, ...props }: FormTextProps) {
   if (errorMessage) {
     return (
       <FormText
-        data-slot='form-error'
+        data-slot="form-error"
         id={descriptionErrorId}
         {...props}
-        status='error'
-        variant='message'
+        status="error"
+        variant="message"
       >
         {errorMessage}
       </FormText>
@@ -159,11 +159,11 @@ function FormDescription({ children, ...props }: FormTextProps) {
   if (children) {
     return (
       <FormText
-        data-slot='form-hint'
+        data-slot="form-hint"
         id={descriptionHintId}
         {...props}
-        status={error || invalid ? 'error' : 'base'}
-        variant='message'
+        status={error || invalid ? "error" : "base"}
+        variant="message"
       >
         {children}
       </FormText>

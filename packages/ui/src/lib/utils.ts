@@ -1,6 +1,6 @@
-import { cx } from 'class-variance-authority';
+import { cx } from "class-variance-authority";
 
-import { twMerge } from '@workspace/tailwind-config/lib/merge';
+import { twMerge } from "@workspace/tailwind-config/lib/merge";
 
 // Merges class names using cx and twMerge extended with custom tailwind merge config
 export function cn(...inputs: Parameters<typeof cx>) {
@@ -13,7 +13,7 @@ export function formatCurrency(
   options?: Intl.NumberFormatOptions
 ): string {
   // Convert cents to dollars and format with 2 decimal places
-  return (value / 100).toLocaleString('en-US', {
+  return (value / 100).toLocaleString("en-US", {
     minimumFractionDigits: 2,
     maximumFractionDigits: 2,
     ...options,

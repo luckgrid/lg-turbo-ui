@@ -1,13 +1,13 @@
-import type { LinkProps as NextLinkProps } from 'next/link';
-import NextLink from 'next/link';
+import type { LinkProps as NextLinkProps } from "next/link";
+import NextLink from "next/link";
 
-import type { LinkProps as UiLinkProps } from '@workspace/ui/components/link';
-import { Link as UiLink } from '@workspace/ui/components/link';
-import { isExternalUrl } from '@workspace/ui/lib/utils';
+import type { LinkProps as UiLinkProps } from "@workspace/ui/components/link";
+import { Link as UiLink } from "@workspace/ui/components/link";
+import { isExternalUrl } from "@workspace/ui/lib/utils";
 
 // - Next Link API: https://nextjs.org/docs/app/api-reference/components/link
 
-type LinkProps = Omit<UiLinkProps, 'asChild'> & NextLinkProps;
+type LinkProps = Omit<UiLinkProps, "asChild"> & NextLinkProps;
 
 function Link({
   children,
@@ -28,7 +28,7 @@ function Link({
 
   return (
     <UiLink
-      data-slot='next-link'
+      data-slot="next-link"
       asChild
       isExternal={isLinkExternal}
       {...props}

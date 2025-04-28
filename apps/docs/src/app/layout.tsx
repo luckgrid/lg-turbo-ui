@@ -1,12 +1,12 @@
-import '@workspace/tailwind-config/styles/main.css';
+import "@workspace/tailwind-config/styles/main.css";
 
-import { fontVariables } from '@workspace/next-ui/lib/fonts';
-import { viewport as viewportConfig } from '@workspace/next-ui/lib/viewport';
-import { cn } from '@workspace/ui/lib/utils';
+import { fontVariables } from "@workspace/next-ui/lib/fonts";
+import { viewport as viewportConfig } from "@workspace/next-ui/lib/viewport";
+import { cn } from "@workspace/ui/lib/utils";
 
-import { LayoutFooter } from '@/components/footer';
-import { Providers } from '@/components/providers';
-import { metadata as appMetadata, config } from '@/configs/app';
+import { LayoutFooter } from "@/components/footer";
+import { Providers } from "@/components/providers";
+import { metadata as appMetadata, config } from "@/configs/app";
 
 export const metadata = appMetadata;
 export const viewport = viewportConfig;
@@ -18,7 +18,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang={config.locale} suppressHydrationWarning>
-      <body className={cn(fontVariables, 'antialiased')}>
+      <body className={cn(fontVariables, "antialiased")}>
         <Providers>
           {children}
           <LayoutFooter />

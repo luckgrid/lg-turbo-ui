@@ -1,10 +1,10 @@
-import type { ImageProps as NextImageProps } from 'next/image';
-import NextImage from 'next/image';
+import type { ImageProps as NextImageProps } from "next/image";
+import NextImage from "next/image";
 
-import type { ImageProps as UiImageProps } from '@workspace/ui/components/media';
-import { Image as UiImage } from '@workspace/ui/components/media';
+import type { ImageProps as UiImageProps } from "@workspace/ui/components/media";
+import { Image as UiImage } from "@workspace/ui/components/media";
 
-type ImageProps = Omit<UiImageProps, 'asChild' | 'src'> & NextImageProps;
+type ImageProps = Omit<UiImageProps, "asChild" | "src"> & NextImageProps;
 
 function Image({
   alt,
@@ -24,7 +24,7 @@ function Image({
   ...props
 }: ImageProps) {
   return (
-    <UiImage data-slot='next-image' asChild {...props}>
+    <UiImage data-slot="next-image" asChild {...props}>
       <NextImage
         alt={alt}
         src={src}

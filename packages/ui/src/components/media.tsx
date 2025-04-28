@@ -1,60 +1,60 @@
-import * as React from 'react';
+import * as React from "react";
 
-import type { VariantProps } from 'class-variance-authority';
-import { cva } from 'class-variance-authority';
+import type { VariantProps } from "class-variance-authority";
+import { cva } from "class-variance-authority";
 
-import { cn } from '@workspace/ui/lib/utils';
-import type { ElementProps } from '@workspace/ui/primitives/element';
-import { Element } from '@workspace/ui/primitives/element';
+import { cn } from "@workspace/ui/lib/utils";
+import type { ElementProps } from "@workspace/ui/primitives/element";
+import { Element } from "@workspace/ui/primitives/element";
 
-const imageVariants = cva('', {
+const imageVariants = cva("", {
   variants: {
     radius: {
-      sm: 'rounded-fs-3',
-      base: 'rounded-fs-4',
-      md: 'rounded-fs-5',
-      lg: 'rounded-fs-6',
-      full: 'rounded-full',
-      none: 'rounded-none',
-      unset: '',
+      sm: "rounded-fs-3",
+      base: "rounded-fs-4",
+      md: "rounded-fs-5",
+      lg: "rounded-fs-6",
+      full: "rounded-full",
+      none: "rounded-none",
+      unset: "",
     },
     shadow: {
-      sm: 'shadow-sm',
-      base: 'shadow-md',
-      md: 'shadow-lg',
-      lg: 'shadow-xl',
-      full: 'shadow-2xl',
-      none: 'shadow-none',
-      unset: '',
+      sm: "shadow-sm",
+      base: "shadow-md",
+      md: "shadow-lg",
+      lg: "shadow-xl",
+      full: "shadow-2xl",
+      none: "shadow-none",
+      unset: "",
     },
     size: {
-      sm: '',
-      base: '',
-      md: '',
-      lg: '',
-      full: '',
-      none: '',
-      unset: '',
+      sm: "",
+      base: "",
+      md: "",
+      lg: "",
+      full: "",
+      none: "",
+      unset: "",
     },
     variant: {
-      base: '',
-      icon: 'fluid-media',
+      base: "",
+      icon: "[&:not([class*=size-])]:size-[1em]",
     },
   },
   defaultVariants: {
-    radius: 'base',
-    size: 'base',
-    variant: 'base',
+    radius: "base",
+    size: "base",
+    variant: "base",
   },
 });
 
 type ImageVariantProps = VariantProps<typeof imageVariants>;
 
-type ImageProps<T extends React.ElementType = 'div'> = ElementProps<T> &
+type ImageProps<T extends React.ElementType = "div"> = ElementProps<T> &
   ImageVariantProps;
 
-function Image<T extends React.ElementType = 'img'>({
-  as = 'img',
+function Image<T extends React.ElementType = "img">({
+  as = "img",
   radius,
   shadow,
   size,
@@ -64,7 +64,7 @@ function Image<T extends React.ElementType = 'img'>({
 }: ImageProps<T>) {
   return (
     <Element
-      data-slot='image'
+      data-slot="image"
       as={as}
       className={cn(
         imageVariants({ radius, shadow, size, variant, className })

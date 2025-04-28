@@ -3,8 +3,8 @@
  * we "need" to type some of the plugins manually :(
  */
 
-declare module 'eslint-plugin-import' {
-  import type { Linter, Rule } from 'eslint';
+declare module "eslint-plugin-import" {
+  import type { Linter, Rule } from "eslint";
 
   export const configs: {
     recommended: { rules: Linter.RulesRecord };
@@ -12,8 +12,8 @@ declare module 'eslint-plugin-import' {
   export const rules: Record<string, Rule.RuleModule>;
 }
 
-declare module 'eslint-plugin-only-warn' {
-  import type { Linter, Rule } from 'eslint';
+declare module "eslint-plugin-only-warn" {
+  import type { Linter, Rule } from "eslint";
 
   export const configs: {
     recommended: { rules: Linter.RulesRecord };
@@ -21,8 +21,8 @@ declare module 'eslint-plugin-only-warn' {
   export const rules: Record<string, Rule.RuleModule>;
 }
 
-declare module 'eslint-plugin-react' {
-  import type { Linter, Rule } from 'eslint';
+declare module "eslint-plugin-react" {
+  import type { Linter, Rule } from "eslint";
 
   export const configs: {
     flat: {
@@ -36,8 +36,8 @@ declare module 'eslint-plugin-react' {
   export const rules: Record<string, Rule.RuleModule>;
 }
 
-declare module 'eslint-config-turbo/flat' {
-  import type { Linter } from 'eslint';
+declare module "eslint-config-turbo/flat" {
+  import type { Linter } from "eslint";
 
   export const configs: {
     recommended: {
@@ -53,28 +53,28 @@ declare module 'eslint-config-turbo/flat' {
   export default turboConfig;
 }
 
-declare module 'eslint-plugin-react-hooks' {
-  import type { Linter, Rule } from 'eslint';
+declare module "eslint-plugin-react-hooks" {
+  import type { Linter, Rule } from "eslint";
 
   export const configs: {
     recommended: {
       rules: {
-        'rules-of-hooks': Linter.RuleEntry;
-        'exhaustive-deps': Linter.RuleEntry;
+        "rules-of-hooks": Linter.RuleEntry;
+        "exhaustive-deps": Linter.RuleEntry;
       };
     };
   };
   export const rules: Record<string, Rule.RuleModule>;
 }
 
-declare module '@next/eslint-plugin-next' {
-  import type { Linter, Rule } from 'eslint';
+declare module "@next/eslint-plugin-next" {
+  import type { Linter, Rule } from "eslint";
 
   export const configs: {
     recommended: {
       rules: Linter.RulesRecord;
     };
-    'core-web-vitals': {
+    "core-web-vitals": {
       rules: Linter.RulesRecord;
     };
   };

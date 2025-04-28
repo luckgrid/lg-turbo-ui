@@ -143,6 +143,11 @@
   --color-dark: var(--cs-dark);
   --color-light: var(--cs-light);
 
+  /* Box Colors */
+  --color-box: var(--c-base);
+  --color-box-border: var(--c-border);
+  --color-box-foreground: var(--c-base-foreground);
+
   /* Surface Colors */
   --color-base: var(--c-base);
   --color-base-1: var(--c-base-1);

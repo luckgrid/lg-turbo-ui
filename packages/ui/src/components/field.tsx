@@ -1,11 +1,11 @@
-'use client';
+"use client";
 
 import type {
   ControllerRenderProps,
   FieldPath,
   FieldValues,
   UseFormReturn,
-} from 'react-hook-form';
+} from "react-hook-form";
 
 import {
   FormControl,
@@ -13,14 +13,14 @@ import {
   FormField,
   FormFieldController,
   FormLabel,
-} from '@workspace/ui/components/form';
-import type { InputProps } from '@workspace/ui/components/input';
-import { Input } from '@workspace/ui/components/input';
+} from "@workspace/ui/components/form";
+import type { InputProps } from "@workspace/ui/components/input";
+import { Input } from "@workspace/ui/components/input";
 import type {
   FormFieldVariantProps,
   FormTextVariantProps,
-} from '@workspace/ui/primitives/form';
-import type { InputVariantProps } from '@workspace/ui/primitives/form';
+} from "@workspace/ui/primitives/form";
+import type { InputVariantProps } from "@workspace/ui/primitives/form";
 
 // TODO:
 // - Update render method to handle additional field compositions (i.e. checkbox, radio-group, etc...)
@@ -40,17 +40,17 @@ type FieldProps<
   children?:
     | React.ReactNode
     | ((field: FieldRenderProps<TFieldValues, TName>) => React.ReactNode);
-  control: UseFormReturn<TFieldValues>['control'];
+  control: UseFormReturn<TFieldValues>["control"];
   hint?: string;
   label: string;
   name: TName;
   placeholder?: string;
-  radius?: InputVariantProps['radius'];
+  radius?: InputVariantProps["radius"];
   size?:
-    | FormFieldVariantProps['size']
-    | InputProps<'input'>['size']
-    | FormTextVariantProps['size'];
-  status?: FormFieldVariantProps['status'];
+    | FormFieldVariantProps["size"]
+    | InputProps<"input">["size"]
+    | FormTextVariantProps["size"];
+  status?: FormFieldVariantProps["status"];
   isRequired?: boolean;
 };
 
@@ -79,7 +79,7 @@ function Field<
             {label}
           </FormLabel>
           {children ? (
-            typeof children === 'function' ? (
+            typeof children === "function" ? (
               <FormControl>{children(field)}</FormControl>
             ) : (
               children
@@ -87,9 +87,9 @@ function Field<
           ) : (
             <FormControl>
               <Input
-                disabled={status === 'disabled'}
+                disabled={status === "disabled"}
                 radius={radius}
-                size={size as InputProps<'input'>['size']}
+                size={size as InputProps<"input">["size"]}
                 status={status}
                 placeholder={placeholder}
                 {...field}

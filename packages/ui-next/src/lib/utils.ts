@@ -1,10 +1,10 @@
-import { env } from '@workspace/next-ui/lib/env';
+import { env } from "@workspace/next-ui/lib/env";
 
 // Get a next app's base URL based on environment and port settings
 export function getBaseUrl(port: string = env.PORT.toString()) {
   // Vercel URLs
 
-  if (env.VERCEL_ENV === 'production' && env.VERCEL_PROJECT_PRODUCTION_URL) {
+  if (env.VERCEL_ENV === "production" && env.VERCEL_PROJECT_PRODUCTION_URL) {
     return `https://${env.VERCEL_PROJECT_PRODUCTION_URL}`;
   }
 
@@ -17,7 +17,7 @@ export function getBaseUrl(port: string = env.PORT.toString()) {
   if (
     env.APP_PRODUCTION_DOMAIN &&
     env.APP_PRODUCTION_HOSTNAME &&
-    env.NODE_ENV === 'production'
+    env.NODE_ENV === "production"
   ) {
     return `https://${env.APP_PRODUCTION_HOSTNAME}.${env.APP_PRODUCTION_DOMAIN}`;
   }
@@ -36,13 +36,13 @@ export function getBaseRedirects() {
   if (
     env.APP_PRODUCTION_DOMAIN &&
     env.APP_PRODUCTION_HOSTNAME &&
-    env.NODE_ENV === 'production'
+    env.NODE_ENV === "production"
   ) {
     redirects.push({
-      source: '/:path*',
+      source: "/:path*",
       has: [
         {
-          type: 'host',
+          type: "host",
           value: env.APP_PRODUCTION_DOMAIN,
         },
       ],
@@ -55,13 +55,13 @@ export function getBaseRedirects() {
   if (
     env.APP_PRODUCTION_DOMAIN &&
     env.APP_PRODUCTION_HOSTNAME &&
-    env.NODE_ENV === 'production'
+    env.NODE_ENV === "production"
   ) {
     redirects.push({
-      source: '/:path*',
+      source: "/:path*",
       has: [
         {
-          type: 'host',
+          type: "host",
           value: `${env.APP_HOSTNAME}.${env.APP_DOMAIN}`,
         },
       ],

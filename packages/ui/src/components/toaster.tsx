@@ -1,7 +1,7 @@
-'use client';
+"use client";
 
-import type { ToasterProps } from 'sonner';
-import { Toaster as Sonner, toast } from 'sonner';
+import type { ToasterProps } from "sonner";
+import { Toaster as Sonner, toast } from "sonner";
 
 // Sonner Toaster Docs: https://sonner.emilkowal.ski/getting-started
 
@@ -9,17 +9,17 @@ import { Toaster as Sonner, toast } from 'sonner';
 // - add toasterVariants with updated styles using ui theme variables - https://sonner.emilkowal.ski/styling
 // -- add a reusable toast function with theme style overrides
 
-function Toaster({ theme = 'system', ...props }: ToasterProps) {
+function Toaster({ theme = "system", ...props }: ToasterProps) {
   return (
     <Sonner
-      data-slot='toaster'
+      data-slot="toaster"
       theme={theme}
-      className='toaster group'
+      className="toaster group"
       style={
         {
-          '--normal-bg': 'var(--popover)',
-          '--normal-text': 'var(--popover-foreground)',
-          '--normal-border': 'var(--border)',
+          "--normal-bg": "var(--popover)",
+          "--normal-text": "var(--popover-foreground)",
+          "--normal-border": "var(--border)",
         } as React.CSSProperties
       }
       {...props}

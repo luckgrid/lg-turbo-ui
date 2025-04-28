@@ -1,8 +1,8 @@
-import type { MetadataRoute } from 'next';
+import type { MetadataRoute } from "next";
 
-import { manifest as sharedManifest } from '@workspace/next-ui/lib/manifest';
+import { manifest as sharedManifest } from "@workspace/next-ui/lib/manifest";
 
-import { config } from '@/configs/app';
+import { config } from "@/configs/app";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {

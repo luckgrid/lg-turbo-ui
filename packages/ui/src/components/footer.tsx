@@ -1,35 +1,35 @@
-import * as React from 'react';
+import * as React from "react";
 
-import type { VariantProps } from 'class-variance-authority';
-import { cva } from 'class-variance-authority';
+import type { VariantProps } from "class-variance-authority";
+import { cva } from "class-variance-authority";
 
-import { cn } from '@workspace/ui/lib/utils';
-import type { LayoutProps } from '@workspace/ui/primitives/layout';
+import { cn } from "@workspace/ui/lib/utils";
+import type { LayoutProps } from "@workspace/ui/primitives/layout";
 import {
   Layout,
   layoutRadius,
   layoutShadow,
   layoutSize,
-} from '@workspace/ui/primitives/layout';
+} from "@workspace/ui/primitives/layout";
 
-const footerVariants = cva('', {
+const footerVariants = cva("", {
   variants: {
     radius: layoutRadius,
     shadow: layoutShadow,
     size: layoutSize,
   },
   defaultVariants: {
-    size: 'base',
+    size: "base",
   },
 });
 
 type FooterVariantProps = VariantProps<typeof footerVariants>;
 
-type FooterProps<T extends React.ElementType = 'footer'> = LayoutProps<T> &
+type FooterProps<T extends React.ElementType = "footer"> = LayoutProps<T> &
   FooterVariantProps;
 
 function Footer({
-  as = 'footer',
+  as = "footer",
   className,
   radius,
   shadow,
@@ -39,7 +39,7 @@ function Footer({
   return (
     <Layout
       as={as}
-      data-slot='footer'
+      data-slot="footer"
       className={cn(footerVariants({ radius, size, shadow, className }))}
       {...props}
     />

@@ -6,7 +6,7 @@
 
 /* TODO:
  * - create a --spacing-fs variable function that returns a clamp value using several css variables and calculations
- * -- should have the following variables: --fs-min-w, --fs-max-w, --fs-min-fs, --fs-max-fs, --fs-min-ts, --fs-max-ts
+ * -- should have the following variables: --fs-min-fs, --fs-max-fs, --fs-min-ts, --fs-max-ts
  * -- should calculate a middle value using above variables (i.e. 0.5rem + 3vw)
  * -- should set the min and max values using min-fs and max-fs variables
  * -- use new function to generate fluid spacing vars based on set scale vars/params
@@ -554,35 +554,11 @@
 
   :root {
     /* Fluid Spacing Function Variables */
-    --fs-min-w: 30rem;     /* 480px minimum viewport width */
-    --fs-max-w: 160rem;    /* 2560px maximum viewport width */
-    --fs-min-fs: 1.375rem; /* 22px minimum font size */
-    --fs-max-fs: 2.75rem;  /* 44px maximum font size */
-    --fs-min-ts: 1.2;      /* 1.2 minimum type scale */
-    --fs-max-ts: 1.25;     /* 1.25 maximum type scale */
+    --fs-min-size: 1.375rem; /* 22px minimum spacing size */
+    --fs-max-size: 2.75rem;  /* 44px maximum spacing size */
+    --fs-min-scale: 1.2;      /* 1.2 minimum spacing scale */
+    --fs-max-scale: 1.25;     /* 1.25 maximum spacing scale */
   }
-}
-
-@custom-variant fs {
-  @utility border-* {
-    --fs-min-fs: calc(--modifier(number) - 0.5rem);
-    --fs-max-fs: calc(--modifier(number) + 0.5rem);
-    --spacing-fs: clamp(
-      var(--fs-min-fs),
-      calc(
-        /* Base rem value */
-        var(--fs-min-fs) + 
-        /* Viewport width percentage */
-        ((var(--fs-max-fs) - var(--fs-min-fs)) / (var(--fs-max-w) - var(--fs-min-w))) * 100vw
-      ),
-      var(--fs-max-fs)
-    );
-    border-width: --value(--spacing-fs, --spacing-*, [*]);
-  }
-
-  --spacing: var(--spacing-fs);
-
-  @slot;
 }
 
 @theme inline {
@@ -600,17 +576,14 @@
   --breakpoint-6xl: 140rem; /* 2240px */
   --breakpoint-7xl: 160rem; /* 2560px */
 
-   /* Fluid Spacing Base Function */
-   /* TODO: Create a tailwind utility and/or variant to generate fluid spacing styles instead of hardcoding */
+   /* Fluid Spacing Scale */
    --spacing-fs: clamp(
-    var(--fs-min-fs),
+    var(--fs-min-size, 1.375rem),
     calc(
-      /* Base rem value */
-      var(--fs-min-fs) + 
-      /* Viewport width percentage */
-      ((var(--fs-max-fs) - var(--fs-min-fs)) / (var(--fs-max-w) - var(--fs-min-w))) * 100vw
+      var(--fs-min-size, 1.375rem) +
+      ((var(--fs-max-size, 2.75rem) - var(--fs-min-size, 1.375rem)) / (var(--breakpoint-7xl, 160rem) - var(--breakpoint-xs, 30rem))) * 100vw
     ),
-    var(--fs-max-fs)
+    var(--fs-max-size, 2.75rem)
   );
 
   /* Fluid Spacing */
@@ -801,41 +774,41 @@
   --radius-fs-16: var(--fs-sm-10);
 
   /* Fluid Border Width */
-  --border-width-fs-1: var(--fs-line-1);
-  --border-width-fs-2: var(--fs-line-2);
-  --border-width-fs-3: var(--fs-line-3);
-  --border-width-fs-4: var(--fs-line-4);
-  --border-width-fs-5: var(--fs-line-5);
-  --border-width-fs-6: var(--fs-line-6);
-  --border-width-fs-7: var(--fs-line-7);
-  --border-width-fs-8: var(--fs-line-8);
-  --border-width-fs-9: var(--fs-line-9);
-  --border-width-fs-10: var(--fs-line-10);
-  --border-width-fs-11: var(--fs-line-11);
+  --border-width-fs-1: var(--fs-line-2);
+  --border-width-fs-2: var(--fs-line-3);
+  --border-width-fs-3: var(--fs-line-4);
+  --border-width-fs-4: var(--fs-line-5);
+  --border-width-fs-5: var(--fs-line-6);
+  --border-width-fs-6: var(--fs-line-7);
+  --border-width-fs-7: var(--fs-line-8);
+  --border-width-fs-8: var(--fs-line-9);
+  --border-width-fs-9: var(--fs-line-10);
+  --border-width-fs-10: var(--fs-line-11);
+  --border-width-fs-11: var(--fs-line-12);
 
   /* Fluid Outline Width */
-  --outline-width-fs-1: var(--fs-line-4);
-  --outline-width-fs-2: var(--fs-line-5);
-  --outline-width-fs-3: var(--fs-line-6);
-  --outline-width-fs-4: var(--fs-line-7);
-  --outline-width-fs-5: var(--fs-line-8);
-  --outline-width-fs-6: var(--fs-line-9);
-  --outline-width-fs-7: var(--fs-line-10);
-  --outline-width-fs-8: var(--fs-line-11);
-  --outline-width-fs-9: var(--fs-line-12);
-  --outline-width-fs-10: var(--fs-line-13);
-  --outline-width-fs-11: var(--fs-line-14);
+  --outline-width-fs-1: var(--fs-line-3);
+  --outline-width-fs-2: var(--fs-line-4);
+  --outline-width-fs-3: var(--fs-line-5);
+  --outline-width-fs-4: var(--fs-line-6);
+  --outline-width-fs-5: var(--fs-line-7);
+  --outline-width-fs-6: var(--fs-line-8);
+  --outline-width-fs-7: var(--fs-line-9);
+  --outline-width-fs-8: var(--fs-line-10);
+  --outline-width-fs-9: var(--fs-line-11);
+  --outline-width-fs-10: var(--fs-line-12);
+  --outline-width-fs-11: var(--fs-line-13);
 
-  /* Fluid Ring Width */
-  --ring-width-fs-1: var(--fs-line-8);
-  --ring-width-fs-2: var(--fs-line-9);
-  --ring-width-fs-3: var(--fs-line-10);
-  --ring-width-fs-4: var(--fs-line-11);
-  --ring-width-fs-5: var(--fs-line-12);
-  --ring-width-fs-6: var(--fs-line-13);
-  --ring-width-fs-7: var(--fs-line-14);
-  --ring-width-fs-8: var(--fs-line-15);
-  --ring-width-fs-9: var(--fs-line-16);
-  --ring-width-fs-10: var(--fs-line-17);
-  --ring-width-fs-11: var(--fs-line-18);
+  /* Fluid Outline Offset */
+  --outline-offset-fs-1: var(--fs-line-4);
+  --outline-offset-fs-2: var(--fs-line-5);
+  --outline-offset-fs-3: var(--fs-line-6);
+  --outline-offset-fs-4: var(--fs-line-7);
+  --outline-offset-fs-5: var(--fs-line-8);
+  --outline-offset-fs-6: var(--fs-line-9);
+  --outline-offset-fs-7: var(--fs-line-10);
+  --outline-offset-fs-8: var(--fs-line-11);
+  --outline-offset-fs-9: var(--fs-line-12);
+  --outline-offset-fs-10: var(--fs-line-13);
+  --outline-offset-fs-11: var(--fs-line-14);
 }
