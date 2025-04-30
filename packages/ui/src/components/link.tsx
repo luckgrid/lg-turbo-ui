@@ -11,7 +11,7 @@ const linkVariants = cva(
     "cursor-pointer transition-link",
     "outline-offset-fs-1 focus-visible:outline-fs-2",
     "text-current hover:text-current/90",
-    "decoration-from-font underline-offset-(--fs-line-4)",
+    "decoration-from-font underline-offset-(--fs-xs-4)",
     "disabled:cursor-not-allowed disabled:opacity-50",
   ],
   {

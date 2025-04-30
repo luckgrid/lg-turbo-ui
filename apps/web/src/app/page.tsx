@@ -38,7 +38,7 @@ export default function Page() {
     <Layout as="main" className="min-h-svh">
       <Section
         as="header"
-        className="min-h-svh items-center justify-center py-fs-38 bg-base text-base-foreground"
+        className="min-h-svh items-center justify-center py-fs-38 bg-canvas text-canvas-foreground"
       >
         <LayoutContainer className="items-center justify-center gap-fs-12 px-fs-6">
           <Image

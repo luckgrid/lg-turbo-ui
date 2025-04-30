@@ -10,7 +10,10 @@ import { PrimitivesKitchenSink } from "@/components/kitchen-sink/primitives";
 export default function Page() {
   return (
     <Layout as="main" className="min-h-svh">
-      <Section as="header" className="py-fs-24 bg-base text-base-foreground">
+      <Section
+        as="header"
+        className="py-fs-24 bg-canvas text-canvas-foreground"
+      >
         <LayoutContainer className="flex-row flex-wrap justify-center md:justify-start items-center gap-fs-6">
           <h1 className="icon-wrapper text-wrapper text-title text-balance text-left">
             <Link href="/">
@@ -28,7 +31,10 @@ export default function Page() {
         </LayoutContainer>
       </Section>
       <Section>
-        <Layout as="header" className="py-fs-24 bg-base-1 text-base-foreground">
+        <Layout
+          as="header"
+          className="py-fs-24 bg-canvas-1 text-canvas-foreground"
+        >
           <LayoutContainer>
             <h2 className="text-heading">Primitive Utilities</h2>
             <p className="text-balance text-muted-foreground">
@@ -42,7 +48,10 @@ export default function Page() {
         </LayoutContainer>
       </Section>
       <Section>
-        <Layout as="header" className="py-fs-24 bg-base-1 text-base-foreground">
+        <Layout
+          as="header"
+          className="py-fs-24 bg-canvas-1 text-canvas-foreground"
+        >
           <LayoutContainer>
             <h2 className="text-heading">Button Component</h2>
             <p className="text-balance text-muted-foreground">
@@ -56,7 +65,10 @@ export default function Page() {
         </LayoutContainer>
       </Section>
       <Section>
-        <Layout as="header" className="py-fs-24 bg-base-1 text-base-foreground">
+        <Layout
+          as="header"
+          className="py-fs-24 bg-canvas-1 text-canvas-foreground"
+        >
           <LayoutContainer>
             <h2 className="text-heading">Form Component</h2>
             <p className="text-balance text-muted-foreground">

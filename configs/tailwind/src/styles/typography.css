@@ -367,3 +367,78 @@
     font-weight: var(--text-label--font-weight);
   }
 }
+
+@utility ts-* {
+  --min-text: --value(integer, number);
+  --max-text: --modifier(integer, number);
+  --min-text-ts: 1.25;
+  --max-text-ts: 1.333;
+  --min-text-vp: 480; /* 30rem */
+  --max-text-vp: 2560; /* 160rem */
+  
+  /* Calculate the fluid typescale */
+  --ts-scale-diff: calc(var(--max-text-ts) - var(--min-text-ts));
+  --ts-vp-diff: calc(var(--max-text-vp) - var(--min-text-vp));
+  
+  /* Calculate the viewport unit multiplier */
+  --ts-vi-multiplier: calc((var(--max-text) - var(--min-text)) / var(--ts-vp-diff));
+  
+  /* Calculate the base offset */
+  --ts-base-offset: calc(var(--min-text) - (var(--ts-vi-multiplier) * var(--min-text-vp)));
+  
+  /* Calculate font sizes in rem */
+  --ts-min-font-size: calc(var(--min-text) / 16 * 1rem);
+  --ts-max-font-size: calc(var(--max-text) / 16 * 1rem);
+
+  @supports (font-size: clamp(1rem, 1vi, 1rem)) {
+    font-size: clamp(
+      var(--ts-min-font-size),
+      calc((var(--ts-vi-multiplier) * 100vi) + (var(--ts-base-offset) / 16 * 1rem)),
+      var(--ts-max-font-size)
+    );
+  }
+
+  @supports not (font-size: clamp(1rem, 1vi, 1rem)) {
+    font-size: var(--ts-min-font-size);
+
+    @media screen and (min-width: var(--breakpoint-sm)) {
+      font-size: calc((var(--ts-vi-multiplier) * 640 + var(--ts-base-offset)) / 16 * 1rem);
+    }
+
+    @media screen and (min-width: var(--breakpoint-md)) {
+      font-size: calc((var(--ts-vi-multiplier) * 768 + var(--ts-base-offset)) / 16 * 1rem);
+    }
+
+    @media screen and (min-width: var(--breakpoint-lg)) {
+      font-size: calc((var(--ts-vi-multiplier) * 1024 + var(--ts-base-offset)) / 16 * 1rem);
+    }
+
+    @media screen and (min-width: var(--breakpoint-xl)) {
+      font-size: calc((var(--ts-vi-multiplier) * 1280 + var(--ts-base-offset)) / 16 * 1rem);
+    }
+
+    @media screen and (min-width: var(--breakpoint-2xl)) {
+      font-size: calc((var(--ts-vi-multiplier) * 1440 + var(--ts-base-offset)) / 16 * 1rem);
+    }
+
+    @media screen and (min-width: var(--breakpoint-3xl)) {
+      font-size: calc((var(--ts-vi-multiplier) * 1520 + var(--ts-base-offset)) / 16 * 1rem);
+    }
+
+    @media screen and (min-width: var(--breakpoint-4xl)) {
+      font-size: calc((var(--ts-vi-multiplier) * 1680 + var(--ts-base-offset)) / 16 * 1rem);
+    }
+
+    @media screen and (min-width: var(--breakpoint-5xl)) {
+      font-size: calc((var(--ts-vi-multiplier) * 1920 + var(--ts-base-offset)) / 16 * 1rem);
+    }
+
+    @media screen and (min-width: var(--breakpoint-6xl)) {
+      font-size: calc((var(--ts-vi-multiplier) * 2240 + var(--ts-base-offset)) / 16 * 1rem);
+    }
+
+    @media screen and (min-width: var(--breakpoint-7xl)) {
+      font-size: var(--ts-max-font-size);
+    }
+  }
+}

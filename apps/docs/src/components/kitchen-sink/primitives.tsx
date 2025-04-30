@@ -14,13 +14,13 @@ export function PrimitivesKitchenSink() {
         </Layout>
 
         <Layout className="flex-row flex-wrap items-center gap-fs-6">
-          <div className="box box-content box-color-base p-4 border-2 rounded-md">
+          <div className="box box-content box-color-yellow-500/black p-4 border-2 rounded-md text-base">
             Unscaled Box Primitive
           </div>
-          <div className="box-fs-8 box-color-base-1 p-fs-4 border-fs-2 rounded-fs-2">
+          <div className="fp-24/48 box-color-card border-fs-4 rounded-fs-4 ts-16/20">
             Bordered Box Primitive
           </div>
-          <div className="box-xl box-color-base-2 p-fs-6 border-fs-4 border-neutral rounded-fs-4">
+          <div className="fp-32/68 box-color-canvas border-fs-6 border-neutral rounded-fs-6 ts-30/60">
             Neutral Border Box Primitive
           </div>
         </Layout>
@@ -38,7 +38,7 @@ export function PrimitivesKitchenSink() {
         <Layout className="flex-row flex-wrap items-center gap-fs-6">
           <button
             type="button"
-            className="cursor box-center icon-wrapper inline-flex p-fs-4 gap-fs-1 rounded-fs-2 action-color-neutral leading-none transition-action"
+            className="cursor box-center icon-wrapper inline-flex p-fs-4 gap-fs-1 rounded-fs-2 text-label action-color-neutral leading-none transition-action"
           >
             Neutral Action
             <Star />
@@ -63,21 +63,21 @@ export function PrimitivesKitchenSink() {
         <Layout className="flex-row flex-wrap items-center gap-fs-6">
           <button
             type="button"
-            className="cursor box-center icon-wrapper inline-flex px-fs-4 py-fs-2 gap-fs-1 rounded-fs-2 transition-action action-color-base text-label leading-none"
+            className="cursor box-center icon-wrapper inline-flex px-fs-4 py-fs-2 gap-fs-1 rounded-fs-2 transition-action action-color-canvas text-label leading-none"
           >
-            Base Small Action
+            Small Canvas Action
           </button>
           <button
             type="button"
             className="cursor box-center icon-wrapper inline-flex px-fs-6 py-fs-3 gap-fs-2 rounded-fs-4 transition-action action-color-display text-label leading-none"
           >
-            Display Medium Action
+            Medium Display Action
           </button>
           <button
             type="button"
             className="cursor box-center icon-wrapper inline-flex px-fs-8 py-fs-4 gap-fs-3 rounded-fs-6 border-fs-6 transition-action action-color-panel text-panel-foreground bg-transparent hover:bg-panel leading-none"
           >
-            Outline Panel Large Action
+            Large Outline Panel Action
           </button>
         </Layout>
       </Layout>

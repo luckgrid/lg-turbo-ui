@@ -143,17 +143,12 @@
   --color-dark: var(--cs-dark);
   --color-light: var(--cs-light);
 
-  /* Box Colors */
-  --color-box: var(--c-base);
-  --color-box-border: var(--c-border);
-  --color-box-foreground: var(--c-base-foreground);
-
   /* Surface Colors */
-  --color-base: var(--c-base);
-  --color-base-1: var(--c-base-1);
-  --color-base-2: var(--c-base-2);
-  --color-base-3: var(--c-base-3);
-  --color-base-foreground: var(--c-base-foreground);
+  --color-canvas: var(--c-canvas);
+  --color-canvas-1: var(--c-canvas-1);
+  --color-canvas-2: var(--c-canvas-2);
+  --color-canvas-3: var(--c-canvas-3);
+  --color-canvas-foreground: var(--c-canvas-foreground);
   --color-display: var(--c-display);
   --color-display-1: var(--c-display-1);
   --color-display-2: var(--c-display-2);
@@ -219,11 +214,11 @@
     color-scheme: light;
 
     /* Surface Colors */
-    --c-base: var(--cs-light);
-    --c-base-1: var(--cs-fog-10);
-    --c-base-2: var(--cs-fog-9);
-    --c-base-3: var(--cs-fog-8);
-    --c-base-foreground: var(--cs-smog-1);
+    --c-canvas: var(--cs-light);
+    --c-canvas-1: var(--cs-fog-10);
+    --c-canvas-2: var(--cs-fog-9);
+    --c-canvas-3: var(--cs-fog-8);
+    --c-canvas-foreground: var(--cs-smog-1);
     --c-display: var(--cs-fog-7);
     --c-display-1: var(--cs-fog-6);
     --c-display-2: var(--cs-fog-5);
@@ -287,11 +282,11 @@
     color-scheme: dark;
 
     /* Surface Colors */
-    --c-base: var(--cs-dark);
-    --c-base-1: var(--cs-smog-0);
-    --c-base-2: var(--cs-smog-1);
-    --c-base-3: var(--cs-smog-2);
-    --c-base-foreground: var(--cs-fog-9);
+    --c-canvas: var(--cs-dark);
+    --c-canvas-1: var(--cs-smog-0);
+    --c-canvas-2: var(--cs-smog-1);
+    --c-canvas-3: var(--cs-smog-2);
+    --c-canvas-foreground: var(--cs-fog-9);
     --c-display: var(--cs-smog-3);
     --c-display-1: var(--cs-smog-4);
     --c-display-2: var(--cs-smog-5);

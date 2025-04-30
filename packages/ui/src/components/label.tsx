@@ -13,22 +13,22 @@ const labelBase = "inline-flex select-none transition-[color]";
 
 const labelSize = {
   ...formTextSize,
-  sm: "gap-fs-1 font-normal text-caption",
-  base: "gap-fs-2 font-medium text-label",
-  md: "gap-fs-sm-1 font-medium text-body",
-  lg: "gap-fs-sm-2 font-semibold text-lead",
-  full: "gap-fs-sm-3 font-semibold text-subheading",
+  sm: "gap-fs-xs-3 font-normal text-caption",
+  base: "gap-fs-xs-4 font-medium text-label",
+  md: "gap-fs-xs-5 font-medium text-body",
+  lg: "gap-fs-xs-6 font-semibold text-lead",
+  full: "gap-fs-xs-7 font-semibold text-subheading",
 };
 
 const labelStatus = {
   ...formTextStatus,
   base: "text-foreground/80",
-  error: "text-danger",
+  error: "text-danger/80",
 };
 
 const labelVariant = {
   base: "",
-  indicator: "peer-disabled:cursor-not-allowed",
+  indicator: "leading-none peer-disabled:cursor-not-allowed",
 };
 
 const labelVariants = cva(

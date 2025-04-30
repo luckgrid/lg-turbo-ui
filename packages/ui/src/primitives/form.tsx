@@ -129,10 +129,10 @@ const formFieldShadow = {
 const formFieldSize = {
   ...formSize,
   sm: "gap-y-fs-1 gap-x-fs-2",
-  base: "gap-y-fs-2 gap-x-fs-4",
+  base: "gap-y-fs-2 gap-x-fs-3",
   md: "gap-y-fs-sm-1 gap-x-fs-sm-2",
-  lg: "gap-y-fs-sm-2 gap-x-fs-sm-4",
-  full: "gap-y-fs-sm-3 gap-x-fs-sm-6",
+  lg: "gap-y-fs-sm-2 gap-x-fs-sm-3",
+  full: "gap-y-fs-sm-3 gap-x-fs-sm-4",
 };
 
 const formFieldVariants = cva("box-border grid items-start", {
@@ -431,7 +431,7 @@ const inputIndicatorBase = [
   indicatorBase,
   "transition-action border-fs-4 outline-ring/80 outline-offset-fs-2 border-ring bg-input text-input-foreground",
   "focus-visible:border-accent focus-visible:outline-accent/80",
-  "focus-visible:outline-fs-2 aria-invalid:focus-visible:outline-danger/80",
+  "focus-visible:outline-fs-2 aria-invalid:border-danger aria-invalid:focus-visible:outline-danger/80",
   "data-[state=checked]:outline-accent/80 data-[state=checked]:border-accent data-[state=checked]:bg-accent data-[state=checked]:text-accent-foreground",
   "disabled:cursor-not-allowed active:not-disabled:motion-scale-in-90 active:not-disabled:motion-duration-300 active:not-disabled:motion-ease-spring-bouncy",
 ];

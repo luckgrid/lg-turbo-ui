@@ -85,7 +85,7 @@ const buttonVariants = cva(
           "box-content size-fit p-0 border-none shadow-none",
           "bg-transparent hover:bg-transparent focus-visible:bg-transparent",
           "text-accent hover:text-accent/90 focus-visible:text-accent",
-          "underline decoration-from-font underline-offset-(--fs-line-4)",
+          "underline decoration-from-font underline-offset-(--fs-xs-4)",
         ],
       },
       // Style Modifiers
