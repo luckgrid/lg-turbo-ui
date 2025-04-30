@@ -183,7 +183,6 @@ function FormField({
 }
 
 // Primitive Form Text Component
-// - TODO: change FormText namespace to FormDisplay with a variant for text and additional form ui patterns
 
 const formTextSize = {
   sm: "text-legal",

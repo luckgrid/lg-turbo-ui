@@ -22,6 +22,8 @@ import {
 // TODO:
 // - Add FormProvider wrapper around Form primitive with proper typing using UseFormReturn
 // - Update FormControl to handle passing controller render props to it's children
+// - Remove react-hook-form dependency in favor of useActionState and next-safe-action library
+// - Handle client side validation using useOptimisticActionState and valibot/zod schemas
 
 // Form Controller Component
 
@@ -116,7 +118,9 @@ function FormLabel({ children, ...props }: LabelProps) {
 
 // Form Control Component
 
-function FormControl({ ...props }: React.ComponentProps<typeof Slot>) {
+type FormControlProps = React.ComponentProps<typeof Slot>;
+
+function FormControl({ ...props }: FormControlProps) {
   const { error, invalid, fieldId, descriptionErrorId, descriptionHintId } =
     useFormField();
 
@@ -159,7 +163,7 @@ function FormDescription({ children, ...props }: FormTextProps) {
   if (children) {
     return (
       <FormText
-        data-slot="form-hint"
+        data-slot="form-description"
         id={descriptionHintId}
         {...props}
         status={error || invalid ? "error" : "base"}
@@ -184,3 +188,5 @@ export {
   FormLabel,
   useFormField,
 };
+
+export type { FormControlProps };

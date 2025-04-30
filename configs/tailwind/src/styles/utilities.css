@@ -63,15 +63,19 @@
 
 /* TODO: use `--modifier` to handle more box placement styles */
 @utility box-* {
-  &:where(:not([class*='box'])) {
-    box-sizing: border-box;
-    display: flex;
-  }
+  box-sizing: border-box;
+  display: flex;
   align-items: --value('center', 'start', 'end', 'stretch');
   justify-content: --value('center', 'start', 'end', 'stretch');
 }
 
-/* @example: <div class="box-color-yellow-500/black">black and yellow box</div> */
+/* TODO: add grid template columns and grid column span styles if display is grid - may need a functional utility */
+@utility box-col {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+
 @utility box-color-* {
   --alpha: calc(--modifier(integer, number) * 1%);
   --color: --value(--color-*, [*]);
@@ -80,11 +84,12 @@
   background-color: --alpha(--value(--color-*, [*]) / var(--alpha, 100%));
   color: oklch(from var(--color) calc(l + (100% + l) / 2) c h);
   color: --value(--color-*-foreground);
-  color: --modifier(--color-*, color, [*]);
+  color: --modifier(--color-*, [*]);
 }
 
 /* Action Utilities */
 
+/* TODO: update action color styles based on box-color-* changes, add additional action utils (to set disabled and other states) */
 @utility action-color-* {
   --tw-ring-color: --alpha(--value(--color-*, [*]) / 25%);
   --alpha: calc(--modifier(integer) * 1%);
@@ -111,18 +116,15 @@
 
 /* Framer Utilities */
 
+/* TODO: use modifiers to handle different gap and padding patterns - consider creating spacing utils to recycle common spacing patterns (i.e. framer-[t-shirt-size]-*) */
 @utility framer-* {
   --spacing: calc(--modifier(number, integer) * var(--spacing-fs-*, --spacing-*, [*]));
   padding: calc(var(--spacing-fs, --spacing) * 4);
   padding: --value(--spacing-fs-*, --spacing-*, [*]);
   padding: --spacing(--value(number, integer));
-  &:where([class*='box']),
-  &:where([class*='flex']),
-  &:where([class*='grid']) {
-    gap: calc(var(--spacing-fs, --spacing) * 4);
-    gap: --value(--spacing-fs-*, --spacing-*, [*]);
-    gap: --spacing(--value(number, integer));
-  }
+  gap: calc(var(--spacing-fs, --spacing) * 4);
+  gap: --value(--spacing-fs-*, --spacing-*, [*]);
+  gap: --spacing(--value(number, integer));
 }
 
 /* Wrapper Utilities */
@@ -155,12 +157,8 @@
   --spacing: calc(--modifier(number, integer) * var(--spacing-fs-*, --spacing-*, [*]));
   padding-block: --value(--spacing-fs-*, --spacing-*, [*]);
   padding-block: --spacing(--value(number, integer));
-  &:where([class*='box']),
-  &:where([class*='flex']),
-  &:where([class*='grid']) {
-    gap: --value(--spacing-fs-*, --spacing-*, [*]);
-    gap: --spacing(--value(number, integer));
-  }
+  gap: --value(--spacing-fs-*, --spacing-*, [*]);
+  gap: --spacing(--value(number, integer));
 }
 
 /* Container Utilities */
@@ -174,10 +172,6 @@
   --spacing: calc(--modifier(number, integer) * var(--spacing-fs-*, --spacing-*, [*]));
   padding-inline: --value(--spacing-fs-*, --spacing-*, [*]);
   padding-inline: --spacing(--value(number, integer));
-  &:where([class*='box']),
-  &:where([class*='flex']),
-  &:where([class*='grid']) {
-    gap: --value(--spacing-fs-*, --spacing-*, [*]);
-    gap: --spacing(--value(number, integer));
-  }
+  gap: --value(--spacing-fs-*, --spacing-*, [*]);
+  gap: --spacing(--value(number, integer));
 }

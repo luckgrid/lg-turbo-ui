@@ -9,7 +9,6 @@ import {
   Layout,
   layoutRadius,
   layoutShadow,
-  layoutSize,
 } from "@workspace/ui/primitives/layout";
 
 const sectionRadius = {
@@ -20,18 +19,10 @@ const sectionShadow = {
   ...layoutShadow,
 };
 
-const sectionSize = {
-  ...layoutSize,
-};
-
 const sectionVariants = cva("", {
   variants: {
     radius: sectionRadius,
     shadow: sectionShadow,
-    size: sectionSize,
-  },
-  defaultVariants: {
-    size: "base",
   },
 });
 
@@ -45,19 +36,18 @@ function Section<T extends React.ElementType = "section">({
   className,
   radius,
   shadow,
-  size,
   ...props
 }: SectionProps<T>) {
   return (
     <Layout
       as={as}
       data-slot="section"
-      className={cn(sectionVariants({ radius, size, shadow, className }))}
+      className={cn(sectionVariants({ radius, shadow, className }))}
       {...props}
     />
   );
 }
 
-export { Section, sectionRadius, sectionShadow, sectionSize, sectionVariants };
+export { Section, sectionRadius, sectionShadow, sectionVariants };
 
 export type { SectionProps };

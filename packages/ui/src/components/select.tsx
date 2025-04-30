@@ -16,29 +16,30 @@ import {
   inputShadow,
   inputSize,
   inputVariant,
+  inputStatus,
 } from "@workspace/ui/primitives/form";
 
 // Select Component
 
-function Select({
-  ...props
-}: React.ComponentProps<typeof SelectPrimitive.Root>) {
+type SelectProps = React.ComponentProps<typeof SelectPrimitive.Root>;
+
+function Select({ ...props }: SelectProps) {
   return <SelectPrimitive.Root data-slot="select" {...props} />;
 }
 
 // Select Group Component
 
-function SelectGroup({
-  ...props
-}: React.ComponentProps<typeof SelectPrimitive.Group>) {
+type SelectGroupProps = React.ComponentProps<typeof SelectPrimitive.Group>;
+
+function SelectGroup({ ...props }: SelectGroupProps) {
   return <SelectPrimitive.Group data-slot="select-group" {...props} />;
 }
 
 // Select Value Component
 
-function SelectValue({
-  ...props
-}: React.ComponentProps<typeof SelectPrimitive.Value>) {
+type SelectValueProps = React.ComponentProps<typeof SelectPrimitive.Value>;
+
+function SelectValue({ ...props }: SelectValueProps) {
   return <SelectPrimitive.Value data-slot="select-value" {...props} />;
 }
 
@@ -55,11 +56,13 @@ const selectTriggerVariants = cva(
       radius: inputRadius,
       shadow: inputShadow,
       size: inputSize,
+      status: inputStatus,
     },
     defaultVariants: {
       radius: "base",
       shadow: "base",
       size: "base",
+      status: "base",
     },
   }
 );
@@ -75,13 +78,16 @@ function SelectTrigger({
   radius,
   shadow,
   size,
+  status,
   ...props
 }: SelectTriggerProps) {
   return (
     <SelectPrimitive.Trigger
       data-slot="select-trigger"
       data-size={size}
-      className={cn(selectTriggerVariants({ radius, size, shadow, className }))}
+      className={cn(
+        selectTriggerVariants({ radius, size, shadow, status, className })
+      )}
       {...props}
     >
       {children}
@@ -177,10 +183,9 @@ function SelectContent({
 // - Create selectLabelVariants to add size modifiers
 // - Reuse existing label styles from label component (need to add a label/text primitive to form primitive file first)
 
-function SelectLabel({
-  className,
-  ...props
-}: React.ComponentProps<typeof SelectPrimitive.Label>) {
+type SelectLabelProps = React.ComponentProps<typeof SelectPrimitive.Label>;
+
+function SelectLabel({ className, ...props }: SelectLabelProps) {
   return (
     <SelectPrimitive.Label
       data-slot="select-label"
@@ -220,10 +225,12 @@ const selectItemVariants = cva(
         none: "",
         unset: "",
       },
+      status: inputStatus,
     },
     defaultVariants: {
       radius: "base",
       size: "base",
+      status: "base",
     },
   }
 );
@@ -236,18 +243,31 @@ type SelectItemProps = SelectItemVariantProps &
 function SelectItem({
   children,
   className,
+  disabled,
   radius,
   shadow,
   size,
+  status,
   ...props
 }: SelectItemProps) {
+  const itemStatus = disabled || status === "disabled" ? "disabled" : status;
+
   return (
     <SelectPrimitive.Item
       data-slot="select-item"
-      className={cn(selectItemVariants({ radius, size, shadow, className }))}
+      className={cn(
+        selectItemVariants({
+          radius,
+          size,
+          shadow,
+          status: itemStatus,
+          className,
+        })
+      )}
+      disabled={disabled || status === "disabled"}
       {...props}
     >
-      <span className="absolute right-fs-2 size-fs-4 flex items-center justify-center">
+      <span className="absolute right-fs-2 size-fs-4 box-center icon-wrapper">
         <SelectPrimitive.ItemIndicator>
           <CheckIcon />
         </SelectPrimitive.ItemIndicator>
@@ -259,10 +279,11 @@ function SelectItem({
 
 // Select Separator Component
 
-function SelectSeparator({
-  className,
-  ...props
-}: React.ComponentProps<typeof SelectPrimitive.Separator>) {
+type SelectSeparatorProps = React.ComponentProps<
+  typeof SelectPrimitive.Separator
+>;
+
+function SelectSeparator({ className, ...props }: SelectSeparatorProps) {
   return (
     <SelectPrimitive.Separator
       data-slot="select-separator"
@@ -281,38 +302,46 @@ function SelectSeparator({
 // - Create a single SelectScrollButton component that can be used for both the up and down buttons
 // - Reuse existing action styles (need to create action primitive first)
 
+type SelectScrollUpButtonProps = React.ComponentProps<
+  typeof SelectPrimitive.ScrollUpButton
+>;
+
 function SelectScrollUpButton({
   className,
   ...props
-}: React.ComponentProps<typeof SelectPrimitive.ScrollUpButton>) {
+}: SelectScrollUpButtonProps) {
   return (
     <SelectPrimitive.ScrollUpButton
       data-slot="select-scroll-up-button"
       className={cn(
-        "flex cursor-default items-center justify-center py-fs-2",
+        "cursor-default box-center icon-wrapper py-fs-2",
         className
       )}
       {...props}
     >
-      <ChevronUpIcon className="size-[1em]" />
+      <ChevronUpIcon />
     </SelectPrimitive.ScrollUpButton>
   );
 }
 
+type SelectScrollDownButtonProps = React.ComponentProps<
+  typeof SelectPrimitive.ScrollDownButton
+>;
+
 function SelectScrollDownButton({
   className,
   ...props
-}: React.ComponentProps<typeof SelectPrimitive.ScrollDownButton>) {
+}: SelectScrollDownButtonProps) {
   return (
     <SelectPrimitive.ScrollDownButton
       data-slot="select-scroll-down-button"
       className={cn(
-        "flex cursor-default items-center justify-center py-fs-2",
+        "cursor-default box-center icon-wrapper py-fs-2",
         className
       )}
       {...props}
     >
-      <ChevronDownIcon className="size-[1em]" />
+      <ChevronDownIcon />
     </SelectPrimitive.ScrollDownButton>
   );
 }
@@ -328,4 +357,17 @@ export {
   SelectSeparator,
   SelectTrigger,
   SelectValue,
+};
+
+export type {
+  SelectContentProps,
+  SelectGroupProps,
+  SelectItemProps,
+  SelectLabelProps,
+  SelectProps,
+  SelectScrollDownButtonProps,
+  SelectScrollUpButtonProps,
+  SelectSeparatorProps,
+  SelectTriggerProps,
+  SelectValueProps,
 };

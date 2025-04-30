@@ -1,19 +1,34 @@
+import * as React from "react";
+
 import { SiGithub } from "@icons-pack/react-simple-icons";
 
 import { Link } from "@workspace/next-ui/components/link";
 import { Image } from "@workspace/next-ui/components/media";
-import type { FooterProps } from "@workspace/ui/components/footer";
-import { Footer } from "@workspace/ui/components/footer";
 import { cn } from "@workspace/ui/lib/utils";
-import { LayoutBar, LayoutContainer } from "@workspace/ui/primitives/layout";
+import type { LayoutProps } from "@workspace/ui/primitives/layout";
+import {
+  Layout,
+  LayoutBar,
+  LayoutContainer,
+} from "@workspace/ui/primitives/layout";
 
 import { config } from "@/configs/app";
 
-function LayoutFooter({ className, ...props }: FooterProps) {
+type FooterProps<T extends React.ElementType = "footer"> = Omit<
+  LayoutProps<T>,
+  "as"
+>;
+
+function LayoutFooter<T extends React.ElementType = "footer">({
+  className,
+  ...props
+}: FooterProps<T>) {
   const copyrightYear = new Date().getFullYear();
 
   return (
-    <Footer
+    <Layout
+      as="footer"
+      data-slot="layout-footer"
       className={cn("py-fs-3 bg-shell text-shell-foreground/75", className)}
       {...props}
     >
@@ -47,7 +62,7 @@ function LayoutFooter({ className, ...props }: FooterProps) {
           )}
         </LayoutBar>
       </LayoutContainer>
-    </Footer>
+    </Layout>
   );
 }
 

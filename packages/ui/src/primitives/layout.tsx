@@ -7,9 +7,6 @@ import { cn } from "@workspace/ui/lib/utils";
 import type { ElementProps } from "@workspace/ui/primitives/element";
 import { Element } from "@workspace/ui/primitives/element";
 
-// Layout Base Styles - to set base layout styles
-const layoutBase = "box flex-col";
-
 // Layout Radius Properties - to modify the border radius of a layout primitive
 const layoutRadius = {
   sm: "rounded-fs-13",
@@ -32,23 +29,11 @@ const layoutShadow = {
   unset: "",
 };
 
-// Layout Size Properties - to modify the size of a layout primitive
-const layoutSize = {
-  sm: "",
-  base: "",
-  md: "",
-  lg: "",
-  full: "",
-  none: "",
-  unset: "",
-};
-
 // Layout Variants
-const layoutVariants = cva(layoutBase, {
+const layoutVariants = cva("box-col", {
   variants: {
     radius: layoutRadius,
     shadow: layoutShadow,
-    size: layoutSize,
   },
 });
 
@@ -63,14 +48,13 @@ function Layout<T extends React.ElementType = "div">({
   className,
   radius,
   shadow,
-  size,
   ...props
 }: LayoutProps<T>) {
   return (
     <Element
       data-slot="layout"
       as={as}
-      className={cn(layoutVariants({ radius, size, shadow, className }))}
+      className={cn(layoutVariants({ radius, shadow, className }))}
       {...props}
     />
   );
@@ -92,16 +76,14 @@ const layoutContainerVariant = {
 };
 
 // Layout Container Variant
-const layoutContainerVariants = cva(layoutBase, {
+const layoutContainerVariants = cva("box-col", {
   variants: {
     radius: layoutRadius,
     shadow: layoutShadow,
-    size: layoutSize,
     space: layoutContainerSpace,
     variant: layoutContainerVariant,
   },
   defaultVariants: {
-    size: "base",
     space: "base",
     variant: "base",
   },
@@ -118,7 +100,6 @@ function LayoutContainer<T extends React.ElementType = "div">({
   className,
   radius,
   shadow,
-  size,
   space,
   variant,
   ...props
@@ -130,7 +111,6 @@ function LayoutContainer<T extends React.ElementType = "div">({
       className={cn(
         layoutContainerVariants({
           radius,
-          size,
           shadow,
           space,
           variant,
@@ -142,9 +122,6 @@ function LayoutContainer<T extends React.ElementType = "div">({
   );
 }
 
-// Layout Bar Base Styles - to set base layout bar styles
-const layoutBarBase = [layoutBase, "2xs:flex-row 2xs:flex-wrap"];
-
 // Layout Bar Space Properties - to modify the spacing styles of a layout bar primitive
 const layoutBarSpace = {
   base: "gap-fs-4 2xs:gap-fs-3 md:gap-fs-2",
@@ -153,15 +130,13 @@ const layoutBarSpace = {
 };
 
 // Layout Bar Variants
-const layoutBarVariants = cva(layoutBarBase, {
+const layoutBarVariants = cva("box-col 2xs:flex-row 2xs:flex-wrap", {
   variants: {
     radius: layoutRadius,
     shadow: layoutShadow,
-    size: layoutSize,
     space: layoutBarSpace,
   },
   defaultVariants: {
-    size: "base",
     space: "base",
   },
 });
@@ -177,7 +152,6 @@ function LayoutBar<T extends React.ElementType = "div">({
   className,
   radius,
   shadow,
-  size,
   space,
   ...props
 }: LayoutBarProps<T>) {
@@ -189,7 +163,6 @@ function LayoutBar<T extends React.ElementType = "div">({
         layoutBarVariants({
           radius,
           shadow,
-          size,
           space,
           className,
         })
@@ -206,11 +179,9 @@ export {
   LayoutContainer,
   layoutRadius,
   layoutShadow,
-  layoutSize,
   layoutContainerSpace,
   layoutContainerVariant,
   layoutContainerVariants,
-  layoutBarBase,
   layoutBarSpace,
   layoutBarVariants,
   layoutVariants,

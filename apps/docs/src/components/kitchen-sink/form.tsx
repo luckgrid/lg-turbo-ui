@@ -105,7 +105,7 @@ export function FormKitchenSink() {
         <Form onSubmit={form.handleSubmit(onSubmit)}>
           <Field
             control={form.control}
-            hint="This will be your primary contact. You can add additional contacts later."
+            description="This will be your primary contact. You can add additional contacts later."
             label="Email"
             name="email"
             placeholder="dev@luckgrid.net"
@@ -113,7 +113,7 @@ export function FormKitchenSink() {
           />
           <Field
             control={form.control}
-            hint="This will be your username. You can change it later."
+            description="This will be your username. You can change it later."
             label="Username"
             name="username"
             placeholder="1337-h4x0r"
@@ -121,7 +121,7 @@ export function FormKitchenSink() {
           />
           <Field
             control={form.control}
-            hint="Choosing an experience level is completely optional."
+            description="Choosing an experience level is completely optional."
             label="Experience"
             name="experience"
           >
