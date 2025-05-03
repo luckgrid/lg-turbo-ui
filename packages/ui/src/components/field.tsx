@@ -185,7 +185,11 @@ function CheckboxField<
       name={name}
       render={({ field }) => (
         <FormField
-          className={cn(classNames?.field, className)}
+          className={cn(
+            "flex flex-row items-start",
+            classNames?.field,
+            className
+          )}
           radius={radius}
           size={size}
           status={status}
@@ -253,7 +257,7 @@ function RadioGroupItemField({
 }: RadioGroupItemFieldProps) {
   return (
     <FormField
-      className={cn(classNames?.field, className)}
+      className={cn("flex flex-row items-center", classNames?.field, className)}
       radius={radius}
       size={size}
       status={status}

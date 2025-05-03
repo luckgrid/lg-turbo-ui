@@ -12,33 +12,35 @@ import { Link } from "@workspace/next-ui/components/link";
 import { toast } from "@workspace/next-ui/components/toaster";
 import { Button } from "@workspace/ui/components/button";
 import { Card } from "@workspace/ui/components/card";
-import { Checkbox } from "@workspace/ui/components/checkbox";
-import { Field } from "@workspace/ui/components/field";
 import {
-  Form,
-  FormControl,
-  FormDescription,
-  FormField,
-  FormFieldController,
-  FormLabel,
-} from "@workspace/ui/components/form";
-import { Textarea } from "@workspace/ui/components/input";
-import {
-  RadioGroup,
-  RadioGroupItem,
-} from "@workspace/ui/components/radio-group";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@workspace/ui/components/select";
+  CheckboxField,
+  Field,
+  RadioGroupField,
+  SelectField,
+  TextareaField,
+  type RadioGroupItemFieldProps,
+} from "@workspace/ui/components/field";
+import { Form } from "@workspace/ui/components/form";
+import type { SelectItemProps } from "@workspace/ui/components/select";
 
 // TODO:
 // - disable newsletterCategory fields when newsletterSubscription is false
 // - generate a username value from email
 // - add additional form field state related render conditions to handle various field component edge cases
+
+const experienceOptions: SelectItemProps[] = [
+  { textValue: "Beginner", value: "beginner" },
+  { textValue: "Intermediate", value: "intermediate" },
+  { textValue: "Advanced", value: "advanced" },
+  { textValue: "Expert", value: "expert" },
+];
+
+const newsletterCategories: RadioGroupItemFieldProps[] = [
+  { value: "all", label: "Everything" },
+  { value: "design", label: "Design" },
+  { value: "engineering", label: "Engineering" },
+  { value: "marketing", label: "Marketing" },
+];
 
 const formSchema = z.object({
   email: z.string().email({ message: "Please enter a valid email address" }),
@@ -119,136 +121,43 @@ export function FormKitchenSink() {
             placeholder="1337-h4x0r"
             isRequired
           />
-          <Field
+          <SelectField
             control={form.control}
             description="Choosing an experience level is completely optional."
+            items={experienceOptions}
             label="Experience"
             name="experience"
-          >
-            {(field) => (
-              <Select
-                defaultValue={field.value}
-                key={field.value}
-                onValueChange={field.onChange}
-              >
-                <FormControl>
-                  <SelectTrigger>
-                    <SelectValue placeholder="Select your level" />
-                  </SelectTrigger>
-                </FormControl>
-                <SelectContent>
-                  <SelectItem value="beginner">Beginner</SelectItem>
-                  <SelectItem value="intermediate">Intermediate</SelectItem>
-                  <SelectItem value="advanced">Advanced</SelectItem>
-                  <SelectItem value="expert">Expert</SelectItem>
-                </SelectContent>
-              </Select>
-            )}
-          </Field>
-          <Field control={form.control} label="Bio" name="bio">
-            {(field) => (
-              <Textarea
-                placeholder="Write a short description about yourself..."
-                {...field}
-              />
-            )}
-          </Field>
-          <FormFieldController
+            placeholder="Select your level"
+          />
+          <TextareaField
             control={form.control}
+            description="This will be your bio. You can change it later."
+            label="Bio"
+            name="bio"
+            placeholder="Write a short description about yourself..."
+          />
+          <CheckboxField
+            control={form.control}
+            description={
+              <>
+                Make sure to read the <Link href="#">terms and conditions</Link>{" "}
+                before using our services.
+              </>
+            }
+            label="I agree to the terms and conditions"
             name="legalAgreement"
-            render={({ field }) => (
-              <FormField className="flex flex-row items-start">
-                <FormControl>
-                  <Checkbox
-                    checked={field.value}
-                    onCheckedChange={field.onChange}
-                  />
-                </FormControl>
-                <div className="flex flex-col gap-fs-sm-1">
-                  <FormLabel size="md" variant="indicator">
-                    I agree to the terms and conditions
-                  </FormLabel>
-                  <FormDescription>
-                    Make sure to read the{" "}
-                    <Link href="#">terms and conditions</Link> before using our
-                    services.
-                  </FormDescription>
-                </div>
-              </FormField>
-            )}
           />
-          <FormFieldController
+          <CheckboxField
             control={form.control}
+            description="We don't spam or sell any private information. You may unsubscribe at any time."
+            label="I want to subscribe to the newsletter"
             name="newsletterSubscription"
-            render={({ field }) => (
-              <FormField className="flex flex-row items-start">
-                <FormControl>
-                  <Checkbox
-                    checked={field.value}
-                    onCheckedChange={field.onChange}
-                  />
-                </FormControl>
-                <div className="flex flex-col gap-fs-sm-1">
-                  <FormLabel size="md" variant="indicator">
-                    I want to subscribe to the newsletter
-                  </FormLabel>
-                  <FormDescription>
-                    We don't spam or sell any private information. You may
-                    unsubscribe at any time.
-                  </FormDescription>
-                </div>
-              </FormField>
-            )}
           />
-          <FormFieldController
+          <RadioGroupField
             control={form.control}
+            items={newsletterCategories}
+            label="Send me info about:"
             name="newsletterCategory"
-            render={({ field }) => (
-              <FormField className="gap-y-fs-sm-2">
-                <FormLabel>Send me info about:</FormLabel>
-                <FormControl>
-                  <RadioGroup
-                    defaultValue={field.value}
-                    onValueChange={field.onChange}
-                    key={field.value}
-                  >
-                    <FormField className="flex flex-row items-center">
-                      <FormControl>
-                        <RadioGroupItem value="all" />
-                      </FormControl>
-                      <FormLabel className="font-normal" variant="indicator">
-                        Everything
-                      </FormLabel>
-                    </FormField>
-                    <FormField className="flex flex-row items-center">
-                      <FormControl>
-                        <RadioGroupItem value="design" />
-                      </FormControl>
-                      <FormLabel className="font-normal" variant="indicator">
-                        Design
-                      </FormLabel>
-                    </FormField>
-                    <FormField className="flex flex-row items-center">
-                      <FormControl>
-                        <RadioGroupItem value="engineering" />
-                      </FormControl>
-                      <FormLabel className="font-normal" variant="indicator">
-                        Engineering
-                      </FormLabel>
-                    </FormField>
-                    <FormField className="flex flex-row items-center">
-                      <FormControl>
-                        <RadioGroupItem value="marketing" />
-                      </FormControl>
-                      <FormLabel className="font-normal" variant="indicator">
-                        Marketing
-                      </FormLabel>
-                    </FormField>
-                  </RadioGroup>
-                </FormControl>
-                <FormDescription />
-              </FormField>
-            )}
           />
           <Button
             className="mt-fs-4 sm:justify-self-end"

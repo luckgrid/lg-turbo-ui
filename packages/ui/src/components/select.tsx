@@ -248,6 +248,7 @@ function SelectItem({
   shadow,
   size,
   status,
+  textValue,
   ...props
 }: SelectItemProps) {
   const itemStatus = disabled || status === "disabled" ? "disabled" : status;
@@ -272,7 +273,9 @@ function SelectItem({
           <CheckIcon />
         </SelectPrimitive.ItemIndicator>
       </span>
-      <SelectPrimitive.ItemText>{children}</SelectPrimitive.ItemText>
+      <SelectPrimitive.ItemText>
+        {children || textValue}
+      </SelectPrimitive.ItemText>
     </SelectPrimitive.Item>
   );
 }
