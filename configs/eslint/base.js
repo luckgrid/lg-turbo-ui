@@ -78,41 +78,6 @@ export default tseslint.config([
               position: "before",
             },
             {
-              pattern: "react",
-              group: "external",
-              position: "before",
-            },
-            {
-              pattern: "react-dom",
-              group: "external",
-              position: "before",
-            },
-            {
-              pattern: "@hookform/**",
-              group: "external",
-              position: "before",
-            },
-            {
-              pattern: "react-hook-form",
-              group: "external",
-              position: "before",
-            },
-            {
-              pattern: "next",
-              group: "external",
-              position: "after",
-            },
-            {
-              pattern: "next-safe-action",
-              group: "external",
-              position: "after",
-            },
-            {
-              pattern: "next-themes",
-              group: "external",
-              position: "after",
-            },
-            {
               pattern: "@workspace/**",
               group: "internal",
               position: "before",
@@ -141,6 +106,7 @@ export default tseslint.config([
           },
           "newlines-between": "always",
           distinctGroup: true,
+          warnOnUnassignedImports: true,
         },
       ],
     },

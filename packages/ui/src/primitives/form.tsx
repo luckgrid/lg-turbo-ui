@@ -1,8 +1,7 @@
-import * as React from "react";
-
 import type { VariantProps } from "class-variance-authority";
 import { cva } from "class-variance-authority";
 import { CheckIcon, CircleIcon } from "lucide-react";
+import * as React from "react";
 
 import { cn } from "@workspace/ui/lib/utils";
 import {

@@ -1,15 +1,13 @@
 "use client";
 
+import type { CheckedState } from "@radix-ui/react-checkbox";
 import * as React from "react";
-
 import type {
   ControllerRenderProps,
   FieldPath,
   FieldValues,
   UseFormReturn,
 } from "react-hook-form";
-
-import type { CheckedState } from "@radix-ui/react-checkbox";
 
 import { Checkbox } from "@workspace/ui/components/checkbox";
 import type { FormControlProps } from "@workspace/ui/components/form";
@@ -122,7 +120,7 @@ function Field<
               {children(field)}
             </FormControl>
           ) : (
-            <FormControl>
+            <FormControl ref={ref} className={classNames?.control} {...props}>
               <Input
                 disabled={status === "disabled"}
                 radius={radius}

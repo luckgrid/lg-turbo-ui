@@ -20,7 +20,7 @@
     "fix:all": "pnpm format:fix && pnpm lint:fix",
     "ui:add": "turbo run ui:add -F @workspace/ui --"
   },
-  "packageManager": "pnpm@10.9.0",
+  "packageManager": "pnpm@10.10.0",
   "engines": {
     "node": ">=22.14.0"
   },

@@ -1,11 +1,9 @@
 "use client";
 
+import { Slot } from "@radix-ui/react-slot";
 import * as React from "react";
-
 import type { ControllerProps, FieldPath, FieldValues } from "react-hook-form";
 import { Controller, useFormContext, useFormState } from "react-hook-form";
-
-import { Slot } from "@radix-ui/react-slot";
 
 import type { LabelProps } from "@workspace/ui/components/label";
 import { Label } from "@workspace/ui/components/label";
