@@ -6,7 +6,9 @@
     "source.fixAll.eslint": "explicit"
   },
   "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnPaste": true,
   "editor.formatOnSave": false,
+  "emmet.showExpandedAbbreviation": "never",
   "eslint.rules.customizations": [{ "rule": "*", "severity": "warn" }],
   "eslint.runtime": "node",
   "eslint.workingDirectories": [
@@ -14,6 +16,7 @@
     { "pattern": "configs/*/" },
     { "pattern": "packages/*/" }
   ],
+  "prettier.enable": true,
   "prettier.ignorePath": ".gitignore",
   "search.exclude": {
     "pnpm-lock.yaml": true

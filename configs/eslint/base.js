@@ -20,7 +20,7 @@ export const restrictEnvAccess = tseslint.config(
           object: "process",
           property: "env",
           message:
-            "Avoid using process.env directly - validate your types with Zod",
+            "Avoid using process.env directly - validate your types with Zod.",
         },
       ],
       "no-restricted-imports": [
@@ -29,7 +29,7 @@ export const restrictEnvAccess = tseslint.config(
           name: "process",
           importNames: ["env"],
           message:
-            "Avoid using process.env directly - validate your types with Zod",
+            "Avoid using process.env directly - validate your types with Zod.",
         },
       ],
     },
@@ -75,6 +75,16 @@ export default tseslint.config([
             {
               pattern: "*.{css,sass,scss,less}",
               group: "object",
+              position: "before",
+            },
+            {
+              pattern: "react",
+              group: "external",
+              position: "before",
+            },
+            {
+              pattern: "next",
+              group: "external",
               position: "before",
             },
             {

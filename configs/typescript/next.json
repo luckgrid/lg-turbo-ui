@@ -4,12 +4,20 @@
   "extends": "./base.json",
   "compilerOptions": {
     "allowJs": true,
+    "noEmit": true,
 
     "lib": ["ES2022", "DOM", "DOM.Iterable"],
     "module": "ESNext",
     "moduleResolution": "Bundler",
     "plugins": [{ "name": "next" }],
-    "jsx": "preserve",
-    "tsBuildInfoFile": "${configDir}/.cache/tsbuildinfo.json"
-  }
+    "jsx": "preserve"
+  },
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    ".next/types/**/*.ts",
+    "next-env.d.ts",
+    "next.config.mjs"
+  ],
+  "exclude": ["node_modules"]
 }

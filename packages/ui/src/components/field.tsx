@@ -1,7 +1,8 @@
 "use client";
 
-import type { CheckedState } from "@radix-ui/react-checkbox";
 import * as React from "react";
+
+import type { CheckedState } from "@radix-ui/react-checkbox";
 import type {
   ControllerRenderProps,
   FieldPath,

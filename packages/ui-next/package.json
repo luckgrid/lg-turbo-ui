@@ -5,8 +5,6 @@
   "type": "module",
   "private": true,
   "scripts": {
-    "build": "tsc",
-    "dev": "tsc",
     "clean": "git clean -xdf .cache .turbo dist node_modules",
     "format": "prettier --check . --ignore-path ../../.gitignore",
     "lint": "eslint",
@@ -34,18 +32,9 @@
     "react": "catalog:",
     "react-dom": "catalog:"
   },
-  "files": [
-    "dist"
-  ],
   "exports": {
     "./next.config": "./next.config.mjs",
-    "./components/*": {
-      "default": "./src/components/*.tsx",
-      "types": "./dist/src/components/*.d.ts"
-    },
-    "./lib/*": {
-      "default": "./src/lib/*.ts",
-      "types": "./dist/src/lib/*.d.ts"
-    }
+    "./components/*": "./src/components/*.tsx",
+    "./lib/*": "./src/lib/*.ts"
   }
 }

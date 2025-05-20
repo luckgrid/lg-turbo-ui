@@ -112,6 +112,13 @@
     outline-color: --alpha(--value(--color-*, [*]) / 100%);
     border-color: transparent;
   }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    border-color: --alpha(--value(--color-*, [*]) / var(--alpha, 100%));
+    background-color: --alpha(--value(--color-*, [*]) / var(--alpha, 100%));
+  }
 }
 
 /* Framer Utilities */

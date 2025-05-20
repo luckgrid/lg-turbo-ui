@@ -1,5 +1,6 @@
-import { Slot } from "@radix-ui/react-slot";
 import * as React from "react";
+
+import { Slot } from "@radix-ui/react-slot";
 
 type ElementProps<T extends React.ElementType = "div"> = {
   as?: T;

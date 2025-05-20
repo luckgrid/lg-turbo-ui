@@ -6,7 +6,6 @@
     "allowJs": true,
     "checkJs": true,
     "composite": true,
-    "disableSourceOfProjectReferenceRedirect": true,
     "emitDeclarationOnly": true,
     "noEmit": false,
     "sourceMap": true,

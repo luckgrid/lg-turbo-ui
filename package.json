@@ -9,7 +9,7 @@
     "dev": "turbo watch dev --continue",
     "start": "turbo run start",
     "clean": "turbo run clean",
-    "clean:git": "git clean -xdf .cache .turbo node_modules",
+    "clean:git": "git clean -xdf .turbo node_modules",
     "clean:i": "pnpm run clean && pnpm clean:git && rm -rf pnpm-lock.yaml && pnpm i",
     "format": "turbo run format --continue -- --cache --cache-location .cache/.prettiercache",
     "format:fix": "pnpm format --write",
@@ -20,9 +20,9 @@
     "fix:all": "pnpm format:fix && pnpm lint:fix",
     "ui:add": "turbo run ui:add -F @workspace/ui --"
   },
-  "packageManager": "pnpm@10.10.0",
+  "packageManager": "pnpm@10.11.0",
   "engines": {
-    "node": ">=22.14.0"
+    "node": ">=22.15.0"
   },
   "prettier": "@workspace/prettier-config",
   "devDependencies": {

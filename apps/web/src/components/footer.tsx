@@ -1,5 +1,6 @@
-import { SiGithub } from "@icons-pack/react-simple-icons";
 import * as React from "react";
+
+import { SiGithub } from "@icons-pack/react-simple-icons";
 
 import { Link } from "@workspace/next-ui/components/link";
 import { Image } from "@workspace/next-ui/components/media";

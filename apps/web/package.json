@@ -13,9 +13,10 @@
     "dev": "pnpm env:run:dev next dev --turbopack --port 3000",
     "build": "pnpm env:run next build",
     "start": "pnpm env:run next start --port 3000",
-    "format": "prettier --check . --ignore-path .prettierignore --ignore-path ../../.gitignore",
+    "analyze": "ANALYZE=true pnpm build",
+    "format": "prettier --check . --ignore-path ../../.gitignore",
     "lint": "eslint",
-    "typecheck": "tsc"
+    "typecheck": "tsc --noEmit --emitDeclarationOnly false"
   },
   "prettier": "@workspace/prettier-config",
   "dependencies": {
