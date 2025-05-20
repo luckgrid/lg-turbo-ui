@@ -9,5 +9,8 @@
   "scripts": {
     "clean": "git clean -xdf .cache",
     "typecheck": "tsc --noEmit --emitDeclarationOnly false"
+  },
+  "devDependencies": {
+    "typescript": "catalog:"
   }
 }
