@@ -26,6 +26,7 @@
     "embla-carousel-react": "^8.6.0",
     "lucide-react": "catalog:",
     "react-hook-form": "catalog:",
+    "react-scan": "catalog:",
     "sonner": "^2.0.3",
     "zod": "catalog:"
   },

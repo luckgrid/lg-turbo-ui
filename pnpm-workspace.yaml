@@ -38,6 +38,8 @@ catalog:
   # react forms
   '@hookform/resolvers': ^5.0.1
   react-hook-form: ^7.56.4
+  # react dev
+  react-scan: ^0.3.4
 
   # next
   next: ^15.3.2
