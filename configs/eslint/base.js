@@ -102,9 +102,7 @@ export default tseslint.config([
               position: "after",
             },
           ],
-          pathGroupsExcludedImportTypes: [
-            "builtin",
-          ],
+          pathGroupsExcludedImportTypes: ["builtin"],
           "newlines-between": "always",
           distinctGroup: true,
           warnOnUnassignedImports: true,

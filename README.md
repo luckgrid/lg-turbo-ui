@@ -208,7 +208,7 @@ Your `main.css` is already set up to use the components from the `ui` package.
 To use the components in your app, import them from the `ui` package.
 
 ```tsx
-import { Button } from '@workspace/ui/components/button';
+import { Button } from "@workspace/ui/components/button";
 ```
 
 ---
@@ -226,7 +226,7 @@ For details about managing environment variables inside a turborepo workspace, y
 - [Turborepo Environment Variables Best Practices](https://turbo.build/docs/crafting-your-repository/using-environment-variables#best-practices)
 - [Turborepo Environment Variables Discussion](https://github.com/vercel/turborepo/discussions/9458)
 - [Validating Environments in Apps](https://github.com/t3-oss/create-t3-turbo/issues/397#issuecomment-1630028405)
-- [](https://github.com/dotenvx/dotenvx/issues/557)
+- [Shared Environment Variables/Keys and Namespaces](https://github.com/dotenvx/dotenvx/issues/557)
 
 #### Setup for Rapid Prototyping
 
