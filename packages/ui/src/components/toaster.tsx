@@ -1,7 +1,7 @@
 "use client";
 
-import type { ToasterProps as SonnerProps } from "sonner";
 import { Toaster as Sonner, toast } from "sonner";
+import type { ToasterProps } from "sonner";
 
 // Sonner Toaster Docs: https://sonner.emilkowal.ski/getting-started
 
@@ -9,11 +9,10 @@ import { Toaster as Sonner, toast } from "sonner";
 // - add toasterVariants with updated styles using ui theme variables - https://sonner.emilkowal.ski/styling
 // -- add a reusable toast function with theme style overrides
 
-type ToasterProps = SonnerProps;
-
 function Toaster({ theme = "system", ...props }: ToasterProps) {
   return (
     <Sonner
+      data-slot="toaster"
       theme={theme}
       className="toaster group"
       style={

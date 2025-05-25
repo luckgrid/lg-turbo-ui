@@ -1,8 +1,8 @@
 import * as React from "react";
 
-import { Toaster } from "@workspace/ui-next/components/toaster";
-import { ThemeProvider } from "@workspace/ui-next/providers/theme";
-import { ObserverProvider } from "@workspace/ui/providers/observer";
+import { ThemeProvider } from "@workspace/next-ui/components/providers";
+import { Toaster } from "@workspace/next-ui/components/toaster";
+import { ObserverProvider } from "@workspace/ui/components/providers";
 
 export function Providers({ children }: { children: React.ReactNode }) {
   return (

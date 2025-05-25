@@ -1,29 +1,38 @@
 "use client";
 
-import * as RadioGroupPrimitive from "@radix-ui/react-radio-group";
-import type { VariantProps } from "class-variance-authority";
-import { cva } from "class-variance-authority";
-import { CircleIcon } from "lucide-react";
 import * as React from "react";
 
+import * as RadioGroupPrimitive from "@radix-ui/react-radio-group";
+import { cva } from "class-variance-authority";
+import type { VariantProps } from "class-variance-authority";
+import { CircleIcon } from "lucide-react";
+
 import { cn } from "@workspace/ui/lib/utils";
-import { boxBase } from "@workspace/ui/primitives/box";
+import type { InputIndicatorVariantProps } from "@workspace/ui/primitives/form";
 import {
-  indicatorBase,
-  indicatorShape,
-  indicatorSize,
-  indicatorVariant,
-} from "@workspace/ui/primitives/indicator";
+  inputRadius,
+  inputShadow,
+  inputIndicatorVariants,
+} from "@workspace/ui/primitives/form";
 
 // Radio Group Component
 
-const radioGroupVariants = cva([boxBase, "grid gap-fs-1"], {
+const radioGroupVariants = cva("box-border grid", {
   variants: {
+    radius: inputRadius,
+    shadow: inputShadow,
     size: {
-      sm: "gap-fs-0-5",
-      md: "gap-fs-2",
-      lg: "gap-fs-3",
+      sm: "gap-fs-1",
+      base: "gap-fs-2",
+      md: "gap-fs-3",
+      lg: "gap-fs-4",
+      full: "gap-fs-5",
+      none: "gap-0",
+      unset: "",
     },
+  },
+  defaultVariants: {
+    size: "base",
   },
 });
 
@@ -32,11 +41,17 @@ type RadioGroupVariantProps = VariantProps<typeof radioGroupVariants>;
 type RadioGroupProps = RadioGroupVariantProps &
   React.ComponentProps<typeof RadioGroupPrimitive.Root>;
 
-function RadioGroup({ className, size, ...props }: RadioGroupProps) {
+function RadioGroup({
+  className,
+  radius,
+  shadow,
+  size,
+  ...props
+}: RadioGroupProps) {
   return (
     <RadioGroupPrimitive.Root
       data-slot="radio-group"
-      className={cn(radioGroupVariants({ size, className }))}
+      className={cn(radioGroupVariants({ radius, shadow, size, className }))}
       {...props}
     />
   );
@@ -44,61 +59,33 @@ function RadioGroup({ className, size, ...props }: RadioGroupProps) {
 
 // Radio Group Item Component
 
-const radioGroupItemVariants = cva([indicatorBase, indicatorVariant.radio], {
-  variants: {
-    // Style Variants
-    shape: {
-      circle: indicatorShape.circle,
-      square: indicatorShape.square,
-    },
-    size: {
-      sm: [
-        indicatorSize.sm,
-        "size-fs-3 [&_svg:not([class*='size-'])]:size-fs-0-5 border-1",
-      ],
-      md: [
-        indicatorSize.md,
-        "size-fs-5 [&_svg:not([class*='size-'])]:size-fs-2 border-(length:--fs-0-25)",
-      ],
-      lg: [
-        indicatorSize.lg,
-        "size-fs-6 [&_svg:not([class*='size-'])]:size-fs-3 border-(length:--fs-0-375)",
-      ],
-    },
-    // Style Modifiers
-    noShadow: {
-      false: "shadow-sm",
-    },
-  },
-  defaultVariants: {
-    shape: "circle",
-    noShadow: false,
-  },
-});
-
-type RadioGroupItemVariantProps = VariantProps<typeof radioGroupItemVariants>;
-
-type RadioGroupItemProps = RadioGroupItemVariantProps &
+type RadioGroupItemProps = Omit<InputIndicatorVariantProps, "variant"> &
   React.ComponentProps<typeof RadioGroupPrimitive.Item>;
 
 function RadioGroupItem({
   className,
-  shape,
+  radius = "full",
+  shadow,
   size,
-  noShadow,
   ...props
 }: RadioGroupItemProps) {
   return (
     <RadioGroupPrimitive.Item
       data-slot="radio-group-item"
       className={cn(
-        radioGroupItemVariants({ shape, size, noShadow, className }),
+        inputIndicatorVariants({
+          radius,
+          shadow,
+          size,
+          variant: "radio",
+          className,
+        })
       )}
       {...props}
     >
       <RadioGroupPrimitive.Indicator
         data-slot="radio-group-indicator"
-        className="relative flex items-center justify-center"
+        className="relative size-full box-center"
       >
         <CircleIcon className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
       </RadioGroupPrimitive.Indicator>

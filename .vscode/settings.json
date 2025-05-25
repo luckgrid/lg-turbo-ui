@@ -1,28 +1,42 @@
 {
-  "editor.codeActionsOnSave": [
-    "source.addMissingImports",
-    "source.organizeImports",
-    "source.fixAll.eslint"
-  ],
+  "[javascript,typescript,typescriptreact,postcss,json,markdown,yaml,github-actions-workflow]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"
+  },
   "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "editor.formatOnSave": true,
+  "editor.formatOnPaste": true,
+  "editor.formatOnSave": false,
+  "emmet.showExpandedAbbreviation": "never",
   "eslint.rules.customizations": [{ "rule": "*", "severity": "warn" }],
   "eslint.runtime": "node",
   "eslint.workingDirectories": [
     { "pattern": "apps/*/" },
+    { "pattern": "configs/*/" },
     { "pattern": "packages/*/" }
   ],
+  "prettier.enable": true,
   "prettier.ignorePath": ".gitignore",
   "search.exclude": {
     "pnpm-lock.yaml": true
   },
-  "[typescript,typescriptreact,css,postcss,json,markdown,yaml,github-actions-workflow]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
   "tailwindCSS.experimental.classRegex": [
+    ["(?:const|let|var)\\s+[\\w$_][_\\w\\d]*\\s*=\\s*['\\\"](.*?)['\\\"]"],
+    ["\\[\\s*?[\"'`]([^\"'`]*).*?,"],
+    ["\\s*[\"'`]([^\"'`]*).*?,"],
+    [":\\s*?[\"'`]([^\"'`]*).*?,"],
+    [
+      "classNames:\\s*{([\\s\\S]*?)}",
+      "\\s?[\\w].*:\\s*?[\"'`]([^\"'`]*).*?,?\\s?"
+    ],
+    ["clsx\\(.*?\\)(?!\\])", "(?:'|\"|`)([^\"'`]*)(?:'|\"|`)"],
+    ["cn\\(((?:[^()]|\\([^()]*\\))*)\\)", "(?:'|\"|`)([^']*)(?:'|\"|`)"],
     ["cva\\(((?:[^()]|\\([^()]*\\))*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"],
-    ["cx\\(((?:[^()]|\\([^()]*\\))*)\\)", "(?:'|\"|`)([^']*)(?:'|\"|`)"]
+    ["(?:twMerge|twJoin)\\(([^;]*)[\\);]", "[`'\"`]([^'\"`;]*)[`'\"`]"]
   ],
+  "tailwindCSS.experimental.configFile": "configs/tailwind/src/styles/main.css",
+  "testing.automaticallyOpenTestResults": "neverOpen",
   "typescript.enablePromptUseWorkspaceTsdk": true,
   "typescript.preferences.autoImportFileExcludePatterns": [
     "next/router.d.ts",

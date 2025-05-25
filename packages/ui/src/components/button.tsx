@@ -1,397 +1,529 @@
-import type { VariantProps } from "class-variance-authority";
-import { cva } from "class-variance-authority";
 import * as React from "react";
 
+import type { VariantProps } from "class-variance-authority";
+import { cva } from "class-variance-authority";
+
 import { cn } from "@workspace/ui/lib/utils";
-import { boxShape } from "@workspace/ui/primitives/box";
-import type { SlotElementProps } from "@workspace/ui/primitives/element";
-import { SlotElement } from "@workspace/ui/primitives/element";
-import type { LinkProps } from "@workspace/ui/primitives/link";
-import { Link } from "@workspace/ui/primitives/link";
+import type { ElementProps } from "@workspace/ui/primitives/element";
+import { Element } from "@workspace/ui/primitives/element";
+import type { LinkProps } from "@workspace/ui/primitives/navigation";
+import { Link } from "@workspace/ui/primitives/navigation";
 
 // TODO:
-// - update fluid scale vars for icon size, borders and outline modifiers
-// - improve animations and add noAnimation modifier
-// - add ticket shape variant style modifiers
 // - add button link variant for underline settings
-// - create action variant to reuse common style patterns (i.e. animation, outlines, states, etc...)
+// - extend buttonVariants with actionVariants using cx - https://cva.style/docs/getting-started/composing-components
+// - break up button styles by variant and modifier to reduce amount of tailwind utility sources imported with base button component
+// -- button component can be broken up into separate files based on variant (most apps won't need a button with every variant and modifier)
+
+// Ghost Button Modifier
+const ghostButton = [
+  "shadow-none border-transparent",
+  "bg-transparent focus-visible:bg-accent",
+  "text-current hover:text-current/90 focus-visible:text-current",
+];
 
 const buttonVariants = cva(
   [
-    "inline-flex items-center justify-center",
-    "relative gap-fs-0-5 px-fs-4 py-fs-1 border-(length:--fs-0-25)",
-    "border-neutral bg-neutral text-neutral-foreground hover:border-transparent hover:bg-neutral/90",
-    "whitespace-nowrap text-label font-medium tracking-wide leading-none",
-    "cursor-pointer transition-[background-color,border-color,color,box-shadow,opacity,text-decoration-color,fill,stroke]",
-    "active:not-disabled:motion-scale-in-[0.95] active:not-disabled:motion-duration-300 active:not-disabled:motion-ease-spring-bouncy",
+    "cursor-pointer inline-flex box-center icon-wrapper transition-action",
+    "gap-fs-2 px-fs-sm-3 py-fs-sm-1",
+    "border-fs-4 outline-offset-fs-2 focus-visible:outline-fs-2",
+    "text-accent-foreground bg-accent hover:bg-accent/90 border-accent hover:border-transparent outline-accent/50",
+    "text-label font-medium tracking-wide leading-none whitespace-nowrap",
     "disabled:pointer-events-none disabled:opacity-50",
-    "outline-offset-1 outline-neutral/50 ring-neutral/25",
-    "focus-visible:ring-4 focus-visible:outline-1 aria-invalid:focus-visible:ring-0",
-    "[&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-fs-2 [&_svg]:shrink-0",
+    "focus-visible:outline-fs-2 aria-invalid:focus-visible:outline-0",
   ],
   {
     variants: {
       // Style Variants
       color: {
-        accent: [
-          "text-accent-foreground",
-          "bg-accent hover:bg-accent/90",
-          "border-accent outline-accent/50 ring-accent/25",
-        ],
-        primary: [
-          "text-primary-foreground",
-          "bg-primary hover:bg-primary/90",
-          "border-primary outline-primary/50 ring-primary/25",
-        ],
-        secondary: [
-          "text-secondary-foreground",
-          "bg-secondary hover:bg-secondary/90",
-          "border-secondary outline-secondary/50 ring-secondary/25",
-        ],
-        danger: [
-          "text-danger-foreground",
-          "bg-danger hover:bg-danger/90",
-          "border-danger outline-danger/50 ring-danger/25",
-        ],
+        base: "text-neutral-foreground bg-neutral hover:bg-neutral/90 border-neutral outline-neutral/50 focus-visible:outline-neutral",
+        accent:
+          "text-accent-foreground bg-accent hover:bg-accent/90 border-accent outline-accent/50 focus-visible:outline-accent",
+        primary:
+          "text-primary-foreground bg-primary hover:bg-primary/90 border-primary outline-primary/50 focus-visible:outline-primary",
+        secondary:
+          "text-secondary-foreground bg-secondary hover:bg-secondary/90 border-secondary outline-secondary/50 focus-visible:outline-secondary",
+        danger:
+          "text-danger-foreground bg-danger hover:bg-danger/90 border-danger outline-danger/50 focus-visible:outline-danger",
       },
-      shape: {
-        pill: boxShape.pill,
-        sharp: boxShape.sharp,
-        rounded: "rounded-fs-md",
-        ticket: [
-          "shape-ticket py-fs-0-5",
-          "before:border-b-neutral after:border-t-neutral",
-          "hover:before:border-b-neutral/90 hover:after:border-t-neutral/90",
-          "focus-visible:ring-0 focus-visible:outline-none",
-        ],
+      radius: {
+        sm: "rounded-fs-2",
+        base: "rounded-fs-3",
+        md: "rounded-fs-4",
+        lg: "rounded-fs-5",
+        full: "rounded-full",
+        none: "rounded-none",
+        unset: "",
+      },
+      shadow: {
+        sm: "shadow-sm",
+        base: "shadow-md",
+        md: "shadow-lg",
+        lg: "shadow-xl",
+        full: "shadow-2xl",
+        none: "shadow-none",
+        unset: "",
       },
       size: {
-        sm: [
-          "text-caption font-normal tracking-wide leading-none",
-          "gap-fs-0-375 px-fs-2 py-fs-0-75 border-1",
-          "[&_svg:not([class*='size-'])]:size-fs-1",
-          "active:not-disabled:motion-scale-in-[0.94]",
-        ],
-        md: [
-          "text-body font-medium tracking-wide leading-none",
-          "gap-fs-0-625 px-fs-6 py-fs-2 border-(length:--fs-0-375)",
-          "[&_svg:not([class*='size-'])]:size-fs-3",
-          "active:not-disabled:motion-scale-in-[0.95]",
-        ],
-        lg: [
-          "text-subheading font-semibold tracking-wide leading-none",
-          "gap-fs-0-75 px-fs-12 py-fs-3 border-(length:--fs-0-5)",
-          "[&_svg:not([class*='size-'])]:size-fs-4",
-          "active:not-disabled:motion-scale-in-[0.96]",
-        ],
+        sm: "gap-fs-1 px-fs-sm-2 py-fs-1 border-fs-3 outline-offset-fs-1 focus-visible:outline-fs-1 text-caption font-medium tracking-wide leading-none",
+        base: "gap-fs-2 px-fs-sm-4 py-fs-sm-1 border-fs-4 outline-offset-fs-2 focus-visible:outline-fs-2 text-label font-medium tracking-wide leading-none",
+        md: "gap-fs-sm-1 px-fs-sm-6 py-fs-sm-2 border-fs-5 outline-offset-fs-3 focus-visible:outline-fs-3 text-body font-semibold tracking-wide leading-none",
+        lg: "gap-fs-sm-2 px-fs-sm-8 py-fs-sm-3 border-fs-6 outline-offset-fs-4 focus-visible:outline-fs-4 text-subheading font-semibold tracking-wide leading-none",
+        full: "gap-fs-sm-3 px-fs-sm-12 py-fs-sm-5 border-fs-8 outline-offset-fs-6 focus-visible:outline-fs-6 text-subtitle font-bold tracking-wide leading-none",
+        none: "gap-0 p-0 border-0 outline-offset-0 focus-visible:outline-0",
+        unset: "",
       },
       variant: {
-        solid: "",
+        base: "",
         outline: [
-          "bg-transparent hover:bg-neutral/90",
-          "text-neutral-3 hover:text-neutral-foreground",
+          "shadow-none border-fs-5 outline-offset-fs-3 focus-visible:outline-fs-3",
+          "border-accent hover:border-transparent focus-visible:border-transparent",
+          "bg-transparent hover:bg-accent/90 focus-visible:bg-accent",
+          "text-accent hover:text-accent-foreground focus-visible:text-accent-foreground",
         ],
         text: [
-          "size-fit px-1 py-0",
-          "border-none underline underline-offset-2",
-          "bg-transparent hover:bg-transparent",
-          "text-neutral-3 hover:text-neutral-3/80",
-          "active:not-disabled:motion-scale-in-[1]",
+          "box-content size-fit p-0 border-none shadow-none",
+          "bg-transparent hover:bg-transparent focus-visible:bg-transparent",
+          "text-accent hover:text-accent/90 focus-visible:text-accent",
+          "underline decoration-from-font underline-offset-(--fs-xs-4)",
         ],
       },
       // Style Modifiers
       isIcon: {
-        true: "size-fs-10 p-0 [&_svg:not([class*='size-'])]:size-fs-5",
+        true: "size-fs-8 p-0 [&_svg:not([class*='size-'])]:size-[1.25em]",
       },
       isGhost: {
-        true: [
-          "px-fs-2 py-fs-0-75",
-          "border-transparent bg-transparent hover:bg-neutral/90",
-          "text-current hover:text-neutral-foreground",
-        ],
+        true: ghostButton,
       },
-      withShadow: {
-        true: "shadow-md",
+      notAnimated: {
+        false:
+          "active:not-disabled:motion-scale-in-[0.95] active:not-disabled:motion-duration-300 active:not-disabled:motion-ease-spring-bouncy",
       },
     },
     compoundVariants: [
-      // Default Ghost Color Modifiers
+      // Ghost Colors
       {
+        color: "base",
         isGhost: true,
+        className: [
+          ...ghostButton,
+          "hover:bg-neutral/90 focus-visible:bg-neutral/90",
+          "hover:text-neutral-foreground focus-visible:text-neutral-foreground",
+        ],
+      },
+      {
         color: "accent",
-        className: "hover:bg-accent/90 hover:text-accent-foreground",
+        isGhost: true,
+        className: [
+          ...ghostButton,
+          "hover:bg-accent/90 focus-visible:bg-accent/90",
+          "hover:text-accent-foreground focus-visible:text-accent-foreground",
+        ],
       },
       {
-        isGhost: true,
         color: "primary",
-        className: "hover:bg-primary/90 hover:text-primary-foreground",
+        isGhost: true,
+        className: [
+          ...ghostButton,
+          "hover:bg-primary/90 focus-visible:bg-primary/90",
+          "hover:text-primary-foreground focus-visible:text-primary-foreground",
+        ],
       },
       {
-        isGhost: true,
         color: "secondary",
-        className: "hover:bg-secondary/90 hover:text-secondary-foreground",
+        isGhost: true,
+        className: [
+          ...ghostButton,
+          "hover:bg-secondary/90 focus-visible:bg-secondary/90",
+          "hover:text-secondary-foreground focus-visible:text-secondary-foreground",
+        ],
       },
       {
-        isGhost: true,
         color: "danger",
-        className: "hover:bg-danger/90 hover:text-danger-foreground",
-      },
-      // Solid Ghost Color Modifiers
-      {
         isGhost: true,
-        color: "accent",
-        variant: "solid",
-        className: "hover:bg-accent/90 hover:text-accent-foreground",
-      },
-      {
-        isGhost: true,
-        color: "primary",
-        variant: "solid",
-        className: "hover:bg-primary/90 hover:text-primary-foreground",
-      },
-      {
-        isGhost: true,
-        color: "secondary",
-        variant: "solid",
-        className: "hover:bg-secondary/90 hover:text-secondary-foreground",
-      },
-      {
-        isGhost: true,
-        color: "danger",
-        variant: "solid",
-        className: "hover:bg-danger/90 hover:text-danger-foreground",
+        className: [
+          ...ghostButton,
+          "hover:bg-danger/90 focus-visible:bg-danger/90",
+          "hover:text-danger-foreground focus-visible:text-danger-foreground",
+        ],
       },
       // Outline Color Variants
       {
+        color: "base",
+        variant: "outline",
+        className: [
+          "border-neutral",
+          "hover:bg-neutral/90 focus-visible:bg-neutral/90",
+          "text-neutral hover:text-neutral-foreground focus-visible:text-neutral-foreground",
+        ],
+      },
+      {
         color: "accent",
         variant: "outline",
-        className:
-          "border-accent text-accent-1 hover:bg-accent/90 hover:text-accent-foreground",
+        className: [
+          "border-accent",
+          "hover:bg-accent/90 focus-visible:bg-accent/90",
+          "text-accent hover:text-accent-foreground focus-visible:text-accent-foreground",
+        ],
       },
       {
         color: "primary",
         variant: "outline",
-        className:
-          "border-primary text-primary hover:bg-primary/90 hover:text-primary-foreground",
+        className: [
+          "border-primary",
+          "hover:bg-primary/90 focus-visible:bg-primary/90",
+          "text-primary hover:text-primary-foreground focus-visible:text-primary-foreground",
+        ],
       },
       {
         color: "secondary",
         variant: "outline",
-        className:
-          "border-secondary text-secondary hover:bg-secondary/90 hover:text-secondary-foreground",
+        className: [
+          "border-secondary",
+          "hover:bg-secondary/90 focus-visible:bg-secondary/90",
+          "text-secondary hover:text-secondary-foreground focus-visible:text-secondary-foreground",
+        ],
       },
       {
         color: "danger",
         variant: "outline",
-        className:
-          "border-danger text-danger-1 hover:bg-danger/90 hover:text-danger-foreground",
+        className: [
+          "border-danger",
+          "hover:bg-danger/90 focus-visible:bg-danger/90",
+          "text-danger hover:text-danger-foreground focus-visible:text-danger-foreground",
+        ],
       },
       // Outline Ghost Color Modifiers
       {
-        isGhost: true,
         variant: "outline",
-        className: "border-current/40 text-current",
+        isGhost: true,
+        className: [
+          "border-current/10 hover:border-transparent",
+          "bg-transparent hover:bg-accent/90",
+          "text-current hover:text-accent-foreground",
+        ],
       },
       {
+        color: "base",
+        variant: "outline",
         isGhost: true,
+        className: "hover:bg-neutral/80 hover:text-neutral-foreground",
+      },
+      {
         color: "accent",
         variant: "outline",
+        isGhost: true,
         className: "hover:bg-accent/80 hover:text-accent-foreground",
       },
       {
-        isGhost: true,
         color: "primary",
         variant: "outline",
+        isGhost: true,
         className: "hover:bg-primary/80 hover:text-primary-foreground",
       },
       {
-        isGhost: true,
         color: "secondary",
         variant: "outline",
+        isGhost: true,
         className: "hover:bg-secondary/80 hover:text-secondary-foreground",
       },
       {
-        isGhost: true,
         color: "danger",
         variant: "outline",
+        isGhost: true,
         className: "hover:bg-danger/80 hover:text-danger-foreground",
       },
       // Text Color Variants
       {
+        color: "base",
+        variant: "text",
+        className:
+          "text-neutral hover:text-neutral/80 focus-visible:text-neutral",
+      },
+      {
         color: "accent",
         variant: "text",
-        className: "text-accent-1 hover:text-accent-1/80",
+        className: "text-accent hover:text-accent/80 focus-visible:text-accent",
       },
       {
         color: "primary",
         variant: "text",
-        className: "text-primary hover:text-primary-1/80",
+        className:
+          "text-primary hover:text-primary/80 focus-visible:text-primary",
       },
       {
         color: "secondary",
         variant: "text",
-        className: "text-secondary hover:text-secondary/80",
+        className:
+          "text-secondary hover:text-secondary/80 focus-visible:text-secondary",
       },
       {
         color: "danger",
         variant: "text",
-        className: "text-danger-1 hover:text-danger-1/80",
+        className: "text-danger hover:text-danger/80 focus-visible:text-danger",
       },
       // Text Ghost Color Modifiers
       {
-        isGhost: true,
+        color: "base",
         variant: "text",
-        className: "text-current hover:bg-transparent hover:text-neutral-3/80",
+        isGhost: true,
+        className: [
+          "hover:bg-transparent focus-visible:bg-transparent",
+          "text-current hover:text-neutral/80 focus-visible:text-neutral/80",
+        ],
       },
       {
-        isGhost: true,
         color: "accent",
         variant: "text",
-        className: "text-current hover:bg-transparent hover:text-accent-1/80",
+        isGhost: true,
+        className: [
+          "hover:bg-transparent focus-visible:bg-transparent",
+          "text-current",
+        ],
       },
       {
-        isGhost: true,
         color: "primary",
         variant: "text",
-        className: "text-current hover:bg-transparent hover:text-primary/80",
+        isGhost: true,
+        className: [
+          "hover:bg-transparent focus-visible:bg-transparent",
+          "text-current",
+        ],
       },
       {
-        isGhost: true,
         color: "secondary",
         variant: "text",
-        className: "text-current hover:bg-transparent hover:text-secondary/80",
+        isGhost: true,
+        className: [
+          "hover:bg-transparent focus-visible:bg-transparent",
+          "text-current",
+        ],
       },
       {
-        isGhost: true,
         color: "danger",
         variant: "text",
-        className: "text-current hover:bg-transparent hover:text-danger-1/80",
+        isGhost: true,
+        className: [
+          "hover:bg-transparent focus-visible:bg-transparent",
+          "text-current",
+        ],
       },
-      // Rounded Shape Size Variants
+      // Outline Sizes
       {
-        shape: "rounded",
         size: "sm",
-        className: "rounded-fs-sm",
+        variant: "outline",
+        className: "border-fs-4 outline-offset-fs-2 focus-visible:outline-fs-2",
       },
       {
-        shape: "rounded",
+        size: "base",
+        variant: "outline",
+        className: "border-fs-5 outline-offset-fs-3 focus-visible:outline-fs-3",
+      },
+      {
         size: "md",
-        className: "rounded-fs-md",
+        variant: "outline",
+        className: "border-fs-6 outline-offset-fs-4 focus-visible:outline-fs-4",
       },
       {
-        shape: "rounded",
         size: "lg",
-        className: "rounded-fs-lg",
+        variant: "outline",
+        className: "border-fs-7 outline-offset-fs-5 focus-visible:outline-fs-5",
+      },
+      {
+        size: "full",
+        variant: "outline",
+        className: "border-fs-9 outline-offset-fs-7 focus-visible:outline-fs-7",
       },
       // Ghost Size Modifiers
       {
         size: "sm",
         isGhost: true,
-        className: "px-fs-1 py-fs-0-5",
+        className: "gap-fs-1 p-fs-1",
+      },
+      {
+        size: "base",
+        isGhost: true,
+        className: "gap-fs-1 p-fs-2",
       },
       {
         size: "md",
         isGhost: true,
-        className: "px-fs-3 py-fs-1",
+        className: "gap-fs-2 p-fs-sm-1",
       },
       {
         size: "lg",
         isGhost: true,
-        className: "px-fs-4 py-fs-2",
+        className: "gap-fs-2 p-fs-sm-2",
+      },
+      {
+        size: "full",
+        isGhost: true,
+        className: "gap-fs-sm-1 p-fs-sm-4",
       },
       // Icon Size Modifiers
       {
+        size: ["sm", "base", "md", "lg", "full"],
         isIcon: true,
+        className: "p-0",
+      },
+      {
         size: "sm",
-        className: "size-fs-8 [&_svg:not([class*='size-'])]:size-fs-4",
+        isIcon: true,
+        className: "size-fs-6 [&_svg:not([class*='size-'])]:size-[1.125em]",
       },
       {
+        size: "base",
         isIcon: true,
+        className: "size-fs-8 [&_svg:not([class*='size-'])]:size-[1.25em]",
+      },
+      {
         size: "md",
-        className: "size-fs-12 [&_svg:not([class*='size-'])]:size-fs-6",
+        isIcon: true,
+        className: "size-fs-10 [&_svg:not([class*='size-'])]:size-[1.375em]",
       },
       {
-        isIcon: true,
         size: "lg",
-        className: "size-fs-14 [&_svg:not([class*='size-'])]:size-fs-7",
+        isIcon: true,
+        className: "size-fs-12 [&_svg:not([class*='size-'])]:size-[1.5em]",
+      },
+      {
+        size: "full",
+        isIcon: true,
+        className: "size-fs-16 [&_svg:not([class*='size-'])]:size-[1.625em]",
+      },
+      // Text Size Modifiers
+      {
+        size: "sm",
+        variant: "text",
+        className: "underline-offset-(--line-fs-2)",
+      },
+      {
+        size: "base",
+        variant: "text",
+        className: "underline-offset-(--line-fs-4)",
+      },
+      {
+        size: "md",
+        variant: "text",
+        className: "underline-offset-(--line-fs-6)",
+      },
+      {
+        size: "lg",
+        variant: "text",
+        className: "underline-offset-(--line-fs-8)",
+      },
+      {
+        size: "full",
+        variant: "text",
+        className: "underline-offset-(--line-fs-12)",
+      },
+      // Text Ghost Size Modifiers
+      {
+        variant: "text",
+        isGhost: true,
+        className: "size-fit p-0",
       },
       // Text Icon Size Modifiers
       {
-        isIcon: true,
         variant: "text",
-        className: "size-fit p-fs-0-5",
+        isIcon: true,
+        className: "size-fit p-0",
       },
-      // Shadow Size Modifiers
+      // Animated Size Modifiers
       {
-        withShadow: true,
         size: "sm",
-        className: "shadow-sm",
+        notAnimated: false,
+        className: "active:not-disabled:motion-scale-in-[0.94]",
       },
       {
-        withShadow: true,
+        size: "base",
+        notAnimated: false,
+        className: "active:not-disabled:motion-scale-in-[0.95]",
+      },
+      {
         size: "md",
-        className: "shadow-md",
+        notAnimated: false,
+        className: "active:not-disabled:motion-scale-in-[0.96]",
       },
       {
-        withShadow: true,
         size: "lg",
-        className: "shadow-lg",
+        notAnimated: false,
+        className: "active:not-disabled:motion-scale-in-[0.97]",
+      },
+      {
+        size: "full",
+        notAnimated: false,
+        className: "active:not-disabled:motion-scale-in-[0.98]",
+      },
+      // Animated Text Modifiers
+      {
+        variant: "text",
+        notAnimated: false,
+        className: "active:not-disabled:motion-scale-in-[1]",
       },
     ],
-  },
+    defaultVariants: {
+      color: "base",
+      radius: "base",
+      shadow: "base",
+      size: "base",
+      variant: "base",
+      notAnimated: false,
+    },
+  }
 );
 
 type ButtonVariantProps = VariantProps<typeof buttonVariants>;
 
-type ButtonProps<T extends React.ElementType = "button"> = SlotElementProps<T> &
+type ButtonProps<T extends React.ElementType = "button"> = ElementProps<T> &
   ButtonVariantProps;
-
-type ButtonLinkProps = Omit<ButtonProps<"a">, "as" | "asChild"> & LinkProps;
 
 function Button<T extends React.ElementType = "button">({
   as = "button",
   type = "button",
   className,
   color,
-  shape,
+  radius,
+  shadow,
   size,
   variant,
   isIcon,
   isGhost,
-  withShadow,
   ...props
 }: ButtonProps<T>) {
   return (
-    <SlotElement
+    <Element
       data-slot="button"
       as={as}
       type={type}
       className={cn(
         buttonVariants({
           color,
-          shape,
+          radius,
+          shadow,
           size,
           variant,
           isIcon,
           isGhost,
-          withShadow,
           className,
-        }),
+        })
       )}
       {...props}
     />
   );
 }
 
+type ButtonLinkProps = Omit<ButtonProps<"a">, "as" | "asChild"> & LinkProps;
+
 function ButtonLink({
   className,
   color,
-  shape,
+  radius,
+  shadow,
   size,
   variant,
   isIcon,
   isGhost,
-  withShadow,
   ...props
 }: ButtonLinkProps) {
   return (
@@ -400,19 +532,19 @@ function ButtonLink({
       className={cn(
         buttonVariants({
           color,
-          shape,
+          radius,
+          shadow,
           size,
           variant,
           isIcon,
           isGhost,
-          withShadow,
           className,
-        }),
+        })
       )}
       {...props}
     />
   );
 }
 
-export { Button, ButtonLink };
+export { Button, ButtonLink, buttonVariants };
 export type { ButtonLinkProps, ButtonProps };

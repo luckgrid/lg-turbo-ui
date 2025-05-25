@@ -1,0 +1,19 @@
+/* Base Styles */
+@layer base {
+  :root {
+    scrollbar-color: --alpha(var(--color-background) / 50%);
+  }
+
+  * {
+    border-color: var(--color-border);
+    outline-color: --alpha(var(--color-ring) / 50%);
+  }
+
+  body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100svh;
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "name": "@workspace/eslint-config",
+  "version": "0.0.0",
+  "license": "MIT",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "clean": "git clean -xdf .cache .turbo node_modules",
+    "format": "prettier --check . --ignore-path ../../.gitignore",
+    "typecheck": "tsc --noEmit"
+  },
+  "prettier": "@workspace/prettier-config",
+  "devDependencies": {
+    "@eslint/js": "^9.27.0",
+    "@next/eslint-plugin-next": "catalog:",
+    "@types/eslint-config-prettier": "^6.11.3",
+    "@workspace/prettier-config": "workspace:*",
+    "@workspace/typescript-config": "workspace:*",
+    "eslint": "catalog:",
+    "eslint-config-prettier": "^10.1.5",
+    "eslint-config-turbo": "catalog:",
+    "eslint-plugin-import": "^2.31.0",
+    "eslint-plugin-only-warn": "^1.1.0",
+    "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "eslint-plugin-turbo": "catalog:",
+    "globals": "^16.1.0",
+    "typescript": "catalog:",
+    "typescript-eslint": "catalog:"
+  },
+  "exports": {
+    "./base": "./base.js",
+    "./next": "./next.js",
+    "./next-library": "./next-library.js",
+    "./react-library": "./react-library.js"
+  }
+}

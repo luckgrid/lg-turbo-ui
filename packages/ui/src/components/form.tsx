@@ -1,25 +1,28 @@
 "use client";
 
-import { Slot } from "@radix-ui/react-slot";
 import * as React from "react";
+
+import { Slot } from "@radix-ui/react-slot";
 import type { ControllerProps, FieldPath, FieldValues } from "react-hook-form";
 import { Controller, useFormContext, useFormState } from "react-hook-form";
 
 import type { LabelProps } from "@workspace/ui/components/label";
 import { Label } from "@workspace/ui/components/label";
 import type {
-  FormDescriptionProps,
   FormFieldProps,
+  FormTextProps,
 } from "@workspace/ui/primitives/form";
 import {
   Form,
-  FormDescription as PrimitiveFormDescription,
+  FormText,
   FormField as PrimitiveFormField,
 } from "@workspace/ui/primitives/form";
 
 // TODO:
 // - Add FormProvider wrapper around Form primitive with proper typing using UseFormReturn
 // - Update FormControl to handle passing controller render props to it's children
+// - Remove react-hook-form dependency in favor of useActionState and next-safe-action library
+// - Handle client side validation using useOptimisticActionState and valibot/zod schemas
 
 // Form Controller Component
 
@@ -32,7 +35,7 @@ type FormFieldControllerContextValue<
 
 const FormFieldControllerContext =
   React.createContext<FormFieldControllerContextValue>(
-    {} as FormFieldControllerContextValue,
+    {} as FormFieldControllerContextValue
   );
 
 const FormFieldController = <
@@ -78,7 +81,7 @@ type FormFieldContextValue = {
 };
 
 const FormFieldContext = React.createContext<FormFieldContextValue>(
-  {} as FormFieldContextValue,
+  {} as FormFieldContextValue
 );
 
 function FormField({ ...props }: FormFieldProps) {
@@ -114,7 +117,9 @@ function FormLabel({ children, ...props }: LabelProps) {
 
 // Form Control Component
 
-function FormControl({ ...props }: React.ComponentProps<typeof Slot>) {
+type FormControlProps = React.ComponentProps<typeof Slot>;
+
+function FormControl({ ...props }: FormControlProps) {
   const { error, invalid, fieldId, descriptionErrorId, descriptionHintId } =
     useFormField();
 
@@ -135,34 +140,36 @@ function FormControl({ ...props }: React.ComponentProps<typeof Slot>) {
 
 // Form Description Component
 
-function FormDescription({ children, ...props }: FormDescriptionProps) {
+function FormDescription({ children, ...props }: FormTextProps) {
   const { error, invalid, descriptionErrorId, descriptionHintId } =
     useFormField();
   const errorMessage = error?.message ? String(error.message) : null;
 
   if (errorMessage) {
     return (
-      <PrimitiveFormDescription
+      <FormText
         data-slot="form-error"
         id={descriptionErrorId}
-        variant="error"
         {...props}
+        status="error"
+        variant="message"
       >
         {errorMessage}
-      </PrimitiveFormDescription>
+      </FormText>
     );
   }
 
   if (children) {
     return (
-      <PrimitiveFormDescription
-        data-slot="form-hint"
+      <FormText
+        data-slot="form-description"
         id={descriptionHintId}
-        variant={error || invalid ? "error" : "hint"}
         {...props}
+        status={error || invalid ? "error" : "base"}
+        variant="message"
       >
         {children}
-      </PrimitiveFormDescription>
+      </FormText>
     );
   }
 
@@ -180,3 +187,5 @@ export {
   FormLabel,
   useFormField,
 };
+
+export type { FormControlProps };

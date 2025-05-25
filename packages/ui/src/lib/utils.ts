@@ -1,126 +1,26 @@
-import { clsx, type ClassValue } from "clsx";
-import { extendTailwindMerge } from "tailwind-merge";
+import { cx } from "class-variance-authority";
 
-const twMerge = extendTailwindMerge({
-  extend: {
-    theme: {
-      animate: ["accordion-down", "accordion-up"],
-      color: [
-        "background",
-        "background-1",
-        "background-2",
-        "background-3",
-        "foreground",
-        "border",
-        "input",
-        "ring",
-        "card",
-        "card-1",
-        "card-2",
-        "card-3",
-        "card-foreground",
-        "popover",
-        "popover-1",
-        "popover-2",
-        "popover-3",
-        "popover-foreground",
-        "neutral",
-        "neutral-1",
-        "neutral-2",
-        "neutral-3",
-        "neutral-foreground",
-        "neutral-foreground-1",
-        "accent",
-        "accent-1",
-        "accent-foreground",
-        "accent-foreground-1",
-        "primary",
-        "primary-foreground",
-        "secondary",
-        "secondary-foreground",
-        "danger",
-        "danger-1",
-        "danger-foreground",
-        "danger-foreground-1",
-      ],
-      radius: ["fs-xs", "fs-sm", "fs-md", "fs-lg", "fs-xl"],
-      spacing: [
-        "fs-0-25",
-        "fs-0-375",
-        "fs-0-5",
-        "fs-0-625",
-        "fs-0-75",
-        "fs-1",
-        "fs-2",
-        "fs-3",
-        "fs-4",
-        "fs-5",
-        "fs-6",
-        "fs-7",
-        "fs-8",
-        "fs-9",
-        "fs-10",
-        "fs-11",
-        "fs-12",
-        "fs-13",
-        "fs-14",
-        "fs-15",
-        "fs-16",
-        "fs-17",
-        "fs-18",
-        "fs-19",
-        "fs-20",
-        "fs-21",
-        "fs-22",
-        "fs-23",
-        "fs-24",
-        "fs-25",
-        "fs-26",
-        "fs-27",
-        "fs-28",
-        "fs-29",
-        "fs-30",
-        "fs-31",
-        "fs-32",
-        "fs-33",
-        "fs-34",
-        "fs-35",
-        "fs-36",
-        "fs-37",
-        "fs-38",
-      ],
-      text: [
-        "caption",
-        "label",
-        "body",
-        "subheading",
-        "subtitle",
-        "heading",
-        "title",
-        "headline",
-        "epic",
-      ],
-    },
-    classGroups: {
-      "font-size": [
-        {
-          text: [
-            "caption",
-            "label",
-            "body",
-            "subheading",
-            "subtitle",
-            "heading",
-            "title",
-            "headline",
-            "epic",
-          ],
-        },
-      ],
-    },
-  },
-});
+import { twMerge } from "@workspace/tailwind-config/lib/merge";
 
-export function cn(...inputs: ClassValue[]) {
-  return twMerge(clsx(inputs));
+// Merges class names using cx and twMerge extended with custom tailwind merge config
+export function cn(...inputs: Parameters<typeof cx>) {
+  return twMerge(cx(inputs));
+}
+
+// Formats a number as a currency string
+export function formatCurrency(
+  value: number,
+  options?: Intl.NumberFormatOptions
+): string {
+  // Convert cents to dollars and format with 2 decimal places
+  return (value / 100).toLocaleString("en-US", {
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2,
+    ...options,
+  });
+}
+
+// Checks if a URL starts with `http://` or `https://` to flag external links
+export function isExternalUrl(url: string): boolean {
+  return /^https?:\/\//i.test(url);
 }

@@ -1,160 +1,175 @@
 import * as React from "react";
-import { cva } from "class-variance-authority";
+
 import type { VariantProps } from "class-variance-authority";
+import { cva } from "class-variance-authority";
 
-import { SlotElement } from "@workspace/ui/primitives/element";
-import type { SlotElementProps } from "@workspace/ui/primitives/element";
 import { cn } from "@workspace/ui/lib/utils";
-
-// TODO:
-// - setup color variants to modify card colors instead of using noColor modifier
-// -- remove noColor modifier and set default color to neutral
-// -- add level variant to scale card colors
-// -- use layer variant to also modify card colors based on color and level variant
-// - compose card component variants with baseCardVariants using cx: https://cva.style/docs/getting-started/composing-components
-// -- create cardBaseVariants, cardWrapperVariants, cardContainerVariants, etc...
-// -- create card primitives that share variant props with new variants
-// - split up card components into separate primitives inside card component module
-// -- define a scalable and simple component module architecture using card component
-// --- option 1: card/base.tsx, card/header.tsx, card/body.tsx, card/footer.tsx, etc...
-// --- option 2: card/variants.tsx, card/components.tsx, card/patterns.tsx
-// -- update exports to include new component module architecture
+import type { ElementProps } from "@workspace/ui/primitives/element";
+import { Element } from "@workspace/ui/primitives/element";
 
 // Card Component
 
-const cardVariants = cva("flex flex-col", {
+const cardBase = "box flex-col";
+
+const cardAction = [
+  "action-color-card transition-box outline-offset-fs-5",
+  "cursor-pointer no-underline disabled:opacity-75",
+];
+
+const cardRadius = {
+  sm: "rounded-fs-6",
+  base: "rounded-fs-7",
+  md: "rounded-fs-8",
+  lg: "rounded-fs-9",
+  full: "rounded-full",
+  none: "rounded-none",
+  unset: "",
+};
+
+const cardShadow = {
+  sm: "shadow-sm",
+  base: "shadow-md",
+  md: "shadow-lg",
+  lg: "shadow-xl",
+  full: "shadow-2xl",
+  none: "shadow-none",
+  unset: "",
+};
+
+const cardSize = {
+  sm: "",
+  base: "",
+  md: "",
+  lg: "",
+  full: "",
+  none: "",
+  unset: "",
+};
+
+const cardSpace = {
+  base: "gap-fs-md-6",
+  container: "gap-fs-md-6 px-fs-md-6",
+  wrapper: "gap-fs-md-6 py-fs-md-6",
+  frame: "gap-fs-md-6 p-fs-md-6",
+  none: "gap-0 p-0",
+  unset: "",
+};
+
+const cardVariant = {
+  base: "box-color-card",
+};
+
+const cardVariants = cva(cardBase, {
   variants: {
-    // Style Variants
-    color: {
-      neutral: "",
-      primary: "",
-      secondary: "",
-    },
-    layer: {
-      display: "",
-      layout: "",
-      overlay: "",
-    },
-    shape: {
-      pill: "rounded-full",
-      rounded: "rounded-fs-lg",
-      sharp: "rounded-none",
-    },
-    space: {
-      container: "",
-      wrapper: "",
-    },
-    variant: {
-      media: "",
-      section: "",
-    },
-    // Style Modifiers
+    radius: cardRadius,
+    shadow: cardShadow,
+    size: cardSize,
+    space: cardSpace,
+    variant: cardVariant,
     isAction: {
-      true: [
-        "no-underline cursor-pointer transition-[color,box-shadow]",
-        "disabled:pointer-events-none disabled:opacity-75",
-        "outline-offset-1 outline-card/50",
-        "focus-visible:ring-4 focus-visible:outline-1 aria-invalid:focus-visible:ring-0",
-      ],
-    },
-    noBorder: {
-      false: "border-(length:--fs-0-25)",
-    },
-    noColor: {
-      false: "bg-card text-card-foreground",
-    },
-    noShadow: {
-      false: "shadow-lg",
-    },
-    noSpace: {
-      false: "gap-fs-4 py-fs-6",
+      true: cardAction,
     },
   },
   compoundVariants: [
-    // Color Layer Variant Modifiers
+    // Base Variant Sizes
     {
-      layer: "layout",
-      noColor: false,
-      className: "bg-card-1 border-card-2",
+      size: "sm",
+      variant: "base",
+      className: "border-fs-4",
     },
     {
-      layer: "display",
-      noColor: false,
-      className: "bg-card-2 border-card-3",
+      size: "base",
+      variant: "base",
+      className: "border-fs-5",
     },
     {
-      layer: "overlay",
-      noColor: false,
-      className: "bg-card-3 border-card-foreground/25",
-    },
-    // Container Space Variant Modifiers
-    {
-      space: "container",
-      noSpace: false,
-      className: "gap-y-fs-3 gap-x-fs-6 p-fs-6",
+      size: "md",
+      variant: "base",
+      className: "border-fs-6",
     },
     {
-      space: "container",
-      variant: "section",
-      className: "container",
-    },
-    // Wrapper Space Variant Modifiers
-    {
-      space: "wrapper",
-      noSpace: false,
-      className: "gap-0 py-0",
+      size: "lg",
+      variant: "base",
+      className: "border-fs-7",
     },
     {
-      space: "wrapper",
-      variant: "section",
-      noSpace: false,
-      className: "py-fs-6",
+      size: "full",
+      variant: "base",
+      className: "border-fs-8",
+    },
+    // Action Modifier Sizes
+    {
+      size: "sm",
+      isAction: true,
+      className: "outline-offset-fs-4 focus-visible:outline-fs-4",
+    },
+    {
+      size: "base",
+      isAction: true,
+      className: "outline-offset-fs-5 focus-visible:outline-fs-5",
+    },
+    {
+      size: "md",
+      isAction: true,
+      className: "outline-offset-fs-6 focus-visible:outline-fs-6",
+    },
+    {
+      size: "lg",
+      isAction: true,
+      className: "outline-offset-fs-7 focus-visible:outline-fs-7",
+    },
+    {
+      size: "full",
+      isAction: true,
+      className: "outline-offset-fs-8 focus-visible:outline-fs-8",
+    },
+    // Action Modifier Base Variant
+    {
+      variant: "base",
+      isAction: true,
+      className:
+        "hover:border-card/40 hover:bg-card/80 focus-visible:outline-fs-4",
     },
   ],
   defaultVariants: {
-    noBorder: false,
-    noColor: false,
-    noShadow: false,
-    noSpace: false,
+    radius: "base",
+    shadow: "base",
+    size: "base",
+    space: "base",
+    variant: "base",
   },
 });
 
 type CardVariantProps = VariantProps<typeof cardVariants>;
 
-type CardProps<T extends React.ElementType = "div"> = SlotElementProps<T> &
+type CardProps<T extends React.ElementType = "div"> = ElementProps<T> &
   CardVariantProps;
 
 function Card<T extends React.ElementType = "div">({
   as = "div",
-  layer,
-  shape,
+  radius,
+  shadow,
+  size,
   space,
   variant,
   isAction,
-  noBorder,
-  noColor,
-  noShadow,
-  noSpace,
   className,
   ...props
 }: CardProps<T>) {
   return (
-    <SlotElement
+    <Element
       data-slot="card"
       as={as}
       className={cn(
         cardVariants({
-          layer,
-          shape,
+          radius,
+          shadow,
+          size,
           space,
           variant,
           isAction,
-          noBorder,
-          noColor,
-          noShadow,
-          noSpace,
           className,
-        }),
+        })
       )}
       {...props}
     />
@@ -163,62 +178,44 @@ function Card<T extends React.ElementType = "div">({
 
 // Card Header Component
 
-const cardHeaderVariants = cva("flex flex-col", {
+const cardHeaderVariants = cva(cardBase, {
   variants: {
-    // Style Variants
-    shape: {
-      pill: "rounded-full",
-      rounded: "rounded-fs-lg",
-      sharp: "rounded-none",
-    },
-    space: {
-      container: "",
-      wrapper: "",
-    },
-    variant: {
-      bar: "items-center justify-between",
-    },
-    // Style Modifiers
-    noSpace: {
-      false: "gap-y-fs-3 gap-x-fs-6 px-fs-6",
+    radius: cardRadius,
+    size: cardSize,
+    isAction: {
+      true: cardAction,
     },
   },
-  compoundVariants: [
-    // Wrapper Space Variant Modifiers
-    {
-      space: "wrapper",
-      noSpace: false,
-      className: "px-0",
-    },
-  ],
   defaultVariants: {
-    noSpace: false,
+    radius: "base",
+    size: "base",
   },
 });
 
 type CardHeaderVariantProps = VariantProps<typeof cardHeaderVariants>;
 
-type CardHeaderProps = React.ComponentProps<"header"> & CardHeaderVariantProps;
+type CardHeaderProps<T extends React.ElementType = "header"> = ElementProps<T> &
+  CardHeaderVariantProps;
 
-function CardHeader({
-  shape,
-  space,
-  variant,
-  noSpace,
+function CardHeader<T extends React.ElementType = "header">({
+  as = "header",
+  radius,
+  size,
+  isAction,
   className,
   ...props
-}: CardHeaderProps) {
+}: CardHeaderProps<T>) {
   return (
-    <header
+    <Element
       data-slot="card-header"
+      as={as}
       className={cn(
         cardHeaderVariants({
-          shape,
-          space,
-          variant,
-          noSpace,
+          radius,
+          size,
+          isAction,
           className,
-        }),
+        })
       )}
       {...props}
     />
@@ -227,60 +224,39 @@ function CardHeader({
 
 // Card Body Component
 
-const cardBodyVariants = cva("flex flex-col", {
+const cardBodyVariants = cva(cardBase, {
   variants: {
-    // Style Variants
-    shape: {
-      pill: "rounded-full",
-      rounded: "rounded-fs-lg",
-      sharp: "rounded-none",
-    },
-    space: {
-      container: "",
-      wrapper: "",
-    },
-    // Style Modifiers
-    noSpace: {
-      false: "gap-y-fs-3 gap-x-fs-6 px-fs-6",
-    },
+    radius: cardRadius,
+    size: cardSize,
   },
-  compoundVariants: [
-    // Wrapper Space Variant Modifiers
-    {
-      space: "wrapper",
-      noSpace: false,
-      className: "px-0",
-    },
-  ],
   defaultVariants: {
-    noSpace: false,
+    radius: "base",
+    size: "base",
   },
 });
 
 type CardBodyVariantProps = VariantProps<typeof cardBodyVariants>;
 
-type CardBodyProps<T extends React.ElementType = "div"> = SlotElementProps<T> &
+type CardBodyProps<T extends React.ElementType = "div"> = ElementProps<T> &
   CardBodyVariantProps;
 
 function CardBody<T extends React.ElementType = "div">({
   as = "div",
-  shape,
-  space,
-  noSpace,
+  radius,
+  size,
   className,
   ...props
 }: CardBodyProps<T>) {
   return (
-    <SlotElement
+    <Element
       data-slot="card-body"
       as={as}
       className={cn(
         cardBodyVariants({
-          shape,
-          space,
-          noSpace,
+          radius,
+          size,
           className,
-        }),
+        })
       )}
       {...props}
     />
@@ -289,69 +265,39 @@ function CardBody<T extends React.ElementType = "div">({
 
 // Card Footer Component
 
-const cardFooterVariants = cva("flex flex-col", {
+const cardFooterVariants = cva(cardBase, {
   variants: {
-    // Style Variants
-    shape: {
-      pill: "rounded-full",
-      rounded: "rounded-fs-lg",
-      sharp: "rounded-none",
-    },
-    space: {
-      container: "",
-      wrapper: "",
-    },
-    variant: {
-      actions: "items-center justify-end",
-      bar: "items-center justify-between",
-    },
-    // Style Modifiers
-    noSpace: {
-      false: "gap-y-fs-3 gap-x-fs-6 px-fs-6",
-    },
+    radius: cardRadius,
+    size: cardSize,
   },
-  compoundVariants: [
-    // Wrapper Space Variant Modifiers
-    {
-      space: "wrapper",
-      noSpace: false,
-      className: "px-0",
-    },
-    // Variant Space Modifiers
-    {
-      variant: "actions",
-      noSpace: false,
-      className: "gap-x-fs-3",
-    },
-  ],
   defaultVariants: {
-    noSpace: false,
+    radius: "base",
+    size: "base",
   },
 });
 
 type CardFooterVariantProps = VariantProps<typeof cardFooterVariants>;
 
-type CardFooterProps = React.ComponentProps<"footer"> & CardFooterVariantProps;
+type CardFooterProps<T extends React.ElementType = "footer"> = ElementProps<T> &
+  CardFooterVariantProps;
 
-function CardFooter({
-  shape,
-  space,
-  variant,
-  noSpace,
+function CardFooter<T extends React.ElementType = "footer">({
+  as = "footer",
+  radius,
+  size,
   className,
   ...props
-}: CardFooterProps) {
+}: CardFooterProps<T>) {
   return (
-    <footer
+    <Element
       data-slot="card-footer"
+      as={as}
       className={cn(
         cardFooterVariants({
-          shape,
-          space,
-          variant,
-          noSpace,
+          radius,
+          size,
           className,
-        }),
+        })
       )}
       {...props}
     />
@@ -360,5 +306,5 @@ function CardFooter({
 
 // Card Component Exports
 
-export type { CardProps, CardHeaderProps, CardBodyProps, CardFooterProps };
-export { Card, CardHeader, CardBody, CardFooter };
+export { Card, CardBody, CardFooter, CardHeader };
+export type { CardBodyProps, CardFooterProps, CardHeaderProps, CardProps };

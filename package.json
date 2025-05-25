@@ -1,29 +1,33 @@
 {
   "name": "lg-turbo-ui",
   "version": "0.0.0",
+  "license": "MIT",
+  "type": "module",
   "private": true,
   "scripts": {
-    "build": "turbo build",
+    "build": "turbo run build",
+    "dev": "turbo watch dev --continue",
     "start": "turbo run start",
-    "dev": "turbo dev",
-    "lint": "turbo lint",
-    "format": "prettier --write \"**/*.{ts,tsx,md,css}\"",
+    "clean": "turbo run clean",
+    "clean:git": "git clean -xdf .turbo node_modules",
+    "clean:i": "pnpm run clean && pnpm clean:git && rm -rf pnpm-lock.yaml && pnpm i",
+    "format": "turbo run format --continue -- --cache --cache-location .cache/.prettiercache",
+    "format:fix": "pnpm format --write",
+    "lint": "turbo run lint --continue -- --cache --cache-location .cache/.eslintcache",
+    "lint:fix": "pnpm lint --fix",
+    "fix:all": "pnpm format:fix && pnpm lint:fix",
     "typecheck": "turbo run typecheck",
-    "clean": "turbo run clean && pnpm run clean:output && pnpm run clean:packages",
-    "clean:i": "pnpm run clean && pnpm i",
-    "clean:modules": "turbo run clean:modules && rm -rf node_modules",
-    "clean:output": "rm -rf .turbo .next",
-    "clean:packages": "rm -rf pnpm-lock.yaml && rm -rf node_modules"
+    "env:encrypt": "turbo run env:encrypt",
+    "ui:add": "turbo run ui:add -F @workspace/ui --"
   },
-  "devDependencies": {
-    "@workspace/eslint-config": "workspace:*",
-    "@workspace/typescript-config": "workspace:*",
-    "prettier": "^3.5.3",
-    "turbo": "^2.4.4",
-    "typescript": "catalog:"
-  },
-  "packageManager": "pnpm@10.6.3",
+  "packageManager": "pnpm@10.11.0",
   "engines": {
-    "node": ">=20"
+    "node": ">=22.15.0"
+  },
+  "prettier": "@workspace/prettier-config",
+  "devDependencies": {
+    "@workspace/prettier-config": "workspace:*",
+    "prettier": "catalog:",
+    "turbo": "catalog:"
   }
 }

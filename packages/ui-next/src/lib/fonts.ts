@@ -50,13 +50,13 @@ const robotoSerif = Roboto_Serif({
 const fontClassNames = cn(
   roboto.className,
   robotoMono.className,
-  robotoSerif.className,
+  robotoSerif.className
 );
 
 const fontVariables = cn(
   roboto.variable,
   robotoMono.variable,
-  robotoSerif.variable,
+  robotoSerif.variable
 );
 
 export { fontClassNames, fontVariables };

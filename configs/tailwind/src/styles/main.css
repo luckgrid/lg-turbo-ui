@@ -1,0 +1,15 @@
+@import 'tailwindcss';
+
+/* TODO: set source paths for each app seperately, based on which components are used */
+@source "../../../../**/*.{ts,tsx}";
+
+@import 'tw-animate-css';
+@plugin "tailwindcss-motion";
+@plugin "tailwindcss-intersect";
+
+@import './colors.css';
+@import './typography.css';
+@import './spacing.css';
+
+@import './base.css';
+@import './utilities.css';

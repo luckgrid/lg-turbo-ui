@@ -5,31 +5,41 @@
     "build": {
       "dependsOn": ["^build"],
       "inputs": ["$TURBO_DEFAULT$", ".env*"],
-      "outputs": [".next/**", "!.next/cache/**"]
-    },
-    "start": {
-      "dependsOn": ["^start"],
-      "cache": false,
-      "interactive": false,
-      "persistent": true
-    },
-    "lint": {
-      "dependsOn": ["^lint"]
-    },
-    "typecheck": {
-      "dependsOn": ["^typecheck"]
+      "outputs": [".next/**", "!.next/cache/**", "dist/**"]
     },
     "dev": {
+      "dependsOn": ["^dev"],
       "cache": false,
-      "persistent": true
+      "persistent": false
+    },
+    "start": {
+      "dependsOn": ["^build"]
     },
     "clean": {
-      "dependsOn": ["^clean"],
       "cache": false
     },
-    "clean:modules": {
-      "dependsOn": ["^clean:modules"],
-      "cache": false
+    "format": {
+      "outputs": [".cache/.prettiercache"],
+      "outputLogs": "new-only"
+    },
+    "lint": {
+      "dependsOn": ["^build"],
+      "outputs": [".cache/.eslintcache"]
+    },
+    "typecheck": {
+      "dependsOn": ["^build"],
+      "outputs": [".cache/tsbuildinfo.json"]
+    },
+    "env:encrypt": {
+      "cache": false,
+      "interactive": true
+    },
+    "ui:add": {
+      "cache": false,
+      "interactive": true
     }
-  }
+  },
+  "globalDependencies": ["**/.env.*local"],
+  "globalEnv": [],
+  "globalPassThroughEnv": ["CI", "NODE_ENV", "PORT", "npm_lifecycle_event"]
 }

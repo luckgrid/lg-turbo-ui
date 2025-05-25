@@ -1,20 +1,20 @@
 {
-  "extends": "@workspace/typescript-config/nextjs.json",
+  "extends": "@workspace/typescript-config/next.json",
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"],
+      "@workspace/tailwind-config/*": ["../../configs/tailwind/src/*"],
       "@workspace/ui/*": ["../../packages/ui/src/*"],
-      "@workspace/ui-next/*": ["../../packages/ui-next/src/*"]
-    },
-    "plugins": [{ "name": "next" }]
+      "@workspace/next-ui/*": ["../../packages/ui-next/src/*"]
+    }
   },
   "include": [
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    ".next/types/**/*.ts",
     "next-env.d.ts",
-    "next.config.mjs",
-    "**/*.ts",
-    "**/*.tsx",
-    ".next/types/**/*.ts"
+    "next.config.mjs"
   ],
   "exclude": ["node_modules"]
 }

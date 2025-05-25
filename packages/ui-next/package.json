@@ -1,25 +1,32 @@
 {
-  "name": "@workspace/ui-next",
+  "name": "@workspace/next-ui",
   "version": "0.0.0",
+  "license": "MIT",
   "type": "module",
   "private": true,
   "scripts": {
-    "lint": "eslint . --max-warnings 0",
-    "typecheck": "tsc --noEmit",
-    "clean": "pnpm run clean:output",
-    "clean:modules": "rm -rf node_modules",
-    "clean:output": "rm -rf .turbo dist"
+    "clean": "git clean -xdf .cache .turbo dist node_modules",
+    "format": "prettier --check . --ignore-path ../../.gitignore",
+    "lint": "eslint",
+    "typecheck": "tsc --noEmit --emitDeclarationOnly false"
   },
+  "prettier": "@workspace/prettier-config",
   "devDependencies": {
+    "@icons-pack/react-simple-icons": "catalog:",
     "@types/node": "catalog:",
     "@types/react": "catalog:",
     "@types/react-dom": "catalog:",
-    "@workspace/ui": "workspace:*",
     "@workspace/eslint-config": "workspace:*",
+    "@workspace/prettier-config": "workspace:*",
+    "@workspace/tailwind-config": "workspace:*",
     "@workspace/typescript-config": "workspace:*",
+    "@workspace/ui": "workspace:*",
+    "eslint": "catalog:",
+    "prettier": "catalog:",
     "next": "catalog:",
     "next-themes": "catalog:",
-    "typescript": "catalog:"
+    "typescript": "catalog:",
+    "zod": "catalog:"
   },
   "peerDependencies": {
     "next": "catalog:",
@@ -29,7 +36,6 @@
   "exports": {
     "./next.config": "./next.config.mjs",
     "./components/*": "./src/components/*.tsx",
-    "./lib/*": "./src/lib/*.ts",
-    "./providers/*": "./src/providers/*.tsx"
+    "./lib/*": "./src/lib/*.ts"
   }
 }

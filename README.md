@@ -2,14 +2,32 @@
 
 Use this template to start a turborepo workspace with a ready to go Next v15, React v19, and TailwindCSS v4 UI library.
 
-## Roadmap
+## Dev Backlog
+
+### Setup Additional Workspaces
+
+- Add configs workspace to contain eslint, typescript, prettier, etc
+- Add services workspace to contain shared backend services and actions
+
+### Improved Configs and Tasks
+
+- Update incremental build processes to include next apps and config packages to output cache for types
+- Separate eslint configs so they can be merged together (i.e. Next should not have React rules by default)
+- Create package for turbo configs so apps and packages can reuse shared configs (i.e. some apps that use the same env variables would have the same tasks in their extended config)
+
+### Setup CI/CD
+
+- Add github configs for workflow and actions
+- Setup lint, typecheck, format tasks to run in github, before merge to main (so server can avoid running them during build)
+
+## Dev Roadmap
 
 - App registry (and/or package) for common configs, utils, and assets to share between apps.
 - Stories for UI components and primitives using storybook.
 - Unit tests for UI components and primitives using vitest.
-- Integration tests for apps and ui using playwright.
+- Integration tests for apps and packages using playwright.
 
-## Setup
+## Dev Setup
 
 ### Knowledge Requirements
 
@@ -40,7 +58,7 @@ The ui package includes additional tailwindcss plugins to enhance ux with motion
 
 All of the apps in this template are built with NextJS, which integrates well with the ui package. For more information, please refer to the [NextJS docs here](https://nextjs.org/docs).
 
-## Docs
+## Dev Workflow
 
 ### Private Workspace
 
@@ -163,7 +181,17 @@ git cherry-pick <commit-hash>
 
 ### Adding UI Components
 
-To add components to the ui, run the following command:
+To add a component to the ui, simply run this command:
+
+```bash
+pnpm ui:add
+```
+
+This calls a turborepo task which will run a script to add a component inside the ui package.
+
+#### Specifying the app or package
+
+To add components for a specific package or app, run the following command:
 
 ```bash
 pnpm dlx shadcn@latest add button -c packages/ui
@@ -180,9 +208,57 @@ Your `main.css` is already set up to use the components from the `ui` package.
 To use the components in your app, import them from the `ui` package.
 
 ```tsx
-import { Button } from "@workspace/ui/components/button";
+import { Button } from '@workspace/ui/components/button';
 ```
+
+---
+
+### Adding Environments
+
+Manage your environment variables with `dotenvx`, the way you do this should be based on your specific use cases and preferred workflow. However, there are some recommendations when working with environments in turborepo.
+
+The gist of it each app will contain it's own environments and turborepo will reference them as configured in the config's tasks. Make sure to set your variables in the `turbo.json` config as well as your app's `.env*` file.
+
+If you prefer to have your environment files uncommited, make sure to update `.gitignore` to suit your preferences.
+
+For details about managing environment variables inside a turborepo workspace, you can read the following resources:
+
+- [Turborepo Environment Variables Best Practices](https://turbo.build/docs/crafting-your-repository/using-environment-variables#best-practices)
+- [Turborepo Environment Variables Discussion](https://github.com/vercel/turborepo/discussions/9458)
+- [Validating Environments in Apps](https://github.com/t3-oss/create-t3-turbo/issues/397#issuecomment-1630028405)
+- [](https://github.com/dotenvx/dotenvx/issues/557)
+
+#### Setup for Rapid Prototyping
+
+Setting up environments for rapid prototyping using shared environment variables (namespaces and/or values) can be done following these guidelines.
+
+##### Apps control their own environments
+
+Your apps should have their own env files, which will be set and referenced during it's build step. Environment variables may be shared between apps to reduce config overhead, but each app should still control it's own environment. This is not only recommended by turborepo, it also helps with scaling apps when their environments change during development of features and models.
+
+For example, if you have two apps that both use airtable for storing newsletter subscriptions data, then it makes sense to configure the same environment variable for both apps. Since both apps are using the same variable properties, your airtable services can be contained inside a shared package that both apps can now call, each using their own environment variables. As long as the name of the airtable environment variables are the same, you can use the same private an public dotenvx keys to encrypt and decrypt the airtable api key for each app.
+
+You can also reuse the same tokens and ids for both apps, they don't always have to have their own api keys. This can often reduce complexity and overhead and is specifically useful for protyping POCs and MVPs. Since ideas have not been market tested, it doesn't make sense for them to have unique keys for every service they use. Using the same table with a category field or a field to identify the app source by url or id might make more sense in this context.
+
+Either way, since your apps have their own environment files, it's possible to scale them when needed.
+
+##### Workflow for shared environment variables
+
+1. Navigate inside `web` app's root dir `cd apps/web`
+2. Run `pnpm env:encrypt` to encrypt secret keys inside `web` app's `.env` file
+3. Copy `.env.keys` file generated in `web` app, and paste it inside `docs` app
+4. Copy `DOTENV_PUBLIC_KEY` from `web` app's `.env` file, and paste it inside of `docs` app's `.env` file
+5. Navigate inside `docs` app's roo dir `cd ../docs`
+6. Run `pnpm env:encrypt` to encrypt secret keys inside `docs` app's `.env` file.
+
+This is just a simple example of one workflow you can use. The way you manage your environment variables will differ based on your use cases.
+
+> NOTE: Environment variables management workflow will be improved with scripts to automate manual copying of files and keys, including options to handle different use cases.
 
 ## Kudos
 
-> Template was initialized from [Shadcn/UI Monorepo Template](https://github.com/shadcn-ui/ui/tree/main/templates/monorepo-next)
+- [Shadcn/UI Monorepo Template](https://github.com/shadcn-ui/ui/tree/main/templates/monorepo-next) - Initialized from this template
+- [Dotenvx Turborepo Example](https://github.com/dotenvx/examples/tree/main/monorepos/turborepo) - Environment tooling
+- [Create t3 Turbo](https://github.com/t3-oss/create-t3-turbo) - Reference setup and configs for next apps, eslint, and tsconfig.
+- [RT Stack](https://github.com/nktnet1/rt-stack) - Reference setup and configs for ui, eslint, and tsconfig.
+- [ZT Stack](https://github.com/CarlosZiegler/zt-stack) - Reference setup and configs for auth and email providers.

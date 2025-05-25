@@ -1,34 +1,47 @@
 {
   "name": "web",
   "version": "0.0.0",
+  "license": "MIT",
   "type": "module",
   "private": true,
   "scripts": {
-    "dev": "next dev --turbopack --port 3000",
-    "build": "next build",
-    "start": "next start --port 3000",
-    "lint": "next lint --max-warnings 0",
-    "typecheck": "tsc --noEmit",
-    "clean": "pnpm run clean:output",
-    "clean:modules": "rm -rf node_modules",
-    "clean:output": "rm -rf .next .turbo"
+    "env:encrypt": "dotenvx encrypt -k '*_SECRET_API_TOKEN'",
+    "env:debug": "dotenvx get --all --pretty-print",
+    "env:run": "dotenvx run --",
+    "env:run:dev": "pnpm env:debug && dotenvx run --debug -f .env* --",
+    "clean": "git clean -xdf .cache .next .turbo node_modules",
+    "dev": "pnpm env:run:dev next dev --turbopack --port 3000",
+    "build": "pnpm env:run next build",
+    "start": "pnpm env:run next start --port 3000",
+    "analyze": "ANALYZE=true pnpm build",
+    "format": "prettier --check . --ignore-path ../../.gitignore",
+    "lint": "eslint",
+    "typecheck": "tsc --noEmit --emitDeclarationOnly false"
   },
+  "prettier": "@workspace/prettier-config",
   "dependencies": {
+    "@dotenvx/dotenvx": "catalog:",
     "@icons-pack/react-simple-icons": "catalog:",
     "@workspace/ui": "workspace:*",
-    "@workspace/ui-next": "workspace:*",
+    "@workspace/next-ui": "workspace:*",
+    "airtable": "catalog:",
     "lucide-react": "catalog:",
     "next": "catalog:",
     "next-themes": "catalog:",
     "react": "catalog:",
-    "react-dom": "catalog:"
+    "react-dom": "catalog:",
+    "zod": "catalog:"
   },
   "devDependencies": {
     "@types/node": "catalog:",
     "@types/react": "catalog:",
     "@types/react-dom": "catalog:",
     "@workspace/eslint-config": "workspace:*",
+    "@workspace/prettier-config": "workspace:*",
+    "@workspace/tailwind-config": "workspace:*",
     "@workspace/typescript-config": "workspace:*",
+    "eslint": "catalog:",
+    "prettier": "catalog:",
     "typescript": "catalog:"
   }
 }
