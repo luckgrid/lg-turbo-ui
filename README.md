@@ -259,6 +259,6 @@ This is just a simple example of one workflow you can use. The way you manage yo
 
 - [Shadcn/UI Monorepo Template](https://github.com/shadcn-ui/ui/tree/main/templates/monorepo-next) - Initialized from this template
 - [Dotenvx Turborepo Example](https://github.com/dotenvx/examples/tree/main/monorepos/turborepo) - Environment tooling
-- [t3 Turbo](https://github.com/t3-oss/create-t3-turbo) - Reference setup and configs for next apps, eslint, and tsconfig.
+- [Create t3 Turbo](https://github.com/t3-oss/create-t3-turbo) - Reference setup and configs for next apps, eslint, and tsconfig.
 - [RT Stack](https://github.com/nktnet1/rt-stack) - Reference setup and configs for ui, eslint, and tsconfig.
 - [ZT Stack](https://github.com/CarlosZiegler/zt-stack) - Reference setup and configs for auth and email providers.

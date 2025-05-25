@@ -64,6 +64,10 @@ export default tseslint.config([
       "import/order": [
         "warn",
         {
+          alphabetize: {
+            order: "asc",
+            caseInsensitive: true,
+          },
           groups: [
             "builtin",
             "external",
@@ -73,7 +77,7 @@ export default tseslint.config([
           ],
           pathGroups: [
             {
-              pattern: "*.{css,sass,scss,less}",
+              pattern: "**/*.{css,sass,scss,less}",
               group: "object",
               position: "before",
             },
@@ -97,23 +101,10 @@ export default tseslint.config([
               group: "internal",
               position: "after",
             },
-            {
-              pattern: "../**",
-              group: "parent",
-              position: "before",
-            },
-            {
-              pattern: "./**",
-              group: "sibling",
-              position: "before",
-            },
           ],
-          pathGroupsExcludedImportTypes: ["builtin"],
-          alphabetize: {
-            order: "asc",
-            caseInsensitive: true,
-            orderImportKind: "asc",
-          },
+          pathGroupsExcludedImportTypes: [
+            "builtin",
+          ],
           "newlines-between": "always",
           distinctGroup: true,
           warnOnUnassignedImports: true,

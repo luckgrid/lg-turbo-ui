@@ -1,7 +1,7 @@
 import * as React from "react";
 
-import type { SlotProps } from "@radix-ui/react-slot";
 import { Slot, Slottable } from "@radix-ui/react-slot";
+import type { SlotProps } from "@radix-ui/react-slot";
 import { ExternalLink } from "lucide-react";
 
 import { cn } from "@workspace/ui/lib/utils";

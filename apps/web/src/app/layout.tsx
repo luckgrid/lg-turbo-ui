@@ -1,4 +1,5 @@
 import "@workspace/tailwind-config/styles/main.css";
+
 import { fontVariables } from "@workspace/next-ui/lib/fonts";
 import { viewport as viewportConfig } from "@workspace/next-ui/lib/viewport";
 import { ReactScan } from "@workspace/ui/lib/scan";

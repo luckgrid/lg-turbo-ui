@@ -1,7 +1,7 @@
 "use client";
 
-import type { ToasterProps } from "sonner";
 import { Toaster as Sonner, toast } from "sonner";
+import type { ToasterProps } from "sonner";
 
 // Sonner Toaster Docs: https://sonner.emilkowal.ski/getting-started
 

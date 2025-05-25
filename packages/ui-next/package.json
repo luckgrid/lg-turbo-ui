@@ -12,6 +12,7 @@
   },
   "prettier": "@workspace/prettier-config",
   "devDependencies": {
+    "@icons-pack/react-simple-icons": "catalog:",
     "@types/node": "catalog:",
     "@types/react": "catalog:",
     "@types/react-dom": "catalog:",

@@ -1,5 +1,5 @@
-import type { ImageProps as NextImageProps } from "next/image";
 import NextImage from "next/image";
+import type { ImageProps as NextImageProps } from "next/image";
 
 import type { ImageProps as UiImageProps } from "@workspace/ui/components/media";
 import { Image as UiImage } from "@workspace/ui/components/media";

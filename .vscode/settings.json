@@ -22,10 +22,20 @@
     "pnpm-lock.yaml": true
   },
   "tailwindCSS.experimental.classRegex": [
-    ["classNames\\s*=\\s*({[^}]*})", "(?:\"|\\'|`)([^\"'`]*)(?:\"|\\'|`)"],
+    ["(?:const|let|var)\\s+[\\w$_][_\\w\\d]*\\s*=\\s*['\\\"](.*?)['\\\"]"],
+    ["\\[\\s*?[\"'`]([^\"'`]*).*?,"],
+    ["\\s*[\"'`]([^\"'`]*).*?,"],
+    [":\\s*?[\"'`]([^\"'`]*).*?,"],
+    [
+      "classNames:\\s*{([\\s\\S]*?)}",
+      "\\s?[\\w].*:\\s*?[\"'`]([^\"'`]*).*?,?\\s?"
+    ],
+    ["clsx\\(.*?\\)(?!\\])", "(?:'|\"|`)([^\"'`]*)(?:'|\"|`)"],
+    ["cn\\(((?:[^()]|\\([^()]*\\))*)\\)", "(?:'|\"|`)([^']*)(?:'|\"|`)"],
     ["cva\\(((?:[^()]|\\([^()]*\\))*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"],
-    ["cx\\(((?:[^()]|\\([^()]*\\))*)\\)", "(?:'|\"|`)([^']*)(?:'|\"|`)"]
+    ["(?:twMerge|twJoin)\\(([^;]*)[\\);]", "[`'\"`]([^'\"`;]*)[`'\"`]"]
   ],
+  "tailwindCSS.experimental.configFile": "configs/tailwind/src/styles/main.css",
   "testing.automaticallyOpenTestResults": "neverOpen",
   "typescript.enablePromptUseWorkspaceTsdk": true,
   "typescript.preferences.autoImportFileExcludePatterns": [

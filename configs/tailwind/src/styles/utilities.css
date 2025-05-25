@@ -61,7 +61,7 @@
   display: flex;
 }
 
-/* TODO: use `--modifier` to handle more box placement styles */
+/* TODO: use `--modifier` to handle more box placement styles (i.e. box-start/center to set separate align-items and justify-content values) */
 @utility box-* {
   box-sizing: border-box;
   display: flex;
@@ -121,7 +121,9 @@
   }
 }
 
-/* Framer Utilities */
+/* TODO: consider moving spacing utilities to spacing.css or layout.css (i.e. framer-*, wrapper-*, container-*, etc...) */
+
+/* Framer Utilities [Experimental] */
 
 /* TODO: use modifiers to handle different gap and padding patterns - consider creating spacing utils to recycle common spacing patterns (i.e. framer-[t-shirt-size]-*) */
 @utility framer-* {
@@ -159,6 +161,8 @@
   text-wrap: pretty;
   gap: var(--spacing-fs-8, calc(var(--spacing-fs, --spacing) * 16));
 }
+
+/* Functional Wrapper [Experimental] */
 
 @utility wrapper-* {
   --spacing: calc(--modifier(number, integer) * var(--spacing-fs-*, --spacing-*, [*]));

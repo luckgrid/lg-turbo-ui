@@ -3,8 +3,8 @@
 import * as React from "react";
 
 import * as SelectPrimitive from "@radix-ui/react-select";
-import type { VariantProps } from "class-variance-authority";
 import { cva } from "class-variance-authority";
+import type { VariantProps } from "class-variance-authority";
 import { CheckIcon, ChevronDownIcon, ChevronUpIcon } from "lucide-react";
 
 import { cn } from "@workspace/ui/lib/utils";

@@ -1,5 +1,5 @@
-import type { LinkProps } from "next/link";
 import Link from "next/link";
+import type { LinkProps } from "next/link";
 
 import type { ButtonLinkProps as UiButtonLinkProps } from "@workspace/ui/components/button";
 import { ButtonLink as UiButtonLink } from "@workspace/ui/components/button";

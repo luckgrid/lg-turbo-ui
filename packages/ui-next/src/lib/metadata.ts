@@ -37,6 +37,10 @@ const metadataOrganization: MetadataOrganization = {
   url: "https://www.luckgrid.net",
 };
 
+const metadataOrganizationLinks = {
+  github: "https://github.com/luckgrid",
+};
+
 const metadataImages: MetadataImages = [
   {
     width: 1200,
@@ -88,6 +92,7 @@ export {
   metadataImages,
   metadataOpenGraph,
   metadataOrganization,
+  metadataOrganizationLinks,
   metadataTwitter,
 };
 
